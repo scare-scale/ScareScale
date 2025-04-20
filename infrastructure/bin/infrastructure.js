@@ -1,0 +1,27 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true ***REMOVED***);
+const cdk = require("aws-cdk-lib");
+const certificate_stack_1 = require("../lib/certificate-stack");
+const website_hosting_stack_1 = require("../lib/website-hosting-stack");
+const app = new cdk.App();
+const domainName = "scarescale.com";
+const sanitisedDomainName = domainName.replace(/\./g, "-");
+// Need to create a seperate stack as certificates can only be created in us-east-1
+const certificateStack = new certificate_stack_1.CertificateStack(app, `certificate-stack-${sanitisedDomainName***REMOVED***`, {
+    crossRegionReferences: true,
+    env: {
+        region: 'us-east-1',
+        account: process.env.CDK_DEFAULT_ACCOUNT,
+    ***REMOVED***,
+    domainName: domainName
+***REMOVED***);
+new website_hosting_stack_1.WebsiteHostingStack(app, `website-hosting-stack-${sanitisedDomainName***REMOVED***`, {
+    crossRegionReferences: true,
+    env: {
+        region: 'eu-west-1',
+        account: process.env.CDK_DEFAULT_ACCOUNT,
+    ***REMOVED***,
+    cert: certificateStack.cert,
+    domainName: domainName
+***REMOVED***);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5mcmFzdHJ1Y3R1cmUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmZyYXN0cnVjdHVyZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLG1DQUFtQztBQUVuQyxnRUFBNEQ7QUFDNUQsd0VBQW1FO0FBRW5FLE1BQU0sR0FBRyxHQUFHLElBQUksR0FBRyxDQUFDLEdBQUcsRUFBRSxDQUFDO0FBRTFCLE1BQU0sVUFBVSxHQUFHLGdCQUFnQixDQUFDO0FBQ3BDLE1BQU0sbUJBQW1CLEdBQUcsVUFBVSxDQUFDLE9BQU8sQ0FBQyxLQUFLLEVBQUMsR0FBRyxDQUFDLENBQUM7QUFFMUQsbUZBQW1GO0FBQ25GLE1BQU0sZ0JBQWdCLEdBQUcsSUFBSSxvQ0FBZ0IsQ0FBQyxHQUFHLEVBQUUscUJBQXFCLG1CQUFtQixFQUFFLEVBQUU7SUFDM0YscUJBQXFCLEVBQUUsSUFBSTtJQUMzQixHQUFHLEVBQUU7UUFDRCxNQUFNLEVBQUUsV0FBVztRQUNuQixPQUFPLEVBQUUsT0FBTyxDQUFDLEdBQUcsQ0FBQyxtQkFBbUI7S0FDM0M7SUFDRCxVQUFVLEVBQUUsVUFBVTtDQUN6QixDQUFDLENBQUM7QUFFSCxJQUFJLDJDQUFtQixDQUFDLEdBQUcsRUFBRSx5QkFBeUIsbUJBQW1CLEVBQUUsRUFBRTtJQUN6RSxxQkFBcUIsRUFBRSxJQUFJO0lBQzNCLEdBQUcsRUFBRTtRQUNELE1BQU0sRUFBRSxXQUFXO1FBQ25CLE9BQU8sRUFBRSxPQUFPLENBQUMsR0FBRyxDQUFDLG1CQUFtQjtLQUMzQztJQUNELElBQUksRUFBRSxnQkFBZ0IsQ0FBQyxJQUFJO0lBQzNCLFVBQVUsRUFBRSxVQUFVO0NBQ3pCLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAqIGFzIGNkayBmcm9tICdhd3MtY2RrLWxpYic7XG5pbXBvcnQgeyBTdGFja1Byb3BzIH0gZnJvbSAnYXdzLWNkay1saWInO1xuaW1wb3J0IHsgQ2VydGlmaWNhdGVTdGFjayB9IGZyb20gJy4uL2xpYi9jZXJ0aWZpY2F0ZS1zdGFjayc7XG5pbXBvcnQgeyBXZWJzaXRlSG9zdGluZ1N0YWNrIH0gZnJvbSAnLi4vbGliL3dlYnNpdGUtaG9zdGluZy1zdGFjayc7XG5cbmNvbnN0IGFwcCA9IG5ldyBjZGsuQXBwKCk7XG5cbmNvbnN0IGRvbWFpbk5hbWUgPSBcInNjYXJlc2NhbGUuY29tXCI7XG5jb25zdCBzYW5pdGlzZWREb21haW5OYW1lID0gZG9tYWluTmFtZS5yZXBsYWNlKC9cXC4vZyxcIi1cIik7XG5cbi8vIE5lZWQgdG8gY3JlYXRlIGEgc2VwZXJhdGUgc3RhY2sgYXMgY2VydGlmaWNhdGVzIGNhbiBvbmx5IGJlIGNyZWF0ZWQgaW4gdXMtZWFzdC0xXG5jb25zdCBjZXJ0aWZpY2F0ZVN0YWNrID0gbmV3IENlcnRpZmljYXRlU3RhY2soYXBwLCBgY2VydGlmaWNhdGUtc3RhY2stJHtzYW5pdGlzZWREb21haW5OYW1lfWAsIHtcbiAgICBjcm9zc1JlZ2lvblJlZmVyZW5jZXM6IHRydWUsXG4gICAgZW52OiB7XG4gICAgICAgIHJlZ2lvbjogJ3VzLWVhc3QtMScsXG4gICAgICAgIGFjY291bnQ6IHByb2Nlc3MuZW52LkNES19ERUZBVUxUX0FDQ09VTlQsXG4gICAgfSxcbiAgICBkb21haW5OYW1lOiBkb21haW5OYW1lXG59KTtcblxubmV3IFdlYnNpdGVIb3N0aW5nU3RhY2soYXBwLCBgd2Vic2l0ZS1ob3N0aW5nLXN0YWNrLSR7c2FuaXRpc2VkRG9tYWluTmFtZX1gLCB7XG4gICAgY3Jvc3NSZWdpb25SZWZlcmVuY2VzOiB0cnVlLFxuICAgIGVudjoge1xuICAgICAgICByZWdpb246ICdldS13ZXN0LTEnLFxuICAgICAgICBhY2NvdW50OiBwcm9jZXNzLmVudi5DREtfREVGQVVMVF9BQ0NPVU5ULFxuICAgIH0sXG4gICAgY2VydDogY2VydGlmaWNhdGVTdGFjay5jZXJ0LFxuICAgIGRvbWFpbk5hbWU6IGRvbWFpbk5hbWVcbn0pO1xuXG5leHBvcnQgaW50ZXJmYWNlIEdsb2JhbFN0YWNrUHJvcHMgZXh0ZW5kcyBTdGFja1Byb3BzIHtcbiAgICBkb21haW5OYW1lOiBzdHJpbmc7XG59Il19
