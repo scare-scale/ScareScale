@@ -1,70 +1,45 @@
 ---
+import MovieCard from "../components/cards/MovieCard.astro";
+import { getCollection ***REMOVED*** from "astro:content";
 
+const movies = await getCollection("movie");
 ---
-<main class="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden">
-  <div class="bg-gray-50 py-24 sm:py-32 bg-gray-900">
-    <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-      <p class="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl">Scare Scale</p>
-      <h2 class="text-center text-base/7 font-semibold text-red-600">Scariest Movies 2025</h2>
-      <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-        <a href="#" class="relative group">
-          <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fWPgbnt2LSqkQ6cdQc0SZN9CpLm.jpg" alt="" class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75">
-          <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-12 h-12 clip-triangle">1</span>
-          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center text-lg font-semibold py-2">
-            Shit Scary - 9.7/10
-          </div>
-        </a>
-        <a href="#" class="relative group">
-          <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yYa8Onk9ow7ukcnfp2QWVvjWYel.jpg" alt="" class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75">
-          <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-12 h-12 clip-triangle">2</span>
-          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center text-lg font-semibold py-2">
-            Terrifying - 8.5/10
-          </div>
-        </a>
-        <a href="#" class="relative group">
-          <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/n0WS2TsNcS6dtaZKzxipyO7LuCJ.jpg" alt="" class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75">
-          <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-12 h-12 clip-triangle">3</span>
-          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center text-lg font-semibold py-2">
-            Terrifying - 8.3/10
-          </div>
-        </a>
-        <a href="#" class="relative group">
-          <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lXR32JepFwD1UHkplWqtBP1K79z.jpg" alt="" class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75">
-          <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-12 h-12 clip-triangle">4</span>
-          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center text-lg font-semibold py-2">
-            horrifying - 7.4/10
-          </div>
-        </a>
-        <a href="#" class="relative group">
-          <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oCoTgC3UyWGfyQ9thE10ulWR7bn.jpg" alt="" class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75">
-          <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-12 h-12 clip-triangle">5</span>
-          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center text-lg font-semibold py-2">
-            Frightening - 6.0/10
-          </div>
-        </a>
-        <a href="#" class="relative group">
-          <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ebqttF1Vjgde6uSFBEw9mta7Hd3.jpg" alt="" class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75">
-          <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-12 h-12 clip-triangle">6</span>
-          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center text-lg font-semibold py-2">
-            Spooky - 3.0/10
-          </div>
-        </a>
-        <a href="#" class="relative group">
-          <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hZ8dTeBzigV5SVgwG1ikSROAFiS.jpg" alt="" class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75">
-          <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-12 h-12 clip-triangle">7</span>
-          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center text-lg font-semibold py-2">
-            Chilling - 3.6/10
-          </div>
-        </a>
-        <a href="#" class="relative group">
-          <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5wZNFUJAwyX6RCxdqrLO9lLWJ20.jpg" alt="" class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75">
-          <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-12 h-12 clip-triangle">8</span>
-          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center text-lg font-semibold py-2">
-            Not scary - 0.3/10
-          </div>
-        </a>
+
+<main>
+  <div class="bg-gray-900 opacity-20 blur-sm h-full absolute">
+    <img
+      src="https://image.tmdb.org/t/p/original/nAxGnGHOsfzufThz20zgmRwKur3.jpg"
+      class="relative h-full bg-cover"
+    />
+  </div>
+  <section
+    class="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden bg-gray-900 h-screen"
+  >
+    <div class="py-24 sm:py-32">
+      <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+        <p
+          class="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl"
+        >
+          Scare Scale
+        </p>
+        <h2 class="text-center text-base/7 font-semibold text-red-600">
+          Scariest Movies 2025
+        </h2>
+        <div
+          class="mt-4 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 xl:gap-x-8"
+        >
+          {
+            movies
+              .sort((a, b) => b.data.scareScaleRating - a.data.scareScaleRating)
+              .slice(0, 10)
+              .map((item, index) => {
+                return (
+                  <MovieCard {...item.data***REMOVED*** rank={index + 1***REMOVED*** slug={item.slug***REMOVED*** />
+                );
+              ***REMOVED***)
+          ***REMOVED***
+        </div>
       </div>
     </div>
-  </div>
-  
+  </section>
 </main>
