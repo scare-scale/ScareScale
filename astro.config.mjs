@@ -8,5 +8,8 @@ export default defineConfig({
   build: {
     format: 'file'
   },
+  image: {
+    remotePatterns: [{ protocol: "https" }],
+  },
   integrations: [tailwind(), react()]
 });
