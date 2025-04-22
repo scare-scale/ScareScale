@@ -12,13 +12,13 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${tmdbPos
   />
   {
     rank ? (
-      <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-12 h-12 clip-triangle">
+      <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-6 h-6 lg:w-12 lg:h-12 clip-triangle">
         {rank}
       </span>
     ) : <></>
   }
   <div
-    class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center text-lg font-semibold py-2"
+    class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center sm:text-sm lg:text-lg font-semibold py-1"
   >
     {scareScaleRating}/10
   </div>
