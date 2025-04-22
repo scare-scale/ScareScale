@@ -17,25 +17,14 @@ const movies = await getCollection("movie");
   >
     <div class="py-24 sm:py-32">
       <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <p
-          class="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl"
-        >
-          Scare Scale
-        </p>
-        <h2 class="text-center text-base/7 font-semibold text-red-600">
-          Scariest Movies 2025
-        </h2>
         <div
           class="mt-4 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 xl:gap-x-8"
         >
           {
             movies
-              .filter((item) => item.data.scareScaleRating != "N/A")
-              .sort((a, b) => b.data.scareScaleRating - a.data.scareScaleRating)
-              .slice(0, 10)
               .map((item, index) => {
                 return (
-                  <MovieCard {...item.data} rank={index + 1} slug={item.slug} />
+                  <MovieCard {...item.data} slug={item.slug} />
                 );
               })
           }

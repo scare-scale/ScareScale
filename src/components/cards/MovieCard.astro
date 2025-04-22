@@ -1,5 +1,6 @@
 ---
-const { name, tmdbPosterId, rank, scareScaleRating, tmdbId, slug } = Astro.props;
+const { name, tmdbPosterId, rank, scareScaleRating, tmdbId, slug } =
+  Astro.props;
 const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${tmdbPosterId}.jpg`;
 ---
 
@@ -9,10 +10,13 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${tmdbPos
     alt={`${name} movie poster`}
     class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75"
   />
-  <span
-    class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-12 h-12 clip-triangle"
-    >{rank}</span
-  >
+  {
+    rank ? (
+      <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-12 h-12 clip-triangle">
+        {rank}
+      </span>
+    ) : <></>
+  }
   <div
     class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center text-lg font-semibold py-2"
   >
