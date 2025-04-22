@@ -1,6 +1,7 @@
 ---
 import { getCollection, z, defineCollection } from "astro:content";
 import Prose from "../../components/Prose.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
 
 const schema = {
   name: z.string(),
@@ -34,7 +35,7 @@ const { Content } = await entry.render();
 const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${entry.data.tmdbPosterId}.jpg`;
 ---
 
-<main>
+<MainLayout>
   <div class="flex flex-col items-center justify-center bg-gray-900 fixed">
     <section class="flex flex-col gap-y-10 pt-6 h-full absolute z-10">
       <nav aria-label="Breadcrumb">
@@ -93,82 +94,59 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${entry.d
           </div>
           <h5 class="text-xl mt-5 font-medium text-white">Ratings</h5>
           <div class="grid grid-cols-2 gap-4">
+            <ul role="list" class="divide-y divide-gray-100">
+              {
+                entry.data.categoryRatings ? (
+                  Object.entries(entry.data.categoryRatings).map(
+                    ([categoryName, score]) => {
+                      return (
+                        <li class="flex justify-between gap-x-6 py-5">
+                          <div class="flex min-w-0 gap-x-4">
+                            <img
+                              class="w-6 h-6 flex-none"
+                              src={`/icons/categories/${categoryName}.svg`}
+                              alt=" "
+                            />
+                            <h1 class="text-sm/1 font-bold text-white">
+                              {categoryName}
+                            </h1>
+                          </div>
+                          <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+                            <p class="text-sm/1 text-white">{score} / 10</p>
+                          </div>
+                        </li>
+                      );
+                    }
+                  )
+                ) : (
+                  <h5 class="text-l m-5 font-medium text-white">
+                    Ratings not found
+                  </h5>
+                )
+              }
+            </ul>
 
-          <ul role="list" class="divide-y divide-gray-100">
-            <li class="flex justify-between gap-x-6 py-5">
-              <div class="flex min-w-0 gap-x-4">
-                <img
-                  class="w-6 h-6 flex-none"
-                  src="/icons/gore-icon.svg"
-                  alt=""
-                />
-                <h1 class="text-sm/1 font-bold text-white">Gore</h1>
-              </div>
-              <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                <p class="text-sm/1 text-white">
-                  {entry.data.categoryRatings?.gore ?? ""} / 10
-                </p>
-              </div>
-            </li>
-            <li class="flex justify-between gap-x-6 py-5">
-              <div class="flex min-w-0 gap-x-4">
-                <img
-                  class="w-6 h-6 flex-none"
-                  src="/icons/suspense-icon.svg"
-                  alt=""
-                />
-                <h1 class="text-sm/1 font-bold text-white">Suspense</h1>
-              </div>
-              <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                <p class="text-sm/1 text-white">
-                  {entry.data.categoryRatings?.suspense ?? ""} / 10
-                </p>
-              </div>
-            </li>
-            <li class="flex justify-between gap-x-6 py-5">
-              <div class="flex min-w-0 gap-x-4">
-                <img
-                  class="w-6 h-6 flex-none"
-                  src="/icons/jumpscare-icon.svg"
-                  alt=""
-                />
-                <h1 class="text-sm/1 font-bold text-white">Jumpscares</h1>
-              </div>
-              <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                <p class="text-sm/1 text-white">
-                  {entry.data.categoryRatings?.jumpscares ?? ""} / 10
-                </p>
-              </div>
-            </li>
-          </ul>
+            <div class="w-full max-w-sm rounded-lg shadow-sm bg-gray-800">
+              <div class="flex flex-col items-center p-4">
+                <h5 class="text-xl mb-2 font-medium text-white">Scare Scale</h5>
 
-          <div
-            class="w-full max-w-sm rounded-lg shadow-sm bg-gray-800"
-          >
-            <div class="flex flex-col items-center p-4">
-              <h5 class="text-xl mb-2 font-medium text-white">Scare Scale</h5>
+                <div
+                  class="w-20 h-20 mb-2 rounded-full shadow-lg border-2 border-white flex justify-center items-center"
+                >
+                  <h5 class="text-xl font-medium text-white">
+                    {entry.data.scareScaleRating} / 10
+                  </h5>
+                </div>
 
-              <div
-                class="w-20 h-20 mb-2 rounded-full shadow-lg border-2 border-white flex justify-center items-center"
-              >
-                <h5 class="text-xl font-medium text-white">
-                  {entry.data.scareScaleRating} / 10
-                </h5>
+                <h5 class="text-xl font-medium text-white">Terrifying</h5>
               </div>
-
-              <h5 class="text-xl font-medium text-white">Terrifying</h5>
             </div>
           </div>
-        </div>
-
         </div>
       </div>
     </section>
     <div class="bg-gray-900 opacity-20 blur-sm h-screen">
-      <img
-        src={posterUrl}
-        class="relative h-screen w-screen"
-      />
+      <img src={posterUrl} class="relative h-screen w-screen" />
     </div>
   </div>
-</main>
+</MainLayout>
