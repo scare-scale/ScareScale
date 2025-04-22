@@ -1,0 +1,88 @@
+---
+---
+
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico" />
+    <meta name="generator" content={Astro.generator***REMOVED*** />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="description" content="Moonlit Media" />
+    <title>Scare Scale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body class="overflow-hidden overflow-y-auto bg-body h-full">
+    <slot />    
+  </body>
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js">
+  </script>
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">
+  </script>
+  <script>
+    const toggleMenu = document.querySelector(
+      "[data-toggle-nav]"
+    ) as HTMLButtonElement;
+    const navbar = document.querySelector("[data-navbar]") as HTMLDivElement;
+    const overlayNav = document.querySelector(
+      "[data-nav-overlay]"
+    ) as HTMLDivElement;
+    if (toggleMenu) {
+      toggleMenu.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (toggleMenu.getAttribute("data-open-nav") === "false") {
+          toggleMenu.setAttribute("data-open-nav", "true");
+          overlayNav.setAttribute("data-is-visible", "true");
+          document.body.classList.add("!overflow-y-hidden");
+          navbar.style.height = `${navbar.scrollHeight***REMOVED***px`;
+        ***REMOVED*** else {
+          toggleMenu.setAttribute("data-open-nav", "false");
+          overlayNav.setAttribute("data-is-visible", "false");
+          document.body.classList.remove("!overflow-y-hidden");
+          navbar.style.height = "0px";
+        ***REMOVED***
+      ***REMOVED***);
+
+      navbar.addEventListener("click", () => {
+        toggleMenu.setAttribute("data-open-nav", "false");
+        overlayNav.setAttribute("data-is-visible", "false");
+        document.body.classList.remove("!overflow-y-hidden");
+        navbar.style.height = "0px";
+      ***REMOVED***);
+
+      overlayNav.addEventListener("click", () => {
+        toggleMenu.setAttribute("data-open-nav", "false");
+        overlayNav.setAttribute("data-is-visible", "false");
+        document.body.classList.remove("!overflow-y-hidden");
+        navbar.style.height = "0px";
+      ***REMOVED***);
+    ***REMOVED***
+  </script>
+</html>
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+    font-family: "Montserrat", sans-serif;
+  ***REMOVED***
+
+  [data-toggle-nav][data-open-nav="true"] #line1 {
+    transform: translateY(0.375rem) rotate(40deg);
+  ***REMOVED***
+  [data-toggle-nav][data-open-nav="true"] #line2 {
+    transform: scaleX(0);
+    opacity: 0;
+  ***REMOVED***
+  [data-toggle-nav][data-open-nav="true"] #line3 {
+    transform: translateY(-0.375rem) rotate(-40deg);
+  ***REMOVED***
+
+  [data-nav-overlay][data-is-visible="true"] {
+    visibility: visible;
+    display: flex;
+  ***REMOVED***
+</style>
