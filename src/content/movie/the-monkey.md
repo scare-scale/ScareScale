@@ -2,9 +2,9 @@
 name: 'The Monkey'
 tmdbId: '1124620'
 tmdbPosterId: 'yYa8Onk9ow7ukcnfp2QWVvjWYel'
-scareScaleRating: 5
-categoryRatings: 
-    gore: 8
+scareScaleRating: 4
+categoryRatings:
+    gore: 5
     jumpscares: 4
     suspense: 4
 ---
