@@ -106,7 +106,7 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${entry.d
               </div>
               <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
                 <p class="text-sm/1 text-white">
-                  {entry.data.categoryRatings.gore***REMOVED*** / 10
+                  {entry.data.categoryRatings?.gore ?? ""***REMOVED*** / 10
                 </p>
               </div>
             </li>
@@ -121,7 +121,7 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${entry.d
               </div>
               <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
                 <p class="text-sm/1 text-white">
-                  {entry.data.categoryRatings.suspense***REMOVED*** / 10
+                  {entry.data.categoryRatings?.suspense ?? ""***REMOVED*** / 10
                 </p>
               </div>
             </li>
@@ -136,7 +136,7 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${entry.d
               </div>
               <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
                 <p class="text-sm/1 text-white">
-                  {entry.data.categoryRatings.jumpscares***REMOVED*** / 10
+                  {entry.data.categoryRatings?.jumpscares ?? ""***REMOVED*** / 10
                 </p>
               </div>
             </li>
