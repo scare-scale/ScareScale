@@ -7,31 +7,23 @@ const movies = await getCollection("movie");
 ---
 
 <MainLayout>
-  <div class="bg-gray-900 opacity-20 blur-sm h-full absolute">
-    <img
-      src="https://image.tmdb.org/t/p/original/nAxGnGHOsfzufThz20zgmRwKur3.jpg"
-      class="relative h-full bg-cover"
-    />
-  </div>
   <section
-    class="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden bg-gray-900 h-screen"
+    class="flex flex-col gap-y-10 md:gap-y-20 h-screen pt-10"
   >
-    <div class="py-24 sm:py-32">
       <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
         <div
-          class="mt-4 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 xl:gap-x-8"
+          class="mt-4 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 xl:gap-x-8"
         >
           {
             movies
               .filter((item) => !item.data.scareScaleRating)
               .map((item, index) => {
                 return (
-                  <MovieCard {...item.data} slug={item.slug} />
+                  <MovieCard {...item.data} rank={index + 1} slug={item.slug} />
                 );
               })
           }
         </div>
       </div>
-    </div>
   </section>
 </MainLayout>
