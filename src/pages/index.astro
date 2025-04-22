@@ -8,17 +8,14 @@ const movies = await getCollection("movie");
 
 <MainLayout>
   <section
-    class="flex flex-col gap-y-10 md:gap-y-20 h-screen pt-10"
+    class="flex flex-col gap-y-10 md:gap-y-20 min-h-screen pt-10"
   >
       <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
         <p
-          class="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl"
+          class="mx-auto m-4 max-w-lg text-center text-4xl font-semibold text-balance text-white sm:text-5xl"
         >
-          Scare Scale
+        Scariest Movies 2025
         </p>
-        <h2 class="text-center text-base/7 font-semibold text-red-600">
-          Scariest Movies 2025
-        </h2>
         <div
           class="mt-4 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 xl:gap-x-8"
         >
