@@ -30,7 +30,7 @@ const movies = await getCollection("movie");
         >
           {
             movies
-              .filter((item) => item.data.scareScaleRating != "N/A")
+              .filter((item) => item.data.scareScaleRating)
               .sort((a, b) => b.data.scareScaleRating - a.data.scareScaleRating)
               .slice(0, 10)
               .map((item, index) => {
