@@ -15,19 +15,20 @@ const movies = await getCollection("movie");
       >
         Search Results
       </p>
+      <div id="loadingIndicator" class="text-center text-xl text-white">
+        Loading...
+      </div>
       <div
-        id="moviesContainer"
-        class="mt-4 grid grid-cols-4 gap-x-6 gap-y-10 sm:grid-cols-6 lg:grid-cols-10 xl:grid-cols-5 xl:gap-x-8"
-      >
+      id="moviesContainer"
+      class="mt-4 grid grid-cols-4 gap-x-6 gap-y-10 sm:grid-cols-6 lg:grid-cols-10 xl:grid-cols-5 xl:gap-x-8 hidden"
+    >
         {
           movies
             .filter((item) => item.data.scareScaleRating)
             .sort((a, b) => b.data.scareScaleRating - a.data.scareScaleRating)
             .slice(0, 10)
             .map((item) => {
-              return (
-                <MovieCard {...item.data} slug={item.slug} />
-              );
+              return <MovieCard {...item.data} slug={item.slug} />;
             })
         }
       </div>
@@ -38,20 +39,37 @@ const movies = await getCollection("movie");
 <script>
   const params = new URLSearchParams(window.location.search);
   const q = params.get("q");
+  const moviesContainer = document.getElementById("moviesContainer");
+  const loadingIndicator = document.getElementById("loadingIndicator");
 
-  if (q) {
-    // Filter movies dynamically
-    const allMovies = document.querySelectorAll<HTMLElement>(
-      "#moviesContainer > *"
-    );
+  if (q && moviesContainer && loadingIndicator) {
+    // Show loader, hide movie results
+    loadingIndicator.style.display = "block";
+    moviesContainer.style.display = "none"; // Hide until search completes
 
-    allMovies.forEach((movie) => {
-      const title = movie.getAttribute("id")?.toLowerCase();
-      if (title && title.includes(q.toLowerCase())) {
-        movie.style.display = "block";
-      } else {
-        movie.style.display = "none";
+    setTimeout(() => {
+      const allMovies = document.querySelectorAll<HTMLElement>("#moviesContainer > *");
+      let hasResults = false;
+
+      allMovies.forEach((movie) => {
+        const title = movie.getAttribute("id")?.toLowerCase();
+        if (title && title.includes(q.toLowerCase())) {
+          movie.style.display = "block";
+          hasResults = true;
+        } else {
+          movie.style.display = "none";
+        }
+      });
+
+      // Hide loader, reveal movie results
+      loadingIndicator.style.display = "none";
+      moviesContainer.style.display = "grid"; // Make results visible
+
+      // Show "No Results" message if nothing matches
+      if (!hasResults) {
+        moviesContainer.innerHTML = '<p class="text-center text-xl text-white">No Results</p>';
       }
-    });
+    }, 400); // Simulated delay
   }
 </script>
+
