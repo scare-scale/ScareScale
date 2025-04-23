@@ -19,16 +19,18 @@ const movies = await getCollection("movie");
         Loading...
       </div>
       <div
-      id="moviesContainer"
-      class="mt-4 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 xl:gap-x-8 hidden"
-    >
+        id="moviesContainer"
+        class="mt-4 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 xl:gap-x-8 hidden"
+      >
         {
           movies
             .filter((item) => item.data.scareScaleRating)
             .sort((a, b) => b.data.scareScaleRating - a.data.scareScaleRating)
             .slice(0, 10)
             .map((item) => {
-              return <MovieCard {...item.data} slug={item.slug} lazyLoad={true}/>;
+              return (
+                <MovieCard {...item.data} slug={item.slug} lazyLoad={true} />
+              );
             })
         }
       </div>
@@ -41,13 +43,23 @@ const movies = await getCollection("movie");
   const moviesContainer = document.getElementById("moviesContainer");
   const loadingIndicator = document.getElementById("loadingIndicator");
 
+  // Handle blank search
+  if (!q && moviesContainer && loadingIndicator) {
+    loadingIndicator.style.display = "none";
+    moviesContainer.style.display = "block";
+    moviesContainer.innerHTML =
+      '<p class="text-center text-xl text-white">No Results</p>';
+  }
+
   if (q && moviesContainer && loadingIndicator) {
     // Show loading indicator, hide moviesContainer
     loadingIndicator.style.display = "block";
     moviesContainer.style.display = "none";
 
     setTimeout(() => {
-      const allMovies = document.querySelectorAll<HTMLElement>("#moviesContainer > *");
+      const allMovies = document.querySelectorAll<HTMLElement>(
+        "#moviesContainer > *"
+      );
       let hasResults = false;
 
       allMovies.forEach((movie) => {
@@ -57,7 +69,7 @@ const movies = await getCollection("movie");
         if (title && title.includes(q.toLowerCase())) {
           movie.style.display = "block";
           hasResults = true;
-          
+
           // Load images AFTER filtering
           if (img && img.getAttribute("data-src")) {
             img.setAttribute("src", img.getAttribute("data-src") || "");
@@ -73,8 +85,11 @@ const movies = await getCollection("movie");
 
       // Show "No Results" message if nothing matches
       if (!hasResults) {
-        moviesContainer.innerHTML = '<p class="text-center text-xl text-white">No Results</p>';
+        loadingIndicator.style.display = "none";
+        moviesContainer.style.display = "block";
+        moviesContainer.innerHTML =
+          '<p class="text-center text-xl text-white">No Results</p>';
       }
-    }, 800); // Simulated delay
+    }, 400); // Simulated delay
   }
 </script>
