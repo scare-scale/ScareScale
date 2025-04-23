@@ -1,0 +1,57 @@
+---
+import MovieCard from "../components/cards/MovieCard.astro";
+import { getCollection } from "astro:content";
+import MainLayout from "../layouts/MainLayout.astro";
+
+const movies = await getCollection("movie");
+---
+
+<MainLayout>
+  <section class="flex flex-col gap-y-10 md:gap-y-20 min-h-screen pt-10">
+    <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+      <p
+        id="searchTermDisplay"
+        class="mx-auto m-4 max-w-lg text-center text-4xl font-semibold text-balance text-white sm:text-5xl"
+      >
+        Search Results
+      </p>
+      <div
+        id="moviesContainer"
+        class="mt-4 grid grid-cols-4 gap-x-6 gap-y-10 sm:grid-cols-6 lg:grid-cols-10 xl:grid-cols-5 xl:gap-x-8"
+      >
+        {
+          movies
+            .filter((item) => item.data.scareScaleRating)
+            .sort((a, b) => b.data.scareScaleRating - a.data.scareScaleRating)
+            .slice(0, 10)
+            .map((item) => {
+              return (
+                <MovieCard {...item.data} slug={item.slug} />
+              );
+            })
+        }
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get("q");
+
+  if (q) {
+    // Filter movies dynamically
+    const allMovies = document.querySelectorAll<HTMLElement>(
+      "#moviesContainer > *"
+    );
+
+    allMovies.forEach((movie) => {
+      const title = movie.getAttribute("id")?.toLowerCase();
+      if (title && title.includes(q.toLowerCase())) {
+        movie.style.display = "block";
+      } else {
+        movie.style.display = "none";
+      }
+    });
+  }
+</script>
