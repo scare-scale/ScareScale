@@ -20,7 +20,7 @@ const movies = await getCollection("movie");
       </div>
       <div
       id="moviesContainer"
-      class="mt-4 grid grid-cols-4 gap-x-6 gap-y-10 sm:grid-cols-6 lg:grid-cols-10 xl:grid-cols-5 xl:gap-x-8 hidden"
+      class="mt-4 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 xl:gap-x-8 hidden"
     >
         {
           movies
@@ -28,14 +28,13 @@ const movies = await getCollection("movie");
             .sort((a, b) => b.data.scareScaleRating - a.data.scareScaleRating)
             .slice(0, 10)
             .map((item) => {
-              return <MovieCard {...item.data***REMOVED*** slug={item.slug***REMOVED*** />;
+              return <MovieCard {...item.data***REMOVED*** slug={item.slug***REMOVED*** lazyLoad={true***REMOVED***/>;
             ***REMOVED***)
         ***REMOVED***
       </div>
     </div>
   </section>
 </MainLayout>
-
 <script>
   const params = new URLSearchParams(window.location.search);
   const q = params.get("q");
@@ -43,9 +42,9 @@ const movies = await getCollection("movie");
   const loadingIndicator = document.getElementById("loadingIndicator");
 
   if (q && moviesContainer && loadingIndicator) {
-    // Show loader, hide movie results
+    // Show loading indicator, hide moviesContainer
     loadingIndicator.style.display = "block";
-    moviesContainer.style.display = "none"; // Hide until search completes
+    moviesContainer.style.display = "none";
 
     setTimeout(() => {
       const allMovies = document.querySelectorAll<HTMLElement>("#moviesContainer > *");
@@ -53,23 +52,29 @@ const movies = await getCollection("movie");
 
       allMovies.forEach((movie) => {
         const title = movie.getAttribute("id")?.toLowerCase();
+        const img = movie.querySelector(".lazy-load");
+
         if (title && title.includes(q.toLowerCase())) {
           movie.style.display = "block";
           hasResults = true;
+          
+          // Load images AFTER filtering
+          if (img && img.getAttribute("data-src")) {
+            img.setAttribute("src", img.getAttribute("data-src") || "");
+          ***REMOVED***
         ***REMOVED*** else {
           movie.style.display = "none";
         ***REMOVED***
       ***REMOVED***);
 
-      // Hide loader, reveal movie results
+      // Hide loader, reveal moviesContainer
       loadingIndicator.style.display = "none";
-      moviesContainer.style.display = "grid"; // Make results visible
+      moviesContainer.style.display = "grid";
 
       // Show "No Results" message if nothing matches
       if (!hasResults) {
         moviesContainer.innerHTML = '<p class="text-center text-xl text-white">No Results</p>';
       ***REMOVED***
-    ***REMOVED***, 400); // Simulated delay
+    ***REMOVED***, 800); // Simulated delay
   ***REMOVED***
 </script>
-
