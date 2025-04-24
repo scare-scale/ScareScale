@@ -3,15 +3,30 @@ import { getCollection, z, defineCollection } from "astro:content";
 import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 
+const fearLevels: Record<number, string> = {
+  0: "Unrated",
+  1: "Harmless",
+  2: "Tame",
+  3: "Unnerving",
+  4: "Eerie",
+  5: "Creepy",
+  6: "Sinister",
+  7: "Ominous",
+  8: "Horrifying",
+  9: "Nightmarish",
+  10: "Petrifying",
+};
+
+// Define schema with correct types
 const schema = {
   name: z.string(),
   tmdbId: z.date(),
   tmdbPosterId: z.string(),
-  scareScaleRating: z.number(),
+  scareScaleRating: z.number().int().min(0).max(10), // Ensure it's an integer within range
   categoryRatings: z.object({
-    gore: z.number(),
-    jumpscares: z.number(),
-    suspense: z.number(),
+    gore: z.number().int().min(0).max(10),
+    jumpscares: z.number().int().min(0).max(10),
+    suspense: z.number().int().min(0).max(10),
   }),
 };
 
@@ -33,6 +48,9 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${entry.data.tmdbPosterId}.jpg`;
+
+const scareScaleRating = Number(entry.data.scareScaleRating);
+const scareScaleText = fearLevels[scareScaleRating] ?? "Unknown";
 ---
 
 <MainLayout>
@@ -63,7 +81,6 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${entry.d
               </svg>
             </div>
           </li>
-
           <li class="text-sm">
             <a href="#" aria-current="page" class="font-medium text-white"
               >{entry.data.name}</a
@@ -92,29 +109,28 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${entry.d
               <Content />
             </Prose>
           </div>
+
           <h5 class="text-xl mt-5 font-medium text-white">Ratings</h5>
           <div class="grid grid-cols-2 gap-4">
             <ul role="list" class="divide-y divide-gray-100">
               {
                 entry.data.categoryRatings ? (
                   Object.entries(entry.data.categoryRatings).map(
-                    ([categoryName, score]) => {
-                      return (
-                        <li class="flex justify-between gap-x-6 py-5">
-                          <div class="flex min-w-0 gap-x-4">
-                            <img
-                              class="w-6 h-6 flex-none"
-                              src={`/icons/categories/${categoryName}.svg`}
-                              alt=" "
-                            />
-                            <h1 class="text-sm/1 font-bold text-white">
-                              {categoryName}
-                            </h1>
-                          </div>
-                          <p class="text-sm/1 text-white">{score} / 10</p>
-                        </li>
-                      );
-                    }
+                    ([categoryName, score]) => (
+                      <li class="flex justify-between gap-x-6 py-5">
+                        <div class="flex min-w-0 gap-x-4">
+                          <img
+                            class="w-6 h-6 flex-none"
+                            src={`/icons/categories/${categoryName}.svg`}
+                            alt=" "
+                          />
+                          <h1 class="text-sm/1 font-bold text-white">
+                            {categoryName}
+                          </h1>
+                        </div>
+                        <p class="text-sm/1 text-white">{score} / 10</p>
+                      </li>
+                    )
                   )
                 ) : (
                   <h5 class="text-l m-5 font-medium text-white">
@@ -124,19 +140,21 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${entry.d
               }
             </ul>
 
-            <div class="w-full max-w-sm rounded-lg shadow-sm bg-gray-800">
+            <div
+              class="w-full max-w-sm rounded-lg shadow-sm bg-gray-800 content-center"
+            >
               <div class="flex flex-col items-center p-4">
-                <h5 class="text-xl mb-2 font-medium text-white">Scare Scale</h5>
+                <h5 class="text-xl mb-4 font-medium text-white">Scare Scale</h5>
 
                 <div
-                  class="w-20 h-20 mb-2 rounded-full shadow-lg border-2 border-white flex justify-center items-center"
+                  class="w-20 h-20 mb-4 rounded-full shadow-lg border-2 border-white flex justify-center items-center"
                 >
                   <h5 class="text-xl font-medium text-white">
-                    {entry.data.scareScaleRating} / 10
+                    {scareScaleRating} / 10
                   </h5>
                 </div>
 
-                <h5 class="text-xl font-medium text-white">Terrifying</h5>
+                <h5 class="text-xl font-medium text-white">{scareScaleText}</h5>
               </div>
             </div>
           </div>
