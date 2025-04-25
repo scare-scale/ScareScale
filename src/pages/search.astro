@@ -2,8 +2,9 @@
 import MovieCard from "../components/cards/MovieCard.astro";
 import { getCollection ***REMOVED*** from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
+import MoviesGrid from "../components/grids/MoviesGrid.astro";
 
-const movies = await getCollection("movie");
+const movieEntries = await getCollection("movie");
 ---
 
 <MainLayout>
@@ -18,20 +19,7 @@ const movies = await getCollection("movie");
       <div id="loadingIndicator" class="text-center text-xl text-white">
         Loading...
       </div>
-      <div
-        id="moviesContainer"
-        class="mt-4 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 xl:gap-x-8 hidden"
-      >
-        {
-          movies
-            .filter((item) => item.data.scareScaleRating)
-            .map((item) => {
-              return (
-                <MovieCard {...item.data***REMOVED*** slug={item.slug***REMOVED*** lazyLoad={true***REMOVED*** />
-              );
-            ***REMOVED***)
-        ***REMOVED***
-      </div>
+      <MoviesGrid entries={movieEntries***REMOVED*** lazyLoad={true***REMOVED*** hidden={true***REMOVED***/>
     </div>
   </section>
 </MainLayout>

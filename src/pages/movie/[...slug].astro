@@ -3,7 +3,7 @@ import { getCollection ***REMOVED*** from "astro:content";
 import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { calculateOverallRating, fearLevelText ***REMOVED*** from "../../utils/scoreUtils";
-import type { MovieData ***REMOVED*** from "../../models/movie";
+import type { MovieData ***REMOVED*** from "../../models/Movie";
 
 export async function getStaticPaths() {
   const entries = await getCollection("movie");
