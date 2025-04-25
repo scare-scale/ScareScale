@@ -2,7 +2,6 @@
 name: 'Sinners'
 tmdbId: '1233413'
 tmdbPosterId: 'fWPgbnt2LSqkQ6cdQc0SZN9CpLm'
-scareScaleRating: 3
 categoryRatings: 
     gore: 6
     jumpscares: 2

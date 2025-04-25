@@ -1,0 +1,66 @@
+---
+import { calculateOverallRating } from "../../utils/scoreUtils";
+import MovieCard from "../cards/MovieCard.astro";
+import type { MovieData } from "../../models/movie";
+
+export enum Sort {
+  Random,
+  HighestToLowestScore
+}
+
+const { entries, showAll = false, maxCount = 10, showRank = false, sort = Sort.Random } = Astro.props;
+
+type Movie = { data: typeof MovieData; slug: String; scareScaleRating: number };
+
+const movies: Movie[] = entries.map(
+  (entry: { slug: any; data: typeof MovieData }): Movie => ({
+    data: entry.data,
+    slug: entry.slug,
+    scareScaleRating: calculateOverallRating(entry.data.categoryRatings),
+  })
+);
+
+const filterMovie = (movie: Movie) => {
+  if (showAll) {
+    return true;
+  }
+
+  if (movie.scareScaleRating > 0) {
+    return true;
+  }
+
+  return false;
+};
+
+const getSortMethod = () => {
+    if (sort == Sort.HighestToLowestScore) {
+        return (a: Movie, b: Movie) => b.scareScaleRating - a.scareScaleRating;;
+    }
+
+    // Sort randomly
+    return () => Math.random() - 0.5;
+}
+
+const sortMethod = getSortMethod()
+---
+
+<div
+  class="mt-4 grid grid-cols-4 gap-x-6 gap-y-10 sm:grid-cols-6 lg:grid-cols-10 xl:grid-cols-5 xl:gap-x-8"
+>
+  {
+    movies
+      .filter(filterMovie)
+      .sort(sortMethod)
+      .slice(0, maxCount)
+      .map((movie, index) => {
+        return (
+          <MovieCard
+            {...movie.data}
+            slug={movie.slug}
+            scareScaleRating={movie.scareScaleRating}
+            rank={showRank ? index + 1 : undefined}
+          />
+        );
+      })
+  }
+</div>

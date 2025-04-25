@@ -1,9 +1,9 @@
 ---
-import MovieCard from "../components/cards/MovieCard.astro";
 import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
+import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 
-const movies = await getCollection("movie");
+const movieEntries = await getCollection("movie");
 ---
 
 <MainLayout>
@@ -16,21 +16,7 @@ const movies = await getCollection("movie");
         >
         Scariest Movies 2025
         </p>
-        <div
-          class="mt-4 grid grid-cols-4 gap-x-6 gap-y-10 sm:grid-cols-6 lg:grid-cols-10 xl:grid-cols-5 xl:gap-x-8"
-        >
-          {
-            movies
-              .filter((item) => item.data.scareScaleRating)
-              .sort((a, b) => b.data.scareScaleRating - a.data.scareScaleRating)
-              .slice(0, 10)
-              .map((item, index) => {
-                return (
-                  <MovieCard {...item.data} rank={index + 1} slug={item.slug} />
-                );
-              })
-          }
-        </div>
+        <MoviesGrid entries={movieEntries} showRank={true} sort={Sort.HighestToLowestScore}/>
       </div>
   </section>
 </MainLayout>

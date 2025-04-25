@@ -2,7 +2,6 @@
 name: 'Companion'
 tmdbId: '1084199'
 tmdbPosterId: 'oCoTgC3UyWGfyQ9thE10ulWR7bn'
-scareScaleRating: 4
 categoryRatings: 
     gore: 6
     jumpscares: 3
