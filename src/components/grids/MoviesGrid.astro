@@ -1,14 +1,14 @@
 ---
 import { calculateOverallRating } from "../../utils/scoreUtils";
 import MovieCard from "../cards/MovieCard.astro";
-import type { MovieData } from "../../models/movie";
+import type { MovieData } from "../../models/Movie";
 
 export enum Sort {
   Random,
   HighestToLowestScore
 }
 
-const { entries, showAll = false, maxCount = 10, showRank = false, sort = Sort.Random } = Astro.props;
+const { entries, showAll = false, maxCount = 10, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false } = Astro.props;
 
 type Movie = { data: typeof MovieData; slug: String; scareScaleRating: number };
 
@@ -42,10 +42,13 @@ const getSortMethod = () => {
 }
 
 const sortMethod = getSortMethod()
+
+const optionalClasses = `${hidden ? " hidden " : ""}`
 ---
 
 <div
-  class="mt-4 grid grid-cols-4 gap-x-6 gap-y-10 sm:grid-cols-6 lg:grid-cols-10 xl:grid-cols-5 xl:gap-x-8"
+  id="moviesContainer"
+  class={"mt-4 grid grid-cols-4 gap-x-6 gap-y-10 sm:grid-cols-6 lg:grid-cols-10 xl:grid-cols-5 xl:gap-x-8" + optionalClasses}
 >
   {
     movies
@@ -59,6 +62,7 @@ const sortMethod = getSortMethod()
             slug={movie.slug}
             scareScaleRating={movie.scareScaleRating}
             rank={showRank ? index + 1 : undefined}
+            lazyLoad={lazyLoad}
           />
         );
       })
