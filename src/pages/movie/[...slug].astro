@@ -1,43 +1,14 @@
 ---
-import { getCollection, z, defineCollection ***REMOVED*** from "astro:content";
+import { getCollection ***REMOVED*** from "astro:content";
 import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
-
-const fearLevels: Record<number, string> = {
-  0: "Unrated",
-  1: "Harmless",
-  2: "Tame",
-  3: "Unnerving",
-  4: "Eerie",
-  5: "Creepy",
-  6: "Sinister",
-  7: "Ominous",
-  8: "Horrifying",
-  9: "Nightmarish",
-  10: "Petrifying",
-***REMOVED***;
-
-// Define schema with correct types
-const schema = {
-  name: z.string(),
-  tmdbId: z.date(),
-  tmdbPosterId: z.string(),
-  scareScaleRating: z.number().int().min(0).max(10), // Ensure it's an integer within range
-  categoryRatings: z.object({
-    gore: z.number().int().min(0).max(10),
-    jumpscares: z.number().int().min(0).max(10),
-    suspense: z.number().int().min(0).max(10),
-  ***REMOVED***),
-***REMOVED***;
-
-defineCollection({
-  schema: z.object(schema),
-***REMOVED***);
+import { calculateOverallRating, fearLevelText ***REMOVED*** from "../../utils/scoreUtils";
+import type { MovieData ***REMOVED*** from "../../models/movie";
 
 export async function getStaticPaths() {
   const entries = await getCollection("movie");
   return entries.map(
-    (entry: { slug: any; data: typeof schema; render: Function ***REMOVED***) => ({
+    (entry: { slug: any; data: typeof MovieData; render: Function ***REMOVED***) => ({
       params: { slug: entry.slug ***REMOVED***,
       props: { entry ***REMOVED***,
     ***REMOVED***)
@@ -49,8 +20,8 @@ const { Content ***REMOVED*** = await entry.render();
 
 const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${entry.data.tmdbPosterId***REMOVED***.jpg`;
 
-const scareScaleRating = Number(entry.data.scareScaleRating);
-const scareScaleText = fearLevels[scareScaleRating] ?? "Unknown";
+const scareScaleRating = calculateOverallRating(entry.data.categoryRatings);
+const scareScaleText = fearLevelText(scareScaleRating);
 ---
 
 <MainLayout>

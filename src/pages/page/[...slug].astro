@@ -1,0 +1,27 @@
+---
+import { getCollection, z, defineCollection ***REMOVED*** from "astro:content";
+import Prose from "../../components/Prose.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+
+export async function getStaticPaths() {
+  const entries = await getCollection("page");
+  return entries.map(
+    (entry: { slug: any; render: Function ***REMOVED***) => ({
+      params: { slug: entry.slug ***REMOVED***,
+      props: { entry ***REMOVED***,
+    ***REMOVED***)
+  );
+***REMOVED***
+
+const { entry ***REMOVED*** = Astro.props;
+const { Content ***REMOVED*** = await entry.render();
+---
+
+<MainLayout>
+    <section class="flex flex-col items-center min-h-screen m-5">
+      <Prose>
+        <Content />
+      </Prose>
+    </section>
+</MainLayout>

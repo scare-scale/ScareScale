@@ -2,7 +2,6 @@
 name: 'Heart Eyes'
 tmdbId: '1302916'
 tmdbPosterId: 'ebqttF1Vjgde6uSFBEw9mta7Hd3'
-scareScaleRating: 5
 categoryRatings: 
     gore: 6
     jumpscares: 5
