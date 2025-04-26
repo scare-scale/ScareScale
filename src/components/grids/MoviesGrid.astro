@@ -34,7 +34,7 @@ const filterMovie = (movie: Movie) => {
 
   if (yearFilter) {
     const movieYear = movie.releaseDateParsed.getFullYear();
-    if (movieYear != yearFilter) {
+    if (!yearFilter.includes(String(movieYear))) {
         return false;
     ***REMOVED***
   ***REMOVED***
