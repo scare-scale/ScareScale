@@ -2,6 +2,7 @@
 name: 'The Substance'
 tmdbId: '933260'
 tmdbPosterId: '/evdF1vmLzuzH8EFblqAXBXWRGSi.jpg'
+releaseDate: '2024-09-07'
 categoryRatings:
     gore: 7
     creepy: 2

@@ -1,4 +1,6 @@
 ---
+import { round ***REMOVED*** from "../../utils/scoreUtils";
+
 const { name, tmdbPosterId, rank, scareScaleRating, slug, lazyLoad = false ***REMOVED*** =
   Astro.props;
 const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${tmdbPosterId***REMOVED***.jpg`;
@@ -21,6 +23,6 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${tmdbPos
   <div
     class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center sm:text-sm lg:text-lg font-semibold py-1"
   >
-    {scareScaleRating***REMOVED***/10
+    {round(scareScaleRating)***REMOVED***/10
   </div>
 </a>

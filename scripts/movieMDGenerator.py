@@ -1,27 +1,27 @@
 ***REMOVED***
 ***REMOVED***
+***REMOVED***
 
 API_KEY = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZWZiZWVkZWVkM2M3MzAyYTk1ZGM1NDA1NTIwMDNlYiIsIm5iZiI6MTczOTIwNjgxNS41MzYsInN1YiI6IjY3YWEzMDlmZDE2ZGM3Njc3MzM5ZTkyOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.avnlX7_8bo-Ium38ycsa9C79YmLkLynHFkV2C82YRl4"
 ***REMOVED***
-GENRE_ID_HORROR = 27  # TMDB genre ID for horror
 
 ***REMOVED***
-    "accept": "applicatheadersion/json",
+***REMOVED***
     "Authorization": API_KEY
 ***REMOVED***
 
 ***REMOVED***
     url = f"{BASE_URL***REMOVED***/movie/{movie_id***REMOVED***"
+***REMOVED***
 
 ***REMOVED***
-    
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-            "description": data.get("overview")
+***REMOVED***
         ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -30,28 +30,50 @@ GENRE_ID_HORROR = 27  # TMDB genre ID for horror
 
 ***REMOVED***
 ***REMOVED***
-         
 ***REMOVED***
         filename = f"../src/content/movie/{parsedName***REMOVED***.md"
+
+        existing_content = {***REMOVED***
 ***REMOVED***
 ***REMOVED***
-            md_file.write(f"name: '{movie_data['name']***REMOVED***'\n")
-            md_file.write(f"tmdbId: '{movie_data['tmdbId']***REMOVED***'\n")
-            md_file.write(f"tmdbPosterId: '{movie_data['tmdbPosterId']***REMOVED***'\n")
-            md_file.write(f"categoryRatings:\n")
-            md_file.write(f"    gore: 0\n")
-            md_file.write(f"    creepy: 0\n")
-            md_file.write(f"    jumpscares: 0\n")
-            md_file.write(f"    suspense: 0\n")
-            md_file.write(f"    psychological: 0\n")
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+            "name": f"'{movie_data['name']***REMOVED***'",
+            "tmdbId": f"'{movie_data['tmdbId']***REMOVED***'",
+            "tmdbPosterId": f"'{movie_data['tmdbPosterId']***REMOVED***'",
+            "releaseDate": f"'{movie_data['releaseDate']***REMOVED***'",  # New field added
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+            ***REMOVED***
+        ***REMOVED***
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+                    md_file.write(f"{key***REMOVED***:\n")
+***REMOVED***
+                        md_file.write(f"    {sub_key***REMOVED***: {sub_value***REMOVED***\n")
+            ***REMOVED***
+                    md_file.write(f"{key***REMOVED***: {value***REMOVED***\n")
 ***REMOVED***
             md_file.write(f"{movie_data['description']***REMOVED***\n")
- 
-        print(f"Markdown file '{filename***REMOVED***' created successfully!")
+
+        print(f"Markdown file '{filename***REMOVED***' updated successfully!")
 
 # Prompting the user for input
 movie_id = input("Enter the TMDB movie ID: ")
-if movie_id.isdigit():  # Ensuring the input is a valid number
+if movie_id.isdigit():
     movie_data = get_movie_details(int(movie_id))
     save_as_md(movie_data)
 else:
