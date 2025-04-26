@@ -3,24 +3,24 @@ import { getCollection } from "astro:content";
 import Prose from "../components/Prose.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 
-
 export async function getStaticPaths() {
   const entries = await getCollection("page");
-  return entries.map(
-    (entry: { slug: any; render: Function }) => ({
-      params: { slug: entry.slug },
-      props: { entry },
-    })
-  );
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
+
 <MainLayout>
-    <section class="flex flex-col items-center m-10">
+  <section class="p-6 flex justify-center items-center">
+    <div class="max-w-6xl mx-auto">
       <Prose>
         <Content />
       </Prose>
-    </section>
+    </div>
+  </section>
 </MainLayout>

@@ -3,12 +3,11 @@ import { getCollection } from "astro:content";
 import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { calculateOverallRating, fearLevelText, round } from "../../utils/scoreUtils";
-import type { MovieData } from "../../models/Movie";
 
 export async function getStaticPaths() {
   const entries = await getCollection("movie");
   return entries.map(
-    (entry: { slug: any; data: typeof MovieData; render: Function }) => ({
+    (entry) => ({
       params: { slug: entry.slug },
       props: { entry },
     })

@@ -1,5 +1,4 @@
 ---
-import MovieCard from "../components/cards/MovieCard.astro";
 import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import MoviesGrid from "../components/grids/MoviesGrid.astro";
@@ -19,7 +18,12 @@ const movieEntries = await getCollection("movie");
       <div id="loadingIndicator" class="text-center text-xl text-white">
         Loading...
       </div>
-      <MoviesGrid entries={movieEntries} lazyLoad={true} hidden={true}/>
+      <MoviesGrid
+        entries={movieEntries}
+        maxCount={-1}
+        lazyLoad={true}
+        hidden={true}
+      />
     </div>
   </section>
 </MainLayout>
