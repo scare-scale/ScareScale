@@ -4,27 +4,39 @@ import MainLayout from "../layouts/MainLayout.astro";
 import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 
 const movieEntries = await getCollection("movie");
+
+const grids = [
+  {
+    title: "All time Scariest Movies",
+  },
+  {
+    title: "Scariest Movies 2025",
+    props: {
+      yearFilter: "2025",
+    },
+  },
+];
 ---
 
 <MainLayout>
-  <section
-    class="flex flex-col gap-y-10 md:gap-y-20 pt-10"
-  >
-      <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <p
-          class="mx-auto m-4 max-w-lg text-center text-2xl font-semibold text-balance text-white sm:text-4xl"
-        >
-        All time Scariest Movies
-        </p>
-        <MoviesGrid entries={movieEntries} showRank={true} sort={Sort.HighestToLowestScore}/>
-      </div>
-      <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <p
-          class="mx-auto m-4 max-w-lg text-center text-2xl font-semibold text-balance text-white sm:text-4xl"
-        >
-        Scariest Movies 2025
-        </p>
-        <MoviesGrid entries={movieEntries} showRank={true} sort={Sort.HighestToLowestScore}/>
-      </div>
+  <section class="flex flex-col gap-y-10 md:gap-y-20 pt-10">
+    {
+      grids.map((grid) => {
+        return (
+          <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+            <p class="mx-auto m-4 max-w-lg text-center text-2xl font-semibold text-balance text-white sm:text-4xl">
+              {grid.title}
+            </p>
+            <MoviesGrid
+              entries={movieEntries}
+              sort={Sort.HighestToLowestScore}
+              showRank={true}
+              maxCount={5}
+              {...grid.props}
+            />
+          </div>
+        );
+      })
+    }
   </section>
 </MainLayout>

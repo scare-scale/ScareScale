@@ -26,7 +26,10 @@ export const calculateOverallRating = (categoryRatings: Object) => {
     // Sum the top three values and divide by 3
     let average = topThree.reduce((sum, value) => sum + value, 0) / 3;
 
-    return Math.round(average * 10) / 10; // Rounds to the nearest whole number
+    return average; // Rounds to the nearest whole number
   }
   return 0;
 };
+
+
+export const round = (scareScaleRating: number) => Math.round(scareScaleRating * 10) / 10;

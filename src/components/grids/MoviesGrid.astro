@@ -5,18 +5,20 @@ import type { MovieData } from "../../models/Movie";
 
 export enum Sort {
   Random,
-  HighestToLowestScore
+  HighestToLowestScore,
+  ReleaseDateDecending
 }
 
-const { entries, showAll = false, maxCount = 10, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false } = Astro.props;
+const { entries, showAll = false, maxCount = 100, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined } = Astro.props;
 
-type Movie = { data: typeof MovieData; slug: String; scareScaleRating: number };
+type Movie = { data: typeof MovieData; slug: String; scareScaleRating: number; releaseDateParsed: Date };
 
 const movies: Movie[] = entries.map(
   (entry: { slug: any; data: typeof MovieData }): Movie => ({
     data: entry.data,
     slug: entry.slug,
     scareScaleRating: calculateOverallRating(entry.data.categoryRatings),
+    releaseDateParsed: new Date(String(entry.data.releaseDate))
   })
 );
 
@@ -25,16 +27,28 @@ const filterMovie = (movie: Movie) => {
     return true;
   }
 
-  if (movie.scareScaleRating > 0) {
-    return true;
+  // Filter out movies without ratings
+  if (movie.scareScaleRating == 0) {
+    return false;
   }
 
-  return false;
+  if (yearFilter) {
+    const movieYear = movie.releaseDateParsed.getFullYear();
+    if (movieYear != yearFilter) {
+        return false;
+    }
+  }
+
+  return true;
 };
 
 const getSortMethod = () => {
     if (sort == Sort.HighestToLowestScore) {
         return (a: Movie, b: Movie) => b.scareScaleRating - a.scareScaleRating;;
+    }
+
+    if (sort == Sort.ReleaseDateDecending) {
+        return (a: Movie, b: Movie) => b.releaseDateParsed.getTime() - a.releaseDateParsed.getTime();
     }
 
     // Sort randomly
@@ -48,7 +62,7 @@ const optionalClasses = `${hidden ? " hidden " : ""}`
 
 <div
   id="moviesContainer"
-  class={"mt-4 grid grid-cols-4 gap-x-4 gap-y-4 lg:grid-cols-6" + optionalClasses}
+  class={"m-4 grid grid-cols-3 gap-x-4 gap-y-4 lg:grid-cols-5" + optionalClasses}
 >
   {
     movies

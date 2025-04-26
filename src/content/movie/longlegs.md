@@ -2,6 +2,7 @@
 name: 'Longlegs'
 tmdbId: '1226578'
 tmdbPosterId: '/1EwNyiiNFd863H4e8nWEzutnZD7.jpg'
+releaseDate: '2024-07-10'
 categoryRatings:
     gore: 6
     creepy: 3

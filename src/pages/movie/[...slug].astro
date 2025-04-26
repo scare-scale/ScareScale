@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
-import { calculateOverallRating, fearLevelText } from "../../utils/scoreUtils";
+import { calculateOverallRating, fearLevelText, round } from "../../utils/scoreUtils";
 import type { MovieData } from "../../models/Movie";
 
 export async function getStaticPaths() {
@@ -22,6 +22,11 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${entry.d
 
 const scareScaleRating = calculateOverallRating(entry.data.categoryRatings);
 const scareScaleText = fearLevelText(scareScaleRating);
+const formattedDate = new Date(String(entry.data.releaseDate)).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+});
 ---
 
 <MainLayout>
@@ -75,6 +80,9 @@ const scareScaleText = fearLevelText(scareScaleRating);
           <h1 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
             {entry.data.name}
           </h1>
+          <h1 class="text-sm tracking-tight text-white">
+            {`Released: ${formattedDate}`}
+          </h1>
           <div class="mt-5">
             <Prose>
               <Content />
@@ -125,7 +133,7 @@ const scareScaleText = fearLevelText(scareScaleRating);
                   class="w-20 h-20 m-6 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center"
                 >
                   <h5 class="text-xl font-medium text-[#d60c16]">
-                    {scareScaleRating} / 10
+                    {round(scareScaleRating)} / 10
                   </h5>
                 </div>
                 <h5 class="text-2xl text-black font-bold">{scareScaleText}</h5>
