@@ -1,7 +1,7 @@
 ---
-import { getCollection, z, defineCollection } from "astro:content";
-import Prose from "../../components/Prose.astro";
-import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+import Prose from "../components/Prose.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 
 
 export async function getStaticPaths() {
@@ -17,9 +17,8 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
-
 <MainLayout>
-    <section class="flex flex-col items-center min-h-screen m-5">
+    <section class="flex flex-col items-center m-10">
       <Prose>
         <Content />
       </Prose>

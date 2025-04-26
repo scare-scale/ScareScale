@@ -1,3 +1,13 @@
+---
+const navLinks = {
+  "Home": "/",
+  "Ranks": "/ranks",
+  "Filter": "/filter",
+  "Contribute": "/contribute",
+  "Score Guide": "/score-guide"
+};
+---
+
 <header class="bg-white border-b-2 border-[#d60c16]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between py-4">
@@ -12,10 +22,13 @@
 
       <!-- Centered Navigation -->
       <nav class="hidden md:flex flex-grow justify-center space-x-6 font-bold">
-        <a href="/" class="hover:text-[#d60c16]">Home</a>
-        <a href="/ranks" class="hover:text-[#d60c16]">Ranks</a>
-        <a href="/filter" class="hover:text-[#d60c16]">Filter</a>
-        <a href="/contact" class="hover:text-[#d60c16]">Contact</a>
+        {
+          Object.entries(navLinks).map(([name, href]) => (
+            <a href={href} class="hover:text-[#d60c16]">
+              {name}
+            </a>
+          ))
+        }
       </nav>
 
       <!-- Search Bar (Left-Aligned Text, Right-Aligned Icon) -->
@@ -60,10 +73,13 @@
   <!-- Mobile Menu -->
   <div id="mobileMenu" class="hidden md:hidden bg-white px-4">
     <nav class="flex flex-col py-4 space-y-2">
-      <a href="/" class="hover:text-gray-400">Home</a>
-      <a href="/ranks" class="hover:text-gray-400">Ranks</a>
-      <a href="/filter" class="hover:text-gray-400">Filter</a>
-      <a href="/contact" class="hover:text-gray-400">Contact</a>
+      {
+        Object.entries(navLinks).map(([name, href]) => (
+          <a href={href} class="hover:text-gray-400">
+            {name}
+          </a>
+        ))
+      }
     </nav>
   </div>
 </header>
@@ -71,7 +87,6 @@
 <!-- Script for Menu Toggle and Search -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-
     function performSearch() {
       window.location.href = `/search?q=${searchInput.value}`;
     }
@@ -94,13 +109,13 @@
     }
 
     if (searchButton && searchInput) {
-        searchButton.addEventListener("click", performSearch);
-        searchInput.addEventListener("keydown", function(event) {
-            if (event.key === "Enter") {
-                event.preventDefault(); // Stops form submission if inside a form
-                performSearch();
-            }
-        });
+      searchButton.addEventListener("click", performSearch);
+      searchInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // Stops form submission if inside a form
+          performSearch();
+        }
+      });
     }
   });
 </script>
