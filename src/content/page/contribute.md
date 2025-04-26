@@ -1,4 +1,4 @@
-![Scare Scale Logo](/logo/logo_wide.png)
+![Scare Scale Logo](/logo/logo_wide_background.png)
 # Contribution Guide
 
 Welcome to **Scare Scale**, a project built with Astro JS to categorize and rate horror movies based on their elements. If you'd like to add a new movie entry, follow the steps below!
