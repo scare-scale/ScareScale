@@ -1,4 +1,5 @@
 ***REMOVED***
+***REMOVED***
 
 API_KEY = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZWZiZWVkZWVkM2M3MzAyYTk1ZGM1NDA1NTIwMDNlYiIsIm5iZiI6MTczOTIwNjgxNS41MzYsInN1YiI6IjY3YWEzMDlmZDE2ZGM3Njc3MzM5ZTkyOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.avnlX7_8bo-Ium38ycsa9C79YmLkLynHFkV2C82YRl4"
 ***REMOVED***
@@ -29,15 +30,23 @@ GENRE_ID_HORROR = 27  # TMDB genre ID for horror
 
 ***REMOVED***
 ***REMOVED***
-        parsedName = str(movie_data['name']).lower().replace(" ", "-")
+         
+***REMOVED***
         filename = f"../src/content/movie/{parsedName***REMOVED***.md"
 ***REMOVED***
 ***REMOVED***
             md_file.write(f"name: '{movie_data['name']***REMOVED***'\n")
             md_file.write(f"tmdbId: '{movie_data['tmdbId']***REMOVED***'\n")
             md_file.write(f"tmdbPosterId: '{movie_data['tmdbPosterId']***REMOVED***'\n")
+            md_file.write(f"categoryRatings:\n")
+            md_file.write(f"    gore: 0\n")
+            md_file.write(f"    creepy: 0\n")
+            md_file.write(f"    jumpscares: 0\n")
+            md_file.write(f"    suspense: 0\n")
+            md_file.write(f"    psychological: 0\n")
 ***REMOVED***
             md_file.write(f"{movie_data['description']***REMOVED***\n")
+ 
         print(f"Markdown file '{filename***REMOVED***' created successfully!")
 
 # Prompting the user for input
