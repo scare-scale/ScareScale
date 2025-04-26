@@ -1,4 +1,4 @@
-![Scare Scale Logo](/logo/logo_wide.png)
+![Scare Scale Logo](/logo/logo_wide_background.png)
 # Movie rating guide
 
 This rating system categorises movies based on their level of scariness across five dimensions:
