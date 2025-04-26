@@ -3,12 +3,11 @@ import { getCollection ***REMOVED*** from "astro:content";
 import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { calculateOverallRating, fearLevelText, round ***REMOVED*** from "../../utils/scoreUtils";
-import type { MovieData ***REMOVED*** from "../../models/Movie";
 
 export async function getStaticPaths() {
   const entries = await getCollection("movie");
   return entries.map(
-    (entry: { slug: any; data: typeof MovieData; render: Function ***REMOVED***) => ({
+    (entry) => ({
       params: { slug: entry.slug ***REMOVED***,
       props: { entry ***REMOVED***,
     ***REMOVED***)

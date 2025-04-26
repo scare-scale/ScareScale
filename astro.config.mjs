@@ -1,16 +1,30 @@
-import { defineConfig ***REMOVED*** from 'astro/config';
+import { defineConfig ***REMOVED*** from "astro/config";
 import tailwind from "@astrojs/tailwind";
+import sitemap from "@astrojs/sitemap";
+import robotsTxt from "astro-robots-txt";
 
-***REMOVED***act from "@astrojs/react";
+const domain = "scarescale.com";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://scarescale.com",
+  site: "https://" + domain,
   build: {
-    format: 'file'
+    format: "file",
   ***REMOVED***,
   image: {
     remotePatterns: [{ protocol: "https" ***REMOVED***],
   ***REMOVED***,
-  integrations: [tailwind(), react()]
+  integrations: [
+    tailwind(),
+    sitemap(),
+    robotsTxt({
+      sitemap: [`https://${domain***REMOVED***/sitemap-index.xml`],
+      policy: [
+        {
+          userAgent: "*",
+          allow: "/"
+        ***REMOVED***,
+      ],
+    ***REMOVED***),
+  ],
 ***REMOVED***);
