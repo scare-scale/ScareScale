@@ -11,11 +11,6 @@ const movieEntries = await getCollection("movie");
     class="flex flex-col gap-y-10 md:gap-y-20 pt-10"
   >
       <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <p
-          class="mx-auto m-4 max-w-lg text-center text-4xl font-semibold text-balance text-white sm:text-5xl"
-        >
-        Horror Movies 2025
-        </p>
         <MoviesGrid entries={movieEntries}/>
       </div>
   </section>
