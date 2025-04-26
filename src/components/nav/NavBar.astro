@@ -86,7 +86,7 @@ const navLinks = {
 
 <!-- Script for Menu Toggle and Search -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("astro:page-load", function () {
     function performSearch() {
       window.location.href = `/search?q=${searchInput.value***REMOVED***`;
     ***REMOVED***
