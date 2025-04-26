@@ -8,7 +8,7 @@ const movieEntries = await getCollection("movie");
 
 <MainLayout>
   <section
-    class="flex flex-col gap-y-10 md:gap-y-20 min-h-screen pt-10"
+    class="flex flex-col gap-y-10 md:gap-y-20 pt-10"
   >
       <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
         <MoviesGrid entries={movieEntries} showAll={true}/>

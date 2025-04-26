@@ -25,7 +25,7 @@ const scareScaleText = fearLevelText(scareScaleRating);
 ---
 
 <MainLayout>
-  <div class="flex flex-col items-center min-h-screen">
+  <div class="flex flex-col items-center">
     <section class="flex flex-col gap-y-10 pt-6">
       <nav aria-label="Breadcrumb">
         <ol
@@ -112,20 +112,23 @@ const scareScaleText = fearLevelText(scareScaleRating);
             </ul>
 
             <div
-              class="w-full max-w-sm rounded-lg shadow-sm bg-gray-800 content-center"
+              class="w-full max-w-sm rounded-lg shadow-sm bg-white content-center outline-none ring-2 ring-black"
             >
               <div class="flex flex-col items-center p-4">
-                <h5 class="text-xl mb-4 font-medium text-white">Scare Scale</h5>
-
+                <!-- <h5 class="text-xl mb-4 font-medium text-white">Scare Scale</h5> -->
+                <img
+                src="/logo/logo_full.png"
+                alt="Scare Scale Logo"
+                class="h-14 w-auto"
+              />
                 <div
-                  class="w-20 h-20 mb-4 rounded-full shadow-lg border-2 border-white flex justify-center items-center"
+                  class="w-20 h-20 m-6 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center"
                 >
-                  <h5 class="text-xl font-medium text-white">
+                  <h5 class="text-xl font-medium text-[#d60c16]">
                     {scareScaleRating} / 10
                   </h5>
                 </div>
-
-                <h5 class="text-xl font-medium text-white">{scareScaleText}</h5>
+                <h5 class="text-2xl text-black font-bold">{scareScaleText}</h5>
               </div>
             </div>
           </div>
