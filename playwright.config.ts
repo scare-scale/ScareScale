@@ -74,7 +74,7 @@ export default defineConfig({
   webServer: {
     command: 'npm run preview',
     timeout: 60 * 1000,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: true,
     port: 4321
   ***REMOVED***
 ***REMOVED***);
