@@ -4,6 +4,8 @@ on:
     branches: [ main ]
 jobs:
   deploy:
+    permissions:
+      deployments: write
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
