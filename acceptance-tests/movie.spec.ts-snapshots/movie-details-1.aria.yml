@@ -1,0 +1,37 @@
+- navigation "Breadcrumb":
+  - list:
+    - listitem:
+      - link "Movie":
+        - /url: /
+    - listitem:
+      - link "Heart Eyes":
+        - /url: "#"
+- img "Heart Eyes movie poster"
+- heading "Heart Eyes" [level=1]
+- 'heading /Released: 6 February \d+/ [level=1]'
+- paragraph: When the “Heart Eyes Killer” strikes Seattle, a pair of co-workers pulling overtime on Valentine’s Day are mistaken for a couple by the elusive couple-hunting killer. Now, they must spend the most romantic night of the year running for their lives.
+- heading "Ratings" [level=5]
+- list:
+  - listitem:
+    - img
+    - heading "gore" [level=1]
+    - paragraph: /7 \/ \d+/
+  - listitem:
+    - img
+    - heading "creepy" [level=1]
+    - paragraph: /4 \/ \d+/
+  - listitem:
+    - img
+    - heading "jumpscares" [level=1]
+    - paragraph: /3 \/ \d+/
+  - listitem:
+    - img
+    - heading "suspense" [level=1]
+    - paragraph: /4 \/ \d+/
+  - listitem:
+    - img
+    - heading "psychological" [level=1]
+    - paragraph: /1 \/ \d+/
+- img "Scare Scale Logo"
+- heading /5 \/ \d+/ [level=5]
+- heading "Creepy" [level=5]
