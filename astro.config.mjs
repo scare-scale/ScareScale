@@ -11,6 +11,7 @@ export default defineConfig({
   build: {
     format: "file",
   ***REMOVED***,
+  output: "static",
   image: {
     remotePatterns: [{ protocol: "https" ***REMOVED***],
   ***REMOVED***,
@@ -27,4 +28,7 @@ export default defineConfig({
       ],
     ***REMOVED***),
   ],
+  server: {
+    apiPrefix: "api",
+  ***REMOVED***,
 ***REMOVED***);

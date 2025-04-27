@@ -1,7 +1,7 @@
 ---
 import { calculateOverallRating ***REMOVED*** from "../../utils/scoreUtils";
 import MovieCard from "../cards/MovieCard.astro";
-import type { MovieData ***REMOVED*** from "../../models/Movie";
+import type { Movie ***REMOVED*** from "../../models/Movie";
 
 export enum Sort {
   Random,
@@ -11,10 +11,8 @@ export enum Sort {
 
 const { entries, showAll = false, maxCount = 100, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined ***REMOVED*** = Astro.props;
 
-type Movie = { data: typeof MovieData; slug: String; scareScaleRating: number; releaseDateParsed: Date ***REMOVED***;
-
 const movies: Movie[] = entries.map(
-  (entry: { slug: any; data: typeof MovieData ***REMOVED***): Movie => ({
+  (entry: Movie): Movie => ({
     data: entry.data,
     slug: entry.slug,
     scareScaleRating: calculateOverallRating(entry.data.categoryRatings),
