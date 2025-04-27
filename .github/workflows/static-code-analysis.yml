@@ -8,4 +8,10 @@ jobs:
     - name: Install modules
       run: npm install
     - name: Run ESLint
-      run: eslint . --ext .js,.jsx,.ts,.tsx,.astro
+      run: npm run eslint --ext .js,.jsx,.ts,.tsx,.astro --output-file eslint_report.json --format json src
+    - name: Annotate Code Linting Results
+      uses: ataylorme/eslint-annotate-action@1.0.4
+      if: always()
+      with:
+        repo-token: '${{ secrets.GITHUB_TOKEN ***REMOVED******REMOVED***'
+        report-json: 'eslint_report.json'
