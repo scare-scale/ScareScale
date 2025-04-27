@@ -7,7 +7,7 @@ export const MovieData = {
     releaseDate: z.string(),
     categoryRatings: z.object({***REMOVED***),
 ***REMOVED***;
-  
+
 defineCollection({
     schema: z.object(MovieData),
 ***REMOVED***);

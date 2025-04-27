@@ -2,9 +2,29 @@
 import { getCollection ***REMOVED*** from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import MoviesGrid, { Sort ***REMOVED*** from "../components/grids/MoviesGrid.astro";
+import { SEO ***REMOVED*** from "astro-seo";
 
 const movieEntries = await getCollection("movie");
 ---
+
+<head>
+  <SEO
+    title="Scare Scale - Home"
+    description="Discover how scary your favorite horror movies really are with detailed ratings across Gore, Creepy, Jumpscares, Suspense, and Psychological horror categories."
+    canonical="https://scarescale.com/"
+    openGraph={{
+      basic: {
+        type: "website",
+        url: "https://scarescale.com/",
+        title: "Scare Scale - Horror Movie Scare Ratings | Fear Factor Breakdown",
+        image: "https://scarescale.com/assets/scare-scale-preview.jpg",
+      ***REMOVED***,
+      optional: {
+        description: "Rank horror movies by Gore, Creepy moments, Jumpscares, Suspense, and Psychological fear. Find the scariest films ranked by their chilling impact!",
+      ***REMOVED***
+    ***REMOVED******REMOVED***
+  />
+</head>
 
 <MainLayout>
   <section class="flex flex-col gap-y-10 md:gap-y-20">
@@ -20,7 +40,8 @@ const movieEntries = await getCollection("movie");
           Movies Ranked by Fear, Measured by Screams.
         </h2>
         <p class="mt-6 text-lg/8 text-pretty text-gray-300">
-          Your Guide to Terror, From Eerie Whispers to Heart-Pounding Horror. We find and rate the greatest horrors.
+          Your Guide to Terror, From Eerie Whispers to Heart-Pounding Horror. We
+          find and rate the greatest horrors.
         </p>
         <div
           class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start"
@@ -36,7 +57,7 @@ const movieEntries = await getCollection("movie");
         </div>
       </div>
       <div class="mt-16 lg:mt-8">
-          <MoviesGrid entries={movieEntries***REMOVED*** sort={Sort.ReleaseDateDecending***REMOVED*** />
+        <MoviesGrid entries={movieEntries***REMOVED*** sort={Sort.ReleaseDateDecending***REMOVED*** />
       </div>
     </div>
   </section>
