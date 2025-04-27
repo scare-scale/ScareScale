@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { calculateOverallRating, fearLevelText, round } from "../../utils/scoreUtils";
+import { SEO } from "astro-seo";
 
 export async function getStaticPaths() {
   const entries = await getCollection("movie");
@@ -21,16 +22,36 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${entry.d
 
 const scareScaleRating = calculateOverallRating(entry.data.categoryRatings);
 const scareScaleText = fearLevelText(scareScaleRating);
-const formattedDate = new Date(String(entry.data.releaseDate)).toLocaleDateString("en-GB", {
+const parsedDate = new Date(String(entry.data.releaseDate));
+const formattedDate = parsedDate.toLocaleDateString("en-GB", {
     day: "numeric",
     month: "long",
     year: "numeric"
 });
 ---
 
+<head>
+  <SEO
+    title={`Scare Scale - ${entry.data.name} Review & Scare Ratings`}
+    description={`${entry.data.name} (${parsedDate.getFullYear()}) — Rated for Gore (${entry.data.categoryRatings.gore}), Creepy Moments (${entry.data.categoryRatings.creepy}), Jumpscares (${entry.data.categoryRatings.jumpscares}), Suspense (${entry.data.categoryRatings.suspense}), and Psychological Horror (${entry.data.categoryRatings.psychological}). Discover how it ranks on the Scare Scale!`}
+    canonical={`https://scarescale.com/movie/${entry.data.tmdbId}`}
+    openGraph={{
+      basic: {
+        type: "website",
+        url: `https://scarescale.com/movie/${entry.data.tmdbId}`,
+        title: `Scare Scale - ${entry.data.name} Horror Movie Ratings`,
+        image: posterUrl,
+      },
+      optional: {
+        description: `${entry.data.name} — ${entry.data.description}. Find out how scary it is based on Gore, Creepy moments, Jumpscares, Suspense, and Psychological horror.`,
+      },
+    }}
+  />
+</head>
+
 <MainLayout>
   <div class="flex flex-col items-center">
-    <section class="flex flex-col gap-y-10 pt-6">
+    <section class="flex flex-col gap-y-10 pt-6" id="movieDetails">
       <nav aria-label="Breadcrumb">
         <ol
           role="list"
