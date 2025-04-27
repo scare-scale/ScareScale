@@ -1,11 +1,11 @@
-name: Playwright Tests
+name: Acceptance Tests
 on:
   push:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
 jobs:
-  test:
+  acceptance-tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
