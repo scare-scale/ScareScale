@@ -7,7 +7,7 @@ const movieEntries = await getCollection("movie");
 ---
 
 <MainLayout>
-  <section class="flex flex-col gap-y-10 md:gap-y-20 min-h-screen pt-10">
+  <section class="flex flex-col gap-y-10 md:gap-y-20 min-h-screen pt-10" id="searchResults">
     <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
       <p
         id="searchTermDisplay"
@@ -20,7 +20,6 @@ const movieEntries = await getCollection("movie");
       </div>
       <MoviesGrid
         entries={movieEntries***REMOVED***
-        maxCount={10***REMOVED***
         lazyLoad={true***REMOVED***
         hidden={true***REMOVED***
       />

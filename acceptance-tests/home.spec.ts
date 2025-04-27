@@ -11,14 +11,14 @@ test.describe('desktop', () => {
 
   test('has title', async ({ page ***REMOVED***) => {
     await page.goto('/');
-    await expect(page).toHaveTitle("Scare Scale");
+    await expect(page).toHaveTitle("Scare Scale - Home");
 
     await page.screenshot({ path: 'public/screenshots/home_page_screenshot.png' ***REMOVED***);
   ***REMOVED***);
 
   test('nav', async ({ page ***REMOVED***) => {
     await page.goto('/');
-    await expect(page.locator('header')).toMatchAriaSnapshot();
+    await expect(page.locator('#navBar')).toMatchAriaSnapshot();
   ***REMOVED***);
 ***REMOVED***);
 
@@ -33,17 +33,17 @@ test.describe('mobile', () => {
 
   test('has title', async ({ page ***REMOVED***) => {
     await page.goto('/');
-    await expect(page).toHaveTitle("Scare Scale");
+    await expect(page).toHaveTitle("Scare Scale - Home");
   ***REMOVED***);
 
   test('nav closed', async ({ page ***REMOVED***) => {
     await page.goto('/');
-    await expect(page.locator('header')).toMatchAriaSnapshot();
+    await expect(page.locator('#navBar')).toMatchAriaSnapshot();
   ***REMOVED***);
 
   test('nav open', async ({ page ***REMOVED***) => {
     await page.goto('/');
     await page.locator('#menuButton').click()
-    await expect(page.locator('header')).toMatchAriaSnapshot();
+    await expect(page.locator('#navBar')).toMatchAriaSnapshot();
   ***REMOVED***);
 ***REMOVED***);
