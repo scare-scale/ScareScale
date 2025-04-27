@@ -27,3 +27,10 @@ jobs:
         aws-region: "eu-west-1"
     - name: Run deploy
       run: npm run cdk-deploy
+    - uses: chrnorm/deployment-action@v2
+      name: Create GitHub deployment
+      id: deployment
+      with:
+        token: '${{ github.token ***REMOVED******REMOVED***'
+        environment-url: http://scarescale.com
+        environment: production
