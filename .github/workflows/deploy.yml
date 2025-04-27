@@ -1,9 +1,9 @@
 name: Deploy CDK
 on:
   push:
-    branches: [ main, "deploy-setup" ]
+    branches: [ main ]
 jobs:
-  test:
+  deploy:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
