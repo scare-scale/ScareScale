@@ -12,6 +12,8 @@ test.describe('desktop', () => {
   test('has title', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle("Scare Scale");
+
+    await page.screenshot({ path: 'public/screenshots/home_page_screenshot.png' });
   });
 
   test('nav', async ({ page }) => {
