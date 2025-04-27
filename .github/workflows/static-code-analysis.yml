@@ -6,7 +6,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
-      run: npm install
+      run: yarn
     - name: Run ESLint
       run: yarn run eslint --ext .js,.jsx,.ts,.tsx,.astro --output-file eslint_report.json --format json src
     - name: Annotate Code Linting Results
