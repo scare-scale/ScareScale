@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "test": "playwright test",
     "cdk": "npm --prefix infrastructure run cdk",
     "cdk-deploy": "npm --prefix infrastructure run cdk deploy -- --all",
     "deploy": "npm run build && npm run cdk-deploy"
@@ -28,6 +29,8 @@
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.16"
+    "@playwright/test": "^1.52.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^22.15.2"
   }
 }

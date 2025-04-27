@@ -1,0 +1,8 @@
+- banner:
+  - link "Scare Scale Logo":
+    - /url: /
+    - img "Scare Scale Logo"
+  - textbox "Search..."
+  - button "🔍"
+  - button:
+    - img
