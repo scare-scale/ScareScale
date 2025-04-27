@@ -2,14 +2,6 @@ name: Static Code Analysis
 on: push
 jobs:
   eslint:
-    permissions:
-      # Default permissions
-      contents: read
-      packages: read
-
-      # Need to add these 2 for eslint-annotate-action
-      pull-requests: read
-      checks: write
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -17,9 +9,3 @@ jobs:
       run: yarn
     - name: Run ESLint
       run: yarn run eslint --ext .js,.jsx,.ts,.tsx,.astro --output-file eslint_report.json --format json src
-    - name: Annotate Code Linting Results
-      uses: ataylorme/eslint-annotate-action@1.0.4
-      if: always()
-      with:
-        repo-token: '${{ secrets.GITHUB_TOKEN ***REMOVED******REMOVED***'
-        report-json: 'eslint_report.json'
