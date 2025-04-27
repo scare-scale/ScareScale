@@ -20,7 +20,7 @@ const movieEntries = await getCollection("movie");
       </div>
       <MoviesGrid
         entries={movieEntries}
-        maxCount={-1}
+        maxCount={10}
         lazyLoad={true}
         hidden={true}
       />

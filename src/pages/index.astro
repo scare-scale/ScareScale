@@ -7,14 +7,37 @@ const movieEntries = await getCollection("movie");
 ---
 
 <MainLayout>
-  <section class="flex flex-col gap-y-10 md:gap-y-20 pt-10">
-    <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-      <p
-        class="mx-auto m-4 max-w-lg text-center text-2xl font-semibold text-balance text-white sm:text-4xl"
+  <section class="flex flex-col gap-y-10 md:gap-y-20">
+    <div
+      class="relative isolate overflow-hidden px-6 pt-16 shadow-2xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0 min-h-screen"
+    >
+      <div
+        class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left"
       >
-        Latest horror movies
-      </p>
-      <MoviesGrid entries={movieEntries} sort={Sort.ReleaseDateDecending}/>
+        <h2
+          class="text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl"
+        >
+          Movies Ranked by Fear, Measured by Screams.
+        </h2>
+        <p class="mt-6 text-lg/8 text-pretty text-gray-300">
+          Your Guide to Terror, From Eerie Whispers to Heart-Pounding Horror. We find and rate the greatest horrors.
+        </p>
+        <div
+          class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start"
+        >
+          <a
+            href="/ranks"
+            class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >Scariest Movies</a
+          >
+          <a href="#" class="text-sm/6 font-semibold text-white"
+            >Find Movie <span aria-hidden="true">→</span></a
+          >
+        </div>
+      </div>
+      <div class="mt-16 lg:mt-8">
+          <MoviesGrid entries={movieEntries} sort={Sort.ReleaseDateDecending} />
+      </div>
     </div>
   </section>
 </MainLayout>
