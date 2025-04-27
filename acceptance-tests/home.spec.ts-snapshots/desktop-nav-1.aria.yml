@@ -1,0 +1,17 @@
+- banner:
+  - link "Scare Scale Logo":
+    - /url: /
+    - img "Scare Scale Logo"
+  - navigation:
+    - link "Home":
+      - /url: /
+    - link "Ranks":
+      - /url: /ranks
+    - link "Filter":
+      - /url: /filter
+    - link "Contribute":
+      - /url: /contribute
+    - link "Score Guide":
+      - /url: /score-guide
+  - textbox "Search..."
+  - button "🔍"
