@@ -12,9 +12,8 @@ const fearLevels: Record<number, string> = {
   10: "Petrifying",
 ***REMOVED***;
 
-export const fearLevelText = (scareScaleRating: number) => {
-  return fearLevels[Math.round(scareScaleRating)] ?? "Unknown";
-***REMOVED***;
+export const fearLevelText = (scareScaleRating: number) =>
+  fearLevels[Math.round(scareScaleRating)] ?? "Unknown";
 
 export const calculateOverallRating = (categoryRatings: Object) => {
   if (categoryRatings) {
@@ -31,5 +30,5 @@ export const calculateOverallRating = (categoryRatings: Object) => {
   return 0;
 ***REMOVED***;
 
-
-export const round = (scareScaleRating: number) => Math.round(scareScaleRating * 10) / 10;
+export const round = (scareScaleRating: number) =>
+  Math.round(scareScaleRating * 10) / 10;

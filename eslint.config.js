@@ -4,6 +4,6 @@ export default [
   // js.configs.recommended,
   ...eslintPluginAstro.configs["all"], // In CommonJS, the `flat/` prefix is required.
   {
-    rules: {***REMOVED***,
+    "rules": {***REMOVED***,
   ***REMOVED***,
 ];
