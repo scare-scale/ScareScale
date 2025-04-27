@@ -10,7 +10,7 @@ test("search movie", async ({ page }) => {
   await page.press("input[id=searchInput]", "Enter")
 
   // Validate results are returned
-  await expect(page.locator("section")).toMatchAriaSnapshot();
+  await expect(page.locator("#searchResults")).toMatchAriaSnapshot();
 
   // Enter second search query in search bar
   await page.fill("input[id=searchInput]", "monkey")
@@ -19,5 +19,5 @@ test("search movie", async ({ page }) => {
   await page.locator('#searchButton').click()
 
   // Validate results are returned
-  await expect(page.locator("section")).toMatchAriaSnapshot();
+  await expect(page.locator("#searchResults")).toMatchAriaSnapshot();
 });

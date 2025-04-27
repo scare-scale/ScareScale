@@ -11,14 +11,14 @@ test.describe('desktop', () => {
 
   test('has title', async ({ page }) => {
     await page.goto('/');
-    await expect(page).toHaveTitle("Scare Scale");
+    await expect(page).toHaveTitle("Scare Scale - Home");
 
     await page.screenshot({ path: 'public/screenshots/home_page_screenshot.png' });
   });
 
   test('nav', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('header')).toMatchAriaSnapshot();
+    await expect(page.locator('#navBar')).toMatchAriaSnapshot();
   });
 });
 
@@ -33,17 +33,17 @@ test.describe('mobile', () => {
 
   test('has title', async ({ page }) => {
     await page.goto('/');
-    await expect(page).toHaveTitle("Scare Scale");
+    await expect(page).toHaveTitle("Scare Scale - Home");
   });
 
   test('nav closed', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('header')).toMatchAriaSnapshot();
+    await expect(page.locator('#navBar')).toMatchAriaSnapshot();
   });
 
   test('nav open', async ({ page }) => {
     await page.goto('/');
     await page.locator('#menuButton').click()
-    await expect(page.locator('header')).toMatchAriaSnapshot();
+    await expect(page.locator('#navBar')).toMatchAriaSnapshot();
   });
 });
