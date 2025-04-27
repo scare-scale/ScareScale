@@ -12,7 +12,7 @@ export default [
       parser: astroEslintParser,
       parserOptions: {
         parser: tsParser,
-        extraFileExtensions: [".astro"], // This is a required setting in `@typescript-eslint/parser` v5.
+        extraFileExtensions: [".astro"],
       ***REMOVED***,
     ***REMOVED***,
   ***REMOVED***,
