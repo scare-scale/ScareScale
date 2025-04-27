@@ -2,6 +2,14 @@ name: Static Code Analysis
 on: push
 jobs:
   eslint:
+    permissions:
+      # Default permissions
+      contents: read
+      packages: read
+
+      # Need to add these 2 for eslint-annotate-action
+      pull-requests: read
+      checks: write
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
