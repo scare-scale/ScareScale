@@ -5,6 +5,10 @@ on:
 jobs:
   deploy:
     permissions:
+      # Default permissions
+      contents: read
+      packages: read
+
       deployments: write
     timeout-minutes: 60
     runs-on: ubuntu-latest
