@@ -2,17 +2,20 @@
 import { getCollection } from "astro:content";
 import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
-import { calculateOverallRating, fearLevelText, round } from "../../utils/scoreUtils";
+import {
+  calculateOverallRating,
+  fearLevelText,
+  round,
+} from "../../utils/scoreUtils";
 import { SEO } from "astro-seo";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const entries = await getCollection("movie");
-  return entries.map(
-    (entry) => ({
-      params: { slug: entry.slug },
-      props: { entry },
-    })
-  );
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
 
 const { entry } = Astro.props;
@@ -24,9 +27,9 @@ const scareScaleRating = calculateOverallRating(entry.data.categoryRatings);
 const scareScaleText = fearLevelText(scareScaleRating);
 const parsedDate = new Date(String(entry.data.releaseDate));
 const formattedDate = parsedDate.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric"
+  day: "numeric",
+  month: "long",
+  year: "numeric",
 });
 ---
 
@@ -86,9 +89,12 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
       <div
         class="place-items-center max-w-2xl px-6 grid grid-cols-1 lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8"
       >
-        <img
+        <Image
           src={posterUrl}
+          data-src={posterUrl}
           alt={`${entry.data.name} movie poster`}
+          width={300}
+          height={450}
           class="size-full size-2/3 rounded-lg object-cover"
         />
 
@@ -143,10 +149,10 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
               <div class="flex flex-col items-center p-4">
                 <!-- <h5 class="text-xl mb-4 font-medium text-white">Scare Scale</h5> -->
                 <img
-                src="/logo/logo_full.png"
-                alt="Scare Scale Logo"
-                class="h-14 w-auto"
-              />
+                  src="/logo/logo_full.png"
+                  alt="Scare Scale Logo"
+                  class="h-14 w-auto"
+                />
                 <div
                   class="w-20 h-20 m-6 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center"
                 >
