@@ -2,17 +2,20 @@
 import { getCollection ***REMOVED*** from "astro:content";
 import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
-import { calculateOverallRating, fearLevelText, round ***REMOVED*** from "../../utils/scoreUtils";
+import {
+  calculateOverallRating,
+  fearLevelText,
+  round,
+***REMOVED*** from "../../utils/scoreUtils";
 import { SEO ***REMOVED*** from "astro-seo";
+import { Image ***REMOVED*** from "astro:assets";
 
 export async function getStaticPaths() {
   const entries = await getCollection("movie");
-  return entries.map(
-    (entry) => ({
-      params: { slug: entry.slug ***REMOVED***,
-      props: { entry ***REMOVED***,
-    ***REMOVED***)
-  );
+  return entries.map((entry) => ({
+    params: { slug: entry.slug ***REMOVED***,
+    props: { entry ***REMOVED***,
+  ***REMOVED***));
 ***REMOVED***
 
 const { entry ***REMOVED*** = Astro.props;
@@ -24,9 +27,9 @@ const scareScaleRating = calculateOverallRating(entry.data.categoryRatings);
 const scareScaleText = fearLevelText(scareScaleRating);
 const parsedDate = new Date(String(entry.data.releaseDate));
 const formattedDate = parsedDate.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric"
+  day: "numeric",
+  month: "long",
+  year: "numeric",
 ***REMOVED***);
 ---
 
@@ -86,9 +89,12 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
       <div
         class="place-items-center max-w-2xl px-6 grid grid-cols-1 lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8"
       >
-        <img
+        <Image
           src={posterUrl***REMOVED***
+          data-src={posterUrl***REMOVED***
           alt={`${entry.data.name***REMOVED*** movie poster`***REMOVED***
+          width={300***REMOVED***
+          height={450***REMOVED***
           class="size-full size-2/3 rounded-lg object-cover"
         />
 
@@ -143,10 +149,10 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
               <div class="flex flex-col items-center p-4">
                 <!-- <h5 class="text-xl mb-4 font-medium text-white">Scare Scale</h5> -->
                 <img
-                src="/logo/logo_full.png"
-                alt="Scare Scale Logo"
-                class="h-14 w-auto"
-              />
+                  src="/logo/logo_full.png"
+                  alt="Scare Scale Logo"
+                  class="h-14 w-auto"
+                />
                 <div
                   class="w-20 h-20 m-6 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center"
                 >

@@ -1,5 +1,6 @@
 ---
 import { round ***REMOVED*** from "../../utils/scoreUtils";
+import { Image ***REMOVED*** from 'astro:assets';
 
 const { name, tmdbPosterId, rank, scareScaleRating, slug, lazyLoad = false ***REMOVED*** =
   Astro.props;
@@ -7,12 +8,15 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmdbPost
 ---
 
 <a href=`/movie/${slug***REMOVED***` class="relative group" id={name***REMOVED***>
-  <img
-    data-src={posterUrl***REMOVED***
-    src={lazyLoad ? "" : posterUrl***REMOVED***
-    alt={`${name***REMOVED***`***REMOVED***
-    class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 lazy-load"
-  />
+  <Image
+  src={posterUrl***REMOVED***
+  data-src={posterUrl***REMOVED***
+  alt={name***REMOVED***
+  width={300***REMOVED***
+  height={450***REMOVED***
+  class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75"
+  loading={lazyLoad ? "lazy" : "eager"***REMOVED***
+/>
   {
     rank ? (
       <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-6 h-6 lg:w-12 lg:h-12 clip-triangle">
