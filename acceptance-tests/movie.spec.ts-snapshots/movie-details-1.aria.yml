@@ -3,9 +3,7 @@
     - listitem:
       - link "Movie":
         - /url: /
-    - listitem:
-      - link "Heart Eyes":
-        - /url: "#"
+    - listitem: Heart Eyes
 - img "Heart Eyes movie poster"
 - heading "Heart Eyes" [level=1]
 - 'heading /Released: 6 February \d+/ [level=1]'

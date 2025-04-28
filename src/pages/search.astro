@@ -54,16 +54,10 @@ const movieEntries = await getCollection("movie");
 
       allMovies.forEach((movie) => {
         const title = movie.getAttribute("id")?.toLowerCase();
-        const img = movie.querySelector(".lazy-load");
 
         if (title && title.includes(q.toLowerCase())) {
           movie.style.display = "block";
           hasResults = true;
-
-          // Load images AFTER filtering
-          if (img && img.getAttribute("data-src")) {
-            img.setAttribute("src", img.getAttribute("data-src") || "");
-          ***REMOVED***
         ***REMOVED*** else {
           movie.style.display = "none";
         ***REMOVED***
