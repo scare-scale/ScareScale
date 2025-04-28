@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${entry.data.tmdbPosterId}.jpg`;
+const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${entry.data.tmdbPosterId}`;
 
 const scareScaleRating = calculateOverallRating(entry.data.categoryRatings);
 const scareScaleText = fearLevelText(scareScaleRating);
@@ -77,10 +77,8 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
               </svg>
             </div>
           </li>
-          <li class="text-sm">
-            <a href="#" aria-current="page" class="font-medium text-white"
-              >{entry.data.name}</a
-            >
+          <li class="text-sm font-medium text-white">
+            {entry.data.name}
           </li>
         </ol>
       </nav>
