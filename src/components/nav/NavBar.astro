@@ -1,11 +1,14 @@
 ---
 const navLinks = {
-  "Home": "/",
-  "Ranks": "/ranks",
-  "Filter": "/filter",
-  "Contribute": "/contribute",
-  "Score Guide": "/score-guide"
+  Home: "/",
+  Ranks: "/ranks",
+  Filter: "/filter",
+  Contribute: "/contribute",
+  "Score Guide": "/score-guide",
 };
+
+import { Image } from "astro:assets";
+import searchIcon from "../../../public/icons/search.svg";
 ---
 
 <header class="bg-white border-b-2 border-[#d60c16]" id="navBar">
@@ -46,7 +49,13 @@ const navLinks = {
             id="searchButton"
             class="absolute right-3 top-1/2 transform -translate-y-1/2 hover:text-white"
           >
-            🔍
+            <Image
+              src={searchIcon}
+              alt="🔍"
+              width={25}
+              height={25}
+              loading="eager"
+            />
           </button>
         </div>
       </div>
@@ -88,6 +97,17 @@ const navLinks = {
 <script>
   document.addEventListener("astro:page-load", function () {
     function performSearch() {
+      const searchInput = document.getElementById(
+        "searchInput"
+      ) as HTMLInputElement;
+
+      if (searchInput.value.trim().length < 1) {
+        searchInput.setCustomValidity("Please enter at least one character.");
+        searchInput.reportValidity(); // Show validation message
+        return;
+      }
+
+      searchInput.setCustomValidity(""); // Clear validation message
       window.location.href = `/search?q=${searchInput.value}`;
     }
 
