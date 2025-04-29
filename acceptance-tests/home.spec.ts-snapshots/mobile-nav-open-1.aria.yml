@@ -3,7 +3,8 @@
     - /url: /
     - img "Scare Scale Logo"
   - textbox "Search..."
-  - button "🔍"
+  - button "🔍":
+    - img "🔍"
   - button:
     - img
   - navigation:
