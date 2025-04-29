@@ -1,6 +1,6 @@
-import { test, expect ***REMOVED*** from "@playwright/test";
+import { test, expect } from "@playwright/test";
 
-test("search movie", async ({ page ***REMOVED***) => {
+test("search movie", async ({ page }) => {
   await page.goto("/");
 
   // Enter search query in search bar
@@ -20,4 +20,4 @@ test("search movie", async ({ page ***REMOVED***) => {
 
   // Validate results are returned
   await expect(page.locator("#searchResults")).toMatchAriaSnapshot();
-***REMOVED***);
+});

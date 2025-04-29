@@ -1,8 +1,8 @@
 ---
-import { getCollection ***REMOVED*** from "astro:content";
+import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
-import MoviesGrid, { Sort ***REMOVED*** from "../components/grids/MoviesGrid.astro";
-import { SEO ***REMOVED*** from "astro-seo";
+import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
+import { SEO } from "astro-seo";
 
 const movieEntries = await getCollection("movie");
 ---
@@ -18,11 +18,11 @@ const movieEntries = await getCollection("movie");
         url: "https://scarescale.com/",
         title: "Scare Scale - Horror Movie Scare Ratings | Fear Factor Breakdown",
         image: "https://scarescale.com/assets/scare-scale-preview.jpg",
-      ***REMOVED***,
+      },
       optional: {
         description: "Rank horror movies by Gore, Creepy moments, Jumpscares, Suspense, and Psychological fear. Find the scariest films ranked by their chilling impact!",
-      ***REMOVED***
-    ***REMOVED******REMOVED***
+      }
+    }}
   />
 </head>
 
@@ -57,7 +57,7 @@ const movieEntries = await getCollection("movie");
         </div>
       </div>
       <div class="mt-16 lg:mt-8">
-        <MoviesGrid entries={movieEntries***REMOVED*** sort={Sort.ReleaseDateDecending***REMOVED*** />
+        <MoviesGrid entries={movieEntries} sort={Sort.ReleaseDateDecending} />
       </div>
     </div>
   </section>

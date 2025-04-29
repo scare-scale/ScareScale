@@ -1,49 +1,49 @@
-import { test, expect ***REMOVED*** from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 test.describe('desktop', () => {
-  test.use({ viewport: { width: 1920, height: 1080 ***REMOVED*** ***REMOVED***);
+  test.use({ viewport: { width: 1920, height: 1080 } });
 
-  test.beforeEach(async ({ isMobile ***REMOVED***) => {
+  test.beforeEach(async ({ isMobile }) => {
     if (isMobile) {
       test.skip();
-    ***REMOVED***
-  ***REMOVED***);
+    }
+  });
 
-  test('has title', async ({ page ***REMOVED***) => {
+  test('has title', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle("Scare Scale - Home");
 
-    await page.screenshot({ path: 'public/screenshots/home_page_screenshot.png' ***REMOVED***);
-  ***REMOVED***);
+    await page.screenshot({ path: 'public/screenshots/home_page_screenshot.png' });
+  });
 
-  test('nav', async ({ page ***REMOVED***) => {
+  test('nav', async ({ page }) => {
     await page.goto('/');
     await expect(page.locator('#navBar')).toMatchAriaSnapshot();
-  ***REMOVED***);
-***REMOVED***);
+  });
+});
 
 test.describe('mobile', () => {
-  test.use({ viewport: { width: 375, height: 812 ***REMOVED*** ***REMOVED***);
+  test.use({ viewport: { width: 375, height: 812 } });
 
-  test.beforeEach(async ({ isMobile ***REMOVED***) => {
+  test.beforeEach(async ({ isMobile }) => {
     if (!isMobile) {
       test.skip();
-    ***REMOVED***
-  ***REMOVED***);
+    }
+  });
 
-  test('has title', async ({ page ***REMOVED***) => {
+  test('has title', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle("Scare Scale - Home");
-  ***REMOVED***);
+  });
 
-  test('nav closed', async ({ page ***REMOVED***) => {
+  test('nav closed', async ({ page }) => {
     await page.goto('/');
     await expect(page.locator('#navBar')).toMatchAriaSnapshot();
-  ***REMOVED***);
+  });
 
-  test('nav open', async ({ page ***REMOVED***) => {
+  test('nav open', async ({ page }) => {
     await page.goto('/');
     await page.locator('#menuButton').click()
     await expect(page.locator('#navBar')).toMatchAriaSnapshot();
-  ***REMOVED***);
-***REMOVED***);
+  });
+});

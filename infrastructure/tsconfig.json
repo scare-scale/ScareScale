@@ -23,9 +23,9 @@
     "typeRoots": [
       "./node_modules/@types"
     ]
-  ***REMOVED***,
+  },
   "exclude": [
     "node_modules",
     "cdk.out"
   ]
-***REMOVED***
+}

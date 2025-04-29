@@ -1,5 +1,5 @@
 import rss from "@astrojs/rss";
-import { getCollection ***REMOVED*** from "astro:content";
+import { getCollection } from "astro:content";
 
 export async function get(context) {
   const movies = await getCollection("movie");
@@ -10,8 +10,8 @@ export async function get(context) {
     trailingSlash: false,
     items: movies.map((movie) => ({
       title: movie.data.name,
-      link: `/movie/${movie.slug***REMOVED***`,
+      link: `/movie/${movie.slug}`,
       description: movie.body
-    ***REMOVED***))
-  ***REMOVED***);
-***REMOVED***
+    }))
+  });
+}

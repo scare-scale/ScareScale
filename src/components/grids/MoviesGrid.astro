@@ -1,68 +1,68 @@
 ---
-import { calculateOverallRating ***REMOVED*** from "../../utils/scoreUtils";
+import { calculateOverallRating } from "../../utils/scoreUtils";
 import MovieCard from "../cards/MovieCard.astro";
-import type { MovieData ***REMOVED*** from "../../models/Movie";
+import type { MovieData } from "../../models/Movie";
 
 export enum Sort {
   Random,
   HighestToLowestScore,
   ReleaseDateDecending
-***REMOVED***
+}
 
-const { entries, showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined ***REMOVED*** = Astro.props;
+const { entries, showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined } = Astro.props;
 
-type Movie = { data: typeof MovieData; slug: String; scareScaleRating: number; releaseDateParsed: Date ***REMOVED***;
+type Movie = { data: typeof MovieData; slug: String; scareScaleRating: number; releaseDateParsed: Date };
 
 const movies: Movie[] = entries.map(
-  (entry: { slug: any; data: typeof MovieData ***REMOVED***): Movie => ({
+  (entry: { slug: any; data: typeof MovieData }): Movie => ({
     data: entry.data,
     slug: entry.slug,
     scareScaleRating: calculateOverallRating(entry.data.categoryRatings),
     releaseDateParsed: new Date(String(entry.data.releaseDate))
-  ***REMOVED***)
+  })
 );
 
 const filterMovie = (movie: Movie) => {
   if (showAll) {
     return true;
-  ***REMOVED***
+  }
 
   // Filter out movies without ratings
   if (movie.scareScaleRating == 0) {
     return false;
-  ***REMOVED***
+  }
 
   if (yearFilter) {
     const movieYear = movie.releaseDateParsed.getFullYear();
     if (!yearFilter.includes(String(movieYear))) {
         return false;
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
 
   return true;
-***REMOVED***;
+};
 
 const getSortMethod = () => {
     if (sort == Sort.HighestToLowestScore) {
         return (a: Movie, b: Movie) => b.scareScaleRating - a.scareScaleRating;;
-    ***REMOVED***
+    }
 
     if (sort == Sort.ReleaseDateDecending) {
         return (a: Movie, b: Movie) => b.releaseDateParsed.getTime() - a.releaseDateParsed.getTime();
-    ***REMOVED***
+    }
 
     // Sort randomly
     return () => Math.random() - 0.5;
-***REMOVED***
+}
 
 const sortMethod = getSortMethod()
 
-const optionalClasses = `${hidden ? " hidden " : ""***REMOVED***`
+const optionalClasses = `${hidden ? " hidden " : ""}`
 ---
 
 <div
   id="moviesContainer"
-  class={"m-4 grid grid-cols-3 gap-x-4 gap-y-4 lg:grid-cols-5" + optionalClasses***REMOVED***
+  class={"m-4 grid grid-cols-3 gap-x-4 gap-y-4 lg:grid-cols-5" + optionalClasses}
 >
   {
     movies
@@ -72,13 +72,13 @@ const optionalClasses = `${hidden ? " hidden " : ""***REMOVED***`
       .map((movie, index) => {
         return (
           <MovieCard
-            {...movie.data***REMOVED***
-            slug={movie.slug***REMOVED***
-            scareScaleRating={movie.scareScaleRating***REMOVED***
-            rank={showRank ? index + 1 : undefined***REMOVED***
-            lazyLoad={lazyLoad***REMOVED***
+            {...movie.data}
+            slug={movie.slug}
+            scareScaleRating={movie.scareScaleRating}
+            rank={showRank ? index + 1 : undefined}
+            lazyLoad={lazyLoad}
           />
         );
-      ***REMOVED***)
-  ***REMOVED***
+      })
+  }
 </div>

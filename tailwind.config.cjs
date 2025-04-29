@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config***REMOVED*** */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue***REMOVED***'],
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	darkMode: "class",
 	theme: {
 		extend: {
@@ -15,13 +15,13 @@ module.exports = {
 				"heading-1": "#111827",
 				"heading-2": "#111827",
 				"heading-3": "#111827",
-			***REMOVED***,
+			},
 			screens:{
 				midmd:"880px"
-			***REMOVED***
-		***REMOVED***,
-	***REMOVED***,
+			}
+		},
+	},
 	plugins: [
 		require('@tailwindcss/typography'),
 	]
-***REMOVED***
+}

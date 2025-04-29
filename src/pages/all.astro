@@ -1,5 +1,5 @@
 ---
-import { getCollection ***REMOVED*** from "astro:content";
+import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import MoviesGrid from "../components/grids/MoviesGrid.astro";
 
@@ -11,7 +11,7 @@ const movieEntries = await getCollection("movie");
     class="flex flex-col gap-y-10 md:gap-y-20 pt-10"
   >
       <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <MoviesGrid entries={movieEntries***REMOVED*** showAll={true***REMOVED*** maxCount={1000***REMOVED***/>
+        <MoviesGrid entries={movieEntries} showAll={true} maxCount={1000}/>
       </div>
   </section>
 </MainLayout>

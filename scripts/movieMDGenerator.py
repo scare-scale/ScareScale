@@ -67,3 +67,17 @@ def save_as_md(movie_data):
                     md_file.write(f"{key}:\n")
                     for sub_key, sub_value in value.items():
                         md_file.write(f"    {sub_key}: {sub_value}\n")
+                else:
+                    md_file.write(f"{key}: {value}\n")
+            md_file.write("---\n")
+            md_file.write(f"{movie_data['description']}\n")
+
+        print(f"Markdown file '{filename}' updated successfully!")
+
+# Prompting the user for input
+movie_id = input("Enter the TMDB movie ID: ")
+if movie_id.isdigit():
+    movie_data = get_movie_details(int(movie_id))
+    save_as_md(movie_data)
+else:
+    print("Invalid input. Please enter a numeric movie ID.")

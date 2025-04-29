@@ -1,5 +1,5 @@
 ---
-import { Image ***REMOVED*** from "astro:assets";
+import { Image } from "astro:assets";
 import searchIcon from "../../../public/icons/search.svg";
 
 const navLinks = {
@@ -8,7 +8,7 @@ const navLinks = {
   Filter: "/filter",
   Contribute: "/contribute",
   "Score Guide": "/score-guide",
-***REMOVED***;
+};
 ---
 
 <header class="bg-white border-b-2 border-[#d60c16]" id="navBar">
@@ -27,11 +27,11 @@ const navLinks = {
       <nav class="hidden md:flex flex-grow justify-center space-x-6 font-bold">
         {
           Object.entries(navLinks).map(([name, href]) => (
-            <a href={href***REMOVED*** class="hover:text-[#d60c16]">
-              {name***REMOVED***
+            <a href={href} class="hover:text-[#d60c16]">
+              {name}
             </a>
           ))
-        ***REMOVED***
+        }
       </nav>
 
       <!-- Search Bar (Left-Aligned Text, Right-Aligned Icon) -->
@@ -50,10 +50,10 @@ const navLinks = {
             class="absolute right-3 top-1/2 transform -translate-y-1/2 hover:text-white"
           >
             <Image
-              src={searchIcon***REMOVED***
+              src={searchIcon}
               alt="🔍"
-              width={25***REMOVED***
-              height={25***REMOVED***
+              width={25}
+              height={25}
               loading="eager"
             />
           </button>
@@ -84,11 +84,11 @@ const navLinks = {
     <nav class="flex flex-col py-4 space-y-2">
       {
         Object.entries(navLinks).map(([name, href]) => (
-          <a href={href***REMOVED*** class="hover:text-gray-400">
-            {name***REMOVED***
+          <a href={href} class="hover:text-gray-400">
+            {name}
           </a>
         ))
-      ***REMOVED***
+      }
     </nav>
   </div>
 </header>
@@ -105,11 +105,11 @@ const navLinks = {
         searchInput.setCustomValidity("Please enter at least one character.");
         searchInput.reportValidity(); // Show validation message
         return;
-      ***REMOVED***
+      }
 
       searchInput.setCustomValidity(""); // Clear validation message
-      window.location.href = `/search?q=${searchInput.value***REMOVED***`;
-    ***REMOVED***
+      window.location.href = `/search?q=${searchInput.value}`;
+    }
 
     const menuButton = document.getElementById(
       "menuButton"
@@ -125,8 +125,8 @@ const navLinks = {
     if (menuButton && mobileMenu) {
       menuButton.addEventListener("click", function () {
         mobileMenu.classList.toggle("hidden");
-      ***REMOVED***);
-    ***REMOVED***
+      });
+    }
 
     if (searchButton && searchInput) {
       searchButton.addEventListener("click", performSearch);
@@ -134,15 +134,15 @@ const navLinks = {
         if (event.key === "Enter") {
           event.preventDefault(); // Stops form submission if inside a form
           performSearch();
-        ***REMOVED***
-      ***REMOVED***);
-    ***REMOVED***
+        }
+      });
+    }
     // Populate search input with query parameter value on page load
     const urlParams = new URLSearchParams(window.location.search);
     const queryValue = urlParams.get("q");
 
     if (queryValue && searchInput) {
       searchInput.value = queryValue;
-    ***REMOVED***
-  ***REMOVED***);
+    }
+  });
 </script>

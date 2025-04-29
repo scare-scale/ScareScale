@@ -17,7 +17,7 @@ jobs:
       name: Create GitHub deployment
       id: deployment
       with:
-        token: '${{ github.token ***REMOVED******REMOVED***'
+        token: '${{ github.token }}'
         environment-url: http://scarescale.com
         environment: production
 
@@ -38,8 +38,8 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@master
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID ***REMOVED******REMOVED***
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY ***REMOVED******REMOVED***
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: "eu-west-1"
 
     - name: Run deploy
@@ -49,16 +49,16 @@ jobs:
       if: success()
       uses: chrnorm/deployment-status@v2
       with:
-        token: '${{ github.token ***REMOVED******REMOVED***'
-        environment-url: ${{ steps.deployment.outputs.environment_url ***REMOVED******REMOVED***
-        deployment-id: ${{ steps.deployment.outputs.deployment_id ***REMOVED******REMOVED***
+        token: '${{ github.token }}'
+        environment-url: ${{ steps.deployment.outputs.environment_url }}
+        deployment-id: ${{ steps.deployment.outputs.deployment_id }}
         state: 'success'
 
     - name: Update deployment status (failure)
       if: failure()
       uses: chrnorm/deployment-status@v2
       with:
-        token: '${{ github.token ***REMOVED******REMOVED***'
-        environment-url: ${{ steps.deployment.outputs.environment_url ***REMOVED******REMOVED***
-        deployment-id: ${{ steps.deployment.outputs.deployment_id ***REMOVED******REMOVED***
+        token: '${{ github.token }}'
+        environment-url: ${{ steps.deployment.outputs.environment_url }}
+        deployment-id: ${{ steps.deployment.outputs.deployment_id }}
         state: 'failure'

@@ -1,27 +1,27 @@
 ---
-import { getCollection ***REMOVED*** from "astro:content";
+import { getCollection } from "astro:content";
 import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 import {
   calculateOverallRating,
   fearLevelText,
   round,
-***REMOVED*** from "../../utils/scoreUtils";
-import { SEO ***REMOVED*** from "astro-seo";
-import { Image ***REMOVED*** from "astro:assets";
+} from "../../utils/scoreUtils";
+import { SEO } from "astro-seo";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const entries = await getCollection("movie");
   return entries.map((entry) => ({
-    params: { slug: entry.slug ***REMOVED***,
-    props: { entry ***REMOVED***,
-  ***REMOVED***));
-***REMOVED***
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
 
-const { entry ***REMOVED*** = Astro.props;
-const { Content ***REMOVED*** = await entry.render();
+const { entry } = Astro.props;
+const { Content } = await entry.render();
 
-const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${entry.data.tmdbPosterId***REMOVED***`;
+const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${entry.data.tmdbPosterId}`;
 
 const scareScaleRating = calculateOverallRating(entry.data.categoryRatings);
 const scareScaleText = fearLevelText(scareScaleRating);
@@ -30,25 +30,25 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
   day: "numeric",
   month: "long",
   year: "numeric",
-***REMOVED***);
+});
 ---
 
 <head>
   <SEO
-    title={`Scare Scale - ${entry.data.name***REMOVED*** Review & Scare Ratings`***REMOVED***
-    description={`${entry.data.name***REMOVED*** (${parsedDate.getFullYear()***REMOVED***) — Rated for Gore (${entry.data.categoryRatings.gore***REMOVED***), Creepy Moments (${entry.data.categoryRatings.creepy***REMOVED***), Jumpscares (${entry.data.categoryRatings.jumpscares***REMOVED***), Suspense (${entry.data.categoryRatings.suspense***REMOVED***), and Psychological Horror (${entry.data.categoryRatings.psychological***REMOVED***). Discover how it ranks on the Scare Scale!`***REMOVED***
-    canonical={`https://scarescale.com/movie/${entry.data.tmdbId***REMOVED***`***REMOVED***
+    title={`Scare Scale - ${entry.data.name} Review & Scare Ratings`}
+    description={`${entry.data.name} (${parsedDate.getFullYear()}) — Rated for Gore (${entry.data.categoryRatings.gore}), Creepy Moments (${entry.data.categoryRatings.creepy}), Jumpscares (${entry.data.categoryRatings.jumpscares}), Suspense (${entry.data.categoryRatings.suspense}), and Psychological Horror (${entry.data.categoryRatings.psychological}). Discover how it ranks on the Scare Scale!`}
+    canonical={`https://scarescale.com/movie/${entry.data.tmdbId}`}
     openGraph={{
       basic: {
         type: "website",
-        url: `https://scarescale.com/movie/${entry.data.tmdbId***REMOVED***`,
-        title: `Scare Scale - ${entry.data.name***REMOVED*** Horror Movie Ratings`,
+        url: `https://scarescale.com/movie/${entry.data.tmdbId}`,
+        title: `Scare Scale - ${entry.data.name} Horror Movie Ratings`,
         image: posterUrl,
-      ***REMOVED***,
+      },
       optional: {
-        description: `${entry.data.name***REMOVED*** — ${entry.data.description***REMOVED***. Find out how scary it is based on Gore, Creepy moments, Jumpscares, Suspense, and Psychological horror.`,
-      ***REMOVED***,
-    ***REMOVED******REMOVED***
+        description: `${entry.data.name} — ${entry.data.description}. Find out how scary it is based on Gore, Creepy moments, Jumpscares, Suspense, and Psychological horror.`,
+      },
+    }}
   />
 </head>
 
@@ -81,7 +81,7 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
             </div>
           </li>
           <li class="text-sm font-medium text-white">
-            {entry.data.name***REMOVED***
+            {entry.data.name}
           </li>
         </ol>
       </nav>
@@ -90,11 +90,11 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
         class="place-items-center max-w-2xl px-6 grid grid-cols-1 lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8"
       >
         <Image
-          src={posterUrl***REMOVED***
-          data-src={posterUrl***REMOVED***
-          alt={`${entry.data.name***REMOVED*** movie poster`***REMOVED***
-          width={300***REMOVED***
-          height={450***REMOVED***
+          src={posterUrl}
+          data-src={posterUrl}
+          alt={`${entry.data.name} movie poster`}
+          width={300}
+          height={450}
           class="size-full size-2/3 rounded-lg object-cover"
         />
 
@@ -102,10 +102,10 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
           class="py-10 lg:border-l lg:border-gray-200 lg:pt-6 lg:pl-8 lg:pb-16 lg:col-span-2"
         >
           <h1 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            {entry.data.name***REMOVED***
+            {entry.data.name}
           </h1>
           <h1 class="text-sm tracking-tight text-white">
-            {`Released: ${formattedDate***REMOVED***`***REMOVED***
+            {`Released: ${formattedDate}`}
           </h1>
           <div class="mt-5">
             <Prose>
@@ -124,14 +124,14 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
                         <div class="flex min-w-0 gap-x-4">
                           <img
                             class="w-6 h-6 flex-none"
-                            src={`/icons/categories/${categoryName***REMOVED***.svg`***REMOVED***
+                            src={`/icons/categories/${categoryName}.svg`}
                             alt=" "
                           />
                           <h1 class="text-sm/1 font-bold text-white">
-                            {categoryName***REMOVED***
+                            {categoryName}
                           </h1>
                         </div>
-                        <p class="text-sm/1 text-white">{score***REMOVED*** / 10</p>
+                        <p class="text-sm/1 text-white">{score} / 10</p>
                       </li>
                     )
                   )
@@ -140,7 +140,7 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
                     Ratings not found
                   </h5>
                 )
-              ***REMOVED***
+              }
             </ul>
 
             <div
@@ -157,10 +157,10 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
                   class="w-20 h-20 m-6 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center"
                 >
                   <h5 class="text-xl font-medium text-[#d60c16]">
-                    {round(scareScaleRating)***REMOVED*** / 10
+                    {round(scareScaleRating)} / 10
                   </h5>
                 </div>
-                <h5 class="text-2xl text-black font-bold">{scareScaleText***REMOVED***</h5>
+                <h5 class="text-2xl text-black font-bold">{scareScaleText}</h5>
               </div>
             </div>
           </div>

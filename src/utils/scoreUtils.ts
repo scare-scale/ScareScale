@@ -10,11 +10,11 @@ const fearLevels: Record<number, string> = {
   8: "Horrifying",
   9: "Nightmarish",
   10: "Petrifying",
-***REMOVED***;
+};
 
 export const fearLevelText = (scareScaleRating: number) => {
   return fearLevels[Math.round(scareScaleRating)] ?? "Unknown";
-***REMOVED***;
+};
 
 export const calculateOverallRating = (categoryRatings: Object) => {
   if (categoryRatings) {
@@ -27,9 +27,9 @@ export const calculateOverallRating = (categoryRatings: Object) => {
     let average = topThree.reduce((sum, value) => sum + value, 0) / 3;
 
     return average; // Rounds to the nearest whole number
-  ***REMOVED***
+  }
   return 0;
-***REMOVED***;
+};
 
 
 export const round = (scareScaleRating: number) => Math.round(scareScaleRating * 10) / 10;
