@@ -1,69 +1,69 @@
-***REMOVED***
-***REMOVED***
-***REMOVED***
+import requests
+import re
+import os
 
-***REMOVED***
-***REMOVED***
+BASE_URL = "https://api.themoviedb.org/3"
+BEARER_TOKEN = os.getenv("TMDB_BEARER_TOKEN")  # Read Bearer token from environment variable
 
-***REMOVED***
-***REMOVED***
+if not BEARER_TOKEN:
+    raise ValueError("Bearer token is missing. Set the TMDB_BEARER_TOKEN environment variable.")
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+headers = {
+    "accept": "application/json",
+    "Authorization": f"Bearer {BEARER_TOKEN}"
+}
 
-***REMOVED***
-    url = f"{BASE_URL***REMOVED***/movie/{movie_id***REMOVED***"
-***REMOVED***
+def get_movie_details(movie_id):
+    url = f"{BASE_URL}/movie/{movie_id}"
+    response = requests.get(url, headers=headers)
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-        ***REMOVED***
-***REMOVED***
-***REMOVED***
-        print(f"Error: Unable to fetch data. Status code {response.status_code***REMOVED***")
-***REMOVED***
+    if response.status_code == 200:
+        data = response.json()
+        movie_info = {
+            "name": data.get("title"),
+            "tmdbId": data.get("id"),
+            "tmdbPosterId": data.get("poster_path"),
+            "description": data.get("overview"),
+            "releaseDate": data.get("release_date")  # New field added
+        }
+        return movie_info
+    else:
+        print(f"Error: Unable to fetch data. Status code {response.status_code}")
+        return None
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-        filename = f"../src/content/movie/{parsedName***REMOVED***.md"
+def save_as_md(movie_data):
+    if movie_data:
+        parsedName = str(re.sub(r'[^a-zA-Z0-9 ]', '', movie_data['name'])).lower().replace(" ", "-")
+        filename = f"../src/content/movie/{parsedName}.md"
 
-        existing_content = {***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+        existing_content = {}
+        if os.path.exists(filename):
+            with open(filename, "r", encoding="utf-8") as md_file:
+                lines = md_file.readlines()
+                for line in lines:
+                    if ":" in line:
+                        key, value = line.split(":", 1)
+                        existing_content[key.strip()] = value.strip()
 
-***REMOVED***
-***REMOVED***
-            "name": f"'{movie_data['name']***REMOVED***'",
-            "tmdbId": f"'{movie_data['tmdbId']***REMOVED***'",
-            "tmdbPosterId": f"'{movie_data['tmdbPosterId']***REMOVED***'",
-            "releaseDate": f"'{movie_data['releaseDate']***REMOVED***'",  # New field added
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-            ***REMOVED***
-        ***REMOVED***
+        # Update existing values or add new ones
+        updated_content = {
+            "name": f"'{movie_data['name']}'",
+            "tmdbId": f"'{movie_data['tmdbId']}'",
+            "tmdbPosterId": f"'{movie_data['tmdbPosterId']}'",
+            "releaseDate": f"'{movie_data['releaseDate']}'",  # New field added
+            "categoryRatings": {
+                "gore": existing_content.get("gore", "0"),
+                "creepy": existing_content.get("creepy", "0"),
+                "jumpscares": existing_content.get("jumpscares", "0"),
+                "suspense": existing_content.get("suspense", "0"),
+                "psychological": existing_content.get("psychological", "0"),
+            }
+        }
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-                    md_file.write(f"{key***REMOVED***:\n")
-***REMOVED***
-                        md_file.write(f"    {sub_key***REMOVED***: {sub_value***REMOVED***\n")
+        with open(filename, "w", encoding="utf-8") as md_file:
+            md_file.write("---\n")
+            for key, value in updated_content.items():
+                if isinstance(value, dict):  # Handling nested categoryRatings
+                    md_file.write(f"{key}:\n")
+                    for sub_key, sub_value in value.items():
+                        md_file.write(f"    {sub_key}: {sub_value}\n")
