@@ -13,24 +13,6 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-    - name: Install dependencies
-      run: |
-        npm ci
-        npm --prefix infrastructure install
-    - name: Run Build
-      run: npm run build
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@master
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID ***REMOVED******REMOVED***
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY ***REMOVED******REMOVED***
-        aws-region: "eu-west-1"
-    - name: Run deploy
-      run: npm run cdk-deploy
     - uses: chrnorm/deployment-action@v2
       name: Create GitHub deployment
       id: deployment
@@ -38,3 +20,45 @@ jobs:
         token: '${{ github.token ***REMOVED******REMOVED***'
         environment-url: http://scarescale.com
         environment: production
+
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+
+    - name: Install dependencies
+      run: |
+        npm ci
+        npm --prefix infrastructure install
+
+    - name: Run Build
+      run: npm run build
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@master
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID ***REMOVED******REMOVED***
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY ***REMOVED******REMOVED***
+        aws-region: "eu-west-1"
+
+    - name: Run deploy
+      run: npm run cdk-deploy
+
+    - name: Update deployment status (success)
+      if: success()
+      uses: chrnorm/deployment-status@v2
+      with:
+        token: '${{ github.token ***REMOVED******REMOVED***'
+        environment-url: ${{ steps.deployment.outputs.environment_url ***REMOVED******REMOVED***
+        deployment-id: ${{ steps.deployment.outputs.deployment_id ***REMOVED******REMOVED***
+        state: 'success'
+
+    - name: Update deployment status (failure)
+      if: failure()
+      uses: chrnorm/deployment-status@v2
+      with:
+        token: '${{ github.token ***REMOVED******REMOVED***'
+        environment-url: ${{ steps.deployment.outputs.environment_url ***REMOVED******REMOVED***
+        deployment-id: ${{ steps.deployment.outputs.deployment_id ***REMOVED******REMOVED***
+        state: 'failure'
