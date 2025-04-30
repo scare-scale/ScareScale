@@ -22,7 +22,8 @@ export default defineConfig({
       policy: [
         {
           userAgent: "*",
-          allow: "/"
+          allow: "/",
+          disallow: ["/search", "/all"],
         },
       ],
     }),

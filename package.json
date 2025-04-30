@@ -11,7 +11,8 @@
     "test": "playwright test",
     "cdk": "npm --prefix infrastructure run cdk",
     "cdk-deploy": "npm --prefix infrastructure run cdk deploy -- --all",
-    "deploy": "npm run build && npm run cdk-deploy"
+    "deploy": "npm run build && npm run cdk-deploy",
+    "release": "release-it"
   },
   "dependencies": {
     "@astrojs/react": "^3.3.0",
@@ -32,6 +33,13 @@
   "devDependencies": {
     "@playwright/test": "^1.52.0",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^22.15.2"
+    "@types/node": "^22.15.2",
+    "release-it": "^19.0.1"
+  },
+  "release-it": {
+    "$schema": "https://unpkg.com/release-it/schema/release-it.json",
+    "github": {
+      "release": true
+    }
   }
 }
