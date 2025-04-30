@@ -5,7 +5,8 @@
       "requireBranch": "main"
     },
     "github": {
-      "release": true
+      "release": true,
+      "tokenRef": "token"
     },
     "npm": {
     "publish": false

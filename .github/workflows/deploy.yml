@@ -51,10 +51,12 @@ jobs:
     - name: setup git config
       run: |
         git config user.name "GitHub Release Bot"
-        git config user.email "<>"
+        git config user.email "github-actions@github.com"
 
     - name: Run release
       run: npm run release --ci
+      with:
+        token: ${{ github.token }}
 
     - name: Run deploy
       run: npm run cdk-deploy
