@@ -35,11 +35,5 @@
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.15.2",
     "release-it": "^19.0.1"
-  },
-  "release-it": {
-    "$schema": "https://unpkg.com/release-it/schema/release-it.json",
-    "github": {
-      "release": true
-    }
   }
 }
