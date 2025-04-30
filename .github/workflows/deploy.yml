@@ -55,7 +55,7 @@ jobs:
 
     - name: Run release
       run: npm run release --ci
-      with:
+      env:
         token: ${{ github.token }}
 
     - name: Run deploy
