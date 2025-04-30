@@ -1,7 +1,10 @@
 name: Deploy CDK
 on:
-  push:
-    branches: [ main ]
+  workflow_run:
+    workflows: ["Tests"]
+    branches: [main]
+    types: 
+      - completed
 jobs:
   deploy:
     permissions:
@@ -41,6 +44,9 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: "eu-west-1"
+
+    - name: Run release
+      run: npm run release --ci
 
     - name: Run deploy
       run: npm run cdk-deploy
