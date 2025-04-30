@@ -9,6 +9,6 @@
       "tokenRef": "token"
     },
     "npm": {
-    "publish": false
+      "publish": false
     }
   }
