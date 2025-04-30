@@ -2,7 +2,11 @@
     "$schema": "https://unpkg.com/release-it@19/schema/release-it.json",
     "git": {
       "commitMessage": "Release v${version}",
-      "requireBranch": "main"
+      "requireBranch": "main",
+      "pushArgs": [
+        "--follow-tags",
+        "--force"
+      ]
     },
     "github": {
       "release": true,
