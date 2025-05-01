@@ -1,14 +1,16 @@
 {
-    "$schema": "https://unpkg.com/release-it@19/schema/release-it.json",
-    "git": {
-      "commitMessage": "Release v${version}",
-      "requireBranch": "main"
-    },
-    "github": {
-      "release": true,
-      "tokenRef": "token"
-    },
-    "npm": {
+  "$schema": "https://unpkg.com/release-it@19/schema/release-it.json",
+  "git": {
+    "commitMessage": "Release v${version} [skip ci]",
+    "requireBranch": "main",
+    "pushArgs": ["--follow-tags", "--force"],
+    "requireCleanWorkingDir": false
+  },
+  "github": {
+    "release": true,
+    "tokenRef": "token"
+  },
+  "npm": {
     "publish": false
-    }
   }
+}

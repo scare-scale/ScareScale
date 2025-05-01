@@ -1,9 +1,9 @@
 name: Tests
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ dev, main ]
+  pull_request_target:
+    branches: [ dev ]
 jobs:
   playwright:
     timeout-minutes: 60
