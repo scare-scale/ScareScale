@@ -1,11 +1,7 @@
 name: Tests
 on:
   push:
-    branches: [ dev ]
-  pull_request:
-    branches: 
-      - main
-    types: [closed]
+    branches: [ dev, main ]
   pull_request_target:
     branches: [ dev ]
 jobs:
