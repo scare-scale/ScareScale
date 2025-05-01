@@ -3,11 +3,14 @@ on:
   push:
     branches: [ dev ]
   pull_request:
-    branches: [ main ]
+    branches: 
+      - main
+    types: [closed]
   pull_request_target:
     branches: [ dev ]
 jobs:
   playwright:
+    if: ${{ github.event.pull_request.merged }}
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
