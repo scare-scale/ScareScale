@@ -16,18 +16,23 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/create-github-app-token@v1
+      id: app-token
+      with:
+        app-id: ${{ vars.RELEASES_APP_ID }}
+        private-key: ${{ secrets.RELEASES_APP_PRIVATE_KEY }}
     - uses: chrnorm/deployment-action@v2
       name: Create GitHub deployment
       id: deployment
       with:
-        token: '${{ github.token }}'
+        token: ${{ steps.app-token.outputs.token }}
         environment-url: http://scarescale.com
         environment: production
 
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
-        token: ${{ github.token }}
+        token: ${{ steps.app-token.outputs.token }}
 
     - uses: actions/setup-node@v4
       with:
@@ -46,7 +51,7 @@ jobs:
     - name: Run release
       run: npm run release --ci
       env:
-        token: ${{ github.token }}
+        token: ${{ steps.app-token.outputs.token }}
 
     - name: Run Build
       run: npm run build
@@ -65,7 +70,7 @@ jobs:
       if: success()
       uses: chrnorm/deployment-status@v2
       with:
-        token: '${{ github.token }}'
+        token: ${{ steps.app-token.outputs.token }}
         environment-url: ${{ steps.deployment.outputs.environment_url }}
         deployment-id: ${{ steps.deployment.outputs.deployment_id }}
         state: 'success'
@@ -74,7 +79,7 @@ jobs:
       if: failure()
       uses: chrnorm/deployment-status@v2
       with:
-        token: '${{ github.token }}'
+        token: ${{ steps.app-token.outputs.token }}
         environment-url: ${{ steps.deployment.outputs.environment_url }}
         deployment-id: ${{ steps.deployment.outputs.deployment_id }}
         state: 'failure'

@@ -1,14 +1,22 @@
 {
-    "$schema": "https://unpkg.com/release-it@19/schema/release-it.json",
-    "git": {
-      "commitMessage": "Release v${version}",
-      "requireBranch": "main"
-    },
-    "github": {
-      "release": true,
-      "tokenRef": "token"
-    },
-    "npm": {
-      "publish": false
+  "$schema": "https://unpkg.com/release-it@19/schema/release-it.json",
+  "git": {
+    "commitMessage": "Release v${version}",
+    "requireBranch": "main",
+    "pushArgs": ["--follow-tags", "--force"],
+    "requireCleanWorkingDir": false
+  },
+  "github": {
+    "release": true,
+    "tokenRef": "token"
+  },
+  "npm": {
+    "publish": false
+  },
+  "plugins": {
+    "@csmith/release-it-calver-plugin": {
+      "format": "yyyy.mm.minor",
+      "increment": "calendar"
     }
   }
+}
