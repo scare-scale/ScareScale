@@ -12,11 +12,5 @@
   },
   "npm": {
     "publish": false
-  },
-  "plugins": {
-    "@csmith/release-it-calver-plugin": {
-      "format": "yyyy.mm.minor",
-      "increment": "calendar"
-    }
   }
 }

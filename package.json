@@ -1,7 +1,7 @@
 {
   "name": "scare-scale",
   "type": "module",
-  "version": "2025.5.1",
+  "version": "0.3.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -31,7 +31,6 @@
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
-    "@csmith/release-it-calver-plugin": "^2023.12.0",
     "@playwright/test": "^1.52.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.15.2",

@@ -3,7 +3,11 @@ on:
   push:
     branches: [ dev ]
   pull_request:
-    branches: [ main, dev ]
+    branches: 
+      - main
+    types: [closed]
+  pull_request_target:
+    branches: [ dev ]
 jobs:
   playwright:
     timeout-minutes: 60
