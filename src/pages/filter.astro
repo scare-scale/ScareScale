@@ -16,8 +16,22 @@ const categories = [
 
 <MainLayout>
   <section class="flex flex-col md:flex-row gap-y-10 md:gap-x-10 min-h-screen" id="searchResults">
+    <!-- Filters Button -->
+    <div id="toggleSidebar" class="w-full bg-gray-800 text-white p-4 md:hidden cursor-pointer flex items-center gap-2">
+      <span>Filters</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+      </svg>
+    </div>
+
     <!-- Sidebar -->
-    <aside class="w-full md:w-1/4 bg-gray-800 p-6 text-white">
+    <aside id="sidebar" class="w-full md:w-1/4 bg-gray-800 p-6 text-white transform transition-transform md:translate-x-0 -translate-x-full fixed md:static z-10">
+      <!-- Close Button -->
+      <button id="closeSidebar" class="md:hidden text-white absolute top-4 right-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </button>
       <h3 class="text-2xl font-semibold mb-6 border-b border-gray-600 pb-2">Filters</h3>
       <div class="flex flex-col gap-8">
         {categories.map((category) => (
@@ -83,6 +97,34 @@ const categories = [
   const activeFiltersContainer = document.getElementById("activeFilters");
   const params = new URLSearchParams(window.location.search);
   const q = params.get("q")?.toLowerCase() || "";
+
+  const sidebar = document.getElementById("sidebar");
+  const toggleSidebarButton = document.getElementById("toggleSidebar");
+  const closeSidebarButton = document.getElementById("closeSidebar");
+
+  if (toggleSidebarButton && sidebar) {
+    toggleSidebarButton.addEventListener("click", () => {
+      sidebar.classList.remove("-translate-x-full");
+    });
+  }
+
+  if (closeSidebarButton && sidebar) {
+    closeSidebarButton.addEventListener("click", () => {
+      sidebar.classList.add("-translate-x-full");
+    });
+  }
+
+  // Close sidebar when clicking outside
+  document.addEventListener("click", (event) => {
+    if (
+      sidebar &&
+      !sidebar.classList.contains("-translate-x-full") &&
+      !sidebar.contains(event.target) &&
+      !toggleSidebarButton.contains(event.target)
+    ) {
+      sidebar.classList.add("-translate-x-full");
+    }
+  });
 
   // Ensure elements are not null before accessing properties
   if (loadingIndicator) loadingIndicator.style.display = "none";
