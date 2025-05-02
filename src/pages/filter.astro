@@ -9,33 +9,53 @@ const movieEntries = await getCollection("movie");
 <MainLayout>
   <section class="flex flex-col md:flex-row gap-y-10 md:gap-x-10 min-h-screen pt-10" id="searchResults">
     <!-- Sidebar -->
-    <aside class="w-full md:w-1/4 bg-gray-800 p-4 rounded-lg text-white">
-      <h3 class="text-2xl font-semibold mb-4">Filters</h3>
-      <div class="flex flex-col gap-6">
-        <div>
-          <label for="goreSlider" class="block">Gore</label>
-          <input type="range" id="goreSlider" class="filter-slider" min="0" max="10" value="0" />
-          <span id="goreValue" class="ml-2">0</span>
+    <aside class="w-full md:w-1/4 bg-gray-800 p-6 rounded-lg text-white shadow-lg">
+      <h3 class="text-2xl font-semibold mb-6 border-b border-gray-600 pb-2">Filters</h3>
+      <div class="flex flex-col gap-8">
+        <div class="group">
+          <label for="goreSlider" class="block font-medium mb-1">Gore</label>
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-gray-400">0</span>
+            <input type="range" id="goreSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
+            <span class="text-sm text-gray-400">10</span>
+          </div>
+          <div class="text-center text-sm text-gray-300 mt-1" id="goreValue">0</div>
         </div>
-        <div>
-          <label for="creepySlider" class="block">Creepy</label>
-          <input type="range" id="creepySlider" class="filter-slider" min="0" max="10" value="0" />
-          <span id="creepyValue" class="ml-2">0</span>
+        <div class="group">
+          <label for="creepySlider" class="block font-medium mb-1">Creepy</label>
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-gray-400">0</span>
+            <input type="range" id="creepySlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
+            <span class="text-sm text-gray-400">10</span>
+          </div>
+          <div class="text-center text-sm text-gray-300 mt-1" id="creepyValue">0</div>
         </div>
-        <div>
-          <label for="jumpscaresSlider" class="block">Jumpscares</label>
-          <input type="range" id="jumpscaresSlider" class="filter-slider" min="0" max="10" value="0" />
-          <span id="jumpscaresValue" class="ml-2">0</span>
+        <div class="group">
+          <label for="jumpscaresSlider" class="block font-medium mb-1">Jumpscares</label>
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-gray-400">0</span>
+            <input type="range" id="jumpscaresSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
+            <span class="text-sm text-gray-400">10</span>
+          </div>
+          <div class="text-center text-sm text-gray-300 mt-1" id="jumpscaresValue">0</div>
         </div>
-        <div>
-          <label for="suspenseSlider" class="block">Suspense</label>
-          <input type="range" id="suspenseSlider" class="filter-slider" min="0" max="10" value="0" />
-          <span id="suspenseValue" class="ml-2">0</span>
+        <div class="group">
+          <label for="suspenseSlider" class="block font-medium mb-1">Suspense</label>
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-gray-400">0</span>
+            <input type="range" id="suspenseSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
+            <span class="text-sm text-gray-400">10</span>
+          </div>
+          <div class="text-center text-sm text-gray-300 mt-1" id="suspenseValue">0</div>
         </div>
-        <div>
-          <label for="psychologicalSlider" class="block">Psychological</label>
-          <input type="range" id="psychologicalSlider" class="filter-slider" min="0" max="10" value="0" />
-          <span id="psychologicalValue" class="ml-2">0</span>
+        <div class="group">
+          <label for="psychologicalSlider" class="block font-medium mb-1">Psychological</label>
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-gray-400">0</span>
+            <input type="range" id="psychologicalSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
+            <span class="text-sm text-gray-400">10</span>
+          </div>
+          <div class="text-center text-sm text-gray-300 mt-1" id="psychologicalValue">0</div>
         </div>
       </div>
     </aside>
