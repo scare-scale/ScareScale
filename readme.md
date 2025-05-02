@@ -1,5 +1,7 @@
 <a href="https://scarescale.com">
-<img src="public/logo/logo_white_background.png" width="200" align="center">
+    <p align="center">
+        <img src="public/logo/logo_white_background.png" width="200">
+    </p>
 </a>
 
 Welcome to **Scare Scale**, a community-driven project designed to categorise and rate horror movies based on their elements such as gore, creepiness, jumpscares, and suspense. Built with Astro JS, this project aims to help horror enthusiasts find movies that match their preferences.
