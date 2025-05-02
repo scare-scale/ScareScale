@@ -4,6 +4,14 @@ import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 import { getCollection } from "astro:content";
 
 const movieEntries = await getCollection("movie");
+
+const categories = [
+  { id: "gore", name: "Gore", icon: "/icons/categories/gore.svg" },
+  { id: "creepy", name: "Creepy", icon: "/icons/categories/creepy.svg" },
+  { id: "jumpscares", name: "Jumpscares", icon: "/icons/categories/jumpscares.svg" },
+  { id: "suspense", name: "Suspense", icon: "/icons/categories/suspense.svg" },
+  { id: "psychological", name: "Psychological", icon: "/icons/categories/psychological.svg" },
+];
 ---
 
 <MainLayout>
@@ -12,96 +20,26 @@ const movieEntries = await getCollection("movie");
     <aside class="w-full md:w-1/4 bg-gray-800 p-6 text-white">
       <h3 class="text-2xl font-semibold mb-6 border-b border-gray-600 pb-2">Filters</h3>
       <div class="flex flex-col gap-8">
-        <div class="group flex items-center gap-4">
-          <div class="flex-1">
-            <label for="goreSlider" class="block font-medium mb-1 flex items-center gap-2">
-              <img
-                src="/icons/categories/gore.svg"
-                alt="Gore Icon"
-                class="w-4 h-4"
-              />
-              Gore
-            </label>
-            <div class="flex items-center gap-2">
-              <span class="text-sm text-gray-400">0</span>
-              <input type="range" id="goreSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
-              <span class="text-sm text-gray-400">10</span>
+        {categories.map((category) => (
+          <div class="group flex items-center gap-4">
+            <div class="flex-1">
+              <label for={`${category.id}Slider`} class="block font-medium mb-1 flex items-center gap-2">
+                <img
+                  src={category.icon}
+                  alt={`${category.name} Icon`}
+                  class="w-4 h-4"
+                />
+                {category.name}
+              </label>
+              <div class="flex items-center gap-2">
+                <span class="text-sm text-gray-400">0</span>
+                <input type="range" id={`${category.id}Slider`} class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
+                <span class="text-sm text-gray-400">10</span>
+              </div>
+              <div class="text-center text-sm text-gray-300 mt-1" id={`${category.id}Value`}>0</div>
             </div>
-            <div class="text-center text-sm text-gray-300 mt-1" id="goreValue">0</div>
           </div>
-        </div>
-        <div class="group flex items-center gap-4">
-          <div class="flex-1">
-            <label for="creepySlider" class="block font-medium mb-1 flex items-center gap-2">
-              <img
-                src="/icons/categories/creepy.svg"
-                alt="Creepy Icon"
-                class="w-4 h-4"
-              />
-              Creepy
-            </label>
-            <div class="flex items-center gap-2">
-              <span class="text-sm text-gray-400">0</span>
-              <input type="range" id="creepySlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
-              <span class="text-sm text-gray-400">10</span>
-            </div>
-            <div class="text-center text-sm text-gray-300 mt-1" id="creepyValue">0</div>
-          </div>
-        </div>
-        <div class="group flex items-center gap-4">
-          <div class="flex-1">
-            <label for="jumpscaresSlider" class="block font-medium mb-1 flex items-center gap-2">
-              <img
-                src="/icons/categories/jumpscares.svg"
-                alt="Jumpscares Icon"
-                class="w-4 h-4"
-              />
-              Jumpscares
-            </label>
-            <div class="flex items-center gap-2">
-              <span class="text-sm text-gray-400">0</span>
-              <input type="range" id="jumpscaresSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
-              <span class="text-sm text-gray-400">10</span>
-            </div>
-            <div class="text-center text-sm text-gray-300 mt-1" id="jumpscaresValue">0</div>
-          </div>
-        </div>
-        <div class="group flex items-center gap-4">
-          <div class="flex-1">
-            <label for="suspenseSlider" class="block font-medium mb-1 flex items-center gap-2">
-              <img
-                src="/icons/categories/suspense.svg"
-                alt="Suspense Icon"
-                class="w-4 h-4"
-              />
-              Suspense
-            </label>
-            <div class="flex items-center gap-2">
-              <span class="text-sm text-gray-400">0</span>
-              <input type="range" id="suspenseSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
-              <span class="text-sm text-gray-400">10</span>
-            </div>
-            <div class="text-center text-sm text-gray-300 mt-1" id="suspenseValue">0</div>
-          </div>
-        </div>
-        <div class="group flex items-center gap-4">
-          <div class="flex-1">
-            <label for="psychologicalSlider" class="block font-medium mb-1 flex items-center gap-2">
-              <img
-                src="/icons/categories/psychological.svg"
-                alt="Psychological Icon"
-                class="w-4 h-4"
-              />
-              Psychological
-            </label>
-            <div class="flex items-center gap-2">
-              <span class="text-sm text-gray-400">0</span>
-              <input type="range" id="psychologicalSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
-              <span class="text-sm text-gray-400">10</span>
-            </div>
-            <div class="text-center text-sm text-gray-300 mt-1" id="psychologicalValue">0</div>
-          </div>
-        </div>
+        ))}
       </div>
     </aside>
 
@@ -130,6 +68,14 @@ const movieEntries = await getCollection("movie");
 </MainLayout>
 
 <script>
+  const categories = [
+    { id: "gore", name: "Gore" },
+    { id: "creepy", name: "Creepy" },
+    { id: "jumpscares", name: "Jumpscares" },
+    { id: "suspense", name: "Suspense" },
+    { id: "psychological", name: "Psychological" },
+  ];
+
   const sliders = document.querySelectorAll<HTMLInputElement>(".filter-slider");
   const moviesContainer = document.getElementById("moviesContainer");
   const loadingIndicator = document.getElementById("loadingIndicator");
@@ -202,13 +148,10 @@ const movieEntries = await getCollection("movie");
   function applyFilters() {
     if (!moviesContainer) return;
 
-    const sliderValues = {
-      gore: parseInt(document.getElementById("goreSlider")?.value || "0", 10),
-      creepy: parseInt(document.getElementById("creepySlider")?.value || "0", 10),
-      jumpscares: parseInt(document.getElementById("jumpscaresSlider")?.value || "0", 10),
-      suspense: parseInt(document.getElementById("suspenseSlider")?.value || "0", 10),
-      psychological: parseInt(document.getElementById("psychologicalSlider")?.value || "0", 10),
-    };
+    const sliderValues = {};
+    categories.forEach((category) => {
+      sliderValues[category.id] = parseInt(document.getElementById(`${category.id}Slider`)?.value || "0", 10);
+    });
 
     const allMovies = moviesContainer.querySelectorAll<HTMLElement>(":scope > *");
     let hasResults = false;
