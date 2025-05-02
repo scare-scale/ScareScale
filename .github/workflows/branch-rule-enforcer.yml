@@ -1,10 +1,8 @@
 name: 'Check Branch'
 
 on:
-  pull_request:
-    branches:
-      - main
-
+  pull_request_target:
+    branches: [ main ]
 jobs:
   check_branch:
     runs-on: ubuntu-latest
