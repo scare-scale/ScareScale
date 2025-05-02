@@ -1,17 +1,79 @@
 ---
+import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
+import MoviesGrid from "../components/grids/MoviesGrid.astro";
+
+const movieEntries = await getCollection("movie");
 ---
 
 <MainLayout>
-  <section class="flex items-center justify-center pt-20">
-    <div class="text-center">
-      <h1 class="text-6xl font-bold text-white">Coming Soon</h1>
-      <a
-        href="/"
-        class="mt-6 inline-block px-6 py-3 bg-black text-white rounded-lg hover:bg-[#d60c16] transition"
+  <section class="flex flex-col gap-y-10 md:gap-y-20 min-h-screen pt-10" id="searchResults">
+    <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+      <p
+        id="searchTermDisplay"
+        class="mx-auto m-4 max-w-lg text-center text-4xl font-semibold text-balance text-white sm:text-5xl"
       >
-        Go Home
-      </a>
+        Search Results
+      </p>
+      <div id="loadingIndicator" class="text-center text-xl text-white">
+        Loading...
+      </div>
+      <MoviesGrid
+        entries={movieEntries}
+        lazyLoad={true}
+        hidden={true}
+      />
     </div>
   </section>
 </MainLayout>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get("q");
+  const moviesContainer = document.getElementById("moviesContainer");
+  const loadingIndicator = document.getElementById("loadingIndicator");
+
+  // Handle blank search
+  if (!q && moviesContainer && loadingIndicator) {
+    loadingIndicator.style.display = "none";
+    moviesContainer.style.display = "block";
+    moviesContainer.innerHTML =
+      '<p class="text-center text-xl text-white">No Results</p>';
+  }
+
+  if (q && moviesContainer && loadingIndicator) {
+    // Show loading indicator, hide moviesContainer
+    loadingIndicator.style.display = "block";
+    moviesContainer.style.display = "none";
+
+    setTimeout(() => {
+      const allMovies = document.querySelectorAll<HTMLElement>(
+        "#moviesContainer > *"
+      );
+      let hasResults = false;
+
+      allMovies.forEach((movie) => {
+        const title = movie.getAttribute("id")?.toLowerCase();
+
+        if (title && title.includes(q.toLowerCase())) {
+          movie.style.display = "block";
+          hasResults = true;
+        } else {
+          movie.style.display = "none";
+        }
+      });
+
+      // Hide loader, reveal moviesContainer
+      loadingIndicator.style.display = "none";
+      moviesContainer.style.display = "grid";
+
+      // Show "No Results" message if nothing matches
+      if (!hasResults) {
+        loadingIndicator.style.display = "none";
+        moviesContainer.style.display = "block";
+        moviesContainer.innerHTML =
+          '<p class="text-center text-xl text-white">No Results</p>';
+      }
+    }, 400); // Simulated delay
+  }
+</script>
