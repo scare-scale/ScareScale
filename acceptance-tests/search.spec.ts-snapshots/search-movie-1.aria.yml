@@ -1,4 +1,27 @@
-- paragraph: Search Results
+- complementary:
+  - heading "Filters" [level=3]
+  - img "Gore Icon"
+  - text: Gore 0
+  - slider "Gore Icon Gore"
+  - text: /\d+ 0/
+  - img "Creepy Icon"
+  - text: Creepy 0
+  - slider "Creepy Icon Creepy"
+  - text: /\d+ 0/
+  - img "Jumpscares Icon"
+  - text: Jumpscares 0
+  - slider "Jumpscares Icon Jumpscares"
+  - text: /\d+ 0/
+  - img "Suspense Icon"
+  - text: Suspense 0
+  - slider "Suspense Icon Suspense"
+  - text: /\d+ 0/
+  - img "Psychological Icon"
+  - text: Psychological 0
+  - slider "Psychological Icon Psychological"
+  - text: /\d+ 0/
+- text: "Search: heart eyes"
+- button "✕"
 - link /Heart Eyes 5\/\d+/:
   - /url: /movie/heart-eyes
   - img "Heart Eyes"
