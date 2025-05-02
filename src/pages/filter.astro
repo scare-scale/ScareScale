@@ -1,6 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import MoviesGrid from "../components/grids/MoviesGrid.astro";
+import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 import { getCollection } from "astro:content";
 
 const movieEntries = await getCollection("movie");
@@ -74,6 +74,7 @@ const movieEntries = await getCollection("movie");
           entries={movieEntries}
           lazyLoad={true}
           hidden={false}
+          sort={Sort.ReleaseDateDecending}
         />
         <p id="noResultsMessage" class="text-center text-xl text-white hidden">
           No Results
