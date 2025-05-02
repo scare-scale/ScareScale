@@ -7,9 +7,9 @@ const movieEntries = await getCollection("movie");
 ---
 
 <MainLayout>
-  <section class="flex flex-col md:flex-row gap-y-10 md:gap-x-10 min-h-screen pt-10" id="searchResults">
+  <section class="flex flex-col md:flex-row gap-y-10 md:gap-x-10 min-h-screen" id="searchResults">
     <!-- Sidebar -->
-    <aside class="w-full md:w-1/4 bg-gray-800 p-6 rounded-lg text-white shadow-lg">
+    <aside class="w-full md:w-1/4 bg-gray-800 p-6 text-white">
       <h3 class="text-2xl font-semibold mb-6 border-b border-gray-600 pb-2">Filters</h3>
       <div class="flex flex-col gap-8">
         <div class="group">
@@ -62,9 +62,9 @@ const movieEntries = await getCollection("movie");
 
     <!-- Main Content -->
     <div class="flex-1">
-      <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+      <div class="mx-auto max-w-2xl lg:max-w-7xl">
         <!-- Active Filters -->
-        <div id="activeFilters" class="flex flex-wrap gap-2 mb-4">
+        <div id="activeFilters" class="flex flex-wrap gap-2 m-4">
           <!-- Active filters will be dynamically added here -->
         </div>
         <div id="loadingIndicator" class="text-center text-xl text-white">
