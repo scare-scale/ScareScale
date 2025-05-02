@@ -2,6 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 import { getCollection } from "astro:content";
+import Sidebar from "../components/Sidebar.astro";
 
 const movieEntries = await getCollection("movie");
 
@@ -25,37 +26,15 @@ const categories = [
     </div>
 
     <!-- Sidebar -->
-    <aside id="sidebar" class="w-full md:w-1/4 bg-gray-800 p-6 text-white transform transition-transform md:translate-x-0 -translate-x-full fixed md:static z-10">
-      <!-- Close Button -->
-      <button id="closeSidebar" class="md:hidden text-white absolute top-4 right-4">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-        </svg>
-      </button>
-      <h3 class="text-2xl font-semibold mb-6 border-b border-gray-600 pb-2">Filters</h3>
-      <div class="flex flex-col gap-8">
-        {categories.map((category) => (
-          <div class="group flex items-center gap-4">
-            <div class="flex-1">
-              <label for={`${category.id}Slider`} class="block font-medium mb-1 flex items-center gap-2">
-                <img
-                  src={category.icon}
-                  alt={`${category.name} Icon`}
-                  class="w-4 h-4"
-                />
-                {category.name}
-              </label>
-              <div class="flex items-center gap-2">
-                <span class="text-sm text-gray-400">0</span>
-                <input type="range" id={`${category.id}Slider`} class="filter-slider w-full cursor-pointer group-hover:bg-gray-700 accent-[#d60c16]" min="0" max="10" value="0" />
-                <span class="text-sm text-gray-400">10</span>
-              </div>
-              <div class="text-center text-sm text-gray-300 mt-1" id={`${category.id}Value`}>0</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </aside>
+    <Sidebar
+      categories={categories}
+      onSliderInput={(id, value) => {
+        const sliderValueDisplay = document.getElementById(`${id}Value`);
+        if (sliderValueDisplay) sliderValueDisplay.textContent = value.toString();
+        applyFilters();
+        updateActiveFilters();
+      }}
+    />
 
     <!-- Main Content -->
     <div class="flex-1">
