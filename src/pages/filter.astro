@@ -84,30 +84,33 @@ const movieEntries = await getCollection("movie");
 </MainLayout>
 
 <script>
-  const sliders = document.querySelectorAll(".filter-slider");
+  const sliders = document.querySelectorAll<HTMLInputElement>(".filter-slider");
   const moviesContainer = document.getElementById("moviesContainer");
   const loadingIndicator = document.getElementById("loadingIndicator");
   const noResultsMessage = document.getElementById("noResultsMessage");
   const activeFiltersContainer = document.getElementById("activeFilters");
   const params = new URLSearchParams(window.location.search);
-  const q = params.get("q")?.toLowerCase();
+  const q = params.get("q")?.toLowerCase() || "";
 
-  // Hide the loading indicator and show the movies container
-  loadingIndicator.style.display = "none";
-  moviesContainer.style.display = "grid";
+  // Ensure elements are not null before accessing properties
+  if (loadingIndicator) loadingIndicator.style.display = "none";
+  if (moviesContainer) moviesContainer.style.display = "grid";
 
   // Update slider values dynamically
   sliders.forEach((slider) => {
     const valueDisplay = document.getElementById(`${slider.id.replace("Slider", "Value")}`);
-    slider.addEventListener("input", () => {
-      valueDisplay.textContent = slider.value;
-      applyFilters();
-      updateActiveFilters();
-    });
+    if (valueDisplay) {
+      slider.addEventListener("input", () => {
+        valueDisplay.textContent = slider.value;
+        applyFilters();
+        updateActiveFilters();
+      });
+    }
   });
 
   // Update active filters display
   function updateActiveFilters() {
+    if (!activeFiltersContainer) return;
     activeFiltersContainer.innerHTML = "";
 
     // Add search query if present
@@ -137,8 +140,9 @@ const movieEntries = await getCollection("movie");
         deleteButton.className = "text-red-500";
         deleteButton.textContent = "✕";
         deleteButton.addEventListener("click", () => {
-          slider.value = 0;
-          document.getElementById(`${slider.id.replace("Slider", "Value")}`).textContent = "0";
+          slider.value = "0";
+          const valueDisplay = document.getElementById(`${slider.id.replace("Slider", "Value")}`);
+          if (valueDisplay) valueDisplay.textContent = "0";
           applyFilters();
           updateActiveFilters();
         });
@@ -150,21 +154,23 @@ const movieEntries = await getCollection("movie");
 
   // Filter logic
   function applyFilters() {
+    if (!moviesContainer) return;
+
     const sliderValues = {
-      gore: parseInt(document.getElementById("goreSlider").value, 10),
-      creepy: parseInt(document.getElementById("creepySlider").value, 10),
-      jumpscares: parseInt(document.getElementById("jumpscaresSlider").value, 10),
-      suspense: parseInt(document.getElementById("suspenseSlider").value, 10),
-      psychological: parseInt(document.getElementById("psychologicalSlider").value, 10),
+      gore: parseInt(document.getElementById("goreSlider")?.value || "0", 10),
+      creepy: parseInt(document.getElementById("creepySlider")?.value || "0", 10),
+      jumpscares: parseInt(document.getElementById("jumpscaresSlider")?.value || "0", 10),
+      suspense: parseInt(document.getElementById("suspenseSlider")?.value || "0", 10),
+      psychological: parseInt(document.getElementById("psychologicalSlider")?.value || "0", 10),
     };
 
-    const allMovies = document.querySelectorAll<HTMLElement>("#moviesContainer > *");
+    const allMovies = moviesContainer.querySelectorAll<HTMLElement>(":scope > *");
     let hasResults = false;
 
     allMovies.forEach((movie) => {
-      const title = movie.getAttribute("id")?.toLowerCase();
+      const title = movie.getAttribute("id")?.toLowerCase() || "";
       const categories = movie.getAttribute("data-categories")?.split(",") || [];
-      const matchesSearch = !q || (title && title.includes(q));
+      const matchesSearch = !q || title.includes(q);
       const matchesFilters = Object.entries(sliderValues).every(([key, value]) => {
         const categoryScore = categories.find((cat) => cat.startsWith(`${key}:`));
         return categoryScore ? parseInt(categoryScore.split(":")[1], 10) >= value : true;
@@ -179,10 +185,12 @@ const movieEntries = await getCollection("movie");
     });
 
     // Toggle the "No Results" message
-    if (hasResults) {
-      noResultsMessage.classList.add("hidden");
-    } else {
-      noResultsMessage.classList.remove("hidden");
+    if (noResultsMessage) {
+      if (hasResults) {
+        noResultsMessage.classList.add("hidden");
+      } else {
+        noResultsMessage.classList.remove("hidden");
+      }
     }
   }
 
