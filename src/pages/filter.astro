@@ -12,50 +12,95 @@ const movieEntries = await getCollection("movie");
     <aside class="w-full md:w-1/4 bg-gray-800 p-6 text-white">
       <h3 class="text-2xl font-semibold mb-6 border-b border-gray-600 pb-2">Filters</h3>
       <div class="flex flex-col gap-8">
-        <div class="group">
-          <label for="goreSlider" class="block font-medium mb-1">Gore</label>
-          <div class="flex items-center gap-2">
-            <span class="text-sm text-gray-400">0</span>
-            <input type="range" id="goreSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
-            <span class="text-sm text-gray-400">10</span>
+        <div class="group flex items-center gap-4">
+          <div class="flex-1">
+            <label for="goreSlider" class="block font-medium mb-1 flex items-center gap-2">
+              <img
+                src="/icons/categories/gore.svg"
+                alt="Gore Icon"
+                class="w-4 h-4"
+              />
+              Gore
+            </label>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-gray-400">0</span>
+              <input type="range" id="goreSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
+              <span class="text-sm text-gray-400">10</span>
+            </div>
+            <div class="text-center text-sm text-gray-300 mt-1" id="goreValue">0</div>
           </div>
-          <div class="text-center text-sm text-gray-300 mt-1" id="goreValue">0</div>
         </div>
-        <div class="group">
-          <label for="creepySlider" class="block font-medium mb-1">Creepy</label>
-          <div class="flex items-center gap-2">
-            <span class="text-sm text-gray-400">0</span>
-            <input type="range" id="creepySlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
-            <span class="text-sm text-gray-400">10</span>
+        <div class="group flex items-center gap-4">
+          <div class="flex-1">
+            <label for="creepySlider" class="block font-medium mb-1 flex items-center gap-2">
+              <img
+                src="/icons/categories/creepy.svg"
+                alt="Creepy Icon"
+                class="w-4 h-4"
+              />
+              Creepy
+            </label>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-gray-400">0</span>
+              <input type="range" id="creepySlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
+              <span class="text-sm text-gray-400">10</span>
+            </div>
+            <div class="text-center text-sm text-gray-300 mt-1" id="creepyValue">0</div>
           </div>
-          <div class="text-center text-sm text-gray-300 mt-1" id="creepyValue">0</div>
         </div>
-        <div class="group">
-          <label for="jumpscaresSlider" class="block font-medium mb-1">Jumpscares</label>
-          <div class="flex items-center gap-2">
-            <span class="text-sm text-gray-400">0</span>
-            <input type="range" id="jumpscaresSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
-            <span class="text-sm text-gray-400">10</span>
+        <div class="group flex items-center gap-4">
+          <div class="flex-1">
+            <label for="jumpscaresSlider" class="block font-medium mb-1 flex items-center gap-2">
+              <img
+                src="/icons/categories/jumpscares.svg"
+                alt="Jumpscares Icon"
+                class="w-4 h-4"
+              />
+              Jumpscares
+            </label>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-gray-400">0</span>
+              <input type="range" id="jumpscaresSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
+              <span class="text-sm text-gray-400">10</span>
+            </div>
+            <div class="text-center text-sm text-gray-300 mt-1" id="jumpscaresValue">0</div>
           </div>
-          <div class="text-center text-sm text-gray-300 mt-1" id="jumpscaresValue">0</div>
         </div>
-        <div class="group">
-          <label for="suspenseSlider" class="block font-medium mb-1">Suspense</label>
-          <div class="flex items-center gap-2">
-            <span class="text-sm text-gray-400">0</span>
-            <input type="range" id="suspenseSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
-            <span class="text-sm text-gray-400">10</span>
+        <div class="group flex items-center gap-4">
+          <div class="flex-1">
+            <label for="suspenseSlider" class="block font-medium mb-1 flex items-center gap-2">
+              <img
+                src="/icons/categories/suspense.svg"
+                alt="Suspense Icon"
+                class="w-4 h-4"
+              />
+              Suspense
+            </label>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-gray-400">0</span>
+              <input type="range" id="suspenseSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
+              <span class="text-sm text-gray-400">10</span>
+            </div>
+            <div class="text-center text-sm text-gray-300 mt-1" id="suspenseValue">0</div>
           </div>
-          <div class="text-center text-sm text-gray-300 mt-1" id="suspenseValue">0</div>
         </div>
-        <div class="group">
-          <label for="psychologicalSlider" class="block font-medium mb-1">Psychological</label>
-          <div class="flex items-center gap-2">
-            <span class="text-sm text-gray-400">0</span>
-            <input type="range" id="psychologicalSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
-            <span class="text-sm text-gray-400">10</span>
+        <div class="group flex items-center gap-4">
+          <div class="flex-1">
+            <label for="psychologicalSlider" class="block font-medium mb-1 flex items-center gap-2">
+              <img
+                src="/icons/categories/psychological.svg"
+                alt="Psychological Icon"
+                class="w-4 h-4"
+              />
+              Psychological
+            </label>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-gray-400">0</span>
+              <input type="range" id="psychologicalSlider" class="filter-slider w-full cursor-pointer group-hover:bg-gray-700" min="0" max="10" value="0" />
+              <span class="text-sm text-gray-400">10</span>
+            </div>
+            <div class="text-center text-sm text-gray-300 mt-1" id="psychologicalValue">0</div>
           </div>
-          <div class="text-center text-sm text-gray-300 mt-1" id="psychologicalValue">0</div>
         </div>
       </div>
     </aside>
