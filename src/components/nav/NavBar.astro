@@ -95,54 +95,50 @@ const navLinks = {
 
 <!-- Script for Menu Toggle and Search -->
 <script>
-  document.addEventListener("astro:page-load", function () {
-    function performSearch() {
-      const searchInput = document.getElementById(
-        "searchInput"
-      ) as HTMLInputElement;
-
-      if (searchInput.value.trim().length < 1) {
-        searchInput.setCustomValidity("Please enter at least one character.");
-        searchInput.reportValidity(); // Show validation message
-        return;
-      }
-
-      searchInput.setCustomValidity(""); // Clear validation message
-      window.location.href = `/search?q=${searchInput.value}`;
-    }
-
-    const menuButton = document.getElementById(
-      "menuButton"
-    ) as HTMLButtonElement;
-    const mobileMenu = document.getElementById("mobileMenu");
-    const searchButton = document.getElementById(
-      "searchButton"
-    ) as HTMLButtonElement;
+  function performSearch() {
     const searchInput = document.getElementById(
       "searchInput"
     ) as HTMLInputElement;
 
-    if (menuButton && mobileMenu) {
-      menuButton.addEventListener("click", function () {
-        mobileMenu.classList.toggle("hidden");
-      });
+    if (searchInput.value.trim().length < 1) {
+      searchInput.setCustomValidity("Please enter at least one character.");
+      searchInput.reportValidity(); // Show validation message
+      return;
     }
 
-    if (searchButton && searchInput) {
-      searchButton.addEventListener("click", performSearch);
-      searchInput.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-          event.preventDefault(); // Stops form submission if inside a form
-          performSearch();
-        }
-      });
-    }
-    // Populate search input with query parameter value on page load
-    const urlParams = new URLSearchParams(window.location.search);
-    const queryValue = urlParams.get("q");
+    searchInput.setCustomValidity(""); // Clear validation message
+    window.location.href = `/search?q=${searchInput.value}`;
+  }
 
-    if (queryValue && searchInput) {
-      searchInput.value = queryValue;
-    }
-  });
+  const menuButton = document.getElementById("menuButton") as HTMLButtonElement;
+  const mobileMenu = document.getElementById("mobileMenu");
+  const searchButton = document.getElementById(
+    "searchButton"
+  ) as HTMLButtonElement;
+  const searchInput = document.getElementById(
+    "searchInput"
+  ) as HTMLInputElement;
+
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
+
+  if (searchButton && searchInput) {
+    searchButton.addEventListener("click", performSearch);
+    searchInput.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault(); // Stops form submission if inside a form
+        performSearch();
+      }
+    });
+  }
+  // Populate search input with query parameter value on page load
+  const urlParams = new URLSearchParams(window.location.search);
+  const queryValue = urlParams.get("q");
+
+  if (queryValue && searchInput) {
+    searchInput.value = queryValue;
+  }
 </script>
