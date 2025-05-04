@@ -1,8 +1,8 @@
 ---
-name: 'A Knight's War'
-tmdbId: '1312833'
-tmdbPosterId: '/janjdSMrTRGtPrI1p9uOX66jv7x.jpg'
-releaseDate: '2025-02-07'
+name: "A Knight's War"
+tmdbId: "1312833"
+tmdbPosterId: "/janjdSMrTRGtPrI1p9uOX66jv7x.jpg"
+releaseDate: "2025-02-07"
 categoryRatings:
     gore: 0
     creepy: 0

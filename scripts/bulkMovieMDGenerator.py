@@ -29,7 +29,7 @@ default_end_date = (today + timedelta(days=12 * 30)).strftime("%Y-%m-%d")
 parser = argparse.ArgumentParser(description="Generate markdown files for horror movies.")
 parser.add_argument("--start-date", type=str, help="Start date (YYYY-MM-DD)")
 parser.add_argument("--end-date", type=str, help="End date (YYYY-MM-DD)")
-parser.add_argument("--min-popularity", type=int, default=50, help="Minimum popularity threshold")
+parser.add_argument("--min-popularity", type=int, help="Minimum popularity threshold")
 
 args = parser.parse_args()
 

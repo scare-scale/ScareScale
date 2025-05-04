@@ -60,7 +60,7 @@ def fetch_horror_movies(start_date, end_date, min_popularity=50):
 
 def generate_filename(movie_name):
     """Generate a markdown filename based on the movie name."""
-    parsed_name = str(movie_name).lower().replace(" ", "-").replace(":", "").replace("'", "")
+    parsed_name = str(movie_name).lower().replace(" ", "-").replace(":", "").replace("'", "").replace('"', "")
     return f"../src/content/movie/{parsed_name}.md"
 
 def save_as_md(movie_data):
@@ -78,10 +78,10 @@ def save_as_md(movie_data):
 
         # Update existing values or add new ones
         updated_content = {
-            "name": f"'{movie_data['name']}'",
-            "tmdbId": f"'{movie_data['tmdbId']}'",
-            "tmdbPosterId": f"'{movie_data['tmdbPosterId']}'",
-            "releaseDate": f"'{movie_data['releaseDate']}'",
+            "name": f"\"{movie_data['name']}\"",  # Use double quotes for the outer string
+            "tmdbId": f"\"{movie_data['tmdbId']}\"",
+            "tmdbPosterId": f"\"{movie_data['tmdbPosterId']}\"",
+            "releaseDate": f"\"{movie_data['releaseDate']}\"",
             "categoryRatings": {
                 "gore": existing_content.get("gore", "0"),
                 "creepy": existing_content.get("creepy", "0"),
