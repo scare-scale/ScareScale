@@ -1,5 +1,6 @@
 from movieDBUtils import get_movie_details, fetch_horror_movies, save_as_md, generate_filename
 import os
+from datetime import datetime, timedelta
 
 def bulk_generate_md(start_date, end_date, min_popularity=50):
     horror_movies = fetch_horror_movies(start_date, end_date, min_popularity)
@@ -17,8 +18,12 @@ def bulk_generate_md(start_date, end_date, min_popularity=50):
             print(f"Markdown file already exists for movie: {movie_name} (ID: {movie_id})")
 
 # Prompting the user for input
-start_date = input("Enter the start date (YYYY-MM-DD): ")
-end_date = input("Enter the end date (YYYY-MM-DD): ")
+today = datetime.today()
+default_start_date = (today - timedelta(days=6 * 30)).strftime("%Y-%m-%d")
+default_end_date = (today + timedelta(days=12 * 30)).strftime("%Y-%m-%d")
+
+start_date = input(f"Enter the start date (YYYY-MM-DD) [default: {default_start_date}]: ") or default_start_date
+end_date = input(f"Enter the end date (YYYY-MM-DD) [default: {default_end_date}]: ") or default_end_date
 min_popularity = input("Enter the minimum popularity (default is 50): ")
 
 if start_date and end_date:

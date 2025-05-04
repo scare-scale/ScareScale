@@ -1,6 +1,5 @@
 import os
 import requests
-import re
 
 def get_tmdb_headers():
     """Retrieve TMDB API headers."""
