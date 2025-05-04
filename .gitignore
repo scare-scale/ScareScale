@@ -26,3 +26,7 @@ cdk.out
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Python
+# Byte-compiled / optimized / DLL files
+__pycache__/
