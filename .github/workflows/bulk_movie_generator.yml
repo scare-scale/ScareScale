@@ -27,7 +27,8 @@ jobs:
         env:
           TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
         run: |
-          python scripts/bulkMovieMDGenerator.py \
+          cd scripts
+          python bulkMovieMDGenerator.py \
             --start-date "$(date -d '6 months ago' +%Y-%m-%d)" \
             --end-date "$(date -d '12 months' +%Y-%m-%d)" \
             --min-popularity 10
