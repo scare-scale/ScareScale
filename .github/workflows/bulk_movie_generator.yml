@@ -24,6 +24,8 @@ jobs:
           pip install -r scripts/requirements.txt
 
       - name: Run bulk movie generator
+        env:
+          TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
         run: |
           python scripts/bulkMovieMDGenerator.py
 
