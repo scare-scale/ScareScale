@@ -27,17 +27,27 @@ jobs:
         env:
           TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
         run: |
-          python scripts/bulkMovieMDGenerator.py
+          cd scripts
+          python bulkMovieMDGenerator.py \
+            --start-date "$(date -d '6 months ago' +%Y-%m-%d)" \
+            --end-date "$(date -d '12 months' +%Y-%m-%d)" \
+            --min-popularity 10
 
       - name: Check for changes
+        id: check_changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add src/content/movie
-          git diff --cached --quiet || git commit -m "Add new movie markdown files"
+          if git diff --cached --quiet; then
+            echo "no_changes=true" >> $GITHUB_ENV
+          else
+            echo "no_changes=false" >> $GITHUB_ENV
+            git commit -m "Add new movie markdown files"
+          fi
 
       - name: Push changes and create PR
-        if: success() && steps.check-for-changes.outputs.changes_detected == 'true'
+        if: env.no_changes == 'false'
         uses: peter-evans/create-pull-request@v5
         with:
           branch: bulk-movie-generator

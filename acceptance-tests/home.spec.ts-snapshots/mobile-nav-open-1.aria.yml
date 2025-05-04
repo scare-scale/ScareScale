@@ -14,7 +14,7 @@
       - /url: /ranks
     - link "Filter":
       - /url: /filter
-    - link "Contribute":
-      - /url: /contribute
     - link "Score Guide":
       - /url: /score-guide
+    - link "Upcoming":
+      - /url: /upcoming
