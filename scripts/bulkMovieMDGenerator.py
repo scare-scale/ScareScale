@@ -1,6 +1,7 @@
-from movieDBUtils import get_movie_details, fetch_horror_movies, save_as_md, generate_filename
+import argparse
 import os
 from datetime import datetime, timedelta
+from movieDBUtils import get_movie_details, fetch_horror_movies, save_as_md, generate_filename
 
 def bulk_generate_md(start_date, end_date, min_popularity=50):
     horror_movies = fetch_horror_movies(start_date, end_date, min_popularity)
@@ -17,17 +18,23 @@ def bulk_generate_md(start_date, end_date, min_popularity=50):
         else:
             print(f"Markdown file already exists for movie: {movie_name} (ID: {movie_id})")
 
-# Prompting the user for input
+def get_user_input(prompt, default_value):
+    user_input = input(f"{prompt} [default: {default_value}]: ") or default_value
+    return user_input
+
 today = datetime.today()
 default_start_date = (today - timedelta(days=6 * 30)).strftime("%Y-%m-%d")
 default_end_date = (today + timedelta(days=12 * 30)).strftime("%Y-%m-%d")
 
-start_date = input(f"Enter the start date (YYYY-MM-DD) [default: {default_start_date}]: ") or default_start_date
-end_date = input(f"Enter the end date (YYYY-MM-DD) [default: {default_end_date}]: ") or default_end_date
-min_popularity = input("Enter the minimum popularity (default is 50): ")
+parser = argparse.ArgumentParser(description="Generate markdown files for horror movies.")
+parser.add_argument("--start-date", type=str, help="Start date (YYYY-MM-DD)")
+parser.add_argument("--end-date", type=str, help="End date (YYYY-MM-DD)")
+parser.add_argument("--min-popularity", type=int, help="Minimum popularity threshold")
 
-if start_date and end_date:
-    min_popularity = int(min_popularity) if min_popularity.isdigit() else 50
-    bulk_generate_md(start_date, end_date, min_popularity)
-else:
-    print("Invalid input. Please enter valid start and end dates.")
+args = parser.parse_args()
+
+start_date = args.start_date or get_user_input("Enter the start date (YYYY-MM-DD)", default_start_date)
+end_date = args.end_date or get_user_input("Enter the end date (YYYY-MM-DD)", default_end_date)
+min_popularity = args.min_popularity if args.min_popularity else int(get_user_input("Enter the minimum popularity", "50"))
+
+bulk_generate_md(start_date, end_date, min_popularity)
