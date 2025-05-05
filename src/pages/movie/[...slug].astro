@@ -112,9 +112,7 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
               <Content />
             </Prose>
           </div>
-
-          <h5 class="text-xl mt-5 font-medium text-white">Ratings</h5>
-          <div class="grid grid-cols-2 gap-4">
+          {scareScaleRating > 0 ? <h5 class="text-xl mt-5 font-medium text-white">Ratings</h5><div class="grid grid-cols-2 gap-4">
             <ul role="list" class="divide-y divide-gray-100">
               {
                 entry.data.categoryRatings ? (
@@ -163,7 +161,7 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
                 <h5 class="text-2xl text-black font-bold">{scareScaleText}</h5>
               </div>
             </div>
-          </div>
+          </div> : <></>}
         </div>
       </div>
     </section>
