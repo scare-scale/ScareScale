@@ -2,7 +2,7 @@ name: Bulk Movie Generator
 
 on:
   schedule:
-    - cron: "0 0 * * 0" # Runs weekly on Sunday at midnight
+    - cron: "0 0 * * *" # Runs daily at midnight
   workflow_dispatch: # Allows manual triggering of the workflow
 
 jobs:
@@ -31,7 +31,7 @@ jobs:
           python bulkMovieMDGenerator.py \
             --start-date "$(date -d '6 months ago' +%Y-%m-%d)" \
             --end-date "$(date -d '12 months' +%Y-%m-%d)" \
-            --min-popularity 10
+            --min-popularity 5
 
       - name: Check for changes
         id: check_changes
