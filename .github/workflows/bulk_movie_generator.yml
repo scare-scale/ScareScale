@@ -54,7 +54,7 @@ jobs:
             git commit -m "Add new movie markdown files"
           fi
 
-      - name: Push changes to master
+      - name: Push changes to main
         if: env.no_changes == 'false'
         run: |
-          git push origin master
+          git push origin main
