@@ -6,7 +6,7 @@
     - listitem: Heart Eyes
 - img "Heart Eyes movie poster"
 - heading "Heart Eyes" [level=1]
-- 'heading /Released: 6 February \d+/ [level=1]'
+- 'heading /Release Date: 6 February \d+/ [level=1]'
 - paragraph: When the “Heart Eyes Killer” strikes Seattle, a pair of co-workers pulling overtime on Valentine’s Day are mistaken for a couple by the elusive couple-hunting killer. Now, they must spend the most romantic night of the year running for their lives.
 - heading "Ratings" [level=5]
 - list:
