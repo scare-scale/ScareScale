@@ -1,5 +1,6 @@
 import os
 import requests
+import re
 
 def get_tmdb_headers():
     """Retrieve TMDB API headers."""
@@ -58,14 +59,15 @@ def fetch_horror_movies(start_date, end_date, min_popularity=50):
 
     return all_movies
 
-def generate_filename(movie_name):
-    """Generate a markdown filename based on the movie name."""
-    parsed_name = str(movie_name).lower().replace(" ", "-").replace(":", "").replace("'", "").replace('"', "")
-    return f"../src/content/movie/{parsed_name}.md"
+def generate_filename(movie_name, release_year):
+    """Generate a markdown filename based on the movie name and release year."""
+    parsed_name = re.sub(r'[^a-z0-9 ]', '', movie_name.lower()).strip()  # Remove non-alphanumeric characters except spaces
+    parsed_name = re.sub(r'\s+', '-', parsed_name)  # Replace spaces with dashes
+    return f"../src/content/movie/{parsed_name}-{release_year}.md"
 
 def save_as_md(movie_data):
     if movie_data:
-        filename = generate_filename(movie_data['name'])
+        filename = generate_filename(movie_data['name'], movie_data['releaseDate'][:4])  # Extract year from releaseDate
 
         existing_content = {}
         if os.path.exists(filename):
