@@ -2,9 +2,23 @@
 import { round } from "../../utils/scoreUtils";
 import { Image } from 'astro:assets';
 
-const { name, tmdbPosterId, rank, scareScaleRating, categoryRatings, slug, lazyLoad = false } =
+const { name, tmdbPosterId, rank, scareScaleRating, categoryRatings, slug, releaseDate, lazyLoad = false } =
   Astro.props;
 const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmdbPosterId}`;
+
+const parsedDate = new Date(String(releaseDate));
+
+const cardText = () => {
+  if (parsedDate > new Date()) {
+    return "Coming Soon";
+  }
+
+  if (scareScaleRating > 0) {
+    return `${round(scareScaleRating)}/10`;
+  }
+
+  return;
+};
 ---
 
 <a
@@ -28,9 +42,9 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmdbPost
       </span>
     ) : <></>
   }
- {scareScaleRating > 0 ? <div
+  <div
     class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center sm:text-sm lg:text-lg font-semibold py-1"
   >
-     {round(scareScaleRating)}/10
-  </div> : <></>}
+     {cardText()}
+  </div>
 </a>

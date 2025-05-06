@@ -57,7 +57,7 @@ const movieEntries = await getCollection("movie");
         </div>
       </div>
       <div class="mt-16 lg:mt-8">
-        <MoviesGrid entries={movieEntries} sort={Sort.ReleaseDateDecending} />
+        <MoviesGrid entries={movieEntries} sort={Sort.ReleaseDateDecending} maxCount={20}/>
       </div>
     </div>
   </section>
