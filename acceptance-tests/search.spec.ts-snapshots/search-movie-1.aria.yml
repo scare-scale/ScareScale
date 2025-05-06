@@ -23,5 +23,5 @@
 - text: "Search: heart eyes"
 - button "✕"
 - link /Heart Eyes 5\/\d+/:
-  - /url: /movie/heart-eyes
+  - /url: /movie/heart-eyes-2025
   - img "Heart Eyes"
