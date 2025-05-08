@@ -1,0 +1,13 @@
+---
+name: "Cinderella's Revenge"
+tmdbId: "1140847"
+tmdbPosterId: "/cYB3SHhITJSbRoisgn9QQTP8YkZ.jpg"
+releaseDate: "2024-04-26"
+categoryRatings:
+    gore: 0
+    creepy: 0
+    jumpscares: 0
+    suspense: 0
+    psychological: 0
+---
+Cinderella finds freedom from her wicked stepmother with the help of her fairy godmother. Only this time, they unleash a plan of bloody vengeance.
