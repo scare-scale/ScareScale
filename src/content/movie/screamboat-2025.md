@@ -1,7 +1,7 @@
 ---
 name: "Screamboat"
 tmdbId: "1225572"
-tmdbPosterId: "/RVkfH0t0GAdfOItWFhB4FokrUZ.jpg"
+tmdbPosterId: "/8xddS95NZDs9WAxLnhNYOSiPPwL.jpg"
 releaseDate: "2025-03-20"
 categoryRatings:
     gore: 0
