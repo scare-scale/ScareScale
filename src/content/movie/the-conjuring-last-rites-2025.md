@@ -1,7 +1,7 @@
 ---
 name: "The Conjuring: Last Rites"
 tmdbId: "1038392"
-tmdbPosterId: "/ho9UW4eV2iNGgNmkkiClPp9VNhy.jpg"
+tmdbPosterId: "/6AvhE9Y80v4N7CDdGzAl52kJHbO.jpg"
 releaseDate: "2025-09-04"
 categoryRatings:
     gore: 0
