@@ -8,17 +8,24 @@ const movieEntries = await getCollection("movie");
 
 // Filter movies with future release dates
 const upcomingMovies = movieEntries
-  .filter((movie) => new Date(movie.data.releaseDate) > new Date())
-  .sort(
-    (a, b) =>
-      new Date(a.data.releaseDate).getTime() -
-      new Date(b.data.releaseDate).getTime()
-  );
+  .map((movie) => ({
+    ...movie,
+    parsedDate: new Date(movie.data.releaseDate),
+    formattedDate: new Date(movie.data.releaseDate).toLocaleDateString(
+      "en-GB",
+      {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }
+    ),
+  }))
+  .filter((movie) => movie.parsedDate > new Date())
+  .sort((a, b) => a.parsedDate.getTime() - b.parsedDate.getTime());
 
 // Group movies by month
 const groupedMovies = upcomingMovies.reduce((acc, movie) => {
-  const releaseDate = new Date(movie.data.releaseDate);
-  const monthYear = releaseDate.toLocaleString("default", {
+  const monthYear = movie.parsedDate.toLocaleString("default", {
     month: "long",
     year: "numeric",
   });
@@ -76,8 +83,7 @@ const groupedMovies = upcomingMovies.reduce((acc, movie) => {
                       {movie.data.name}
                     </h3>
                     <p class="text-gray-300">
-                      Release Date:{" "}
-                      {new Date(movie.data.releaseDate).toLocaleDateString()}
+                      Release Date: {movie.formattedDate}
                     </p>
                   </div>
                 </div>
