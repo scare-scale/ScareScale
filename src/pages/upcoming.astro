@@ -33,6 +33,13 @@ const groupedMovies = upcomingMovies.reduce((acc, movie) => {
   acc[monthYear].push(movie);
   return acc;
 }, {});
+
+// Calculate the maximum number of movies in a single month
+const maxMoviesInMonth = Math.min(
+  Math.max(...Object.values(groupedMovies).map((movies) => movies.length)),
+  5
+);
+const gridColsClass = `grid-cols-${maxMoviesInMonth}`;
 ---
 
 <head>
@@ -65,30 +72,32 @@ const groupedMovies = upcomingMovies.reduce((acc, movie) => {
         Object.entries(groupedMovies).map(([monthYear, movies]) => (
           <div class="timeline-month">
             <h2 class="text-2xl font-semibold text-white mb-4">{monthYear}</h2>
-            {movies.map((movie) => (
-              <a
-                href={`/movie/${movie.slug}`}
-                class="timeline-item relative mb-8 block hover:bg-gray-700 transition rounded-lg"
-              >
-                <div class="ml-6 flex flex-col gap-y-4 p-4">
-                  <Image
-                    src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movie.data.tmdbPosterId}`}
-                    alt={`${movie.data.name} poster`}
-                    width={300}
-                    height={450}
-                    class="size-full size-2/3 rounded-lg object-cover"
-                  />
-                  <div>
-                    <h3 class="text-xl font-medium text-white">
-                      {movie.data.name}
-                    </h3>
-                    <p class="text-gray-300">
-                      Release Date: {movie.formattedDate}
-                    </p>
+            <div class={`grid grid-cols-1 md:${gridColsClass} gap-6`}>
+              {movies.map((movie) => (
+                <a
+                  href={`/movie/${movie.slug}`}
+                  class="timeline-item relative block hover:bg-gray-700 transition rounded-lg"
+                >
+                  <div class="flex flex-col gap-y-4 p-4">
+                    <Image
+                      src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movie.data.tmdbPosterId}`}
+                      alt={`${movie.data.name} poster`}
+                      width={300}
+                      height={450}
+                      class="size-full size-2/3 rounded-lg object-cover"
+                    />
+                    <div>
+                      <h3 class="text-xl font-medium text-white">
+                        {movie.data.name}
+                      </h3>
+                      <p class="text-gray-300">
+                        Release Date: {movie.formattedDate}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </a>
-            ))}
+                </a>
+              ))}
+            </div>
           </div>
         ))
       }
