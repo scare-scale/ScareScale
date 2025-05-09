@@ -18,6 +18,7 @@ const { Content } = await movie.render();
 ---
 
 <head>
+  <meta charset="UTF-8" />
   <SEO
     title={`Scare Scale - ${movie.data.name} Review & Scare Ratings`}
     description={`${movie.data.name} (${movie.releaseYear}) — Rated for Gore (${movie.data.categoryRatings.gore}), Creepy Moments (${movie.data.categoryRatings.creepy}), Jumpscares (${movie.data.categoryRatings.jumpscares}), Suspense (${movie.data.categoryRatings.suspense}), and Psychological Horror (${movie.data.categoryRatings.psychological}). Discover how it ranks on the Scare Scale!`}
