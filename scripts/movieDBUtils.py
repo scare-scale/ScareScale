@@ -1,6 +1,7 @@
 import os
 import requests
 import re
+from tqdm import tqdm
 
 def get_tmdb_headers():
     """Retrieve TMDB API headers."""
@@ -44,18 +45,29 @@ def fetch_horror_movies(start_date, end_date, min_popularity=50):
     }
 
     all_movies = []
-    while True:
-        response = requests.get(url, headers=headers, params=params)
-        if response.status_code == 200:
-            data = response.json()
-            filtered_movies = [movie for movie in data.get("results", []) if movie.get("popularity", 0) >= min_popularity]
-            all_movies.extend(filtered_movies)
-            if data.get("page") >= data.get("total_pages"):
-                break
-            params["page"] += 1
-        else:
-            print(f"Error: Unable to fetch movies. Status code {response.status_code}")
-            break
+    response = requests.get(url, headers=headers, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        total_results = data.get("total_results", 0)
+        with tqdm(total=total_results, desc="Fetching movies") as pbar:
+            total_pages = data.get("total_pages", 1)
+            for page in range(1, total_pages + 1):
+                params["page"] = page
+                response = requests.get(url, headers=headers, params=params)
+                if response.status_code == 200:
+                    data = response.json()
+                    filtered_movies = [
+                        movie for movie in data.get("results", [])
+                        if movie.get("popularity", 0) >= min_popularity and
+                        not any(genre_id in [35, 10751] for genre_id in movie.get("genre_ids", []))  # Exclude Comedy (35) and Family (10751)
+                    ]
+                    all_movies.extend(filtered_movies)
+                    pbar.update(len(data.get("results", [])))
+                else:
+                    print(f"Error: Unable to fetch movies on page {page}. Status code {response.status_code}")
+                    break
+    else:
+        print(f"Error: Unable to fetch movies. Status code {response.status_code}")
 
     return all_movies
 
