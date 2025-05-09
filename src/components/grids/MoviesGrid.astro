@@ -1,7 +1,6 @@
 ---
-import { calculateOverallRating } from "../../utils/scoreUtils";
+import { allMovies } from "../../content.config";
 import MovieCard from "../cards/MovieCard.astro";
-import type { MovieData } from "../../models/Movie";
 
 export enum Sort {
   Random,
@@ -9,20 +8,9 @@ export enum Sort {
   ReleaseDateDecending
 }
 
-const { entries, showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined } = Astro.props;
+const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined } = Astro.props;
 
-type Movie = { data: typeof MovieData; slug: String; scareScaleRating: number; releaseDateParsed: Date };
-
-const movies: Movie[] = entries.map(
-  (entry: { slug: any; data: typeof MovieData }): Movie => ({
-    data: entry.data,
-    slug: entry.slug,
-    scareScaleRating: calculateOverallRating(entry.data.categoryRatings),
-    releaseDateParsed: new Date(String(entry.data.releaseDate))
-  })
-);
-
-const filterMovie = (movie: Movie) => {
+const filterMovie = (movie) => {
   if (showAll) {
     return true;
   }
@@ -33,7 +21,7 @@ const filterMovie = (movie: Movie) => {
   }
 
   if (yearFilter) {
-    const movieYear = movie.releaseDateParsed.getFullYear();
+    const movieYear = movie.parsedDate.getFullYear();
     if (!yearFilter.includes(String(movieYear))) {
         return false;
     }
@@ -44,11 +32,11 @@ const filterMovie = (movie: Movie) => {
 
 const getSortMethod = () => {
     if (sort == Sort.HighestToLowestScore) {
-        return (a: Movie, b: Movie) => b.scareScaleRating - a.scareScaleRating;;
+        return (a, b) => b.scareScaleRating - a.scareScaleRating;
     }
 
     if (sort == Sort.ReleaseDateDecending) {
-        return (a: Movie, b: Movie) => b.releaseDateParsed.getTime() - a.releaseDateParsed.getTime();
+        return (a, b) => b.parsedDate.getTime() - a.parsedDate.getTime();
     }
 
     // Sort randomly
@@ -65,7 +53,7 @@ const optionalClasses = `${hidden ? " hidden " : ""}`
   class={"m-4 mb-8 grid grid-cols-3 gap-x-4 gap-y-4 lg:grid-cols-5" + optionalClasses}
 >
   {
-    movies
+    allMovies
       .filter(filterMovie)
       .sort(sortMethod)
       .slice(0, maxCount)

@@ -1,35 +1,20 @@
 ---
-import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import { SEO } from "astro-seo";
 import { Image } from "astro:assets";
-
-const movieEntries = await getCollection("movie");
-
-// Filter movies with future release dates
-const upcomingMovies = movieEntries
-  .map((movie) => ({
-    ...movie,
-    parsedDate: new Date(movie.data.releaseDate),
-    formattedDate: new Date(movie.data.releaseDate).toLocaleDateString(
-      "en-GB",
-      {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      }
-    ),
-  }))
-  .filter((movie) => movie.parsedDate > new Date())
-  .sort((a, b) => a.parsedDate.getTime() - b.parsedDate.getTime());
+import { upcomingMovies } from "../content.config";
 
 // Group movies by month
-const groupedMovies = upcomingMovies.reduce((acc, movie) => {
+const groupedMovies = upcomingMovies.reduce<Record<string, typeof upcomingMovies>>((acc, movie) => {
   const monthYear = movie.parsedDate.toLocaleString("default", {
     month: "long",
     year: "numeric",
   });
-  if (!acc[monthYear]) acc[monthYear] = [];
+
+  if (!acc[monthYear]) {
+    acc[monthYear] = [];
+  }
+
   acc[monthYear].push(movie);
   return acc;
 }, {});
@@ -43,6 +28,7 @@ const gridColsClass = `grid-cols-${maxMoviesInMonth}`;
 ---
 
 <head>
+  <meta charset="UTF-8" />
   <SEO
     title="Scare Scale - Upcoming Horror Movies"
     description="Discover upcoming horror movies over the next 12 months. Stay updated on the latest releases in the horror genre."
@@ -60,6 +46,7 @@ const gridColsClass = `grid-cols-${maxMoviesInMonth}`;
       },
     }}
   />
+  <meta name="keywords" content="upcoming horror movies, horror releases, new horror movies, scare scale" />
 </head>
 
 <MainLayout>

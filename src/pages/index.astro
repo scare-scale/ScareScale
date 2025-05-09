@@ -1,13 +1,11 @@
 ---
-import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 import { SEO } from "astro-seo";
-
-const movieEntries = await getCollection("movie");
 ---
 
 <head>
+  <meta charset="UTF-8" />
   <SEO
     title="Scare Scale - Home"
     description="Discover how scary your favorite horror movies really are with detailed ratings across Gore, Creepy, Jumpscares, Suspense, and Psychological horror categories."
@@ -24,6 +22,16 @@ const movieEntries = await getCollection("movie");
       }
     }}
   />
+  <meta name="keywords" content="horror movies, scare ratings, gore, creepy, jumpscares, suspense, psychological horror" />
+  <script type="application/ld+json">
+    {{
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Scare Scale",
+      "url": "https://scarescale.com/",
+      "description": "Discover how scary your favorite horror movies really are with detailed ratings.",
+    }}
+  </script>
 </head>
 
 <MainLayout>
@@ -57,7 +65,7 @@ const movieEntries = await getCollection("movie");
         </div>
       </div>
       <div class="mt-16 lg:mt-8">
-        <MoviesGrid entries={movieEntries} sort={Sort.ReleaseDateDecending} maxCount={20}/>
+        <MoviesGrid sort={Sort.ReleaseDateDecending} maxCount={20}/>
       </div>
     </div>
   </section>

@@ -1,52 +1,37 @@
 ---
-import { getCollection } from "astro:content";
 import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
-import {
-  calculateOverallRating,
-  fearLevelText,
-  round,
-} from "../../utils/scoreUtils";
+import { round } from "../../utils/scoreUtils";
 import { SEO } from "astro-seo";
 import { Image } from "astro:assets";
+import { allMovies } from "../../content.config";
 
 export async function getStaticPaths() {
-  const entries = await getCollection("movie");
-  return entries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
+  return allMovies.map((movie) => ({
+    params: { slug: movie.slug },
+    props: { movie },
   }));
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
-
-const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${entry.data.tmdbPosterId}`;
-
-const scareScaleRating = calculateOverallRating(entry.data.categoryRatings);
-const scareScaleText = fearLevelText(scareScaleRating);
-const parsedDate = new Date(String(entry.data.releaseDate));
-const formattedDate = parsedDate.toLocaleDateString("en-GB", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
+const { movie } = Astro.props;
+const { Content } = await movie.render();
 ---
 
 <head>
+  <meta charset="UTF-8" />
   <SEO
-    title={`Scare Scale - ${entry.data.name} Review & Scare Ratings`}
-    description={`${entry.data.name} (${parsedDate.getFullYear()}) — Rated for Gore (${entry.data.categoryRatings.gore}), Creepy Moments (${entry.data.categoryRatings.creepy}), Jumpscares (${entry.data.categoryRatings.jumpscares}), Suspense (${entry.data.categoryRatings.suspense}), and Psychological Horror (${entry.data.categoryRatings.psychological}). Discover how it ranks on the Scare Scale!`}
-    canonical={`https://scarescale.com/movie/${entry.data.tmdbId}`}
+    title={`Scare Scale - ${movie.data.name} Review & Scare Ratings`}
+    description={`${movie.data.name} (${movie.releaseYear}) — Rated for Gore (${movie.data.categoryRatings.gore}), Creepy Moments (${movie.data.categoryRatings.creepy}), Jumpscares (${movie.data.categoryRatings.jumpscares}), Suspense (${movie.data.categoryRatings.suspense}), and Psychological Horror (${movie.data.categoryRatings.psychological}). Discover how it ranks on the Scare Scale!`}
+    canonical={`https://scarescale.com/movie/${movie.slug}`}
     openGraph={{
       basic: {
         type: "website",
-        url: `https://scarescale.com/movie/${entry.data.tmdbId}`,
-        title: `Scare Scale - ${entry.data.name} Horror Movie Ratings`,
-        image: posterUrl,
+        url: `https://scarescale.com/movie/${movie.slug}`,
+        title: `Scare Scale - ${movie.data.name} Horror Movie Ratings`,
+        image: movie.posterUrl,
       },
       optional: {
-        description: `${entry.data.name} — ${entry.data.description}. Find out how scary it is based on Gore, Creepy moments, Jumpscares, Suspense, and Psychological horror.`,
+        description: `How scary is ${movie.data.name}? Find out how scary it is based on Gore, Creepy moments, Jumpscares, Suspense, and Psychological horror.`,
       },
     }}
   />
@@ -81,7 +66,7 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
             </div>
           </li>
           <li class="text-sm font-medium text-white">
-            {entry.data.name}
+            {movie.data.name}
           </li>
         </ol>
       </nav>
@@ -90,9 +75,8 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
         class="place-items-center max-w-2xl px-6 grid grid-cols-1 lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8"
       >
         <Image
-          src={posterUrl}
-          data-src={posterUrl}
-          alt={`${entry.data.name} movie poster`}
+          src={movie.posterUrl}
+          alt={`${movie.data.name} movie poster`}
           width={300}
           height={450}
           class="size-full size-2/3 rounded-lg object-cover"
@@ -102,23 +86,23 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
           class="py-10 lg:border-l lg:border-gray-200 lg:pt-6 lg:pl-8 lg:pb-16 lg:col-span-2"
         >
           <h1 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            {entry.data.name}
+            {movie.data.name}
           </h1>
           <h1 class="text-sm tracking-tight text-white">
-            {`Release Date: ${formattedDate}`}
+            {`Release Date: ${movie.formattedDate}`}
           </h1>
           <div class="mt-5">
             <Prose>
               <Content />
             </Prose>
           </div>
-          {scareScaleRating > 0 ? (
+          {movie.scareScaleRating > 0 ? (
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <h5 class="text-xl mt-5 font-medium text-white col-span-full">Ratings</h5>
               <ul role="list" class="divide-y divide-gray-100">
                 {
-                  entry.data.categoryRatings ? (
-                    Object.entries(entry.data.categoryRatings).map(
+                  movie.data.categoryRatings ? (
+                    Object.entries(movie.data.categoryRatings).map(
                       ([categoryName, score]) => (
                         <li class="flex justify-between gap-x-6 py-5">
                           <div class="flex min-w-0 gap-x-4">
@@ -156,10 +140,10 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
                     class="w-20 h-20 m-6 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center"
                   >
                     <h5 class="text-xl font-medium text-[#d60c16]">
-                      {round(scareScaleRating)} / 10
+                      {round(movie.scareScaleRating)} / 10
                     </h5>
                   </div>
-                  <h5 class="text-2xl text-black font-bold">{scareScaleText}</h5>
+                  <h5 class="text-2xl text-black font-bold">{movie.scareScaleText}</h5>
                 </div>
               </div>
             </div>

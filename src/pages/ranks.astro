@@ -1,10 +1,7 @@
 ---
-import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 import { SEO } from "astro-seo";
-
-const movieEntries = await getCollection("movie");
 
 const grids = [
   {
@@ -32,6 +29,7 @@ const grids = [
 ---
 
 <head>
+  <meta charset="UTF-8" />
   <SEO
     title="Scare Scale - Top Horror Movie Rankings"
     description="Explore the definitive rankings of the scariest horror movies based on Gore, Creepy moments, Jumpscares, Suspense, and Psychological intensity."
@@ -60,7 +58,6 @@ const grids = [
               {grid.title}
             </p>
             <MoviesGrid
-              entries={movieEntries}
               sort={Sort.HighestToLowestScore}
               showRank={true}
               maxCount={5}

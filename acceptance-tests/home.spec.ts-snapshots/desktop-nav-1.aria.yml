@@ -13,6 +13,6 @@
       - /url: /score-guide
     - link "Upcoming":
       - /url: /upcoming
-  - textbox "Search..."
+  - textbox "Search for horror movies"
   - button "🔍":
     - img "🔍"
