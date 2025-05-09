@@ -1,10 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
-import { getCollection } from "astro:content";
 import Sidebar from "../components/Sidebar.astro";
-
-const movieEntries = await getCollection("movie");
 
 const categories = [
   { id: "gore", name: "Gore", icon: "/icons/categories/gore.svg" },
@@ -47,7 +44,6 @@ const categories = [
           Loading...
         </div>
         <MoviesGrid
-          entries={movieEntries}
           lazyLoad={true}
           hidden={false}
           sort={Sort.HighestToLowestScore}
