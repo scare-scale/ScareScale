@@ -5,12 +5,16 @@ import { Image } from "astro:assets";
 import { upcomingMovies } from "../content.config";
 
 // Group movies by month
-const groupedMovies = upcomingMovies.reduce((acc, movie) => {
+const groupedMovies = upcomingMovies.reduce<Record<string, typeof upcomingMovies>>((acc, movie) => {
   const monthYear = movie.parsedDate.toLocaleString("default", {
     month: "long",
     year: "numeric",
   });
-  if (!acc[monthYear]) acc[monthYear] = [];
+
+  if (!acc[monthYear]) {
+    acc[monthYear] = [];
+  }
+
   acc[monthYear].push(movie);
   return acc;
 }, {});
