@@ -37,16 +37,16 @@ const formattedDate = parsedDate.toLocaleDateString("en-GB", {
   <SEO
     title={`Scare Scale - ${entry.data.name} Review & Scare Ratings`}
     description={`${entry.data.name} (${parsedDate.getFullYear()}) — Rated for Gore (${entry.data.categoryRatings.gore}), Creepy Moments (${entry.data.categoryRatings.creepy}), Jumpscares (${entry.data.categoryRatings.jumpscares}), Suspense (${entry.data.categoryRatings.suspense}), and Psychological Horror (${entry.data.categoryRatings.psychological}). Discover how it ranks on the Scare Scale!`}
-    canonical={`https://scarescale.com/movie/${entry.data.tmdbId}`}
+    canonical={`https://scarescale.com/movie/${entry.slug}`}
     openGraph={{
       basic: {
         type: "website",
-        url: `https://scarescale.com/movie/${entry.data.tmdbId}`,
+        url: `https://scarescale.com/movie/${entry.slug}`,
         title: `Scare Scale - ${entry.data.name} Horror Movie Ratings`,
         image: posterUrl,
       },
       optional: {
-        description: `${entry.data.name} — ${entry.data.description}. Find out how scary it is based on Gore, Creepy moments, Jumpscares, Suspense, and Psychological horror.`,
+        description: `How scary is ${entry.data.name}? Find out how scary it is based on Gore, Creepy moments, Jumpscares, Suspense, and Psychological horror.`,
       },
     }}
   />
