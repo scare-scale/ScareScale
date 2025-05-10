@@ -1,5 +1,8 @@
 name: Deploy GitHub Pages
 on:
+  push:
+    branches:
+      - dev
   workflow_run:
     workflows: ["Tests"]
     branches: [dev]
