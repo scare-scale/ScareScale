@@ -87,9 +87,9 @@ def save_as_md(movie_data):
 
         # Update existing values or add new ones
         updated_content = {
-            "name": f"\"{movie_data['name']}\"",  # Use double quotes for the outer string
+            "name": movie_data['name'],  # Use double quotes for the outer string
             "tmdbId": f"\"{movie_data['tmdbId']}\"",
-            "tmdbPosterId": f"\"{movie_data['tmdbPosterId']}\"",
+            "tmdbPosterId": movie_data['tmdbPosterId'],
             "releaseDate": movie_data['releaseDate'],  # Output as date object
             "categoryRatings": {
                 "gore": existing_content.get("gore", "0"),
