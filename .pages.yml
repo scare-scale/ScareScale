@@ -7,6 +7,7 @@ content:
     label: "Movies"
     path: "src/content/movie"
     subfolders: false
+    format: yaml-frontmatter
     view:
       fields:
         [
