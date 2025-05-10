@@ -15,9 +15,9 @@ content:
         label: "Category Ratings"
         type: "object"
         fields:
-          - { name: "gore", label: "Gore", type: "string", options: {min: 0, max: 10} }
-          - { name: "creepy", label: "Creepy", type: "string", options: {min: 0, max: 10}} 
-          - { name: "jumpscares", label: "Jumpscares", type: "string", options: {min: 0, max: 10}}  
-          - { name: "suspense", label: "Suspense", type: "string", options: {min: 0, max: 10}} 
-          - { name: "psychological", label: "Psychological", type: "string", options: {min: 0, max: 10}} 
+          - { name: "gore", label: "Gore", type: "number", options: {min: 0, max: 10} }
+          - { name: "creepy", label: "Creepy", type: "number", options: {min: 0, max: 10}} 
+          - { name: "jumpscares", label: "Jumpscares", type: "number", options: {min: 0, max: 10}}  
+          - { name: "suspense", label: "Suspense", type: "number", options: {min: 0, max: 10}} 
+          - { name: "psychological", label: "Psychological", type: "number", options: {min: 0, max: 10}} 
       - { name: "body", label: "Description", type: "rich-text" }
