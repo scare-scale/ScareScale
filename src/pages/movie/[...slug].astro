@@ -15,6 +15,12 @@ export async function getStaticPaths() {
 
 const { movie } = Astro.props;
 const { Content } = await movie.render();
+
+const controlBarItems = [
+  { name: "Trailers", href: movie.trailersUrl, icon: "/icons/trailers.svg"  },
+  { name: "Reviews", href: movie.reviewsUrl, icon: "/icons/reviews.svg" },
+  { name: "Edit", href: movie.editUrl, icon: "/icons/edit.svg"  },
+  ];
 ---
 
 <head>
@@ -81,9 +87,8 @@ const { Content } = await movie.render();
           height={450}
           class="size-full size-2/3 rounded-lg object-cover"
         />
-
         <div
-          class="py-10 lg:border-l lg:border-gray-200 lg:pt-6 lg:pl-8 lg:pb-16 lg:col-span-2"
+          class="py-4 lg:border-l lg:border-gray-200 lg:pt-6 lg:pl-8 lg:col-span-2"
         >
           <h1 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
             {movie.data.name}
@@ -151,5 +156,21 @@ const { Content } = await movie.render();
         </div>
       </div>
     </section>
+  </div>
+
+  <!-- Control Bar -->
+  <div class="max-w-screen-sm px-2 py-2 bg-white shadow-md rounded-md m-6 mx-4 sm:mx-auto">
+    <ul class="flex flex-row justify-center items-center gap-2 md:gap-4 lg:gap-6 text-slate-800">
+      {
+        controlBarItems.map((item) => (
+          <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+            <a href={item.href} class="flex items-center font-bold hover:text-[#d60c16]">
+              <img src={item.icon} alt={`${item.name} Icon`} class="w-4 h-4 mr-2" />
+              {item.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </MainLayout>
