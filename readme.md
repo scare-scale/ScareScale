@@ -29,26 +29,19 @@ Welcome to **Scare Scale**, a community-driven project designed to categorise an
 4. Enter the TMDB movie ID when prompted.
 5. Commit the generated markdown file and submit a pull request.
 
-### Option 2: Add a Manual Entry
+### Option 2: Use Page CMS
 
-1. Navigate to `/src/content/movie/`.
-2. Create a new markdown file using the movie title in kebab case (e.g., `talk-to-me.md`).
-3. Follow the structure below:
-   ```markdown
-   ---
-   name: '<MOVIE_NAME>'
-   tmdbId: '<TMDB_ID>'
-   tmdbPosterId: '<TMDB_POSTER_PATH>'
-   releaseDate: '<YYYY-MM-DD>'
-   categoryRatings:
-       gore: <RATING_0-10>
-       creepy: <RATING_0-10>
-       jumpscares: <RATING_0-10>
-       suspense: <RATING_0-10>
-       psychological: <RATING_0-10>
-   ---
-   <MOVIE_DESCRIPTION>
-   ```
+1. Go to [edit.scarescale.com](https://edit.scarescale.com).
+2. Log in with your credentials.
+3. Create a new movie entry or edit an existing one.
+4. Fill in the required fields, including:
+   - Movie name
+   - TMDB ID
+   - TMDB Poster Path
+   - Release date
+   - Category ratings (gore, creepy, jumpscares, suspense, psychological)
+   - Movie description
+5. Save your changes and submit them for review.
 
 ### Testing Your Changes
 
