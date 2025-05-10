@@ -1,6 +1,6 @@
 content:
   - name: "movies"
-    type: "file"
+    type: "collection"
     label: "Movies"
     path: "src/content/movie"
     fields:
