@@ -2,6 +2,10 @@ import { defineCollection, getCollection, z } from "astro:content";
 import { calculateOverallRating, fearLevelText } from "./utils/scoreUtils";
 
 const POSTER_BASE_URL = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2";
+const TMDB_MOVIE_BASE_URL = "https://www.themoviedb.org/movie";
+const TMDB_TRAILERS_ENDPOINT = "videos?active_nav_item=Trailers";
+const PAGES_CMS_EDIT_BASE_URL = "https://app.pagescms.org/scare-scale/scarescale/movie-updates/collection/movies/edit"
+const TMDB_REVIEWS_ENDPOINT = "reviews";
 
 const movieCollection = defineCollection({
   schema: z.object({
@@ -40,6 +44,12 @@ const getMovies = async () => {
       year: "numeric",
     });
 
+    const tmdbUrl = `${TMDB_MOVIE_BASE_URL}/${movie.data.tmdbId}`
+    const trailersUrl = `${tmdbUrl}/${TMDB_TRAILERS_ENDPOINT}`
+    const reviewsUrl = `${tmdbUrl}/${TMDB_REVIEWS_ENDPOINT}`
+
+    const editUrl = `${PAGES_CMS_EDIT_BASE_URL}/${encodeURIComponent(movie.filePath ?? "")}`
+    
     return {
       ...movie,
       posterUrl,
@@ -47,6 +57,10 @@ const getMovies = async () => {
       scareScaleText,
       formattedDate,
       parsedDate,
+      trailersUrl,
+      tmdbUrl,
+      editUrl,
+      reviewsUrl,
       releaseYear: parsedDate.getFullYear()
     };
   });
