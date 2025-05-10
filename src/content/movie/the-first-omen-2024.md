@@ -2,7 +2,7 @@
 name: "The First Omen"
 tmdbId: "437342"
 tmdbPosterId: "/tnsDyNNkOxYUyjD8CNJoAla6YvY.jpg"
-releaseDate: "2024-04-03"
+releaseDate: 2024-04-03
 categoryRatings:
     gore: 0
     creepy: 0

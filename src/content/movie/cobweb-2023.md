@@ -2,7 +2,7 @@
 name: "Cobweb"
 tmdbId: "709631"
 tmdbPosterId: "/cGXFosYUHYjjdKrOmA0bbjvzhKz.jpg"
-releaseDate: "2023-07-19"
+releaseDate: 2023-07-19
 categoryRatings:
     gore: 0
     creepy: 0

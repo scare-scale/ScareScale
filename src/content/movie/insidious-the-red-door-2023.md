@@ -2,7 +2,7 @@
 name: "Insidious: The Red Door"
 tmdbId: "614479"
 tmdbPosterId: "/d07phJqCx6z5wILDYqkyraorDPi.jpg"
-releaseDate: "2023-07-05"
+releaseDate: 2023-07-05
 categoryRatings:
     gore: 0
     creepy: 0

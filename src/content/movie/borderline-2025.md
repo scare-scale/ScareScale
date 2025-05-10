@@ -2,7 +2,7 @@
 name: "Borderline"
 tmdbId: "1013482"
 tmdbPosterId: "/hUrNKVrkMN7sdt0oAioopMcxyoq.jpg"
-releaseDate: "2025-03-14"
+releaseDate: 2025-03-14
 categoryRatings:
     gore: 0
     creepy: 0

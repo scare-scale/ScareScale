@@ -2,7 +2,7 @@
 name: "Stream"
 tmdbId: "1260820"
 tmdbPosterId: "/aqLBOmJ59FdEMXARmpDnwHrcfV2.jpg"
-releaseDate: "2024-02-06"
+releaseDate: 2024-02-06
 categoryRatings:
     gore: 0
     creepy: 0

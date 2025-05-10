@@ -2,7 +2,7 @@
 name: "The Night House"
 tmdbId: "547565"
 tmdbPosterId: "/rqs2CXpc4d5FzeP1EZCYItAVo81.jpg"
-releaseDate: "2021-07-15"
+releaseDate: 2021-07-15
 categoryRatings:
     gore: 0
     creepy: 0

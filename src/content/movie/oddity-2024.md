@@ -2,7 +2,7 @@
 name: "Oddity"
 tmdbId: "1216191"
 tmdbPosterId: "/3Z9c1tbUhP0QruRjczPHnbx3U2D.jpg"
-releaseDate: "2024-07-19"
+releaseDate: 2024-07-19
 categoryRatings:
     gore: 0
     creepy: 0

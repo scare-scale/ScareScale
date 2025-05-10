@@ -2,7 +2,7 @@
 name: "Beetlejuice Beetlejuice"
 tmdbId: "917496"
 tmdbPosterId: "/kKgQzkUCnQmeTPkyIwHly2t6ZFI.jpg"
-releaseDate: "2024-09-04"
+releaseDate: 2024-09-04
 categoryRatings:
     gore: 0
     creepy: 0

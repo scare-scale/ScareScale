@@ -2,7 +2,7 @@
 name: "Subservience"
 tmdbId: "1064028"
 tmdbPosterId: "/gBenxR01Uy0Ev9RTIw6dVBPoyQU.jpg"
-releaseDate: "2024-08-15"
+releaseDate: 2024-08-15
 categoryRatings:
     gore: 0
     creepy: 0

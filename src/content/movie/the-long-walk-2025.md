@@ -2,7 +2,7 @@
 name: "The Long Walk"
 tmdbId: "604079"
 tmdbPosterId: "/wobVTa99eW0ht6c1rNNzLkazPtR.jpg"
-releaseDate: "2025-09-11"
+releaseDate: 2025-09-11
 categoryRatings:
     gore: 0
     creepy: 0

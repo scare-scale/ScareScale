@@ -2,7 +2,7 @@
 name: "Popeye the Slayer Man"
 tmdbId: "1388366"
 tmdbPosterId: "/nVwu3mN7hr1yF467pGct3yQFM41.jpg"
-releaseDate: "2025-03-21"
+releaseDate: 2025-03-21
 categoryRatings:
     gore: 0
     creepy: 0

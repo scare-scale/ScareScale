@@ -2,7 +2,7 @@
 name: "Pearl"
 tmdbId: "949423"
 tmdbPosterId: "/z5uIG81pXyHKg7cUFIu84Wjn4NS.jpg"
-releaseDate: "2022-09-16"
+releaseDate: 2022-09-16
 categoryRatings:
     gore: 0
     creepy: 0

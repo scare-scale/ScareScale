@@ -2,7 +2,7 @@
 name: "Founders Day"
 tmdbId: "1055451"
 tmdbPosterId: "/ohzLPC9lHUWseBgB7HRcz0GBkFb.jpg"
-releaseDate: "2024-01-19"
+releaseDate: 2024-01-19
 categoryRatings:
     gore: 0
     creepy: 0

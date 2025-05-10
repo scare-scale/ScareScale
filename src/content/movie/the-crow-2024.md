@@ -2,7 +2,7 @@
 name: "The Crow"
 tmdbId: "957452"
 tmdbPosterId: "/g8TbOXrNMuqq7AaKqdvqS2oG4ob.jpg"
-releaseDate: "2024-08-21"
+releaseDate: 2024-08-21
 categoryRatings:
     gore: 0
     creepy: 0

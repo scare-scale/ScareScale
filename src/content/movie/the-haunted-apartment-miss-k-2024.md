@@ -2,7 +2,7 @@
 name: "The Haunted Apartment “Miss K”"
 tmdbId: "1321326"
 tmdbPosterId: "/uLJFPFIezEQsUWN4WpbNaofysj1.jpg"
-releaseDate: "2024-12-25"
+releaseDate: 2024-12-25
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Terrifier 3"
 tmdbId: "1034541"
 tmdbPosterId: "/ju10W5gl3PPK3b7TjEmVOZap51I.jpg"
-releaseDate: "2024-10-09"
+releaseDate: 2024-10-09
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Final Destination 2"
 tmdbId: "9358"
 tmdbPosterId: "/dg6Tf98InieJSClSKQJTQevYWmB.jpg"
-releaseDate: "2003-01-31"
+releaseDate: 2003-01-31
 categoryRatings:
     gore: 0
     creepy: 0

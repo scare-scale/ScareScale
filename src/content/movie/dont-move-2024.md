@@ -2,7 +2,7 @@
 name: "Don't Move"
 tmdbId: "1063877"
 tmdbPosterId: "/cRDJxdnRb7ikKd6fVJTrGeaL34v.jpg"
-releaseDate: "2024-10-24"
+releaseDate: 2024-10-24
 categoryRatings:
     gore: 0
     creepy: 0

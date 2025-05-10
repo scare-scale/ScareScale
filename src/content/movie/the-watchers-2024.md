@@ -2,7 +2,7 @@
 name: "The Watchers"
 tmdbId: "1086747"
 tmdbPosterId: "/hcs531VRASrBxcRR8cRbuuCXnZj.jpg"
-releaseDate: "2024-06-06"
+releaseDate: 2024-06-06
 categoryRatings:
     gore: 0
     creepy: 0

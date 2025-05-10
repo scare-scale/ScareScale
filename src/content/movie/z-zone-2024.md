@@ -2,7 +2,7 @@
 name: "Z Zone"
 tmdbId: "1301650"
 tmdbPosterId: "/s6kFtdxfTC4xR8yDGbIjTgGEcFI.jpg"
-releaseDate: "2024-10-04"
+releaseDate: 2024-10-04
 categoryRatings:
     gore: 0
     creepy: 0

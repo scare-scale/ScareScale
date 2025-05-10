@@ -2,7 +2,7 @@
 name: "Anaconda"
 tmdbId: "1252428"
 tmdbPosterId: "/9a7URTaq1Eimlg2ZujPX9FdOeGK.jpg"
-releaseDate: "2024-03-01"
+releaseDate: 2024-03-01
 categoryRatings:
     gore: 0
     creepy: 0

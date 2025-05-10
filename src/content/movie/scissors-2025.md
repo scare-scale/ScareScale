@@ -2,7 +2,7 @@
 name: "Scissors"
 tmdbId: "1144577"
 tmdbPosterId: "/5OktNOyJ5mdD4ZWgUE74FeGzTio.jpg"
-releaseDate: "2025-01-24"
+releaseDate: 2025-01-24
 categoryRatings:
     gore: 0
     creepy: 0

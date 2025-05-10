@@ -2,7 +2,7 @@
 name: "The Platform 2"
 tmdbId: "1125510"
 tmdbPosterId: "/tvIpBg12IIA5Dr9Sjn38ygS1vQp.jpg"
-releaseDate: "2024-09-27"
+releaseDate: 2024-09-27
 categoryRatings:
     gore: 0
     creepy: 0

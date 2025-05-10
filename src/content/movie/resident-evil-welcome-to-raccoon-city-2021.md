@@ -2,7 +2,7 @@
 name: "Resident Evil: Welcome to Raccoon City"
 tmdbId: "460458"
 tmdbPosterId: "/bArhvjRHl535XMaSh9VjInF2mSZ.jpg"
-releaseDate: "2021-11-24"
+releaseDate: 2021-11-24
 categoryRatings:
     gore: 0
     creepy: 0

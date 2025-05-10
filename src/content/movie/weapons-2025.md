@@ -2,7 +2,7 @@
 name: "Weapons"
 tmdbId: "1078605"
 tmdbPosterId: "/cpf7vsRZ0MYRQcnLWteD5jK9ymT.jpg"
-releaseDate: "2025-08-06"
+releaseDate: 2025-08-06
 categoryRatings:
     gore: 0
     creepy: 0

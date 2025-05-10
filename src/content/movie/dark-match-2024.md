@@ -2,7 +2,7 @@
 name: "Dark Match"
 tmdbId: "1062276"
 tmdbPosterId: "/6E6fBED3ix7FmrWUWZdeYG4vqK8.jpg"
-releaseDate: "2024-07-21"
+releaseDate: 2024-07-21
 categoryRatings:
     gore: 0
     creepy: 0

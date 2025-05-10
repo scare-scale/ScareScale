@@ -2,7 +2,7 @@
 name: "River of Blood"
 tmdbId: "1222064"
 tmdbPosterId: "/7lkm4eAvHy1uCs48GEwMxgwNdgd.jpg"
-releaseDate: "2024-08-29"
+releaseDate: 2024-08-29
 categoryRatings:
     gore: 0
     creepy: 0

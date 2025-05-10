@@ -2,7 +2,7 @@
 name: "It Comes at Night"
 tmdbId: "418078"
 tmdbPosterId: "/rNKJpFMlOZn5zkzBPZxEJrQn5Km.jpg"
-releaseDate: "2017-06-09"
+releaseDate: 2017-06-09
 categoryRatings:
     gore: 0
     creepy: 0

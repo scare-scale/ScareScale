@@ -2,7 +2,7 @@
 name: "Midsommar"
 tmdbId: "530385"
 tmdbPosterId: "/7LEI8ulZzO5gy9Ww2NVCrKmHeDZ.jpg"
-releaseDate: "2019-07-03"
+releaseDate: 2019-07-03
 categoryRatings:
     gore: 0
     creepy: 0

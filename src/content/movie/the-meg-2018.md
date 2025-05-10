@@ -2,7 +2,7 @@
 name: "The Meg"
 tmdbId: "345940"
 tmdbPosterId: "/eyWICPcxOuTcDDDbTMOZawoOn8d.jpg"
-releaseDate: "2018-08-09"
+releaseDate: 2018-08-09
 categoryRatings:
     gore: 0
     creepy: 0

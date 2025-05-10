@@ -2,7 +2,7 @@
 name: "Strange Darling"
 tmdbId: "1029281"
 tmdbPosterId: "/kWNCRgt3ocv19bYO0sk7TRuZuFY.jpg"
-releaseDate: "2024-08-14"
+releaseDate: 2024-08-14
 categoryRatings:
     gore: 0
     creepy: 0

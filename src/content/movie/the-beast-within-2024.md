@@ -2,7 +2,7 @@
 name: "The Beast Within"
 tmdbId: "1300962"
 tmdbPosterId: "/5RvNjlDufqUBH3iHBPb1cS53wXl.jpg"
-releaseDate: "2024-07-22"
+releaseDate: 2024-07-22
 categoryRatings:
     gore: 0
     creepy: 0

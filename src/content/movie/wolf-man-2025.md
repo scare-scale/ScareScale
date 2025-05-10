@@ -2,7 +2,7 @@
 name: "Wolf Man"
 tmdbId: "710295"
 tmdbPosterId: "/wpSDzTBfF0Eeo5lzu2w9FTujGqd.jpg"
-releaseDate: "2025-01-15"
+releaseDate: 2025-01-15
 categoryRatings:
     gore: 0
     creepy: 0

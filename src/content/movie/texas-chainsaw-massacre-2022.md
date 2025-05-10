@@ -2,7 +2,7 @@
 name: "Texas Chainsaw Massacre"
 tmdbId: "632727"
 tmdbPosterId: "/7sKiGNWFM15WNyY7LYd5vmb3brO.jpg"
-releaseDate: "2022-02-18"
+releaseDate: 2022-02-18
 categoryRatings:
     gore: 0
     creepy: 0

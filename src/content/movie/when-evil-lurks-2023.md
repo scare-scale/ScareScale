@@ -2,7 +2,7 @@
 name: "When Evil Lurks"
 tmdbId: "744857"
 tmdbPosterId: "/iQ7G9LhP7NRRIUM4Vlai3eOxBAc.jpg"
-releaseDate: "2023-10-05"
+releaseDate: 2023-10-05
 categoryRatings:
     gore: 0
     creepy: 0

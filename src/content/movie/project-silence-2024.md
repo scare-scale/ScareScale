@@ -2,7 +2,7 @@
 name: "Project Silence"
 tmdbId: "726139"
 tmdbPosterId: "/lZT5Cq4wkz7IeJEnz94U94xuEWD.jpg"
-releaseDate: "2024-07-11"
+releaseDate: 2024-07-11
 categoryRatings:
     gore: 0
     creepy: 0

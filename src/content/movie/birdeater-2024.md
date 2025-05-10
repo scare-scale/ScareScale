@@ -2,7 +2,7 @@
 name: "Birdeater"
 tmdbId: "1114137"
 tmdbPosterId: "/dCyLLAINVblprot2cn5OZf0G0PA.jpg"
-releaseDate: "2024-07-18"
+releaseDate: 2024-07-18
 categoryRatings:
     gore: 0
     creepy: 0

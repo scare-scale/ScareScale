@@ -2,7 +2,7 @@
 name: "A Quiet Place"
 tmdbId: "447332"
 tmdbPosterId: "/nAU74GmpUk7t5iklEp3bufwDq4n.jpg"
-releaseDate: "2018-04-03"
+releaseDate: 2018-04-03
 categoryRatings:
     gore: 0
     creepy: 0

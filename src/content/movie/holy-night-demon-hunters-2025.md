@@ -2,7 +2,7 @@
 name: "Holy Night: Demon Hunters"
 tmdbId: "793387"
 tmdbPosterId: "/v3Mo77Qjp6pctpD4eJaNT6kFRSB.jpg"
-releaseDate: "2025-04-30"
+releaseDate: 2025-04-30
 categoryRatings:
     gore: 0
     creepy: 0

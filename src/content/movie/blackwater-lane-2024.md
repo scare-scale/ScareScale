@@ -2,7 +2,7 @@
 name: "Blackwater Lane"
 tmdbId: "1215918"
 tmdbPosterId: "/5ut7D7v9ZKlmlEiOZpdLKfZ0P9g.jpg"
-releaseDate: "2024-06-21"
+releaseDate: 2024-06-21
 categoryRatings:
     gore: 0
     creepy: 0

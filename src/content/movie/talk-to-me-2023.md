@@ -2,7 +2,7 @@
 name: "Talk to Me"
 tmdbId: "1008042"
 tmdbPosterId: "/kdPMUMJzyYAc4roD52qavX0nLIC.jpg"
-releaseDate: "2023-07-26"
+releaseDate: 2023-07-26
 categoryRatings:
     gore: 7
     creepy: 7

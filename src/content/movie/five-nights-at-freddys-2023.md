@@ -2,7 +2,7 @@
 name: "Five Nights at Freddy's"
 tmdbId: "507089"
 tmdbPosterId: "/4dKRTUylqwXQ4VJz0BS84fqW2wa.jpg"
-releaseDate: "2023-10-25"
+releaseDate: 2023-10-25
 categoryRatings:
     gore: 0
     creepy: 0

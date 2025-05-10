@@ -2,7 +2,7 @@
 name: "Whisper of the Witch"
 tmdbId: "1100856"
 tmdbPosterId: "/raDMchyq3dJMqso2TVh75A123Xb.jpg"
-releaseDate: "2024-06-13"
+releaseDate: 2024-06-13
 categoryRatings:
     gore: 0
     creepy: 0

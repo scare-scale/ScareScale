@@ -2,7 +2,7 @@
 name: "Poison Sangga: The Homewrecker's Curse"
 tmdbId: "1322522"
 tmdbPosterId: "/ujsWad6uVjOifcQiUJ9kDzzjXIb.jpg"
-releaseDate: "2024-12-12"
+releaseDate: 2024-12-12
 categoryRatings:
     gore: 0
     creepy: 0

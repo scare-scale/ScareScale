@@ -2,7 +2,7 @@
 name: "Wrong Turn"
 tmdbId: "630586"
 tmdbPosterId: "/4U1SBHmwHkNA0eHZ2n1CuiC1K1g.jpg"
-releaseDate: "2021-01-26"
+releaseDate: 2021-01-26
 categoryRatings:
     gore: 0
     creepy: 0

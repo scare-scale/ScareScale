@@ -2,7 +2,7 @@
 name: "Red Rooms"
 tmdbId: "912480"
 tmdbPosterId: "/uBJvbf0g9rcsYElcwZCMYU0Vrj8.jpg"
-releaseDate: "2023-08-11"
+releaseDate: 2023-08-11
 categoryRatings:
     gore: 0
     creepy: 0

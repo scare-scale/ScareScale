@@ -2,7 +2,7 @@
 name: "Godzilla Minus One"
 tmdbId: "940721"
 tmdbPosterId: "/hkxxMIGaiCTmrEArK7J56JTKUlB.jpg"
-releaseDate: "2023-11-03"
+releaseDate: 2023-11-03
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Final Destination"
 tmdbId: "9532"
 tmdbPosterId: "/1mXhlQMnlfvJ2frxTjZSQNnA9Vp.jpg"
-releaseDate: "2000-03-17"
+releaseDate: 2000-03-17
 categoryRatings:
     gore: 0
     creepy: 0

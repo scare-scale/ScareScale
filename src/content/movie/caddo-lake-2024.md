@@ -2,7 +2,7 @@
 name: "Caddo Lake"
 tmdbId: "863873"
 tmdbPosterId: "/sv1IoM6xlCdAoOzUmgB9XTnADC.jpg"
-releaseDate: "2024-11-28"
+releaseDate: 2024-11-28
 categoryRatings:
     gore: 0
     creepy: 0

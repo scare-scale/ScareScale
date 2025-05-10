@@ -2,7 +2,7 @@
 name: "Afraid"
 tmdbId: "1062215"
 tmdbPosterId: "/gUREuXCnJLVHsvKXDH9fgIcfM6e.jpg"
-releaseDate: "2024-08-28"
+releaseDate: 2024-08-28
 categoryRatings:
     gore: 0
     creepy: 0

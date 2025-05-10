@@ -2,7 +2,7 @@
 name: "Humanist Vampire Seeking Consenting Suicidal Person"
 tmdbId: "988402"
 tmdbPosterId: "/m5OItLBY5T38ew1YI4VSIXjl5G2.jpg"
-releaseDate: "2023-10-13"
+releaseDate: 2023-10-13
 categoryRatings:
     gore: 0
     creepy: 0

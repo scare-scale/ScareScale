@@ -2,7 +2,7 @@
 name: "Project Wolf Hunting"
 tmdbId: "799379"
 tmdbPosterId: "/dniWicB6fa7NvpGbguxWlNPMc5f.jpg"
-releaseDate: "2022-09-21"
+releaseDate: 2022-09-21
 categoryRatings:
     gore: 0
     creepy: 0

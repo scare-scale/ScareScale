@@ -2,7 +2,7 @@
 name: "Silent Zone"
 tmdbId: "1419229"
 tmdbPosterId: "/7YZ0JRRD7mt8Ov9eIEGWMbDybx2.jpg"
-releaseDate: "2025-03-07"
+releaseDate: 2025-03-07
 categoryRatings:
     gore: 0
     creepy: 0

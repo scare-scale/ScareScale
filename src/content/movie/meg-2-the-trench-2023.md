@@ -2,7 +2,7 @@
 name: "Meg 2: The Trench"
 tmdbId: "615656"
 tmdbPosterId: "/4m1Au3YkjqsxF8iwQy0fPYSxE0h.jpg"
-releaseDate: "2023-08-02"
+releaseDate: 2023-08-02
 categoryRatings:
     gore: 0
     creepy: 0

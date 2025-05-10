@@ -2,7 +2,7 @@
 name: "Companion"
 tmdbId: "1084199"
 tmdbPosterId: "/oCoTgC3UyWGfyQ9thE10ulWR7bn.jpg"
-releaseDate: "2025-01-22"
+releaseDate: 2025-01-22
 categoryRatings:
     gore: 6
     creepy: 3

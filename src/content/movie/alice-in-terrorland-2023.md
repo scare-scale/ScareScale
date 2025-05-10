@@ -2,7 +2,7 @@
 name: "Alice in Terrorland"
 tmdbId: "1174618"
 tmdbPosterId: "/5XJGvr8g9jkmN6KUIOQOj2iE6K4.jpg"
-releaseDate: "2023-12-26"
+releaseDate: 2023-12-26
 categoryRatings:
     gore: 0
     creepy: 0

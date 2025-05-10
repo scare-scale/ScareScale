@@ -2,7 +2,7 @@
 name: "The New Mutants"
 tmdbId: "340102"
 tmdbPosterId: "/xiDGcXJTvu1lazFRYip6g1eLt9c.jpg"
-releaseDate: "2020-04-02"
+releaseDate: 2020-04-02
 categoryRatings:
     gore: 0
     creepy: 0

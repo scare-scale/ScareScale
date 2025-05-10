@@ -2,7 +2,7 @@
 name: "A Quiet Place: Day One"
 tmdbId: "762441"
 tmdbPosterId: "/hU42CRk14JuPEdqZG3AWmagiPAP.jpg"
-releaseDate: "2024-06-26"
+releaseDate: 2024-06-26
 categoryRatings:
     gore: 0
     creepy: 0

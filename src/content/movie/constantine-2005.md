@@ -2,7 +2,7 @@
 name: "Constantine"
 tmdbId: "561"
 tmdbPosterId: "/vPYgvd2MwHlxTamAOjwVQp4qs1W.jpg"
-releaseDate: "2005-02-08"
+releaseDate: 2005-02-08
 categoryRatings:
     gore: 0
     creepy: 0

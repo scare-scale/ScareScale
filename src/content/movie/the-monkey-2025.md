@@ -2,7 +2,7 @@
 name: "The Monkey"
 tmdbId: "1124620"
 tmdbPosterId: "/yYa8Onk9ow7ukcnfp2QWVvjWYel.jpg"
-releaseDate: "2025-02-14"
+releaseDate: 2025-02-14
 categoryRatings:
     gore: 6
     creepy: 2

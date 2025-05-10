@@ -2,7 +2,7 @@
 name: "Scream VI"
 tmdbId: "934433"
 tmdbPosterId: "/wDWwtvkRRlgTiUr6TyLSMX8FCuZ.jpg"
-releaseDate: "2023-03-08"
+releaseDate: 2023-03-08
 categoryRatings:
     gore: 0
     creepy: 0

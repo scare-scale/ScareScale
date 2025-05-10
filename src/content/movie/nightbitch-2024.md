@@ -2,7 +2,7 @@
 name: "Nightbitch"
 tmdbId: "728949"
 tmdbPosterId: "/h49Pie8gM2jK0UHGFRjfPB3YTd.jpg"
-releaseDate: "2024-12-06"
+releaseDate: 2024-12-06
 categoryRatings:
     gore: 0
     creepy: 0

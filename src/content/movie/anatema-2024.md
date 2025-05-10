@@ -2,7 +2,7 @@
 name: "Anatema"
 tmdbId: "1104390"
 tmdbPosterId: "/4akd1zxzCUdow2gXX1ovbRE3ZoO.jpg"
-releaseDate: "2024-11-08"
+releaseDate: 2024-11-08
 categoryRatings:
     gore: 0
     creepy: 0

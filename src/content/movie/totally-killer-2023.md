@@ -2,7 +2,7 @@
 name: "Totally Killer"
 tmdbId: "974931"
 tmdbPosterId: "/52YBwGJ3cJs54fpBzwnT1lnqgTo.jpg"
-releaseDate: "2023-09-28"
+releaseDate: 2023-09-28
 categoryRatings:
     gore: 0
     creepy: 0

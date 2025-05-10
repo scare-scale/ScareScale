@@ -2,7 +2,7 @@
 name: "Night of the Zoopocalypse"
 tmdbId: "1205229"
 tmdbPosterId: "/nCejOVZcOxKS27nnbh28NKXOdXF.jpg"
-releaseDate: "2025-01-23"
+releaseDate: 2025-01-23
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Outside"
 tmdbId: "1306764"
 tmdbPosterId: "/e2YYJYZrQkodvMGfgdSUH5LBPpr.jpg"
-releaseDate: "2024-10-16"
+releaseDate: 2024-10-16
 categoryRatings:
     gore: 0
     creepy: 0

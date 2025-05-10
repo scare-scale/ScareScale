@@ -2,7 +2,7 @@
 name: "Do Not Enter"
 tmdbId: "1287717"
 tmdbPosterId: "/1l6eDcH11b9aRmmd4a9WWwhVJ5T.jpg"
-releaseDate: "2024-08-15"
+releaseDate: 2024-08-15
 categoryRatings:
     gore: 0
     creepy: 0

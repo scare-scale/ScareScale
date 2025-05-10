@@ -2,7 +2,7 @@
 name: "Tarot"
 tmdbId: "719221"
 tmdbPosterId: "/gAEUXC37vl1SnM7PXsHTF23I2vq.jpg"
-releaseDate: "2024-05-01"
+releaseDate: 2024-05-01
 categoryRatings:
     gore: 0
     creepy: 0

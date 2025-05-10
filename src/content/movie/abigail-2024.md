@@ -2,7 +2,7 @@
 name: "Abigail"
 tmdbId: "1111873"
 tmdbPosterId: "/5gKKSoD3iezjoL7YqZONjmyAiRA.jpg"
-releaseDate: "2024-04-16"
+releaseDate: 2024-04-16
 categoryRatings:
     gore: 0
     creepy: 0

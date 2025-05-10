@@ -2,7 +2,7 @@
 name: "The Conjuring"
 tmdbId: "138843"
 tmdbPosterId: "/wVYREutTvI2tmxr6ujrHT704wGF.jpg"
-releaseDate: "2013-07-18"
+releaseDate: 2013-07-18
 categoryRatings:
     gore: 3
     creepy: 7

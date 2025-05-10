@@ -2,7 +2,7 @@
 name: "The Empty Man"
 tmdbId: "516632"
 tmdbPosterId: "/8apzu9JFTUMtOpYkHk6LNPOs3pY.jpg"
-releaseDate: "2020-10-22"
+releaseDate: 2020-10-22
 categoryRatings:
     gore: 0
     creepy: 0

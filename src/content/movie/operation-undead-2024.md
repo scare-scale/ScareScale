@@ -2,7 +2,7 @@
 name: "Operation Undead"
 tmdbId: "1244361"
 tmdbPosterId: "/rs10lMBnJFnJX1Y7MYpyB8JiNAF.jpg"
-releaseDate: "2024-07-20"
+releaseDate: 2024-07-20
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Lembayung"
 tmdbId: "1164355"
 tmdbPosterId: "/5x9LrW0yvtt6S3XovIQHgXfYvLL.jpg"
-releaseDate: "2024-09-19"
+releaseDate: 2024-09-19
 categoryRatings:
     gore: 0
     creepy: 0

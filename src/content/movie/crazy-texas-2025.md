@@ -2,7 +2,7 @@
 name: "Crazy Texas"
 tmdbId: "1460265"
 tmdbPosterId: "/g655Pmjx0xZwG0iU9TDA8WdNYRn.jpg"
-releaseDate: "2025-04-04"
+releaseDate: 2025-04-04
 categoryRatings:
     gore: 0
     creepy: 0

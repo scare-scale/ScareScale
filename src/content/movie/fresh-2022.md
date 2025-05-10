@@ -2,7 +2,7 @@
 name: "Fresh"
 tmdbId: "787752"
 tmdbPosterId: "/tlu71AgaL3EQBBCNGsAwZLPbV5D.jpg"
-releaseDate: "2022-03-03"
+releaseDate: 2022-03-03
 categoryRatings:
     gore: 0
     creepy: 0

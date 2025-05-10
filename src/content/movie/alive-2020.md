@@ -2,7 +2,7 @@
 name: "#Alive"
 tmdbId: "614696"
 tmdbPosterId: "/lZPvLUMYEPLTE2df1VW5FHTYC8N.jpg"
-releaseDate: "2020-06-24"
+releaseDate: 2020-06-24
 categoryRatings:
     gore: 0
     creepy: 0

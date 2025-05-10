@@ -2,7 +2,7 @@
 name: "Bird Box"
 tmdbId: "405774"
 tmdbPosterId: "/rGfGfgL2pEPCfhIvqHXieXFn7gp.jpg"
-releaseDate: "2018-12-13"
+releaseDate: 2018-12-13
 categoryRatings:
     gore: 0
     creepy: 0

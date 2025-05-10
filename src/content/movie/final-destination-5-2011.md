@@ -2,7 +2,7 @@
 name: "Final Destination 5"
 tmdbId: "55779"
 tmdbPosterId: "/Akx1Po4ZLetOWfYJhQf75tbhTtK.jpg"
-releaseDate: "2011-08-12"
+releaseDate: 2011-08-12
 categoryRatings:
     gore: 0
     creepy: 0

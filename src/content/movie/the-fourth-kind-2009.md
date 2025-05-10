@@ -2,7 +2,7 @@
 name: "The Fourth Kind"
 tmdbId: "22824"
 tmdbPosterId: "/vfnsGUwurUQqlpvArBvUVc9rYXa.jpg"
-releaseDate: "2009-11-05"
+releaseDate: 2009-11-05
 categoryRatings:
     gore: 3
     creepy: 5

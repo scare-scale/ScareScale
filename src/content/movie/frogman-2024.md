@@ -2,7 +2,7 @@
 name: "Frogman"
 tmdbId: "1139937"
 tmdbPosterId: "/hgAHquo8Bt0ub0ru3QLiyrhGltW.jpg"
-releaseDate: "2024-09-26"
+releaseDate: 2024-09-26
 categoryRatings:
     gore: 0
     creepy: 0

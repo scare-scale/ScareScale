@@ -2,7 +2,7 @@
 name: "The Sadness"
 tmdbId: "776797"
 tmdbPosterId: "/mi5lh2brPMzuWYddyUKuCtcnjt1.jpg"
-releaseDate: "2021-01-22"
+releaseDate: 2021-01-22
 categoryRatings:
     gore: 0
     creepy: 0

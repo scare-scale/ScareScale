@@ -2,7 +2,7 @@
 name: "In a Violent Nature"
 tmdbId: "1214509"
 tmdbPosterId: "/hPfWHgq07nXbeldwEGxWB4JqwtE.jpg"
-releaseDate: "2024-05-31"
+releaseDate: 2024-05-31
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Death Whisperer 2"
 tmdbId: "1247019"
 tmdbPosterId: "/uDW5eeFUYp1vaU2ymEdVBG6g7iq.jpg"
-releaseDate: "2024-10-10"
+releaseDate: 2024-10-10
 categoryRatings:
     gore: 0
     creepy: 0

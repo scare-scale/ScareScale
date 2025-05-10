@@ -2,7 +2,7 @@
 name: "Orphan: First Kill"
 tmdbId: "760161"
 tmdbPosterId: "/pHkKbIRoCe7zIFvqan9LFSaQAde.jpg"
-releaseDate: "2022-07-27"
+releaseDate: 2022-07-27
 categoryRatings:
     gore: 0
     creepy: 0

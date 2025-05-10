@@ -2,7 +2,7 @@
 name: "You Should Have Left"
 tmdbId: "514593"
 tmdbPosterId: "/tpOwE6xsWnu4lKeKbKW0R3iClM.jpg"
-releaseDate: "2020-06-18"
+releaseDate: 2020-06-18
 categoryRatings:
     gore: 0
     creepy: 0

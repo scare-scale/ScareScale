@@ -2,7 +2,7 @@
 name: "The Mistress"
 tmdbId: "1094713"
 tmdbPosterId: "/1kdmre0wlUAUk9BvySv4Xoveieg.jpg"
-releaseDate: "2023-07-28"
+releaseDate: 2023-07-28
 categoryRatings:
     gore: 0
     creepy: 0

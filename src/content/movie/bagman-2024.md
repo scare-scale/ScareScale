@@ -2,7 +2,7 @@
 name: "Bagman"
 tmdbId: "978796"
 tmdbPosterId: "/53IK9rlZJbwFYbNnJZiLq7UWxkT.jpg"
-releaseDate: "2024-09-20"
+releaseDate: 2024-09-20
 categoryRatings:
     gore: 0
     creepy: 0

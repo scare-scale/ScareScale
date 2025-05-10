@@ -2,7 +2,7 @@
 name: "The Nun"
 tmdbId: "439079"
 tmdbPosterId: "/sFC1ElvoKGdHJIWRpNB3xWJ9lJA.jpg"
-releaseDate: "2018-09-05"
+releaseDate: 2018-09-05
 categoryRatings:
     gore: 0
     creepy: 0

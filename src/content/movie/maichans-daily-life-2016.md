@@ -2,7 +2,7 @@
 name: "Mai-chan's Daily Life"
 tmdbId: "372962"
 tmdbPosterId: "/631oaSK4rC17pDP2jXzkgPRT6qs.jpg"
-releaseDate: "2016-02-25"
+releaseDate: 2016-02-25
 categoryRatings:
     gore: 0
     creepy: 0

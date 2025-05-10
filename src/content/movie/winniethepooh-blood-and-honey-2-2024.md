@@ -2,7 +2,7 @@
 name: "Winnie-the-Pooh: Blood and Honey 2"
 tmdbId: "1079485"
 tmdbPosterId: "/2sADrLwMQof6yYmrJRSa04tFZuS.jpg"
-releaseDate: "2024-03-26"
+releaseDate: 2024-03-26
 categoryRatings:
     gore: 0
     creepy: 0

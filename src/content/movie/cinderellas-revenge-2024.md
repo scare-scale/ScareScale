@@ -2,7 +2,7 @@
 name: "Cinderella's Revenge"
 tmdbId: "1140847"
 tmdbPosterId: "/cYB3SHhITJSbRoisgn9QQTP8YkZ.jpg"
-releaseDate: "2024-04-26"
+releaseDate: 2024-04-26
 categoryRatings:
     gore: 0
     creepy: 0

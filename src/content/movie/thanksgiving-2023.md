@@ -2,7 +2,7 @@
 name: "Thanksgiving"
 tmdbId: "1071215"
 tmdbPosterId: "/f5f3TEVst1nHHyqgn7Z3tlwnBIH.jpg"
-releaseDate: "2023-11-16"
+releaseDate: 2023-11-16
 categoryRatings:
     gore: 0
     creepy: 0

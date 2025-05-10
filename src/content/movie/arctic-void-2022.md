@@ -2,7 +2,7 @@
 name: "Arctic Void"
 tmdbId: "919873"
 tmdbPosterId: "/2OkdcVn1wIgRA4zo8tTbn7NNDUT.jpg"
-releaseDate: "2022-01-14"
+releaseDate: 2022-01-14
 categoryRatings:
     gore: 0
     creepy: 0

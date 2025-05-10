@@ -2,7 +2,7 @@
 name: "The Glenarma Tapes"
 tmdbId: "1136721"
 tmdbPosterId: "/m0kojZkP1vcK9F8XSWfw9haJHKz.jpg"
-releaseDate: "2024-04-02"
+releaseDate: 2024-04-02
 categoryRatings:
     gore: 0
     creepy: 0
