@@ -3,13 +3,6 @@ on:
   push:
     branches:
       - dev
-  workflow_run:
-    workflows: ["Tests"]
-    branches: [dev]
-    types: 
-      - completed
-    conclusion: success
-  workflow_dispatch: # Allows manual triggering of the workflow
 jobs:
   deploy:
     permissions:
@@ -33,6 +26,7 @@ jobs:
       id: deployment
       with:
         token: ${{ steps.app-token.outputs.token }}
+        environment-url: http://dev.scarescale.com
         environment: dev
 
     - name: Checkout repository
