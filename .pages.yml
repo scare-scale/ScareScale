@@ -27,7 +27,7 @@ content:
       search: [mame]
     fields:
       - { name: "name", label: "Movie Name", type: "string", required: true }
-      - { name: "tmdbId", label: "TMDB ID", type: "string", required: true }
+      - { name: "tmdbId", label: "TMDB ID", type: "string", required: true, pattern: "\/[a-zA-Z0-9]{10,}\\.jpg" }
       - { name: "tmdbPosterId", label: "TMDB Poster ID", type: "string", required: true }
       - { name: "releaseDate", label: "Release Date", type: "date", required: true }
       - name: "categoryRatings"
