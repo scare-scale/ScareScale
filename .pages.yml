@@ -8,8 +8,9 @@ content:
     path: "src/content/movie"
     subfolders: false
     view:
+      fields: [ name, tmdbId ]
       primary: name
-      sort: [ releaseDate, name ]
+      sort: [ releaseDate, name, releaseDate, categoryRatings ]
       default:
         sort: releaseDate
         order: desc
