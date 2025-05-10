@@ -1,4 +1,4 @@
-name: Deploy CDK
+name: Deploy GitHub Pages
 on:
   workflow_run:
     workflows: ["Tests"]
@@ -6,6 +6,7 @@ on:
     types: 
       - completed
     conclusion: success
+  workflow_dispatch: # Allows manual triggering of the workflow
 jobs:
   deploy:
     permissions:
