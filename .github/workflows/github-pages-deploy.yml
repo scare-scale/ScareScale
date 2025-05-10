@@ -44,7 +44,7 @@ jobs:
       uses: withastro/action@v4
 
     - name: Deploy to GitHub Pages
-      id: deployment
+      id: pages-deployment
       uses: actions/deploy-pages@v4
 
     - name: Update deployment status (success)
