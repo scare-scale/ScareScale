@@ -8,7 +8,6 @@ content:
     path: "src/content/movie"
     subfolders: false
     view:
-      fields: [ name ]
       primary: name
       sort: [ releaseDate, name ]
       default:
