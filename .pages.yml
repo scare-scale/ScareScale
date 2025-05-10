@@ -8,9 +8,9 @@ content:
     path: "src/content/movie"
     subfolders: false
     view:
-      fields: [ name, tmdbId ]
+      fields: [ name, tmdbId, name, releaseDate, categoryRatings.gore, creepy, jumpscares  ]
       primary: name
-      sort: [ releaseDate, name, releaseDate, categoryRatings.gore, creepy, jumpscares ]
+      sort: [ releaseDate]
       default:
         sort: releaseDate
         order: desc
