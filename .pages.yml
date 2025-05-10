@@ -26,10 +26,10 @@ content:
         order: desc
       search: [mame]
     fields:
-      - { name: "name", label: "Movie Name", type: "string" }
-      - { name: "tmdbId", label: "TMDB ID", type: "string" }
-      - { name: "tmdbPosterId", label: "TMDB Poster ID", type: "string" }
-      - { name: "releaseDate", label: "Release Date", type: "date" }
+      - { name: "name", label: "Movie Name", type: "string", required: true }
+      - { name: "tmdbId", label: "TMDB ID", type: "string", required: true }
+      - { name: "tmdbPosterId", label: "TMDB Poster ID", type: "string", required: true }
+      - { name: "releaseDate", label: "Release Date", type: "date", required: true }
       - name: "categoryRatings"
         label: "Category Ratings"
         type: "object"
@@ -38,30 +38,40 @@ content:
               name: "gore",
               label: "Gore",
               type: "number",
+              default: 0,
+              required: true,
               options: { min: 0, max: 10 },
             }
           - {
               name: "creepy",
               label: "Creepy",
               type: "number",
+              default: 0,
+              required: true,
               options: { min: 0, max: 10 },
             }
           - {
               name: "jumpscares",
               label: "Jumpscares",
               type: "number",
+              default: 0,
+              required: true,
               options: { min: 0, max: 10 },
             }
           - {
               name: "suspense",
               label: "Suspense",
               type: "number",
+              default: 0,
+              required: true,
               options: { min: 0, max: 10 },
             }
           - {
               name: "psychological",
               label: "Psychological",
               type: "number",
+              default: 0,
+              required: true,
               options: { min: 0, max: 10 },
             }
       - { name: "body", label: "Description", type: "rich-text" }
