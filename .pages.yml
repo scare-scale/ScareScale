@@ -12,12 +12,7 @@ content:
       fields:
         [
           name,
-          releaseDate,
-          categoryRatings.gore,
-          categoryRatings.creepy,
-          categoryRatings.jumpscares,
-          categoryRatings.suspense,
-          categoryRatings.psychological,
+          releaseDate
         ]
       primary: name
       sort: [releaseDate]
