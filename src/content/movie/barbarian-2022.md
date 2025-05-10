@@ -2,7 +2,7 @@
 name: "Barbarian"
 tmdbId: "913290"
 tmdbPosterId: "/idT5mnqPcJgSkvpDX7pJffBzdVH.jpg"
-releaseDate: "2022-09-08"
+releaseDate: 2022-09-08
 categoryRatings:
     gore: 0
     creepy: 0

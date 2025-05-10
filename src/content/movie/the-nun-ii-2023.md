@@ -2,7 +2,7 @@
 name: "The Nun II"
 tmdbId: "968051"
 tmdbPosterId: "/nt5U1MgFcyxCYA6cssNKtnn2FsF.jpg"
-releaseDate: "2023-09-06"
+releaseDate: 2023-09-06
 categoryRatings:
     gore: 0
     creepy: 0

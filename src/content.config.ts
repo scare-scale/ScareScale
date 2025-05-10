@@ -8,7 +8,7 @@ const movieCollection = defineCollection({
     name: z.string(),
     tmdbId: z.string(),
     tmdbPosterId: z.string(),
-    releaseDate: z.string(),
+    releaseDate: z.date(),
     categoryRatings: z.object({
       gore: z.number(),
       creepy: z.number(),

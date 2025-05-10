@@ -2,7 +2,7 @@
 name: "Heretic"
 tmdbId: "1138194"
 tmdbPosterId: "/fr96XzlzsONrQrGfdLMiwtQjott.jpg"
-releaseDate: "2024-10-31"
+releaseDate: 2024-10-31
 categoryRatings:
     gore: 0
     creepy: 0

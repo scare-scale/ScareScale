@@ -2,7 +2,7 @@
 name: "The Invisible Man"
 tmdbId: "570670"
 tmdbPosterId: "/5EufsDwXdY2CVttYOk2WtYhgKpa.jpg"
-releaseDate: "2020-02-26"
+releaseDate: 2020-02-26
 categoryRatings:
     gore: 2
     creepy: 5

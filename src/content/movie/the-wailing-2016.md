@@ -2,7 +2,7 @@
 name: "The Wailing"
 tmdbId: "293670"
 tmdbPosterId: "/aXlL7yYwpXInhltamtzKQFBG08G.jpg"
-releaseDate: "2016-05-12"
+releaseDate: 2016-05-12
 categoryRatings:
     gore: 0
     creepy: 0

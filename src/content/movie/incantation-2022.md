@@ -2,7 +2,7 @@
 name: "Incantation"
 tmdbId: "864370"
 tmdbPosterId: "/cWz28oGV3cSajWdziVQbqrYCmnX.jpg"
-releaseDate: "2022-03-18"
+releaseDate: 2022-03-18
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Annihilation"
 tmdbId: "300668"
 tmdbPosterId: "/4YRplSk6BhH6PRuE9gfyw9byUJ6.jpg"
-releaseDate: "2018-02-22"
+releaseDate: 2018-02-22
 categoryRatings:
     gore: 0
     creepy: 0

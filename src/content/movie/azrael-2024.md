@@ -2,7 +2,7 @@
 name: "Azrael"
 tmdbId: "1029235"
 tmdbPosterId: "/qpdFKDvJS7oLKTcBLXOaMwUESbs.jpg"
-releaseDate: "2024-09-27"
+releaseDate: 2024-09-27
 categoryRatings:
     gore: 0
     creepy: 0

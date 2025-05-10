@@ -2,7 +2,7 @@
 name: "Death of a Unicorn"
 tmdbId: "1153714"
 tmdbPosterId: "/lXR32JepFwD1UHkplWqtBP1K79z.jpg"
-releaseDate: "2025-03-27"
+releaseDate: 2025-03-27
 categoryRatings:
     gore: 0
     creepy: 0

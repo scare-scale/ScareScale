@@ -2,7 +2,7 @@
 name: "The Menu"
 tmdbId: "593643"
 tmdbPosterId: "/fPtUgMcLIboqlTlPrq0bQpKK8eq.jpg"
-releaseDate: "2022-11-17"
+releaseDate: 2022-11-17
 categoryRatings:
     gore: 0
     creepy: 0

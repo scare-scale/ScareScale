@@ -2,7 +2,7 @@
 name: "Saint Catherine"
 tmdbId: "1356236"
 tmdbPosterId: "/hBJdzKPeDaC96AzlrtMWBomYSZV.jpg"
-releaseDate: "2024-09-24"
+releaseDate: 2024-09-24
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Hellraiser"
 tmdbId: "338947"
 tmdbPosterId: "/f9ZAIUxTTk23vo1BC9Ur1Rx5c2E.jpg"
-releaseDate: "2022-09-28"
+releaseDate: 2022-09-28
 categoryRatings:
     gore: 0
     creepy: 0

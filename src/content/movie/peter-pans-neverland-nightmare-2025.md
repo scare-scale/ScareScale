@@ -2,7 +2,7 @@
 name: "Peter Pan's Neverland Nightmare"
 tmdbId: "1020414"
 tmdbPosterId: "/mOR1Ks0EcXocwMV4EPv4letz0F5.jpg"
-releaseDate: "2025-01-13"
+releaseDate: 2025-01-13
 categoryRatings:
     gore: 0
     creepy: 0

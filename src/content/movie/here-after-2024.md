@@ -2,7 +2,7 @@
 name: "Here After"
 tmdbId: "1096838"
 tmdbPosterId: "/by3EEDIVTdhNJolYK2Msn1RHRFH.jpg"
-releaseDate: "2024-07-25"
+releaseDate: 2024-07-25
 categoryRatings:
     gore: 0
     creepy: 0

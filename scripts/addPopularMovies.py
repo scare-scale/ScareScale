@@ -14,7 +14,7 @@ def add_popular_movies(start_date, end_date, top_x, min_popularity=50):
             "tmdbId": movie.get("id"),
             "tmdbPosterId": movie.get("poster_path"),
             "description": movie.get("overview"),
-            "releaseDate": movie.get("release_date")
+            "releaseDate": datetime.strptime(movie.get("release_date"), "%Y-%m-%d").date()  # Ensure date object
         }
         print(f"Saving movie: {movie_data['name']}")
         save_as_md(movie_data)
@@ -26,8 +26,8 @@ def get_user_input(prompt, default_value):
 
 # Default date range
 today = datetime.today()
-default_start_date = (today - timedelta(days=6 * 30)).strftime("%Y-%m-%d")
-default_end_date = (today + timedelta(days=12 * 30)).strftime("%Y-%m-%d")
+default_start_date = (today - timedelta(days=6 * 30)).date()  # Use date object
+default_end_date = (today + timedelta(days=12 * 30)).date()  # Use date object
 
 parser = argparse.ArgumentParser(description="Add top popular horror movies as markdown files.")
 parser.add_argument("--start-date", type=str, help="Start date (YYYY-MM-DD)")
@@ -37,8 +37,8 @@ parser.add_argument("--min-popularity", type=int, help="Minimum popularity thres
 
 args = parser.parse_args()
 
-start_date = args.start_date or get_user_input("Enter the start date (YYYY-MM-DD)", default_start_date)
-end_date = args.end_date or get_user_input("Enter the end date (YYYY-MM-DD)", default_end_date)
+start_date = datetime.strptime(args.start_date, "%Y-%m-%d").date() if args.start_date else default_start_date
+end_date = datetime.strptime(args.end_date, "%Y-%m-%d").date() if args.end_date else default_end_date
 top_x = args.top_x if args.top_x else int(get_user_input("Enter the number of top popular movies to add", "10"))
 min_popularity = args.min_popularity if args.min_popularity else int(get_user_input("Enter the minimum popularity", "50"))
 

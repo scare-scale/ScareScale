@@ -2,7 +2,7 @@
 name: "Salem's Lot"
 tmdbId: "748230"
 tmdbPosterId: "/j7ncdqBVufydVzVtxmXu8Ago4ox.jpg"
-releaseDate: "2024-10-03"
+releaseDate: 2024-10-03
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Spiral: From the Book of Saw"
 tmdbId: "602734"
 tmdbPosterId: "/cTvSDfBuXTZTdRCNduGMANd7VEP.jpg"
-releaseDate: "2021-05-12"
+releaseDate: 2021-05-12
 categoryRatings:
     gore: 0
     creepy: 0

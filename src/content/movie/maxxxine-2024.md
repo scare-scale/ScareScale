@@ -2,7 +2,7 @@
 name: "MaXXXine"
 tmdbId: "1023922"
 tmdbPosterId: "/ArvoFK6nlouZRxYmtIOUzKIrg90.jpg"
-releaseDate: "2024-07-04"
+releaseDate: 2024-07-04
 categoryRatings:
     gore: 0
     creepy: 0

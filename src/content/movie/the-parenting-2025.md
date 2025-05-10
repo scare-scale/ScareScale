@@ -2,7 +2,7 @@
 name: "The Parenting"
 tmdbId: "850920"
 tmdbPosterId: "/5lMu14IMuHo0hKYCwCIogt7IioX.jpg"
-releaseDate: "2025-03-12"
+releaseDate: 2025-03-12
 categoryRatings:
     gore: 0
     creepy: 0

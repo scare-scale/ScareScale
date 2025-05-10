@@ -2,7 +2,7 @@
 name: "The Exorcism of God"
 tmdbId: "836225"
 tmdbPosterId: "/hangTmbxpSV4gpHG7MgSlCWSSFa.jpg"
-releaseDate: "2022-03-11"
+releaseDate: 2022-03-11
 categoryRatings:
     gore: 0
     creepy: 0

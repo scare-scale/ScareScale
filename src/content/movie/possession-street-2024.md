@@ -2,7 +2,7 @@
 name: "Possession Street"
 tmdbId: "1178764"
 tmdbPosterId: "/uNrBz1wrWszAVvOoyWPySbXWoxz.jpg"
-releaseDate: "2024-10-31"
+releaseDate: 2024-10-31
 categoryRatings:
     gore: 0
     creepy: 0

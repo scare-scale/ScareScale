@@ -2,7 +2,7 @@
 name: "28 Days Later"
 tmdbId: "170"
 tmdbPosterId: "/sQckQRt17VaWbo39GIu0TMOiszq.jpg"
-releaseDate: "2002-10-31"
+releaseDate: 2002-10-31
 categoryRatings:
     gore: 0
     creepy: 0

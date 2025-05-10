@@ -2,7 +2,7 @@
 name: "Panor"
 tmdbId: "1278162"
 tmdbPosterId: "/fjvV2wQL8j7cgDVlR0Jru50UE16.jpg"
-releaseDate: "2025-01-16"
+releaseDate: 2025-01-16
 categoryRatings:
     gore: 0
     creepy: 0

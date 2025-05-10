@@ -2,7 +2,7 @@
 name: "The Jack in the Box Rises"
 tmdbId: "1207898"
 tmdbPosterId: "/oDVjlCTSyF6Fh8Fpm683MyGGnSG.jpg"
-releaseDate: "2024-01-18"
+releaseDate: 2024-01-18
 categoryRatings:
     gore: 0
     creepy: 0

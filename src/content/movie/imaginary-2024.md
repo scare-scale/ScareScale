@@ -2,7 +2,7 @@
 name: "Imaginary"
 tmdbId: "1125311"
 tmdbPosterId: "/bPCxkrCEGJmaYfvdXj0x3mCLbGr.jpg"
-releaseDate: "2024-03-06"
+releaseDate: 2024-03-06
 categoryRatings:
     gore: 0
     creepy: 0

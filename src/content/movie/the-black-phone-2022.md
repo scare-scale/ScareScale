@@ -2,7 +2,7 @@
 name: "The Black Phone"
 tmdbId: "756999"
 tmdbPosterId: "/p9ZUzCyy9wRTDuuQexkQ78R2BgF.jpg"
-releaseDate: "2022-06-17"
+releaseDate: 2022-06-17
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "The Rule of Jenny Pen"
 tmdbId: "1212742"
 tmdbPosterId: "/qiuFVvocsT7WHBS9IzMUnl8cBDO.jpg"
-releaseDate: "2025-03-07"
+releaseDate: 2025-03-07
 categoryRatings:
     gore: 0
     creepy: 0

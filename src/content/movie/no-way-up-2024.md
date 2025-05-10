@@ -2,7 +2,7 @@
 name: "No Way Up"
 tmdbId: "1096197"
 tmdbPosterId: "/hu40Uxp9WtpL34jv3zyWLb5zEVY.jpg"
-releaseDate: "2024-01-18"
+releaseDate: 2024-01-18
 categoryRatings:
     gore: 0
     creepy: 0

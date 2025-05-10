@@ -2,7 +2,7 @@
 name: "Scream"
 tmdbId: "646385"
 tmdbPosterId: "/1m3W6cpgwuIyjtg5nSnPx7yFkXW.jpg"
-releaseDate: "2022-01-12"
+releaseDate: 2022-01-12
 categoryRatings:
     gore: 0
     creepy: 0

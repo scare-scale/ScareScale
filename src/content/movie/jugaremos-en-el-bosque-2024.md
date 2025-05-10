@@ -2,7 +2,7 @@
 name: "Jugaremos en el bosque"
 tmdbId: "1249013"
 tmdbPosterId: "/eBSl9nGymidAyEBdJGADnnm7JKt.jpg"
-releaseDate: "2024-05-01"
+releaseDate: 2024-05-01
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "I Saw the TV Glow"
 tmdbId: "858017"
 tmdbPosterId: "/hS4GYkYpN1rfl4GIxyc02sCyfAj.jpg"
-releaseDate: "2024-05-03"
+releaseDate: 2024-05-03
 categoryRatings:
     gore: 0
     creepy: 0

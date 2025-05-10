@@ -2,7 +2,7 @@
 name: "Nightwatch: Demons Are Forever"
 tmdbId: "1029880"
 tmdbPosterId: "/7Bj9qbmTiBdOmVlHeQqoEjsDxul.jpg"
-releaseDate: "2023-12-14"
+releaseDate: 2023-12-14
 categoryRatings:
     gore: 0
     creepy: 0

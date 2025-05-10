@@ -2,7 +2,7 @@
 name: "A Quiet Place Part II"
 tmdbId: "520763"
 tmdbPosterId: "/4q2hz2m8hubgvijz8Ez0T2Os2Yv.jpg"
-releaseDate: "2021-05-21"
+releaseDate: 2021-05-21
 categoryRatings:
     gore: 0
     creepy: 0

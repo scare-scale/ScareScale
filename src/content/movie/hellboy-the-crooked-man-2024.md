@@ -2,7 +2,7 @@
 name: "Hellboy: The Crooked Man"
 tmdbId: "1087822"
 tmdbPosterId: "/iz2GabtToVB05gLTVSH7ZvFtsMM.jpg"
-releaseDate: "2024-08-29"
+releaseDate: 2024-08-29
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Speak No Evil"
 tmdbId: "833339"
 tmdbPosterId: "/ukYuuFzPTumN1QNpQyz863bcNvr.jpg"
-releaseDate: "2022-03-17"
+releaseDate: 2022-03-17
 categoryRatings:
     gore: 0
     creepy: 0

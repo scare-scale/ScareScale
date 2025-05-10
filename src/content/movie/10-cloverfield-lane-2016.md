@@ -2,7 +2,7 @@
 name: "10 Cloverfield Lane"
 tmdbId: "333371"
 tmdbPosterId: "/84Dhwz93vCin6T1PX6ctSvWEuNE.jpg"
-releaseDate: "2016-03-10"
+releaseDate: 2016-03-10
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,6 +2,7 @@ import os
 import requests
 import re
 from tqdm import tqdm
+from datetime import datetime  # Added for date parsing
 
 def get_tmdb_headers():
     """Retrieve TMDB API headers."""
@@ -27,7 +28,7 @@ def get_movie_details(movie_id):
             "tmdbId": data.get("id"),
             "tmdbPosterId": data.get("poster_path"),
             "description": data.get("overview"),
-            "releaseDate": data.get("release_date")
+            "releaseDate": datetime.strptime(data.get("release_date"), "%Y-%m-%d").date()  # Convert to date
         }
     else:
         print(f"Error: Unable to fetch data. Status code {response.status_code}")
@@ -38,8 +39,8 @@ def fetch_horror_movies(start_date, end_date, min_popularity=50, max_results=100
     url = f"{BASE_URL}/discover/movie"
     params = {
         "with_genres": "27",  # Genre ID for Horror
-        "primary_release_date.gte": start_date,
-        "primary_release_date.lte": end_date,
+        "primary_release_date.gte": start_date.strftime("%Y-%m-%d"),  # Convert date to string
+        "primary_release_date.lte": end_date.strftime("%Y-%m-%d"),  # Convert date to string
         "sort_by": "popularity.desc",  # Sort by popularity in the API request
         "vote_count.gte": 1,  # Ensure movies have at least one vote
         "page": 1
@@ -73,7 +74,7 @@ def generate_filename(movie_name, release_year):
 
 def save_as_md(movie_data):
     if movie_data:
-        filename = generate_filename(movie_data['name'], movie_data['releaseDate'][:4])  # Extract year from releaseDate
+        filename = generate_filename(movie_data['name'], movie_data['releaseDate'].year)  # Use year from date object
 
         existing_content = {}
         if os.path.exists(filename):
@@ -89,7 +90,7 @@ def save_as_md(movie_data):
             "name": f"\"{movie_data['name']}\"",  # Use double quotes for the outer string
             "tmdbId": f"\"{movie_data['tmdbId']}\"",
             "tmdbPosterId": f"\"{movie_data['tmdbPosterId']}\"",
-            "releaseDate": f"\"{movie_data['releaseDate']}\"",
+            "releaseDate": movie_data['releaseDate'],  # Output as date object
             "categoryRatings": {
                 "gore": existing_content.get("gore", "0"),
                 "creepy": existing_content.get("creepy", "0"),

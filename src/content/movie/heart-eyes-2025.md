@@ -2,7 +2,7 @@
 name: "Heart Eyes"
 tmdbId: "1302916"
 tmdbPosterId: "/ebqttF1Vjgde6uSFBEw9mta7Hd3.jpg"
-releaseDate: "2025-02-06"
+releaseDate: 2025-02-06
 categoryRatings:
     gore: 7
     creepy: 4

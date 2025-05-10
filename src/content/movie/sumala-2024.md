@@ -2,7 +2,7 @@
 name: "Sumala"
 tmdbId: "1260594"
 tmdbPosterId: "/poWfzIn8bBh21wR3oGA8Oqmq4ie.jpg"
-releaseDate: "2024-09-26"
+releaseDate: 2024-09-26
 categoryRatings:
     gore: 0
     creepy: 0

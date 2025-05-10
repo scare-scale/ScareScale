@@ -2,7 +2,7 @@
 name: "Cinderella's Curse"
 tmdbId: "1130053"
 tmdbPosterId: "/xegGyjYdCcF9X1FWpfw1O1LcFnZ.jpg"
-releaseDate: "2024-05-31"
+releaseDate: 2024-05-31
 categoryRatings:
     gore: 0
     creepy: 0

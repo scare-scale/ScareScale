@@ -2,7 +2,7 @@
 name: "The Boy"
 tmdbId: "321258"
 tmdbPosterId: "/kW2vgzhyWXQu5UxNzebPokipBqH.jpg"
-releaseDate: "2016-01-22"
+releaseDate: 2016-01-22
 categoryRatings:
     gore: 0
     creepy: 0

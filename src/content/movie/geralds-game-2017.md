@@ -2,7 +2,7 @@
 name: "Gerald's Game"
 tmdbId: "343674"
 tmdbPosterId: "/32dippiypDdaKv7XFEfUlQ7kPup.jpg"
-releaseDate: "2017-09-29"
+releaseDate: 2017-09-29
 categoryRatings:
     gore: 0
     creepy: 0

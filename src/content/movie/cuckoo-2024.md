@@ -2,7 +2,7 @@
 name: "Cuckoo"
 tmdbId: "869291"
 tmdbPosterId: "/4bGP5cnSZbfBJfIidZNSEIKnav7.jpg"
-releaseDate: "2024-08-02"
+releaseDate: 2024-08-02
 categoryRatings:
     gore: 0
     creepy: 0

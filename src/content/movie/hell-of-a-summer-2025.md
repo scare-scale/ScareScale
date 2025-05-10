@@ -2,7 +2,7 @@
 name: "Hell of a Summer"
 tmdbId: "999243"
 tmdbPosterId: "/wmSCSKUI15Q2pApB5f3oEl0EQuE.jpg"
-releaseDate: "2025-04-03"
+releaseDate: 2025-04-03
 categoryRatings:
     gore: 0
     creepy: 0

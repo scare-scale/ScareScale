@@ -2,7 +2,7 @@
 name: "Under Paris"
 tmdbId: "1001311"
 tmdbPosterId: "/qZPLK5ktRKa3CL4sKRZtj8UlPYc.jpg"
-releaseDate: "2024-06-04"
+releaseDate: 2024-06-04
 categoryRatings:
     gore: 0
     creepy: 0

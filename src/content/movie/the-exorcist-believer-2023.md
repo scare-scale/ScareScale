@@ -2,7 +2,7 @@
 name: "The Exorcist: Believer"
 tmdbId: "807172"
 tmdbPosterId: "/fFXkAlMH2iQrNknv4eq7LGTkcti.jpg"
-releaseDate: "2023-10-04"
+releaseDate: 2023-10-04
 categoryRatings:
     gore: 0
     creepy: 0

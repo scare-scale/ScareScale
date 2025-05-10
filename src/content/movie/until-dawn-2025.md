@@ -2,7 +2,7 @@
 name: "Until Dawn"
 tmdbId: "1232546"
 tmdbPosterId: "/6O9nkcmZBymDXtxOGJmulqcxJdv.jpg"
-releaseDate: "2025-04-23"
+releaseDate: 2025-04-23
 categoryRatings:
     gore: 7
     creepy: 5

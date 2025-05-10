@@ -2,7 +2,7 @@
 name: "The Sinners"
 tmdbId: "671903"
 tmdbPosterId: "/6CNeTFN0pea10FEG0vZYrc5EI27.jpg"
-releaseDate: "2020-03-01"
+releaseDate: 2020-03-01
 categoryRatings:
     gore: 0
     creepy: 0

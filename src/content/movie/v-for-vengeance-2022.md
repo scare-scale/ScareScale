@@ -2,7 +2,7 @@
 name: "V for Vengeance"
 tmdbId: "982543"
 tmdbPosterId: "/eor4CPp7YHYh3J01NgNkQwGW4IC.jpg"
-releaseDate: "2022-06-07"
+releaseDate: 2022-06-07
 categoryRatings:
     gore: 0
     creepy: 0

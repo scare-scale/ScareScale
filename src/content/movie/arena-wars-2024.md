@@ -2,7 +2,7 @@
 name: "Arena Wars"
 tmdbId: "995803"
 tmdbPosterId: "/4dRtXjk1rcsZlaMJpBn6Nh9cTfO.jpg"
-releaseDate: "2024-06-25"
+releaseDate: 2024-06-25
 categoryRatings:
     gore: 0
     creepy: 0

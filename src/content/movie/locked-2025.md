@@ -2,7 +2,7 @@
 name: "Locked"
 tmdbId: "1083968"
 tmdbPosterId: "/hhkiqXpfpufwxVrdSftzeKIANl3.jpg"
-releaseDate: "2025-03-20"
+releaseDate: 2025-03-20
 categoryRatings:
     gore: 0
     creepy: 0

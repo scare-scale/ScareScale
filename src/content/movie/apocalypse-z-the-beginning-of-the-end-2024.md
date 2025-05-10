@@ -2,7 +2,7 @@
 name: "Apocalypse Z: The Beginning of the End"
 tmdbId: "1118031"
 tmdbPosterId: "/wIGJnIFQlESkC2rLpfA8EDHqk4g.jpg"
-releaseDate: "2024-10-04"
+releaseDate: 2024-10-04
 categoryRatings:
     gore: 0
     creepy: 0

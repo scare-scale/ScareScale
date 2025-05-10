@@ -2,7 +2,7 @@
 name: "Exorcism Chronicles: The Beginning"
 tmdbId: "1233199"
 tmdbPosterId: "/j1avSbVgXaEFw6QfPMTsnmH8bQf.jpg"
-releaseDate: "2025-02-21"
+releaseDate: 2025-02-21
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Sofia, the Possession"
 tmdbId: "1321952"
 tmdbPosterId: "/kYbd7M1dk2xadHd2WczQRmO28uJ.jpg"
-releaseDate: "2024-10-31"
+releaseDate: 2024-10-31
 categoryRatings:
     gore: 0
     creepy: 0

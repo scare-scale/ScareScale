@@ -2,7 +2,7 @@
 name: "Never Let Go"
 tmdbId: "814889"
 tmdbPosterId: "/iwUoM3y77fov7bKyFMwpGMzRHyn.jpg"
-releaseDate: "2024-09-18"
+releaseDate: 2024-09-18
 categoryRatings:
     gore: 0
     creepy: 0

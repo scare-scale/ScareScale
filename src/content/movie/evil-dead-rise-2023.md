@@ -2,7 +2,7 @@
 name: "Evil Dead Rise"
 tmdbId: "713704"
 tmdbPosterId: "/5ik4ATKmNtmJU6AYD0bLm56BCVM.jpg"
-releaseDate: "2023-04-12"
+releaseDate: 2023-04-12
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Terrifier 2"
 tmdbId: "663712"
 tmdbPosterId: "/qEAlwXbYk6IHA4ztoS2XFFaa7Xo.jpg"
-releaseDate: "2022-10-06"
+releaseDate: 2022-10-06
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "The Pope's Exorcist"
 tmdbId: "758323"
 tmdbPosterId: "/jFC4LS5qTAT3PinzdEzINfu1CV9.jpg"
-releaseDate: "2023-04-05"
+releaseDate: 2023-04-05
 categoryRatings:
     gore: 0
     creepy: 0

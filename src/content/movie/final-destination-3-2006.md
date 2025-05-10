@@ -2,7 +2,7 @@
 name: "Final Destination 3"
 tmdbId: "9286"
 tmdbPosterId: "/p7ARuNKUGPGvkBiDtIDvAzYzonX.jpg"
-releaseDate: "2006-02-09"
+releaseDate: 2006-02-09
 categoryRatings:
     gore: 0
     creepy: 0

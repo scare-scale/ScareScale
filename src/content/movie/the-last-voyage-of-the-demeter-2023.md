@@ -2,7 +2,7 @@
 name: "The Last Voyage of the Demeter"
 tmdbId: "635910"
 tmdbPosterId: "/nrtbv6Cew7qC7k9GsYSf5uSmuKh.jpg"
-releaseDate: "2023-08-09"
+releaseDate: 2023-08-09
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Don't Worry Darling"
 tmdbId: "619730"
 tmdbPosterId: "/jOqxKIOC92BVyinYO1Fm73XY7Tc.jpg"
-releaseDate: "2022-09-21"
+releaseDate: 2022-09-21
 categoryRatings:
     gore: 0
     creepy: 0

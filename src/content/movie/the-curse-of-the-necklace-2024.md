@@ -2,7 +2,7 @@
 name: "The Curse of the Necklace"
 tmdbId: "1293263"
 tmdbPosterId: "/tWrYpICZChiPwRnc8SkvxBFBE3y.jpg"
-releaseDate: "2024-09-27"
+releaseDate: 2024-09-27
 categoryRatings:
     gore: 0
     creepy: 0

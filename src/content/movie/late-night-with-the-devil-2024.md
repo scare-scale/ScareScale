@@ -2,7 +2,7 @@
 name: "Late Night with the Devil"
 tmdbId: "938614"
 tmdbPosterId: "/mu8LRWT9GHkfiyHm7kgxT6YNvMW.jpg"
-releaseDate: "2024-03-19"
+releaseDate: 2024-03-19
 categoryRatings:
     gore: 0
     creepy: 0

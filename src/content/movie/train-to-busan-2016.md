@@ -2,7 +2,7 @@
 name: "Train to Busan"
 tmdbId: "396535"
 tmdbPosterId: "/vNVFt6dtcqnI7hqa6LFBUibuFiw.jpg"
-releaseDate: "2016-07-20"
+releaseDate: 2016-07-20
 categoryRatings:
     gore: 0
     creepy: 0

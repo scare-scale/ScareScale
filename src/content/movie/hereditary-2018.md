@@ -2,7 +2,7 @@
 name: "Hereditary"
 tmdbId: "493922"
 tmdbPosterId: "/4GFPuL14eXi66V96xBWY73Y9PfR.jpg"
-releaseDate: "2018-06-07"
+releaseDate: 2018-06-07
 categoryRatings:
     gore: 0
     creepy: 0

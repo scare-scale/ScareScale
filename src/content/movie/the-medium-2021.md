@@ -2,7 +2,7 @@
 name: "The Medium"
 tmdbId: "745881"
 tmdbPosterId: "/tWoSE8SH6XhgWKHIL3p0sj7lA3V.jpg"
-releaseDate: "2021-07-14"
+releaseDate: 2021-07-14
 categoryRatings:
     gore: 0
     creepy: 0

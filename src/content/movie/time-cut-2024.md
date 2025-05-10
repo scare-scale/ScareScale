@@ -2,7 +2,7 @@
 name: "Time Cut"
 tmdbId: "827931"
 tmdbPosterId: "/gzMFMmpJHOmOFKsAhSDac62Dyg2.jpg"
-releaseDate: "2024-10-29"
+releaseDate: 2024-10-29
 categoryRatings:
     gore: 0
     creepy: 0

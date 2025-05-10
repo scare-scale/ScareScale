@@ -2,7 +2,7 @@
 name: "Box Room"
 tmdbId: "330980"
 tmdbPosterId: "/nQK0m0n6yVlL3oLkUt5ZI1w6fnG.jpg"
-releaseDate: "2014-03-08"
+releaseDate: 2014-03-08
 categoryRatings:
     gore: 0
     creepy: 0

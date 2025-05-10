@@ -2,7 +2,7 @@
 name: "Last Shift"
 tmdbId: "296065"
 tmdbPosterId: "/oSTFMqFpVB4yq9SOIxBp8xZ9jh5.jpg"
-releaseDate: "2014-10-25"
+releaseDate: 2014-10-25
 categoryRatings:
     gore: 0
     creepy: 0

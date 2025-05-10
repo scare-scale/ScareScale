@@ -2,7 +2,7 @@
 name: "825 Forest Road"
 tmdbId: "1282980"
 tmdbPosterId: "/ohESp5Nw49OD4ExCeNYCEIGX2iq.jpg"
-releaseDate: "2025-04-24"
+releaseDate: 2025-04-24
 categoryRatings:
     gore: 0
     creepy: 0

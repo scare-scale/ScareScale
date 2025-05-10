@@ -2,7 +2,7 @@
 name: "Immaculate"
 tmdbId: "1041613"
 tmdbPosterId: "/zyopv7D5j7cfswG0NYiA14qAdPC.jpg"
-releaseDate: "2024-03-20"
+releaseDate: 2024-03-20
 categoryRatings:
     gore: 0
     creepy: 0

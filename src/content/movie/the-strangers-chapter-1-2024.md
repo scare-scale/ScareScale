@@ -2,7 +2,7 @@
 name: "The Strangers: Chapter 1"
 tmdbId: "1010600"
 tmdbPosterId: "/oYsCNpW4k7Pd7ac3uQfBhr2ihtW.jpg"
-releaseDate: "2024-05-15"
+releaseDate: 2024-05-15
 categoryRatings:
     gore: 0
     creepy: 0

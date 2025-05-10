@@ -2,7 +2,7 @@
 name: "Black Swan"
 tmdbId: "44214"
 tmdbPosterId: "/viWheBd44bouiLCHgNMvahLThqx.jpg"
-releaseDate: "2010-12-03"
+releaseDate: 2010-12-03
 categoryRatings:
     gore: 0
     creepy: 0

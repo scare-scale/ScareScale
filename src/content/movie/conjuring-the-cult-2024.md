@@ -2,7 +2,7 @@
 name: "Conjuring the Cult"
 tmdbId: "1359977"
 tmdbPosterId: "/t4MiAeYpjL7saYvqvcn9xtOfA4K.jpg"
-releaseDate: "2024-10-01"
+releaseDate: 2024-10-01
 categoryRatings:
     gore: 0
     creepy: 0

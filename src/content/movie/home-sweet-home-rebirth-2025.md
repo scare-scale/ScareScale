@@ -2,7 +2,7 @@
 name: "Home Sweet Home: Rebirth"
 tmdbId: "1353117"
 tmdbPosterId: "/9rCBCm9cyI4JfLEhx3EncyncMR3.jpg"
-releaseDate: "2025-03-20"
+releaseDate: 2025-03-20
 categoryRatings:
     gore: 0
     creepy: 0

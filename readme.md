@@ -18,18 +18,7 @@ Welcome to **Scare Scale**, a community-driven project designed to categorise an
 
 ## How to Contribute
 
-### Option 1: Use the Python Script
-
-1. Navigate to the `/scripts/` directory.
-2. Set the `TMDB_BEARER_TOKEN` environment variable with your TMDB API key.
-3. Run the script:
-   ```bash
-   python movieMDGenerator.py
-   ```
-4. Enter the TMDB movie ID when prompted.
-5. Commit the generated markdown file and submit a pull request.
-
-### Option 2: Use Page CMS
+### Option 1: Use Page CMS
 
 1. Go to [edit.scarescale.com](https://edit.scarescale.com).
 2. Log in with your credentials.
@@ -42,6 +31,18 @@ Welcome to **Scare Scale**, a community-driven project designed to categorise an
    - Category ratings (gore, creepy, jumpscares, suspense, psychological)
    - Movie description
 5. Save your changes and submit them for review.
+
+### Option 2: Use the Python Script
+
+1. Navigate to the `/scripts/` directory.
+2. Set the `TMDB_BEARER_TOKEN` environment variable with your TMDB API key.
+3. Run the script:
+   ```bash
+   python movieMDGenerator.py
+   ```
+4. Enter the TMDB movie ID when prompted.
+5. Commit the generated markdown file and submit a pull request.
+
 
 ### Testing Your Changes
 

@@ -2,7 +2,7 @@
 name: "Breathing In"
 tmdbId: "1190462"
 tmdbPosterId: "/yy2dmnBlPhx21GUMUJUPxA9QUFp.jpg"
-releaseDate: "2023-10-18"
+releaseDate: 2023-10-18
 categoryRatings:
     gore: 0
     creepy: 0

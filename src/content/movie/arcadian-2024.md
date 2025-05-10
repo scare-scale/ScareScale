@@ -2,7 +2,7 @@
 name: "Arcadian"
 tmdbId: "1051896"
 tmdbPosterId: "/h4T8Xeydkw53h9uIbulYsss25UF.jpg"
-releaseDate: "2024-04-12"
+releaseDate: 2024-04-12
 categoryRatings:
     gore: 0
     creepy: 0

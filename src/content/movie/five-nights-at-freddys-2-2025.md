@@ -2,7 +2,7 @@
 name: "Five Nights at Freddy's 2"
 tmdbId: "1228246"
 tmdbPosterId: "/brJkq22WjpLnCuYEEId89FC3NXZ.jpg"
-releaseDate: "2025-12-03"
+releaseDate: 2025-12-03
 categoryRatings:
     gore: 0
     creepy: 0

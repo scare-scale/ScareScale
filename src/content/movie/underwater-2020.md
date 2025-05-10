@@ -2,7 +2,7 @@
 name: "Underwater"
 tmdbId: "443791"
 tmdbPosterId: "/gzlbb3yeVISpQ3REd3Ga1scWGTU.jpg"
-releaseDate: "2020-01-08"
+releaseDate: 2020-01-08
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "Ghost Game"
 tmdbId: "1249385"
 tmdbPosterId: "/kxxWBEn7qTN2xumSferCHbDudcT.jpg"
-releaseDate: "2024-10-18"
+releaseDate: 2024-10-18
 categoryRatings:
     gore: 0
     creepy: 0

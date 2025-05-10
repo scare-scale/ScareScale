@@ -2,7 +2,7 @@
 name: "The Hunt"
 tmdbId: "514847"
 tmdbPosterId: "/wxPhn4ef1EAo5njxwBkAEVrlJJG.jpg"
-releaseDate: "2020-03-11"
+releaseDate: 2020-03-11
 categoryRatings:
     gore: 0
     creepy: 0

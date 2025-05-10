@@ -2,7 +2,7 @@
 name: "No One Will Save You"
 tmdbId: "820609"
 tmdbPosterId: "/ehGIDAMaYy6Eg0o8ga0oqflDjqW.jpg"
-releaseDate: "2023-09-21"
+releaseDate: 2023-09-21
 categoryRatings:
     gore: 0
     creepy: 0

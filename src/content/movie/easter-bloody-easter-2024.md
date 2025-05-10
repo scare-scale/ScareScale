@@ -2,7 +2,7 @@
 name: "Easter Bloody Easter"
 tmdbId: "1201176"
 tmdbPosterId: "/8tGYZlPttiOjEe61GvszRcrnpEi.jpg"
-releaseDate: "2024-03-25"
+releaseDate: 2024-03-25
 categoryRatings:
     gore: 0
     creepy: 0

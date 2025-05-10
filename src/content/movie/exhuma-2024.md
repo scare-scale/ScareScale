@@ -2,7 +2,7 @@
 name: "Exhuma"
 tmdbId: "838209"
 tmdbPosterId: "/6dasJ58GGFcC62H9KuukAryltUp.jpg"
-releaseDate: "2024-02-22"
+releaseDate: 2024-02-22
 categoryRatings:
     gore: 0
     creepy: 0

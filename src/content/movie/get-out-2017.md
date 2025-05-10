@@ -2,7 +2,7 @@
 name: "Get Out"
 tmdbId: "419430"
 tmdbPosterId: "/tFXcEccSQMf3lfhfXKSU9iRBpa3.jpg"
-releaseDate: "2017-02-24"
+releaseDate: 2017-02-24
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "The Conjuring: The Devil Made Me Do It"
 tmdbId: "423108"
 tmdbPosterId: "/xbSuFiJbbBWCkyCCKIMfuDCA4yV.jpg"
-releaseDate: "2021-05-25"
+releaseDate: 2021-05-25
 categoryRatings:
     gore: 0
     creepy: 0

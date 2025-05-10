@@ -2,7 +2,7 @@
 name: "World War Z"
 tmdbId: "72190"
 tmdbPosterId: "/aCnVdvExw6UWSeQfr0tUH3jr4qG.jpg"
-releaseDate: "2013-06-19"
+releaseDate: 2013-06-19
 categoryRatings:
     gore: 0
     creepy: 0

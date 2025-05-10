@@ -2,7 +2,7 @@
 name: "Death Whisperer"
 tmdbId: "1134433"
 tmdbPosterId: "/48TDjSJpCdJ4SBOHZX3G5IjaV02.jpg"
-releaseDate: "2023-10-25"
+releaseDate: 2023-10-25
 categoryRatings:
     gore: 0
     creepy: 0

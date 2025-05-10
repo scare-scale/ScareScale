@@ -2,7 +2,7 @@
 name: "Caveat"
 tmdbId: "744746"
 tmdbPosterId: "/nbug05AceVU8PMXIONDFxMRtq54.jpg"
-releaseDate: "2021-10-20"
+releaseDate: 2021-10-20
 categoryRatings:
     gore: 0
     creepy: 0

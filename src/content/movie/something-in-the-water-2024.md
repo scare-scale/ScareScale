@@ -2,7 +2,7 @@
 name: "Something in the Water"
 tmdbId: "804616"
 tmdbPosterId: "/1iWGGxHEwswZGvPSoMZlLFf0PNq.jpg"
-releaseDate: "2024-03-22"
+releaseDate: 2024-03-22
 categoryRatings:
     gore: 0
     creepy: 0

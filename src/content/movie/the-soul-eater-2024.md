@@ -2,7 +2,7 @@
 name: "The Soul Eater"
 tmdbId: "1084863"
 tmdbPosterId: "/8XsQVmGQukwIVDM88Aa0C7L5hCp.jpg"
-releaseDate: "2024-04-24"
+releaseDate: 2024-04-24
 categoryRatings:
     gore: 0
     creepy: 0

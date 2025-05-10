@@ -2,7 +2,7 @@
 name: "The Exorcism"
 tmdbId: "646683"
 tmdbPosterId: "/ar2h87jlTfMlrDZefR3VFz1SfgH.jpg"
-releaseDate: "2024-05-30"
+releaseDate: 2024-05-30
 categoryRatings:
     gore: 0
     creepy: 0

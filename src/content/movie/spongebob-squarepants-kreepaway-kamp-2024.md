@@ -2,7 +2,7 @@
 name: "SpongeBob Squarepants: Kreepaway Kamp"
 tmdbId: "1354627"
 tmdbPosterId: "/aUOCmqkbCX94znDJNtSy1402Sie.jpg"
-releaseDate: "2024-10-10"
+releaseDate: 2024-10-10
 categoryRatings:
     gore: 0
     creepy: 0

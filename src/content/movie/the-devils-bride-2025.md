@@ -2,7 +2,7 @@
 name: "The Devil's Bride"
 tmdbId: "1339772"
 tmdbPosterId: "/hiPlFLw5vVm2M8JBIFB2PJA5FE5.jpg"
-releaseDate: "2025-01-16"
+releaseDate: 2025-01-16
 categoryRatings:
     gore: 0
     creepy: 0

@@ -2,7 +2,7 @@
 name: "The Final Destination"
 tmdbId: "19912"
 tmdbPosterId: "/5vxXrr1MqGsT4NNeRITpfDnl4Rq.jpg"
-releaseDate: "2009-08-26"
+releaseDate: 2009-08-26
 categoryRatings:
     gore: 0
     creepy: 0
