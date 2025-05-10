@@ -1,0 +1,21 @@
+collections:
+  - name: "movies"
+    label: "Movies"
+    folder: "src/content/movie"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "name", label: "Movie Name", widget: "string" }
+      - { name: "tmdbId", label: "TMDB ID", widget: "string" }
+      - { name: "tmdbPosterId", label: "TMDB Poster ID", widget: "string" }
+      - { name: "releaseDate", label: "Release Date", widget: "date" }
+      - name: "categoryRatings"
+        label: "Category Ratings"
+        widget: "object"
+        fields:
+          - { name: "gore", label: "Gore", widget: "number", min: 0, max: 10 }
+          - { name: "creepy", label: "Creepy", widget: "number", min: 0, max: 10 }
+          - { name: "jumpscares", label: "Jumpscares", widget: "number", min: 0, max: 10 }
+          - { name: "suspense", label: "Suspense", widget: "number", min: 0, max: 10 }
+          - { name: "psychological", label: "Psychological", widget: "number", min: 0, max: 10 }
+      - { name: "body", label: "Description", widget: "markdown" }
