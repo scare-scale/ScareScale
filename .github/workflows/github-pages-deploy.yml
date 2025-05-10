@@ -27,12 +27,12 @@ jobs:
       with:
         app-id: ${{ vars.RELEASES_APP_ID }}
         private-key: ${{ secrets.RELEASES_APP_PRIVATE_KEY }}
+
     - uses: chrnorm/deployment-action@v2
       name: Create GitHub deployment
       id: deployment
       with:
         token: ${{ steps.app-token.outputs.token }}
-        environment-url: http://scarescale.com
         environment: dev
 
     - name: Checkout repository
@@ -42,6 +42,10 @@ jobs:
 
     - name: Install, build, and upload your site output
       uses: withastro/action@v4
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
 
     - name: Update deployment status (success)
       if: success()
