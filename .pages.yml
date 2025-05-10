@@ -7,6 +7,13 @@ content:
     label: "Movies"
     path: "src/content/movie"
     subfolders: false
+    view:
+      fields: [ name ]
+      primary: name
+      sort: [ date, name ]
+      default:
+        sort: date
+        order: desc
     fields:
       - { name: "name", label: "Movie Name", type: "string" }
       - { name: "tmdbId", label: "TMDB ID", type: "string" }
