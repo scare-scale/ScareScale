@@ -10,9 +10,9 @@ content:
     view:
       fields: [ name ]
       primary: name
-      sort: [ date, name ]
+      sort: [ releaseDate, name ]
       default:
-        sort: date
+        sort: releaseDate
         order: desc
     fields:
       - { name: "name", label: "Movie Name", type: "string" }
