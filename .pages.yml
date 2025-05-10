@@ -2,7 +2,7 @@ content:
   - name: "movies"
     type: "file"
     label: "Movies"
-    path: "src/content/movie/*"
+    path: "src/content/movie"
     fields:
       - { name: "name", label: "Movie Name", type: "string" }
       - { name: "tmdbId", label: "TMDB ID", type: "string" }
