@@ -1,21 +1,20 @@
-collections:
+content:
   - name: "movies"
+    type: "file"
     label: "Movies"
-    folder: "src/content/movie"
-    create: true
-    slug: "{{slug}}"
+    path: "src/content/movie"
     fields:
-      - { name: "name", label: "Movie Name", widget: "string" }
-      - { name: "tmdbId", label: "TMDB ID", widget: "string" }
-      - { name: "tmdbPosterId", label: "TMDB Poster ID", widget: "string" }
-      - { name: "releaseDate", label: "Release Date", widget: "date" }
+      - { name: "name", label: "Movie Name", type: "string" }
+      - { name: "tmdbId", label: "TMDB ID", type: "string" }
+      - { name: "tmdbPosterId", label: "TMDB Poster ID", type: "string" }
+      - { name: "releaseDate", label: "Release Date", type: "date" }
       - name: "categoryRatings"
         label: "Category Ratings"
-        widget: "object"
+        type: "object"
         fields:
-          - { name: "gore", label: "Gore", widget: "number", min: 0, max: 10 }
-          - { name: "creepy", label: "Creepy", widget: "number", min: 0, max: 10 }
-          - { name: "jumpscares", label: "Jumpscares", widget: "number", min: 0, max: 10 }
-          - { name: "suspense", label: "Suspense", widget: "number", min: 0, max: 10 }
-          - { name: "psychological", label: "Psychological", widget: "number", min: 0, max: 10 }
-      - { name: "body", label: "Description", widget: "markdown" }
+          - { name: "gore", label: "Gore", type: "number", min: 0, max: 10 }
+          - { name: "creepy", label: "Creepy", type: "number", min: 0, max: 10 }
+          - { name: "jumpscares", label: "Jumpscares", type: "number", min: 0, max: 10 }
+          - { name: "suspense", label: "Suspense", type: "number", min: 0, max: 10 }
+          - { name: "psychological", label: "Psychological", type: "number", min: 0, max: 10 }
+      - { name: "body", label: "Description", type: "rich-text" }
