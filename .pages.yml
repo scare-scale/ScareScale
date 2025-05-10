@@ -1,3 +1,6 @@
+media:
+  input: public
+  output: /public
 content:
   - name: "movies"
     type: "collection"
