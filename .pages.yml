@@ -8,9 +8,18 @@ content:
     path: "src/content/movie"
     subfolders: false
     view:
-      fields: [ name, releaseDate, categoryRatings.gore, categoryRatings.creepy, categoryRatings.jumpscares,  categoryRatings.suspense,  categoryRatings.psychological  ]
+      fields:
+        [
+          name,
+          releaseDate,
+          categoryRatings.gore,
+          categoryRatings.creepy,
+          categoryRatings.jumpscares,
+          categoryRatings.suspense,
+          categoryRatings.psychological,
+        ]
       primary: name
-      sort: [ releaseDate ]
+      sort: [releaseDate]
       default:
         sort: releaseDate
         order: desc
@@ -23,9 +32,34 @@ content:
         label: "Category Ratings"
         type: "object"
         fields:
-          - { name: "gore", label: "Gore", type: "number", options: {min: 0, max: 10} }
-          - { name: "creepy", label: "Creepy", type: "number", options: {min: 0, max: 10}} 
-          - { name: "jumpscares", label: "Jumpscares", type: "number", options: {min: 0, max: 10}}  
-          - { name: "suspense", label: "Suspense", type: "number", options: {min: 0, max: 10}} 
-          - { name: "psychological", label: "Psychological", type: "number", options: {min: 0, max: 10}} 
+          - {
+              name: "gore",
+              label: "Gore",
+              type: "number",
+              options: { min: 0, max: 10 },
+            }
+          - {
+              name: "creepy",
+              label: "Creepy",
+              type: "number",
+              options: { min: 0, max: 10 },
+            }
+          - {
+              name: "jumpscares",
+              label: "Jumpscares",
+              type: "number",
+              options: { min: 0, max: 10 },
+            }
+          - {
+              name: "suspense",
+              label: "Suspense",
+              type: "number",
+              options: { min: 0, max: 10 },
+            }
+          - {
+              name: "psychological",
+              label: "Psychological",
+              type: "number",
+              options: { min: 0, max: 10 },
+            }
       - { name: "body", label: "Description", type: "rich-text" }
