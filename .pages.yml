@@ -24,6 +24,7 @@ content:
       default:
         sort: releaseDate
         order: desc
+      search: [mame]
     fields:
       - { name: "name", label: "Movie Name", type: "string" }
       - { name: "tmdbId", label: "TMDB ID", type: "string" }
