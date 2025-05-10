@@ -6,6 +6,7 @@ content:
     type: "collection"
     label: "Movies"
     path: "src/content/movie"
+    subfolders: false
     fields:
       - { name: "name", label: "Movie Name", type: "string" }
       - { name: "tmdbId", label: "TMDB ID", type: "string" }
