@@ -10,7 +10,7 @@ content:
     view:
       fields: [ name, tmdbId ]
       primary: name
-      sort: [ releaseDate, name, releaseDate, gore, creepy, jumpscares ]
+      sort: [ releaseDate, name, releaseDate, categoryRatings.gore, creepy, jumpscares ]
       default:
         sort: releaseDate
         order: desc
