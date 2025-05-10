@@ -133,7 +133,7 @@ const controlBarItems = [
               </ul>
 
               <div
-                class="w-full max-w-sm rounded-lg shadow-sm bg-white content-center outline-none ring-2 ring-black mx-auto lg:mx-0"
+                class="w-full max-w-sm rounded-lg shadow-sm content-center outline-none mx-auto lg:mx-0"
               >
                 <div class="flex flex-col items-center p-4">
                   <img
@@ -144,11 +144,11 @@ const controlBarItems = [
                   <div
                     class="w-20 h-20 m-6 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center"
                   >
-                    <h5 class="text-xl font-medium text-[#d60c16]">
+                    <h5 class="text-xl font-bold text-white">
                       {round(movie.scareScaleRating)} / 10
                     </h5>
                   </div>
-                  <h5 class="text-2xl text-black font-bold">{movie.scareScaleText}</h5>
+                  <h5 class="text-2xl text-white font-bold">{movie.scareScaleText}</h5>
                 </div>
               </div>
             </div>
@@ -159,11 +159,11 @@ const controlBarItems = [
   </div>
 
   <!-- Control Bar -->
-  <div class="max-w-screen-sm px-2 py-2 bg-white shadow-md rounded-md m-6 mx-4 sm:mx-auto">
+  <div class="max-w-screen-sm px-2 py-2 shadow-md rounded-md m-6 mx-4 sm:mx-auto">
     <ul class="flex flex-row justify-center items-center gap-2 md:gap-4 lg:gap-6 text-slate-800">
       {
         controlBarItems.map((item) => (
-          <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+          <li class="flex items-center p-1 text-sm gap-x-2 text-white">
             <a href={item.href} class="flex items-center font-bold hover:text-[#d60c16]">
               <img src={item.icon} alt={`${item.name} Icon`} class="w-4 h-4 mr-2" />
               {item.name}
