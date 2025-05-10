@@ -17,10 +17,10 @@ const { movie } = Astro.props;
 const { Content } = await movie.render();
 
 const controlBarItems = [
-  { name: "Trailers", href: movie.trailersUrl, icon: "/icons/trailers.svg"  },
+  { name: "Trailers", href: movie.trailersUrl, icon: "/icons/trailers.svg" },
   { name: "Reviews", href: movie.reviewsUrl, icon: "/icons/reviews.svg" },
-  { name: "Edit", href: movie.editUrl, icon: "/icons/edit.svg"  },
-  ];
+  { name: "Edit", href: movie.editUrl, icon: "/icons/edit.svg" },
+];
 ---
 
 <head>
@@ -101,71 +101,93 @@ const controlBarItems = [
               <Content />
             </Prose>
           </div>
-          {movie.scareScaleRating > 0 ? (
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <h5 class="text-xl mt-5 font-medium text-white col-span-full">Ratings</h5>
-              <ul role="list" class="divide-y divide-gray-100">
-                {
-                  movie.data.categoryRatings ? (
-                    Object.entries(movie.data.categoryRatings).map(
-                      ([categoryName, score]) => (
-                        <li class="flex justify-between gap-x-6 py-5">
-                          <div class="flex min-w-0 gap-x-4">
-                            <img
-                              class="w-6 h-6 flex-none"
-                              src={`/icons/categories/${categoryName}.svg`}
-                              alt=" "
-                            />
-                            <h1 class="text-sm/1 font-bold text-white">
-                              {categoryName}
-                            </h1>
-                          </div>
-                          <p class="text-sm/1 text-white">{score} / 10</p>
-                        </li>
-                      )
+          {
+            movie.scareScaleRating > 0 ? (
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <h5 class="text-xl mt-5 font-medium text-white col-span-full">
+                  Ratings
+                </h5>
+                <ul role="list" class="divide-y divide-gray-100">
+                  {Object.entries(movie.data.categoryRatings).map(
+                    ([categoryName, score]) => (
+                      <li class="flex justify-between gap-x-6 py-5">
+                        <div class="flex min-w-0 gap-x-4">
+                          <img
+                            class="w-6 h-6 flex-none"
+                            src={`/icons/categories/${categoryName}.svg`}
+                            alt=" "
+                          />
+                          <h1 class="text-sm/1 font-bold text-white">
+                            {categoryName}
+                          </h1>
+                        </div>
+                        <p class="text-sm/1 text-white">{score} / 10</p>
+                      </li>
                     )
-                  ) : (
-                    <h5 class="text-l m-5 font-medium text-white">
-                      Ratings not found
-                    </h5>
-                  )
-                }
-              </ul>
+                  )}
+                </ul>
 
-              <div
-                class="w-full max-w-sm rounded-lg bg-white shadow-sm content-center outline-none mx-auto lg:mx-0"
-              >
-                <div class="flex flex-col items-center p-4">
-                  <img
-                    src="/logo/logo_full.png"
-                    alt="Scare Scale Logo"
-                    class="h-14 w-auto"
-                  />
-                  <div
-                    class="w-20 h-20 m-6 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center"
-                  >
-                    <h5 class="text-xl font-bold text-[#d60c16]">
-                      {round(movie.scareScaleRating)} / 10
+                <div class="w-full max-w-sm rounded-lg bg-white shadow-sm content-center outline-none mx-auto lg:mx-0">
+                  <div class="flex flex-col items-center p-4">
+                    <img
+                      src="/logo/logo_full.png"
+                      alt="Scare Scale Logo"
+                      class="h-14 w-auto"
+                    />
+                    <div class="w-20 h-20 m-6 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center">
+                      <h5 class="text-xl font-bold text-[#d60c16]">
+                        {round(movie.scareScaleRating)} / 10
+                      </h5>
+                    </div>
+                    <h5 class="text-2xl text-black font-bold">
+                      {movie.scareScaleText}
                     </h5>
                   </div>
-                  <h5 class="text-2xl text-black font-bold">{movie.scareScaleText}</h5>
                 </div>
               </div>
-            </div>
-          ) : <></>}
+            ) : (
+              <div class="flex flex-col items-center justify-center p-8 mt-10 bg-gray-100 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-semibold text-black mb-4">
+                  No Ratings Yet
+                </h2>
+                <p class="text-black text-center mb-6">
+                  Be the first to share your thoughts! Join the Scare Scale community to rate movies.
+                </p>
+                <div class="flex gap-4">
+                  <a class="px-6 py-2 bg-[#d60c16] text-white rounded-md shadow hover:bg-red-700 transition">
+                    Join Now
+                  </a>
+                  <a href={movie.editUrl} class="px-6 py-2 bg-[#d60c16] text-white rounded-md shadow hover:bg-red-700 transition">
+                    Add Ratings
+                  </a>
+                </div>
+              </div>
+            )
+          }
         </div>
       </div>
     </section>
   </div>
 
   <!-- Control Bar -->
-  <div class="max-w-screen-sm px-2 py-2 bg-white shadow-md rounded-md m-6 mx-4 sm:mx-auto">
-    <ul class="flex flex-row justify-center items-center gap-2 md:gap-4 lg:gap-6 text-slate-800">
+  <div
+    class="max-w-screen-sm px-2 py-2 bg-white shadow-md rounded-md m-6 mx-4 sm:mx-auto"
+  >
+    <ul
+      class="flex flex-row justify-center items-center gap-2 md:gap-4 lg:gap-6 text-black"
+    >
       {
         controlBarItems.map((item) => (
           <li class="flex items-center p-1 text-sm gap-x-2 text-black">
-            <a href={item.href} class="flex items-center font-bold hover:text-[#d60c16]">
-              <img src={item.icon} alt={`${item.name} Icon`} class="w-4 h-4 mr-2" />
+            <a
+              href={item.href}
+              class="flex items-center font-bold hover:text-[#d60c16]"
+            >
+              <img
+                src={item.icon}
+                alt={`${item.name} Icon`}
+                class="w-4 h-4 mr-2"
+              />
               {item.name}
             </a>
           </li>
