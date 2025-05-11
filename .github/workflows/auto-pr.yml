@@ -20,6 +20,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Updates from movie-updates"
-          branch: movie-updates
+          branch: movie-updates-to-dev
+          base: dev
+          delete-branch: true
           team-reviewers: editors
           body: "This PR was automatically created to merge changes from movie-updates into dev."
