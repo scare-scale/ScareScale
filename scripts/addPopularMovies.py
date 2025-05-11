@@ -13,6 +13,7 @@ def add_popular_movies(start_date, end_date, top_x, min_popularity=50):
             "name": movie.get("title"),
             "tmdbId": movie.get("id"),
             "tmdbPosterId": movie.get("poster_path"),
+            "tmdbBackdropId": movie.get("backdrop_path"),
             "description": movie.get("overview"),
             "releaseDate": datetime.strptime(movie.get("release_date"), "%Y-%m-%d").date()  # Ensure date object
         }

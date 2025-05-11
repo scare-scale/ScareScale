@@ -1,7 +1,7 @@
 ---
 name: "Control Freak"
 tmdbId: "1286663"
-tmdbPosterId: "/qcOksMzsmPPA41c3DkCD47sElDU.jpg"
+tmdbPosterId: /qcOksMzsmPPA41c3DkCD47sElDU.jpg
 releaseDate: 2025-03-12
 categoryRatings:
     gore: 0
@@ -9,5 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
+tmdbBackdropId: /AflLdFIPKGQFVWhDSyedLo6aAR6.jpg
 ---
 A motivational speaker, plagued by an uncontrollable itch on her head, becomes infected with a parasitic demon from her homeland.

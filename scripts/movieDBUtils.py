@@ -27,6 +27,7 @@ def get_movie_details(movie_id):
             "name": data.get("title"),
             "tmdbId": data.get("id"),
             "tmdbPosterId": data.get("poster_path"),
+            "tmdbBackdropId": data.get("backdrop_path"),
             "description": data.get("overview"),
             "releaseDate": datetime.strptime(data.get("release_date"), "%Y-%m-%d").date()  # Convert to date
         }
@@ -99,6 +100,10 @@ def save_as_md(movie_data):
                 "psychological": existing_content.get("psychological", "0"),
             }
         }
+
+        if "tmdbBackdropId" in movie_data:
+            updated_content["tmdbBackdropId"] = movie_data["tmdbBackdropId"]
+
 
         with open(filename, "w", encoding="utf-8") as md_file:
             md_file.write("---\n")

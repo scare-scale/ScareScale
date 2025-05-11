@@ -43,9 +43,12 @@ const controlBarItems = [
   />
 </head>
 
-<MainLayout>
-  <div class="flex flex-col items-center">
-    <section class="flex flex-col gap-y-10 pt-6" id="movieDetails">
+<MainLayout backdropUrl={movie.backdropUrl}>
+  <div class="relative flex flex-col items-center">
+    <section
+      class="relative flex flex-col gap-y-10 pt-6"
+      id="movieDetails"
+    >
       <nav aria-label="Breadcrumb">
         <ol
           role="list"
@@ -151,13 +154,17 @@ const controlBarItems = [
                   No Ratings Yet
                 </h2>
                 <p class="text-black text-center mb-6">
-                  Be the first to share your thoughts! Join the Scare Scale community to rate movies.
+                  Be the first to share your thoughts! Join the Scare Scale
+                  community to rate movies.
                 </p>
                 <div class="flex gap-4">
                   <a class="px-6 py-2 bg-[#d60c16] text-white rounded-md shadow hover:bg-red-700 transition">
                     Join Now
                   </a>
-                  <a href={movie.editUrl} class="px-6 py-2 bg-[#d60c16] text-white rounded-md shadow hover:bg-red-700 transition">
+                  <a
+                    href={movie.editUrl}
+                    class="px-6 py-2 bg-[#d60c16] text-white rounded-md shadow hover:bg-red-700 transition"
+                  >
                     Add Ratings
                   </a>
                 </div>
@@ -166,33 +173,32 @@ const controlBarItems = [
           }
         </div>
       </div>
+      <!-- Control Bar -->
+      <div
+        class="max-w-screen-sm px-4 py-2 bg-white shadow-md rounded-md m-6 mx-auto"
+      >
+        <ul
+          class="flex flex-row justify-center items-center gap-2 md:gap-4 lg:gap-6 text-black"
+        >
+          {
+            controlBarItems.map((item) => (
+              <li class="flex items-center p-1 text-sm gap-x-2 text-black">
+                <a
+                  href={item.href}
+                  class="flex items-center font-bold hover:text-[#d60c16]"
+                >
+                  <img
+                    src={item.icon}
+                    alt={`${item.name} Icon`}
+                    class="w-4 h-4 mr-2"
+                  />
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </section>
-  </div>
-
-  <!-- Control Bar -->
-  <div
-    class="max-w-screen-sm px-2 py-2 bg-white shadow-md rounded-md m-6 mx-4 sm:mx-auto"
-  >
-    <ul
-      class="flex flex-row justify-center items-center gap-2 md:gap-4 lg:gap-6 text-black"
-    >
-      {
-        controlBarItems.map((item) => (
-          <li class="flex items-center p-1 text-sm gap-x-2 text-black">
-            <a
-              href={item.href}
-              class="flex items-center font-bold hover:text-[#d60c16]"
-            >
-              <img
-                src={item.icon}
-                alt={`${item.name} Icon`}
-                class="w-4 h-4 mr-2"
-              />
-              {item.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
   </div>
 </MainLayout>

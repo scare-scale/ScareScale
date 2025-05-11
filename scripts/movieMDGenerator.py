@@ -1,4 +1,4 @@
-from movieDBUtils import get_movie_details, save_as_md, get_tmdb_headers
+from movieDBUtils import get_movie_details, save_as_md
 
 # Prompting the user for input
 movie_id = input("Enter the TMDB movie ID: ")
