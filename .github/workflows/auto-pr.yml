@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          ref: movie-updates
 
       - name: Create or update PR
         id: create_pr
@@ -18,7 +20,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: dev
-          branch: movie-updates
           title: "Updates from movie-updates"
           team-reviewers: editors
           body: "This PR was automatically created to merge changes from movie-updates into dev."
