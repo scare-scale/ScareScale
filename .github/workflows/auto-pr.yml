@@ -1,0 +1,23 @@
+name: Auto PR from movie-updates to dev
+
+on:
+  push:
+    branches:
+      - movie-updates
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create or update PR
+        id: create_pr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: dev
+          branch: movie-updates
+          title: "Updates from movie-updates"
+          body: "This PR was automatically created to merge changes from movie-updates into dev."
