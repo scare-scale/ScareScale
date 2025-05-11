@@ -101,7 +101,7 @@ def save_as_md(movie_data):
             }
         }
 
-        if "tmdbBackdropId" in movie_data:
+        if "tmdbBackdropId" in movie_data and movie_data["tmdbBackdropId"] != None:
             updated_content["tmdbBackdropId"] = movie_data["tmdbBackdropId"]
 
 
