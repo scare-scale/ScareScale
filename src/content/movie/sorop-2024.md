@@ -1,7 +1,7 @@
 ---
 name: "Sorop"
 tmdbId: "1322593"
-tmdbPosterId: "/pgyMNf595daUBwpryg7XW1kzRJF.jpg"
+tmdbPosterId: /pgyMNf595daUBwpryg7XW1kzRJF.jpg
 releaseDate: 2024-12-19
 categoryRatings:
     gore: 0

@@ -1,7 +1,7 @@
 ---
 name: "The Woman in the Yard"
 tmdbId: "1244944"
-tmdbPosterId: "/n0WS2TsNcS6dtaZKzxipyO7LuCJ.jpg"
+tmdbPosterId: /n0WS2TsNcS6dtaZKzxipyO7LuCJ.jpg
 releaseDate: 2025-03-27
 categoryRatings:
     gore: 0

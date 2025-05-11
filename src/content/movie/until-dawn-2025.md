@@ -1,7 +1,7 @@
 ---
 name: "Until Dawn"
 tmdbId: "1232546"
-tmdbPosterId: "/6O9nkcmZBymDXtxOGJmulqcxJdv.jpg"
+tmdbPosterId: /6O9nkcmZBymDXtxOGJmulqcxJdv.jpg
 releaseDate: 2025-04-23
 categoryRatings:
     gore: 7

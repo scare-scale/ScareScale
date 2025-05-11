@@ -1,7 +1,7 @@
 ---
 name: "The Ugly Stepsister"
 tmdbId: "1284120"
-tmdbPosterId: "/crX9rSg9EohybhkEe8iTQUCe55y.jpg"
+tmdbPosterId: /4fwNPe7yNjFPIoxvtC5s3xSaa9E.jpg
 releaseDate: 2025-03-07
 categoryRatings:
     gore: 0

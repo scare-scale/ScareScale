@@ -1,7 +1,7 @@
 ---
 name: "Presence"
 tmdbId: "1140535"
-tmdbPosterId: "/hZ8dTeBzigV5SVgwG1ikSROAFiS.jpg"
+tmdbPosterId: /hZ8dTeBzigV5SVgwG1ikSROAFiS.jpg
 releaseDate: 2025-01-16
 categoryRatings:
     gore: 0

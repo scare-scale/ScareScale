@@ -1,7 +1,7 @@
 ---
 name: "Bloat"
 tmdbId: "937393"
-tmdbPosterId: "/xZVoA1FuQjovjZSqMT3HqXWzUfG.jpg"
+tmdbPosterId: /xZVoA1FuQjovjZSqMT3HqXWzUfG.jpg
 releaseDate: 2025-03-07
 categoryRatings:
     gore: 0

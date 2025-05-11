@@ -1,7 +1,7 @@
 ---
 name: "The Bayou"
 tmdbId: "1407861"
-tmdbPosterId: "/sf6j1SbgDf7VTjL1MRq5MAQSOyE.jpg"
+tmdbPosterId: /sf6j1SbgDf7VTjL1MRq5MAQSOyE.jpg
 releaseDate: 2025-01-31
 categoryRatings:
     gore: 0

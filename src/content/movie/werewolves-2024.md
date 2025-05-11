@@ -1,7 +1,7 @@
 ---
 name: "Werewolves"
 tmdbId: "970450"
-tmdbPosterId: "/otXBlMPbFBRs6o2Xt6KX59Qw6dL.jpg"
+tmdbPosterId: /otXBlMPbFBRs6o2Xt6KX59Qw6dL.jpg
 releaseDate: 2024-12-04
 categoryRatings:
     gore: 0

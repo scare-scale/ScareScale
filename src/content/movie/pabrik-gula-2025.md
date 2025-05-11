@@ -1,7 +1,7 @@
 ---
 name: "Pabrik Gula"
 tmdbId: "1355126"
-tmdbPosterId: "/nwmR5EL5m8tcPBud6OwUyt8p5z1.jpg"
+tmdbPosterId: /nwmR5EL5m8tcPBud6OwUyt8p5z1.jpg
 releaseDate: 2025-03-31
 categoryRatings:
     gore: 0

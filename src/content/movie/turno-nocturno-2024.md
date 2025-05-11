@@ -1,7 +1,7 @@
 ---
 name: "Turno nocturno"
 tmdbId: "1208808"
-tmdbPosterId: "/iSSx9Bys64vlOkvkyKXtp19P7Re.jpg"
+tmdbPosterId: /iSSx9Bys64vlOkvkyKXtp19P7Re.jpg
 releaseDate: 2024-12-05
 categoryRatings:
     gore: 0
