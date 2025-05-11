@@ -17,7 +17,7 @@ jobs:
         with:
           ref: movie-updates
       - name: Create pull request
-        run: gh pr create -B dev -H movie-updates --title 'Merge movie-updates into dev' --body 'Auto PR by Github action' --reviewer org/team || gh pr edit -B dev --title 'Merge movie-updates into dev' --body 'Auto PR by Github action'
+        run: gh pr create -B dev -H movie-updates --title 'Merge movie-updates into dev' --body 'Auto PR by Github action' --reviewer org/team || true'
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Enable auto-merge
