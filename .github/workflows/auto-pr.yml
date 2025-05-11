@@ -17,7 +17,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          base: dev
-          branch: movie-updates
+          base: movie-updates
+          branch: dev
           title: "Updates from movie-updates"
           body: "This PR was automatically created to merge changes from movie-updates into dev."
