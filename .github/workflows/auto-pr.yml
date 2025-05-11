@@ -20,6 +20,6 @@ jobs:
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Enable auto-merge
-        run: gh pr merge movie-updates --auto
+        run: gh pr merge movie-updates --auto --merge
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
