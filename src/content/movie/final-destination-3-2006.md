@@ -1,7 +1,7 @@
 ---
 name: "Final Destination 3"
 tmdbId: "9286"
-tmdbPosterId: "/p7ARuNKUGPGvkBiDtIDvAzYzonX.jpg"
+tmdbPosterId: /p7ARuNKUGPGvkBiDtIDvAzYzonX.jpg
 releaseDate: 2006-02-09
 categoryRatings:
     gore: 0
@@ -9,5 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
+tmdbBackdropId: /nSV1NIAK0Sp5dM1oiobtqbJ8Jrv.jpg
 ---
 High school senior Wendy's premonition of a deadly rollercoaster ride saves her life and a lucky few, but not from death itself — which seeks out those who escaped their fate.

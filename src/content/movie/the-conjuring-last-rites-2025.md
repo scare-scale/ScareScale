@@ -1,7 +1,7 @@
 ---
 name: "The Conjuring: Last Rites"
 tmdbId: "1038392"
-tmdbPosterId: "/vufNNzDaMZMTBkzSDDV2PmLURjW.jpg"
+tmdbPosterId: /29ES27icY5CzTcMhlz1H4SdQRod.jpg
 releaseDate: 2025-09-04
 categoryRatings:
     gore: 0
@@ -9,5 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
+tmdbBackdropId: /9Eu5yFP75Ky0JAPiF985mxCdIIY.jpg
 ---
-The next chapter in the story of Ed and Lorraine Warren.
+Paranormal investigators Ed and Lorraine Warren take on one last terrifying case involving mysterious entities they must confront.

@@ -9,5 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
+tmdbBackdropId: /AflLdFIPKGQFVWhDSyedLo6aAR6.jpg
 ---
 A motivational speaker, plagued by an uncontrollable itch on her head, becomes infected with a parasitic demon from her homeland.

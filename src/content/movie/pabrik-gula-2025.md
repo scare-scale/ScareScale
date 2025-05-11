@@ -9,5 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
+tmdbBackdropId: /5saKQdU7JHNLmcLqVRmHGZ2Zj0E.jpg
 ---
 A group of young men and women who work as seasonal workers in a sugar factory face terror from the kingdom of demons where the factory is located. They must find out the cause of the demons' anger, before the terror ends their lives.

@@ -9,5 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
+tmdbBackdropId: /hRn5oyuhrVFjLwDpe73UvqgvPht.jpg
 ---
 When a devil-worshipping criminal network plunges Seoul into chaos, the police turn to Holy Night—a trio of supernatural demon hunters—to restore order and defeat the rising evil.

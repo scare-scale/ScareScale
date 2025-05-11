@@ -9,5 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
+tmdbBackdropId: /jiKwojRdwMYsDEMxQp5NFS3sOKb.jpg
 ---
 After a family tragedy, Chuck Wilson hopes to start a new life in Ashland Falls with his wife Maria and little sister Elizabeth, but he quickly discovers that the town has a dark history of being haunted by a ghostly woman who drives residents to suicide.
