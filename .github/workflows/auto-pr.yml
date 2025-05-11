@@ -6,22 +6,12 @@ on:
       - movie-updates
 
 jobs:
+  permissions: 
+    pull-requests: write 
   create-pr:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          ref: movie-updates
-
-      - name: Create or update PR
-        id: create_pr
-        uses: peter-evans/create-pull-request@v7
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: "Updates from movie-updates"
-          branch: movie-updates-to-dev
-          base: dev
-          delete-branch: true
-          team-reviewers: editors
-          body: "This PR was automatically created to merge changes from movie-updates into dev."
+      - name: create pull request
+        run: gh pr create -B dev -H movie-updates --title 'Merge movie-updates into dev' --body 'Auto PR by Github action'
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
