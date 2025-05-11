@@ -1,7 +1,7 @@
 ---
 name: "In a Violent Nature"
 tmdbId: "1214509"
-tmdbPosterId: "/hPfWHgq07nXbeldwEGxWB4JqwtE.jpg"
+tmdbPosterId: /hPfWHgq07nXbeldwEGxWB4JqwtE.jpg
 releaseDate: 2024-05-31
 categoryRatings:
     gore: 0
@@ -9,5 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
+tmdbBackdropId: /z31pODVM3uUB4bvirzxHdxrJIzb.jpg
 ---
 The enigmatic resurrection, rampage, and retribution of an undead monster in a remote wilderness unleashes an iconic new killer after a locket is removed from a collapsed fire tower that entombed its rotting corpse.
