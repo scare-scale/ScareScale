@@ -18,12 +18,10 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: dev
-          head: movie-updates
+          branch: movie-updates
           title: "Auto-merge: Updates from movie-updates"
           body: "This PR was automatically created to merge changes from movie-updates into dev."
-          branch: auto-pr-movie-updates
           labels: auto-merge
-          auto-merge: true
 
       - name: Skip if PR exists
         if: steps.create_pr.outputs.pull-request-operation == 'none'
