@@ -14,10 +14,11 @@ jobs:
 
       - name: Create or update PR
         id: create_pr
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          base: movie-updates
-          branch: dev
+          base: dev
+          branch: movie-updates
           title: "Updates from movie-updates"
+          team-reviewers: editors
           body: "This PR was automatically created to merge changes from movie-updates into dev."
