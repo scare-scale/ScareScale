@@ -6,9 +6,9 @@ on:
       - movie-updates
 
 jobs:
-  permissions: 
-    pull-requests: write 
   create-pr:
+    permissions: 
+      pull-requests: write 
     runs-on: ubuntu-latest
     steps:
       - name: create pull request
