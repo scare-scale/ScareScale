@@ -5,7 +5,7 @@ tmdbPosterId: /cRDJxdnRb7ikKd6fVJTrGeaL34v.jpg
 releaseDate: 2024-10-24
 categoryRatings:
   gore: 2
-  creepy: 4
+  creepy: 3
   jumpscares: 2
   suspense: 6
   psychological: 4
