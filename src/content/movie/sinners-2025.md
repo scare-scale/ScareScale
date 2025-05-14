@@ -1,7 +1,7 @@
 ---
 name: "Sinners"
 tmdbId: "1233413"
-tmdbPosterId: /5279xT9aJnxzbiqGFA505rFRy3b.jpg
+tmdbPosterId: /jYfMTSiFFK7ffbY2lay4zyvTkEk.jpg
 releaseDate: 2025-04-16
 categoryRatings:
     gore: 5
