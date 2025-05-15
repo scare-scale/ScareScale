@@ -1,7 +1,7 @@
 ---
 name: "Clown in a Cornfield"
 tmdbId: "713364"
-tmdbPosterId: /nMUE7Ciu0DqguUUSXoZp6sJhv4w.jpg
+tmdbPosterId: /waQEkoCtrf7zAgZSic26tcDnS0a.jpg
 releaseDate: 2025-05-08
 categoryRatings:
     gore: 0

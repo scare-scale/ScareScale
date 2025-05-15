@@ -9,6 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
-tmdbBackdropId: /7wKnf6ILtRmKXV8eJWk0P6ZXnQ.jpg
+tmdbBackdropId: /j0NUh5irX7q2jIRtbLo8TZyRn6y.jpg
 ---
 Plagued by a violent recurring nightmare, college student Stefanie heads home to track down the one person who might be able to break the cycle and save her family from the grisly demise that inevitably awaits them all.
