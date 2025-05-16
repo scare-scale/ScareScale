@@ -1,7 +1,7 @@
 ---
 name: "Dark Nuns"
 tmdbId: "1224993"
-tmdbPosterId: /scslRlsYyZKMdk9pRHpJDFoU1AG.jpg
+tmdbPosterId: /2Abt2GgscAGtGAXTrhH44qPhugI.jpg
 releaseDate: 2025-01-24
 categoryRatings:
     gore: 0
