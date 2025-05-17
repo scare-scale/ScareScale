@@ -1,7 +1,7 @@
 ---
 name: "Final Destination Bloodlines"
 tmdbId: "574475"
-tmdbPosterId: /cAoktVUBhGyULRoxV6mZ2LB3x7I.jpg
+tmdbPosterId: /6WxhEvFsauuACfv8HyoVX6mZKFj.jpg
 releaseDate: 2025-05-09
 categoryRatings:
     gore: 0
