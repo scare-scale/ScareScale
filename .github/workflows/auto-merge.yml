@@ -1,0 +1,42 @@
+name: Auto Merge Main into Dev and Movie-Updates
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  merge-branches:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ vars.RELEASES_APP_ID }}
+          private-key: ${{ secrets.RELEASES_APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+    
+      - name: Merge main into dev
+        run: |
+          git fetch origin
+          git checkout dev
+          git merge origin/main --no-edit
+          git push origin dev
+
+      - name: Merge main into movie-updates
+        run: |
+          git checkout movie-updates
+          git merge origin/main --no-edit
+          git push origin movie-updates
