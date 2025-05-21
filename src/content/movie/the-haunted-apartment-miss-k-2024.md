@@ -1,5 +1,5 @@
 ---
-name: "The Haunted Apartment “Miss K”"
+name: "The Haunted Apartment: “Miss K”"
 tmdbId: "1321326"
 tmdbPosterId: /uLJFPFIezEQsUWN4WpbNaofysj1.jpg
 releaseDate: 2024-12-25

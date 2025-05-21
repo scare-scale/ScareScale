@@ -1,7 +1,7 @@
 ---
 name: "The Devil's Bride"
 tmdbId: "1339772"
-tmdbPosterId: /hiPlFLw5vVm2M8JBIFB2PJA5FE5.jpg
+tmdbPosterId: /rRkM4hAoT9wMPsYeHj2SdgJ3lmz.jpg
 releaseDate: 2025-01-16
 categoryRatings:
     gore: 0
@@ -11,4 +11,4 @@ categoryRatings:
     psychological: 0
 tmdbBackdropId: /fo6Gw1AylyRJSeKk6QqrKD3UUER.jpg
 ---
-Trapped in a difficult marriage, Echa is comforted by the presence of a man in her dreams. However, the calm turns to terror when the man appears as an evil spirit.
+Caught in a strained marriage, Echa finds solace in a man who visits her dreams. But comfort turns to terror when he emerges as a malicious spirit.
