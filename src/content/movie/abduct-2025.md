@@ -1,7 +1,7 @@
 ---
 name: "Abduct"
 tmdbId: "1448938"
-tmdbPosterId: /dMFUnLuBHWg8OpuA9TYZSySsknR.jpg
+tmdbPosterId: /2ZTp5eQ8C8W70rvXCkbdHQW0sM9.jpg
 releaseDate: 2025-04-02
 categoryRatings:
     gore: 0
