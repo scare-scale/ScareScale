@@ -1,8 +1,8 @@
 ---
 name: "Dangerous Animals"
 tmdbId: "1285965"
-tmdbPosterId: /yJ6OKLeJKEruta2mzolFZUb2zYS.jpg
-releaseDate: 2025-05-28
+tmdbPosterId: /9tk3Si960hg4E49eMt81dS7Qe9Z.jpg
+releaseDate: 2025-06-05
 categoryRatings:
     gore: 0
     creepy: 0

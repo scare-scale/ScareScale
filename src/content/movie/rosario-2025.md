@@ -1,7 +1,7 @@
 ---
 name: "Rosario"
 tmdbId: "1297028"
-tmdbPosterId: /h91QHXPCb96x2J5mahqyW8QZay2.jpg
+tmdbPosterId: /beLZhuHT97849WkWgty2X1hkWUa.jpg
 releaseDate: 2025-05-01
 categoryRatings:
     gore: 0

@@ -9,6 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
-tmdbBackdropId: /eG8Ol9AIdwY8e52eAdZiww6DqYp.jpg
+tmdbBackdropId: /I1relwnq4IZ0IOcLxPyyjaiOoN.jpg
 ---
 A rag-tag team of divers attempting to salvage a sunken car from a river are thwarted by a highly aggressive bull shark.

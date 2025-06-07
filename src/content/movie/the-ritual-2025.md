@@ -1,7 +1,7 @@
 ---
 name: "The Ritual"
 tmdbId: "1278950"
-tmdbPosterId: /lDMIaP5gzMIufRglYUlYREcUPkf.jpg
+tmdbPosterId: /uubL8yvtEBjz3V7DFQHjCuSQO8w.jpg
 releaseDate: 2025-05-27
 categoryRatings:
     gore: 0
