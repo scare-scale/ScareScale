@@ -9,6 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
-tmdbBackdropId: /9uGxyklcNwpjlIe3Lim7HyPVns6.jpg
+tmdbBackdropId: /w3R8LTPU3ocl6oXuNkXmqw5bIFi.jpg
 ---
 Wendy Darling strikes out in an attempt to rescue her brother Michael from the clutches of the evil Peter Pan who intends to send him to Neverland. Along the way she meets a twisted Tinkerbell, who is hooked on what she thinks is fairy dust.
