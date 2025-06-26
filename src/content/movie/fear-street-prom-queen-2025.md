@@ -2,7 +2,7 @@
 name: "Fear Street: Prom Queen"
 tmdbId: "1001414"
 tmdbPosterId: /gevScWYkF8l5i9NjFSXo8HfPNyy.jpg
-releaseDate: 2025-05-22
+releaseDate: 2025-05-23
 categoryRatings:
   gore: 7
   creepy: 3
