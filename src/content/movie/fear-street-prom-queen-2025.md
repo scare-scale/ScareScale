@@ -2,7 +2,7 @@
 name: "Fear Street: Prom Queen"
 tmdbId: "1001414"
 tmdbPosterId: /gevScWYkF8l5i9NjFSXo8HfPNyy.jpg
-releaseDate: 2025-05-22
+releaseDate: 2025-05-23
 categoryRatings:
     gore: 0
     creepy: 0
@@ -11,4 +11,4 @@ categoryRatings:
     psychological: 0
 tmdbBackdropId: /qspghhpOyaBGgZDJoCbV2o9WNMU.jpg
 ---
-As students at Shadyside High are preparing for the 1988 prom, the "It Girls" are fighting to get support to be voted Prom Queen. As an unusual nominee emerges in the race, some of the other candidates begin to vanish without a trace.
+Who will be voted queen at Shadyside High's 1988 prom? For underdog Lori, competition is cutthroat even before someone starts killing off the candidates.

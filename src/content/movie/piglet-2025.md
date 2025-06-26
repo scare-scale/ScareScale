@@ -1,8 +1,8 @@
 ---
 name: "Piglet"
 tmdbId: "1352774"
-tmdbPosterId: /5wZNFUJAwyX6RCxdqrLO9lLWJ20.jpg
-releaseDate: 2025-01-25
+tmdbPosterId: /mW7PYDUeWYwTdbtzThqLMfdNa56.jpg
+releaseDate: 2025-05-29
 categoryRatings:
     gore: 0
     creepy: 0

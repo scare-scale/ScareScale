@@ -2,7 +2,7 @@
 name: "Bring Her Back"
 tmdbId: "1151031"
 tmdbPosterId: /1zcH6vJs0TnCVXK7TGdTkEzR5J8.jpg
-releaseDate: 2025-05-25
+releaseDate: 2025-05-28
 categoryRatings:
     gore: 0
     creepy: 0
