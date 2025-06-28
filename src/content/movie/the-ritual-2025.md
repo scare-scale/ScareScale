@@ -11,4 +11,4 @@ categoryRatings:
     psychological: 0
 tmdbBackdropId: /11vyKM09CHxWDjivjl4tldTllzG.jpg
 ---
-Two priests, one in crisis with his faith and the other confronting a turbulent past, must overcome their differences to perform a risky exorcism.
+Al Pacino stars in the TRUE STORY of how two priests, one in crisis with his faith and the other confronting a turbulent past, must overcome their differences to perform a risky exorcism.
