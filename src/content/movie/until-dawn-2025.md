@@ -9,6 +9,6 @@ categoryRatings:
     jumpscares: 5
     suspense: 6
     psychological: 3
-tmdbBackdropId: /icFWIk1KfkWLZnugZAJEDauNZ94.jpg
+tmdbBackdropId: /vFJgEhYEjWWJ9JqmlMdDiKxE8JD.jpg
 ---
 One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers. Exploring an abandoned visitor center, they find themselves stalked by a masked killer and horrifically murdered one by one...only to wake up and find themselves back at the beginning of the same evening.
