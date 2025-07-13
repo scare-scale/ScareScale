@@ -9,6 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
-tmdbBackdropId: /5esDYWV0NoFwqPa1iC0g9akqZo9.jpg
+tmdbBackdropId: /U0A4zWh6XbJt1jDAPuGqKcu4ga.jpg
 ---
 Following the death of their father, a brother and sister are introduced to their new sibling by their foster mother, only to learn that she has a terrifying secret.
