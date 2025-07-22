@@ -1,7 +1,7 @@
 ---
 name: "Saint Clare"
 tmdbId: "1026222"
-tmdbPosterId: /jUd1780wJfXjjvxPwel4TcJb85Q.jpg
+tmdbPosterId: /aE0q4awk7zto3Eql4cAeJuVAns9.jpg
 releaseDate: 2025-07-18
 categoryRatings:
     gore: 0
