@@ -1,0 +1,14 @@
+---
+name: "A Normal Woman"
+tmdbId: "1285728"
+tmdbPosterId: /p8QqvttODrPYdJLjAUvcUsJtDTD.jpg
+releaseDate: 2025-07-23
+categoryRatings:
+    gore: 0
+    creepy: 0
+    jumpscares: 0
+    suspense: 0
+    psychological: 0
+tmdbBackdropId: /lCKRTbMKlXlwSydZpIqPu6hP0n0.jpg
+---
+When an unidentified disease starts to upend her life, a socialite must unravel the mystery behind it — before her whole sense of self falls apart.
