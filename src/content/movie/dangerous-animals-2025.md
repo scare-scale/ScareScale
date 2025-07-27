@@ -9,6 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
-tmdbBackdropId: /4NI6e5SjIRn7Gt5P361MAIDiGpi.jpg
+tmdbBackdropId: /dUGIhpvAVoX0YtKcjLHCGtNYq4p.jpg
 ---
 A savvy and free-spirited surfer is abducted by a shark-obsessed serial killer. Held captive on his boat, she must figure out how to escape before he carries out a ritualistic feeding to the sharks below.

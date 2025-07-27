@@ -9,6 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
-tmdbBackdropId: /lCKRTbMKlXlwSydZpIqPu6hP0n0.jpg
+tmdbBackdropId: /u406tzmoD60CmCqGbSRLE2bifmT.jpg
 ---
 When an unidentified disease starts to upend her life, a socialite must unravel the mystery behind it — before her whole sense of self falls apart.

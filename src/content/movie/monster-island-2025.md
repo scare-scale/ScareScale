@@ -9,6 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
-tmdbBackdropId: /mHxDGHuWDmSueNzgMljVj0P5OA8.jpg
+tmdbBackdropId: /fxKC10HQliVA3Tn5smOclqzL96N.jpg
 ---
 In the Pacific, 1942, a Japanese soldier and a British prisoner of war are stranded on a deserted island, hunted by a deadly creature. Two mortal enemies must come together to survive the unknown.
