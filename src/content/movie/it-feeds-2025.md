@@ -1,7 +1,7 @@
 ---
 name: "It Feeds"
 tmdbId: "1145221"
-tmdbPosterId: /zNcVsbNvJRDnMrloUCvb6Tii52r.jpg
+tmdbPosterId: /aPiTneXy6SKpfkhVaEO6Ami3OZb.jpg
 releaseDate: 2025-04-17
 categoryRatings:
     gore: 0

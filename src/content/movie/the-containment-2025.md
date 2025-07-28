@@ -9,6 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
-tmdbBackdropId: /kESVPJUrMsaEpGnMIH8oYUkARPk.jpg
+tmdbBackdropId: /j7b27zJOkjLylvjxFEd7Hc7BRfz.jpg
 ---
 A girl is possessed by a dark and mysterious entity. She will fight with all the elements at her disposal to get rid of it. Neither her mother, nor traditional medicine, nor a supposed expert in exorcisms, will be able to make the demon disappear, until a nun gets involved in the case and sows a doubt more terrible than the possession itself.
