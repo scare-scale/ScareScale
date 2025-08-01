@@ -1,7 +1,7 @@
 ---
 name: "28 Years Later"
 tmdbId: "1100988"
-tmdbPosterId: /giAiJSwOJcfA8Y4PCNMGAhfTSyA.jpg
+tmdbPosterId: /mIg1qCkVxnAlM2TK3RUF0tdEXlE.jpg
 releaseDate: 2025-06-18
 categoryRatings:
     gore: 0

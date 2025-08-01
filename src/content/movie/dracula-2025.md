@@ -1,0 +1,14 @@
+---
+name: "Dracula"
+tmdbId: "1246049"
+tmdbPosterId: /hjmkrHcPXxUypR0h1Bjqknn4s0s.jpg
+releaseDate: 2025-07-30
+categoryRatings:
+    gore: 0
+    creepy: 0
+    jumpscares: 0
+    suspense: 0
+    psychological: 0
+tmdbBackdropId: /5hl0mw2JmPk0Sfm8McnolaG26X6.jpg
+---
+The story of 15th century Prince Vladimir who curses God following the death of his beloved wife and is turned into a vampire. Later, in 19th century London, he discovers his wife’s doppelgänger and dooms himself by pursuing her.
