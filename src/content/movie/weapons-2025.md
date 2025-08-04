@@ -9,6 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
-tmdbBackdropId: /97l7szJv1HfSIzN7zY9pKBvfVPT.jpg
+tmdbBackdropId: /vMGiCxW6biqLqdH77HtPbFDab0U.jpg
 ---
 When all but one child from the same class mysteriously vanish on the same night at exactly the same time, a community is left questioning who or what is behind their disappearance.

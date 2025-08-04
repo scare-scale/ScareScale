@@ -1,7 +1,7 @@
 ---
 name: "Dracula"
 tmdbId: "1246049"
-tmdbPosterId: /hjmkrHcPXxUypR0h1Bjqknn4s0s.jpg
+tmdbPosterId: /yWSHYKkfdEZdeyqmgV5ZfgREOjH.jpg
 releaseDate: 2025-07-30
 categoryRatings:
     gore: 0
