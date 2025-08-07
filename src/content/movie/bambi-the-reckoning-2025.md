@@ -11,4 +11,4 @@ categoryRatings:
     psychological: 0
 tmdbBackdropId: /sprWRhhekKlJevk1fnzqi9t7rKm.jpg
 ---
-After a mother and son get in a car wreck, they soon become hunted by Bambi, a mutated grief-stricken deer on a deadly rampage seeking revenge for the death of his mother.
+After a mother and son get in a car wreck, they soon become hunted by Bambi, a mutated grief-stricken deer on a deadly rampage seeking revenge for the death of his mother and wife.
