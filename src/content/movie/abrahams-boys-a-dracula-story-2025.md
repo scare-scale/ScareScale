@@ -1,7 +1,7 @@
 ---
 name: "Abraham's Boys: A Dracula Story"
 tmdbId: "1452176"
-tmdbPosterId: /owUZI7rRIN85TnXJY8gD9LdMiGU.jpg
+tmdbPosterId: /e10AbPwcJk5b7ja3MQUVr5wHEeq.jpg
 releaseDate: 2025-07-11
 categoryRatings:
     gore: 0
