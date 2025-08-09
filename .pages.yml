@@ -35,6 +35,17 @@ content:
             },
         }
       - {
+          name: "tmdbBackdropId",
+          label: "TMDB Backdrop ID",
+          type: "string",
+          required: true,
+          pattern:
+            {
+              message: "This must be a valid TMDB backdrop id (e.g. /6O9nkcmZBymDXtxOGJmulqcxJdv.jpg).",
+              regex: "\/[a-zA-Z0-9]{10,}\\.jpg",
+            },
+        }
+      - {
           name: "releaseDate",
           label: "Release Date",
           type: "date",
