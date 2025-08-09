@@ -1,7 +1,7 @@
 {
   "name": "scare-scale",
   "type": "module",
-  "version": "0.3.77",
+  "version": "0.3.78",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
