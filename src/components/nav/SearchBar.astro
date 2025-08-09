@@ -1,9 +1,8 @@
 ---
+// Removed: import { allMovies } from "../../content.config";
 import { Image } from "astro:assets";
 import searchIcon from "../../../public/icons/search.svg";
-import { allMovies } from "../../content.config";
 ---
-
 <!-- Search Bar -->
 <div class="flex items-center flex-grow md:flex-none md:ml-4 px-4 md:px-0">
   <div class="relative w-full md:w-auto">
@@ -29,81 +28,87 @@ import { allMovies } from "../../content.config";
   </div>
 </div>
 
-<!-- Embed allMovies as JSON using set:html -->
-<script type="application/json" id="movieData" set:html={JSON.stringify(allMovies)}></script>
-
 <!-- Client-side Autocomplete Script -->
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const input = document.getElementById("searchInput");
-      const list = document.getElementById("autocompleteList");
-      const rawData = document.getElementById("movieData")?.textContent;
-  
-      if (!input || !list || !rawData) {
-        console.warn("Search input, autocomplete list, or movie data not found.");
+  document.addEventListener("DOMContentLoaded", async () => {
+    const input = document.getElementById("searchInput");
+    const list = document.getElementById("autocompleteList");
+
+    if (!input || !list) {
+      console.warn("Search input or autocomplete list not found.");
+      return;
+    }
+
+    let allMovies = [];
+
+    try {
+      const response = await fetch("/api/movies.json");
+      if (!response.ok) throw new Error("Failed to fetch movie data");
+      const data = await response.json();
+
+      // Only include required fields
+      allMovies = data.map(movie => ({
+        name: movie.name,
+        posterUrl: movie.posterUrl,
+        releaseYear: movie.releaseYear,
+        slug: movie.slug
+      }));
+    } catch (err) {
+      console.error("Error loading movie data:", err);
+    }
+
+    input.addEventListener("input", () => {
+      const query = input.value.toLowerCase();
+      list.innerHTML = "";
+
+      if (!query) {
+        list.classList.add("hidden");
         return;
       }
-  
-      let allMovies = [];
-  
-      try {
-        allMovies = JSON.parse(rawData);
-      } catch (err) {
-        console.error("Failed to parse movie data:", err);
+
+      const filtered = allMovies
+        .filter(movie => movie?.name?.toLowerCase().includes(query))
+        .slice(0, 5);
+
+      if (filtered.length === 0) {
+        list.classList.add("hidden");
+        return;
       }
-  
-      input.addEventListener("input", () => {
-        const query = input.value.toLowerCase();
-        list.innerHTML = "";
-  
-        if (!query) {
-          list.classList.add("hidden");
-          return;
-        }
-  
-        const filtered = allMovies
-          .filter(movie => movie?.data?.name?.toLowerCase().includes(query))
-          .slice(0, 5);
-  
-        if (filtered.length === 0) {
-          list.classList.add("hidden");
-          return;
-        }
-  
-        filtered.forEach(movie => {
-          const li = document.createElement("li");
-          li.className = "flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer";
-  
-          const img = document.createElement("img");
-          img.src = movie.posterUrl;
-          img.alt = movie.data.name;
-          img.className = "w-10 h-14 object-cover rounded-sm flex-shrink-0";
-  
-          const year = movie.releaseYear ? ` (${movie.releaseYear})` : "";
-          const text = document.createElement("span");
-          text.textContent = movie.data.name + year;
-          text.className = "text-sm text-black";
-  
-          li.appendChild(img);
-          li.appendChild(text);
-  
-          li.addEventListener("mousedown", () => {
-            window.location.href = "/movie/" + movie.slug;
-          });
-  
-          list.appendChild(li);
+
+      filtered.forEach(movie => {
+        const li = document.createElement("li");
+        li.className = "flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer";
+
+        const img = document.createElement("img");
+        img.src = movie.posterUrl;
+        img.alt = movie.name;
+        img.className = "w-10 h-14 object-cover rounded-sm flex-shrink-0";
+
+        const year = movie.releaseYear ? ` (${movie.releaseYear})` : "";
+        const text = document.createElement("span");
+        text.textContent = movie.name + year;
+        text.className = "text-sm text-black";
+
+        li.appendChild(img);
+        li.appendChild(text);
+
+        li.addEventListener("mousedown", () => {
+          window.location.href = "/movie/" + movie.slug;
         });
-  
-        list.classList.remove("hidden");
+
+        list.appendChild(li);
       });
-  
-      document.addEventListener("click", (e) => {
-        if (
-          !e.target.closest("#searchInput") &&
-          !e.target.closest("#autocompleteList")
-        ) {
-          list.classList.add("hidden");
-        }
-      });
+
+      list.classList.remove("hidden");
     });
-  </script>
+
+    document.addEventListener("click", (e) => {
+      if (
+        !e.target.closest("#searchInput") &&
+        !e.target.closest("#autocompleteList")
+      ) {
+        list.classList.add("hidden");
+      }
+    });
+  });
+</script>

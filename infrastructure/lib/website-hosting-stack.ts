@@ -12,7 +12,7 @@ import {
   FunctionCode,
   FunctionEventType
 } from "aws-cdk-lib/aws-cloudfront";
-import { S3Origin } from "aws-cdk-lib/aws-cloudfront-origins";
+import { S3BucketOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
 import { Certificate } from "aws-cdk-lib/aws-certificatemanager";
 import { GlobalStackProps } from "../bin/infrastructure";
 
@@ -52,7 +52,7 @@ export class WebsiteHostingStack extends Stack {
       defaultRootObject: "index.html",
       errorResponses: [errorResponse],
       defaultBehavior: {
-        origin: new S3Origin(bucket, { originAccessIdentity }),
+        origin: S3BucketOrigin.withOriginAccessIdentity(bucket, { originAccessIdentity }),
         viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
         functionAssociations: [functionAssociation]
       },
