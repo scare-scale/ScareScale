@@ -1,7 +1,7 @@
 {
   "name": "scare-scale",
   "type": "module",
-  "version": "0.3.74",
+  "version": "0.3.75",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -22,7 +22,7 @@
     "@astrojs/tailwind": "^6.0.2",
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
-    "astro": "^5.7.5",
+    "astro": "^5.12.9",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.4",
     "eslint-plugin-astro": "^1.3.1",
