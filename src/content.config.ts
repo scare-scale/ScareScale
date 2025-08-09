@@ -6,6 +6,7 @@ const TMDB_BACKDROP_BASE_URL = "https://image.tmdb.org/t/p/original";
 const TMDB_MOVIE_BASE_URL = "https://www.themoviedb.org/movie";
 const TMDB_TRAILERS_ENDPOINT = "videos?active_nav_item=Trailers";
 const TMDB_REVIEWS_ENDPOINT = "reviews";
+const JUSTWATCH_SEARCH_ENDPOINT = "https://www.justwatch.com/uk/search?q=";
 
 const PAGES_CMS_EDIT_BASE_URL = "https://app.pagescms.org/scare-scale/scarescale/dev/collection/movies/edit"
 
@@ -50,11 +51,14 @@ const getMovies = async () => {
     const trailersUrl = `${tmdbUrl}/${TMDB_TRAILERS_ENDPOINT}`
     const reviewsUrl = `${tmdbUrl}/${TMDB_REVIEWS_ENDPOINT}`
     const posterUrl = `${TMDB_POSTER_BASE_URL}${movie.data.tmdbPosterId}`;
-
+    
     const backdropUrl = movie.data.tmdbBackdropId && `${TMDB_BACKDROP_BASE_URL}${movie.data.tmdbBackdropId}`;
 
     const editUrl = `${PAGES_CMS_EDIT_BASE_URL}/${encodeURIComponent(movie.filePath ?? "")}`
     
+    const movieSearchQuery = encodeURIComponent(`${movie.data.name} ${parsedDate.getFullYear()}`);
+    const whereToWatchUrl = `${JUSTWATCH_SEARCH_ENDPOINT}${movieSearchQuery}`;
+
     return {
       ...movie,
       posterUrl,
@@ -63,6 +67,7 @@ const getMovies = async () => {
       formattedDate,
       parsedDate,
       trailersUrl,
+      whereToWatchUrl,
       tmdbUrl,
       editUrl,
       reviewsUrl,
