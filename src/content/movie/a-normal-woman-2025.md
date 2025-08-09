@@ -1,7 +1,7 @@
 ---
 name: "A Normal Woman"
 tmdbId: "1285728"
-tmdbPosterId: /p8QqvttODrPYdJLjAUvcUsJtDTD.jpg
+tmdbPosterId: /2I8hMyZX9WXAjkvCTBLMM7XYBVL.jpg
 releaseDate: 2025-07-23
 categoryRatings:
     gore: 0
