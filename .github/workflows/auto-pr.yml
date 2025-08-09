@@ -1,9 +1,9 @@
-name: Auto PR from movie-updates to dev
+name: Auto PR from dev to main
 
 on:
   push:
     branches:
-      - movie-updates
+      - dev
 
 jobs:
   create-pr:
@@ -15,12 +15,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          ref: movie-updates
+          ref: dev
       - name: Create pull request
-        run: gh pr create -B dev -H movie-updates --title 'Merge movie-updates into dev' --body 'Auto PR by Github action' || gh pr edit movie-updates --title 'Merge movie-updates into dev' --body 'Auto PR by Github action'
+        run: gh pr create -B main -H dev --title 'Merge dev into main' --body 'Auto PR by Github action' || gh pr edit dev --title 'Merge dev into main' --body 'Auto PR by Github action'
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Enable auto-merge
-        run: gh pr merge movie-updates --auto --merge
+        run: gh pr merge dev --auto --merge
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
