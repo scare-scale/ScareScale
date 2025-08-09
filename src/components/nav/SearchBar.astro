@@ -1,0 +1,109 @@
+---
+import { Image } from "astro:assets";
+import searchIcon from "../../../public/icons/search.svg";
+import { allMovies } from "../../content.config";
+---
+
+<!-- Search Bar -->
+<div class="flex items-center flex-grow md:flex-none md:ml-4 px-4 md:px-0">
+  <div class="relative w-full md:w-auto">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search..."
+      aria-label="Search for horror movies"
+      class="text-black rounded-md py-2 pl-4 pr-10 w-full md:w-auto outline-none ring-2 ring-black focus:ring-[#d60c16]"
+    />
+    <button
+      id="searchButton"
+      class="absolute right-3 top-1/2 transform -translate-y-1/2 hover:text-white"
+    >
+      <Image src={searchIcon} alt="🔍" width={25} height={25} loading="eager" />
+    </button>
+
+    <!-- Autocomplete Dropdown -->
+    <ul
+      id="autocompleteList"
+      class="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg hidden max-h-60 overflow-y-auto"
+    ></ul>
+  </div>
+</div>
+
+<!-- Embed allMovies as JSON using set:html -->
+<script type="application/json" id="movieData" set:html={JSON.stringify(allMovies)}></script>
+
+<!-- Client-side Autocomplete Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.getElementById("searchInput");
+      const list = document.getElementById("autocompleteList");
+      const rawData = document.getElementById("movieData")?.textContent;
+  
+      if (!input || !list || !rawData) {
+        console.warn("Search input, autocomplete list, or movie data not found.");
+        return;
+      }
+  
+      let allMovies = [];
+  
+      try {
+        allMovies = JSON.parse(rawData);
+      } catch (err) {
+        console.error("Failed to parse movie data:", err);
+      }
+  
+      input.addEventListener("input", () => {
+        const query = input.value.toLowerCase();
+        list.innerHTML = "";
+  
+        if (!query) {
+          list.classList.add("hidden");
+          return;
+        }
+  
+        const filtered = allMovies
+          .filter(movie => movie?.data?.name?.toLowerCase().includes(query))
+          .slice(0, 5);
+  
+        if (filtered.length === 0) {
+          list.classList.add("hidden");
+          return;
+        }
+  
+        filtered.forEach(movie => {
+          const li = document.createElement("li");
+          li.className = "flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer";
+  
+          const img = document.createElement("img");
+          img.src = movie.posterUrl;
+          img.alt = movie.data.name;
+          img.className = "w-10 h-14 object-cover rounded-sm flex-shrink-0";
+  
+          const year = movie.releaseYear ? ` (${movie.releaseYear})` : "";
+          const text = document.createElement("span");
+          text.textContent = movie.data.name + year;
+          text.className = "text-sm text-black";
+  
+          li.appendChild(img);
+          li.appendChild(text);
+  
+          li.addEventListener("mousedown", () => {
+            window.location.href = "/movie/" + movie.slug;
+          });
+  
+          list.appendChild(li);
+        });
+  
+        list.classList.remove("hidden");
+      });
+  
+      document.addEventListener("click", (e) => {
+        if (
+          !e.target.closest("#searchInput") &&
+          !e.target.closest("#autocompleteList")
+        ) {
+          list.classList.add("hidden");
+        }
+      });
+    });
+  </script>
