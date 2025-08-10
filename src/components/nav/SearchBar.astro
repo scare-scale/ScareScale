@@ -48,7 +48,7 @@ import searchIcon from "../../../public/icons/search.svg";
 
       // Only include required fields
       allMovies = data.map(movie => ({
-        name: movie.name,
+        name: movie.data.name,
         posterUrl: movie.posterUrl,
         releaseYear: movie.releaseYear,
         slug: movie.slug
