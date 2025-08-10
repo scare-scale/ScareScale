@@ -5,7 +5,7 @@ tmdbPosterId: /bghFYMUMEKK6GyTHRA7XVC8uWn6.jpg
 tmdbBackdropId: /yiyy3ZtyuGjNs81kVV3cC4mTWgA.jpg
 releaseDate: 2025-05-08
 categoryRatings:
-  gore: 7
+  gore: 6
   creepy: 2
   jumpscares: 4
   suspense: 2
