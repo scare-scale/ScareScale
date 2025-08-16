@@ -1,7 +1,7 @@
 ---
 name: "Osiris"
 tmdbId: "1241470"
-tmdbPosterId: /9xqWda3KWuGWxNyoqlOlEzEzPmd.jpg
+tmdbPosterId: /3YtZHtXPNG5AleisgEatEfZOT2w.jpg
 releaseDate: 2025-07-25
 categoryRatings:
     gore: 0

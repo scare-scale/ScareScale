@@ -16,20 +16,26 @@ export const fearLevelText = (scareScaleRating: number) => {
   return fearLevels[Math.round(scareScaleRating)] ?? "Unknown";
 };
 
-export const calculateOverallRating = (categoryRatings: Object) => {
+export const calculateOverallRating = (categoryRatings: Record<string, number>) => {
   if (categoryRatings) {
-    // Convert object values to an array and sort in descending order
-    let topThree = Object.values(categoryRatings)
+
+    const topThree = Object.values(categoryRatings)
       .sort((a, b) => b - a)
       .slice(0, 3);
 
-    // Sum the top three values and divide by 3
-    let average = topThree.reduce((sum, value) => sum + value, 0) / 3;
+    const adjustedScores = topThree.map(score => score <= 3 ? 0 : score);
 
-    return average; // Rounds to the nearest whole number
+    const numPenalized = adjustedScores.filter(score => score === 0).length;
+
+    const baseAverage = adjustedScores.reduce((sum, val) => sum + val, 0) / 3;
+
+    const penalty = numPenalized * 0.5;
+
+    const finalScore = Math.max(baseAverage - penalty, 0);
+
+    return finalScore;
   }
   return 0;
 };
-
 
 export const round = (scareScaleRating: number) => Math.round(scareScaleRating * 10) / 10;
