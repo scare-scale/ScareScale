@@ -131,11 +131,12 @@ Each category is rated on a scale of **1 to 10**, with **higher scores indicatin
 ---
 
 ## **Overall Score Calculation**
-To determine the **Scariness Score** for a movie:
+To determine the **Scare Scale Score** for a movie:
 
 1. Identify the **three highest-rated categories**.
 2. Sum their scores.
-3. Divide by **3** to get the final score.
+3. Divide by **3** to get the average score.
+4. For each top 3 category which has scored less then 3 apply a 0.5 point penalty.
 
 For example:
 - **Gore: 9**

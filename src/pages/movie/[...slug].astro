@@ -27,18 +27,19 @@ const controlBarItems = [
 <head>
   <meta charset="UTF-8" />
   <SEO
-    title={`Scare Scale - ${movie.data.name} Review & Scare Ratings`}
-    description={`${movie.data.name} (${movie.releaseYear}) — Rated for Gore (${movie.data.categoryRatings.gore}), Creepy Moments (${movie.data.categoryRatings.creepy}), Jumpscares (${movie.data.categoryRatings.jumpscares}), Suspense (${movie.data.categoryRatings.suspense}), and Psychological Horror (${movie.data.categoryRatings.psychological}). Discover how it ranks on the Scare Scale!`}
+    title={`${movie.data.name} (${movie.releaseYear}) Review & Scare Scale Rating`}
+    description={`Is ${movie.data.name} scary? Our Scare Scale gives it a fear rating of ${Math.round(movie.scareScaleRating)}/10. Explore the full horror review and discover where it ranks among the scariest movies.`}
     canonical={`https://scarescale.com/movie/${movie.slug}`}
+    noindex={movie.scareScaleRating == 0}
     openGraph={{
       basic: {
         type: "website",
         url: `https://scarescale.com/movie/${movie.slug}`,
-        title: `Scare Scale - ${movie.data.name} Horror Movie Ratings`,
+        title: `${movie.data.name} Horror Review & Scare Scale Rating`,
         image: movie.posterUrl,
       },
       optional: {
-        description: `How scary is ${movie.data.name}? Find out how scary it is based on Gore, Creepy moments, Jumpscares, Suspense, and Psychological horror.`,
+        description: `${movie.data.name} scored ${Math.round(movie.scareScaleRating)}/10 on the Scare Scale. Find out what makes it terrifying or not and see how it compares to other horror films.`,
       },
     }}
   />

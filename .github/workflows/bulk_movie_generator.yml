@@ -42,6 +42,14 @@ jobs:
             --end-date "$(date -d '12 months' +%Y-%m-%d)" \
             --min-popularity 5
 
+      - name: Add Changes to git
+        id: add_changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/content/movie
+          git commit -m "Update movie markdown files"
+
       - name: Push changes to dev
         run: |
           git push origin dev

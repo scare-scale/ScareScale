@@ -9,6 +9,6 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
-tmdbBackdropId: /5hl0mw2JmPk0Sfm8McnolaG26X6.jpg
+tmdbBackdropId: /cWJonyOJESS10tF6DyH9kMBsLh.jpg
 ---
 The story of 15th century Prince Vladimir who curses God following the death of his beloved wife and is turned into a vampire. Later, in 19th century London, he discovers his wife’s doppelgänger and dooms himself by pursuing her.

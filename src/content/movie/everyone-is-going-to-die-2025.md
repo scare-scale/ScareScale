@@ -1,7 +1,7 @@
 ---
 name: "Everyone Is Going to Die"
 tmdbId: "1236471"
-tmdbPosterId: /wg5l81zU4Rd6I1WrAYOGzssRgmw.jpg
+tmdbPosterId: /EgTrSbVPLFesQySBsEpGrrj7gn.jpg
 releaseDate: 2025-02-21
 categoryRatings:
     gore: 0
