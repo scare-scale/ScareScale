@@ -1,11 +1,9 @@
 name: Deploy CDK
 on:
-  workflow_run:
-    workflows: ["Tests"]
-    branches: [main]
-    types: 
-      - completed
-    conclusion: success
+  push:
+    branches: [ main ]
+  workflow_dispatch: # Allows manual triggering of the workflow
+
 jobs:
   deploy:
     permissions:
