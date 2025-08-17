@@ -27,7 +27,7 @@ const controlBarItems = [
 <head>
   <meta charset="UTF-8" />
   <SEO
-    title={`Scare Scale: How Scary Is ${movie.data.name} (${movie.releaseYear})? Full Horror Review & Scare Rating`}
+    title={`${movie.data.name} (${movie.releaseYear}) Review & Scare Scale Rating`}
     description={`Is ${movie.data.name} scary? Our Scare Scale gives it a fear rating of ${Math.round(movie.scareScaleRating)}/10. Explore the full horror review and discover where it ranks among the scariest movies.`}
     canonical={`https://scarescale.com/movie/${movie.slug}`}
     noindex={movie.scareScaleRating == 0}
