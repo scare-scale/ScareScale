@@ -1,7 +1,7 @@
 ---
 name: "The Containment"
 tmdbId: "568770"
-tmdbPosterId: /nHNwBOccmQ7rK9yQI1HUSnHm1Ny.jpg
+tmdbPosterId: /5w2Ti3DTrW74KkrGaVCskYxu6yu.jpg
 releaseDate: 2025-06-05
 categoryRatings:
     gore: 0

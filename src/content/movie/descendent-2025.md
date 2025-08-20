@@ -1,7 +1,7 @@
 ---
 name: "Descendent"
 tmdbId: "1422052"
-tmdbPosterId: /w3tg6Yf0Fwf8ScZWFscTVJtqXZ1.jpg
+tmdbPosterId: /Of1UCdomAu0mJY2SNHHGjhnvx9.jpg
 releaseDate: 2025-08-08
 categoryRatings:
     gore: 0

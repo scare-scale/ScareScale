@@ -1,7 +1,7 @@
 ---
 name: "Control Room"
 tmdbId: "1391047"
-tmdbPosterId: /4JSKy8aFyzHQYqi1998wLIBedrw.jpg
+tmdbPosterId: /gyuCSAwPmFZIdIA1k4cp3jQiUoA.jpg
 releaseDate: 2025-04-16
 categoryRatings:
     gore: 0

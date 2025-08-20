@@ -1,7 +1,7 @@
 ---
 name: "Sugar Mill"
 tmdbId: "1355126"
-tmdbPosterId: /nwmR5EL5m8tcPBud6OwUyt8p5z1.jpg
+tmdbPosterId: /mb0ojBqwc3IMumlGwK20VTFpwPh.jpg
 releaseDate: 2025-03-31
 categoryRatings:
     gore: 0
