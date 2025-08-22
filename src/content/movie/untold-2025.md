@@ -1,7 +1,7 @@
 ---
 name: "Untold"
 tmdbId: "1407050"
-tmdbPosterId: /dfephDFHWdqtmMP3FrREZQtvhCI.jpg
+tmdbPosterId: /b6RSc8nsPVsvxcqOfN0LLKcyOtJ.jpg
 releaseDate: 2025-04-30
 categoryRatings:
     gore: 0
