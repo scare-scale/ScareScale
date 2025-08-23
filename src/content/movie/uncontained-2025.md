@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /t4Ime5pwc10Ei6nGIhxn3M06rDB.jpg
+synopsis: "In the wintry forests of North America, a mysterious drifter struggles to protect an abandoned boy and his little sister from an infection that turns people into a feral-like state."
 ---
-In the wintry forests of North America, a mysterious drifter struggles to protect an abandoned boy and his little sister from an infection that turns people into a feral-like state.

@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 3
     psychological: 4
 tmdbBackdropId: /sc1abgWNXc29wSBaerrjGBih06l.jpg
+synopsis: "During a weekend getaway at a secluded lakeside estate, a group of friends finds themselves entangled in a web of secrets, deception, and advanced technology. As tensions rise and loyalties are tested, they uncover unsettling truths about themselves and the world around them."
 ---
-During a weekend getaway at a secluded lakeside estate, a group of friends finds themselves entangled in a web of secrets, deception, and advanced technology. As tensions rise and loyalties are tested, they uncover unsettling truths about themselves and the world around them.

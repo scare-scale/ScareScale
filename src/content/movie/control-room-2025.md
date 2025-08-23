@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /jGfk0crD8YHswBrGCwKfgwptd9j.jpg
+synopsis: "A distant space colony where Olivia and her colleague Arlo is in charge of the colony's control room, ensuring the safety and well-being of the community. But the colony comes under siege from alien creatures."
 ---
-A distant space colony where Olivia and her colleague Arlo is in charge of the colony's control room, ensuring the safety and well-being of the community. But the colony comes under siege from alien creatures.

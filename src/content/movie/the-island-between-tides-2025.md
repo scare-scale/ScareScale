@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /7SnBO0GdQ5cNvq8eW6xv5aTmcGB.jpg
+synopsis: "A young woman follows a mysterious melody onto a remote tidal island. When she crosses back over at the next low tide, she emerges into a world where 25 years have passed."
 ---
-A young woman follows a mysterious melody onto a remote tidal island. When she crosses back over at the next low tide, she emerges into a world where 25 years have passed.

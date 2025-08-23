@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /hwpbTeZEaKKUfiUjc2FJZpv7uAI.jpg
+synopsis: "Retired cop James Lasombra is asked by a friend to investigate the disappearance of her daughter, who seemingly packed in the night and left an ominous message on the bathroom mirror - \"The Empty Man Made Me Do It.\" As he investigates this mysterious figure further, James begins to see and hear strange things, and is forced to come to terms with his past and what it means for his future."
 ---
-Retired cop James Lasombra is asked by a friend to investigate the disappearance of her daughter, who seemingly packed in the night and left an ominous message on the bathroom mirror - "The Empty Man Made Me Do It." As he investigates this mysterious figure further, James begins to see and hear strange things, and is forced to come to terms with his past and what it means for his future.

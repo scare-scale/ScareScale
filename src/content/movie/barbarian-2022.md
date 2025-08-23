@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 5
     psychological: 5
 tmdbBackdropId: /kSeU4uk19t82k6Cao7hc6ktDYhF.jpg
+synopsis: "In town for a job interview, a young woman arrives at her Airbnb late at night only to find that it has been mistakenly double-booked and a strange man is already staying there. Against her better judgement, she decides to stay the night anyway."
 ---
-In town for a job interview, a young woman arrives at her Airbnb late at night only to find that it has been mistakenly double-booked and a strange man is already staying there. Against her better judgement, she decides to stay the night anyway.

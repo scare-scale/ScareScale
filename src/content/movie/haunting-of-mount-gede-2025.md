@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /bKC9f4fvDMlE1KqkHguUlhKDhil.jpg
+synopsis: "A hike on Mount Gede during school break turns terrifying for two friends when one defies a local superstition — and a vengeful spirit takes hold of her."
 ---
-A hike on Mount Gede during school break turns terrifying for two friends when one defies a local superstition — and a vengeful spirit takes hold of her.

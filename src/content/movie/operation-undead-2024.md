@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /Kj14WdD0Xqk7wZ5jXqHiyBMKtv.jpg
+synopsis: "Inexperienced Thai soldiers battle a growing undead menace in this gruesome survival horror. A Japanese military experiment that turns men into monsters escapes containment, it’s up to these troops to save their nation from annihilation."
 ---
-Inexperienced Thai soldiers battle a growing undead menace in this gruesome survival horror. A Japanese military experiment that turns men into monsters escapes containment, it’s up to these troops to save their nation from annihilation.

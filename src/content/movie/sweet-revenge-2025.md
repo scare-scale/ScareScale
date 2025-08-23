@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /pFUhSRX77CSAUIzA6DBosaGO9iJ.jpg
+synopsis: "A group of friends staying at the Cabins at Crystal Lake find themselves stalked by a masked killer."
 ---
-A group of friends staying at the Cabins at Crystal Lake find themselves stalked by a masked killer.

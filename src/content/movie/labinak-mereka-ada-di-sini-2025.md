@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /6nPNBpS2NyRfMEWBFaD3pIJI8yq.jpg
+synopsis: "Najwa, a teacher from a small town, moves to Jakarta for the sake of her daughter Yanti’s future after accepting a teaching position at an elite school run by a foundation. However, their new home harbors both terror and clues from vengeful spirits—victims of an ancient cannibalistic practice carried out by the foundation's founders. As a deadly ritual draws near, Najwa must confront dark forces to save herself and her daughter from becoming the next sacrifices in the cannibalistic rite."
 ---
-Najwa, a teacher from a small town, moves to Jakarta for the sake of her daughter Yanti’s future after accepting a teaching position at an elite school run by a foundation. However, their new home harbors both terror and clues from vengeful spirits—victims of an ancient cannibalistic practice carried out by the foundation's founders. As a deadly ritual draws near, Najwa must confront dark forces to save herself and her daughter from becoming the next sacrifices in the cannibalistic rite.

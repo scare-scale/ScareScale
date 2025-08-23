@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /8deGI3n3z5urQCDuPIzWuNYjPpX.jpg
+synopsis: "Taiwan crisis, 1990s. The undead are wreaking havoc on the shore. A paranoia-infused, zombie-filled military thriller. Smells like… soldier brains?"
 ---
-Taiwan crisis, 1990s. The undead are wreaking havoc on the shore. A paranoia-infused, zombie-filled military thriller. Smells like… soldier brains?

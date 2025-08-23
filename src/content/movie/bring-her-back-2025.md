@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 6
     psychological: 7
 tmdbBackdropId: /2IIKts2A9vnUdM9tTC76B8tDmuZ.jpg
+synopsis: "Following the death of their father, a brother and sister are introduced to their new sibling by their foster mother, only to learn that she has a terrifying secret."
 ---
-Following the death of their father, a brother and sister are introduced to their new sibling by their foster mother, only to learn that she has a terrifying secret.

@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /fVpFOcQyHJM2di9upgSIwWD5wac.jpg
+synopsis: "When a zombie virus pushes Korea into a state of emergency, those trapped on an express train to Busan must fight for their own survival."
 ---
-When a zombie virus pushes Korea into a state of emergency, those trapped on an express train to Busan must fight for their own survival.

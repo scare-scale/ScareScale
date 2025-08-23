@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /wmqpE7p2dUCEgCnovuovoNXaCXr.jpg
+synopsis: "When a city is overrun with a demonically-possessed crowd, a cop must find the source of evil to save his family."
 ---
-When a city is overrun with a demonically-possessed crowd, a cop must find the source of evil to save his family.

@@ -102,10 +102,10 @@ const controlBarItems = [
             {`Release Date: ${movie.formattedDate}`}
           </h1>
           <div class="mt-5">
-            <Prose>
-              <Content />
-            </Prose>
-          </div>
+        <Prose>
+          {movie.data.synopsis && <p>{movie.data.synopsis}</p>}
+        </Prose>
+      </div>
           {
             movie.scareScaleRating > 0 ? (
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">

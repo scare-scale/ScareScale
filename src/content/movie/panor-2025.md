@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /1cyB7diApnDfNPRXNLR6bGTpB9N.jpg
+synopsis: "Born during an ancient village ritual, Panor faces isolation as mysterious misfortunes plague those around her. She must uncover the truth behind the dark curse that has haunted her since birth."
 ---
-Born during an ancient village ritual, Panor faces isolation as mysterious misfortunes plague those around her. She must uncover the truth behind the dark curse that has haunted her since birth.

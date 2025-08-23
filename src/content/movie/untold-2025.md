@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /74ZXmVoV915tkBzSYztU4NOIbia.jpg
+synopsis: "Vivian Vera is a multi-awarded journalist with a dark past. She sensationalized some of her breaking news for her ambition. Her distortion of the truth ruined lives, and these lives have begun to haunt Vivian – they want her to join them... or else they will kill everyone around her who helped her in the lie."
 ---
-Vivian Vera is a multi-awarded journalist with a dark past. She sensationalized some of her breaking news for her ambition. Her distortion of the truth ruined lives, and these lives have begun to haunt Vivian – they want her to join them... or else they will kill everyone around her who helped her in the lie.

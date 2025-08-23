@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /eMnhkSuFELWgzgyWjJwk6U0yRZB.jpg
+synopsis: "A bride-to-be is invited to her own fiancé's bachelor party, but when uncomfortable details about their relationship are exposed, the night takes a feral turn."
 ---
-A bride-to-be is invited to her own fiancé's bachelor party, but when uncomfortable details about their relationship are exposed, the night takes a feral turn.

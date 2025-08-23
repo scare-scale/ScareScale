@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /5g9wIe8Q8GFPdVLSmC372gvZfci.jpg
+synopsis: "A small town is shaken by a series of ominous killings in the days leading up to a heated mayoral election."
 ---
-A small town is shaken by a series of ominous killings in the days leading up to a heated mayoral election.

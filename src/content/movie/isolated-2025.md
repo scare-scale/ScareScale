@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /rqzsrIhf9CH63iTQEQgfJFMuJwx.jpg
+synopsis: "A nurse and her patient are trying to escape when a violent intruder starts hunting them."
 ---
-A nurse and her patient are trying to escape when a violent intruder starts hunting them.

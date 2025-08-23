@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 2
     psychological: 4
 tmdbBackdropId: /pRjCDn51n9otE0AzpGRYGVWP1LB.jpg
+synopsis: "A fading celebrity decides to use a black market drug, a cell-replicating substance that temporarily creates a younger, better version of herself."
 ---
-A fading celebrity decides to use a black market drug, a cell-replicating substance that temporarily creates a younger, better version of herself.

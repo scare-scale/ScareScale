@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /pIVvTbK6wIOXfIfErIymh7inXSV.jpg
+synopsis: "A group of teenage boys compete in an annual contest known as \"The Long Walk,\" where they must maintain a certain walking speed or get shot."
 ---
-A group of teenage boys compete in an annual contest known as "The Long Walk," where they must maintain a certain walking speed or get shot.

@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /QNo0appKGKLAsBXVkU64fXwOtj.jpg
+synopsis: "My mother vanished inside the boarding school where she worked. Through a Ouija board, she told me to look for her. My name is Sofia. I'm 14 years old and I'm going to enroll at the boarding school to find the body of my mother."
 ---
-My mother vanished inside the boarding school where she worked. Through a Ouija board, she told me to look for her. My name is Sofia. I'm 14 years old and I'm going to enroll at the boarding school to find the body of my mother.

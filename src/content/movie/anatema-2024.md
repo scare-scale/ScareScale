@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /fd9UQXNTGKN72ORe5BkUmnUQRf2.jpg
+synopsis: "Juana is a nun with a strong character marked by a paranormal experience. A mysterious order from the Archbishopric will take her to an old church in old Madrid, built on a network of passageways of unknown origin. There, Juana will discover that in the bowels of the building there is something prior to the legends that are explained about that place. And the Evil that lives there has begun to infect the exterior."
 ---
-Juana is a nun with a strong character marked by a paranormal experience. A mysterious order from the Archbishopric will take her to an old church in old Madrid, built on a network of passageways of unknown origin. There, Juana will discover that in the bowels of the building there is something prior to the legends that are explained about that place. And the Evil that lives there has begun to infect the exterior.

@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /8ZOKxGpGTc3YVduorvBIbQhncBu.jpg
+synopsis: "Lorraine and Ed Warren travel to north London to help a single mother raising four children alone in a house plagued by malicious spirits."
 ---
-Lorraine and Ed Warren travel to north London to help a single mother raising four children alone in a house plagued by malicious spirits.

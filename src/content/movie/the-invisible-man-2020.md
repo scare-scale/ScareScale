@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 7
     psychological: 3
 tmdbBackdropId: /tweDJNQzBGgsWVF5MC8JhSAk07p.jpg
+synopsis: "When Cecilia's abusive ex takes his own life and leaves her his fortune, she suspects his death was a hoax. As a series of coincidences turn lethal, Cecilia works to prove that she is being hunted by someone nobody can see."
 ---
-When Cecilia's abusive ex takes his own life and leaves her his fortune, she suspects his death was a hoax. As a series of coincidences turn lethal, Cecilia works to prove that she is being hunted by someone nobody can see.

@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 5
     psychological: 4
 tmdbBackdropId: /kyqM6padQzZ1eYxv84i9smNvZAG.jpg
+synopsis: "When all but one child from the same class mysteriously vanish on the same night at exactly the same time, a community is left questioning who or what is behind their disappearance."
 ---
-When all but one child from the same class mysteriously vanish on the same night at exactly the same time, a community is left questioning who or what is behind their disappearance.

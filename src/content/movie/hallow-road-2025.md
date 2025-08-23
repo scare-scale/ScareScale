@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /yPU89i5KvCrfPkbgsUqYjRycPaY.jpg
+synopsis: "Two parents enter a race against time when they receive a distressing late-night phone call from their daughter after she caused a tragic car accident."
 ---
-Two parents enter a race against time when they receive a distressing late-night phone call from their daughter after she caused a tragic car accident.

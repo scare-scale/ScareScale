@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /9trZvBr44UGedUOiGo3jgSUw13e.jpg
+synopsis: "A biologist signs up for a dangerous, secret expedition into a mysterious zone where the laws of nature don't apply."
 ---
-A biologist signs up for a dangerous, secret expedition into a mysterious zone where the laws of nature don't apply.

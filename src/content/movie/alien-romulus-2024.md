@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 4
     psychological: 2
 tmdbBackdropId: /iJaSpQNZ8GsqVDWfbCXmyZQXZ5l.jpg
+synopsis: "While scavenging the deep ends of a derelict space station, a group of young space colonizers come face to face with the most terrifying life form in the universe."
 ---
-While scavenging the deep ends of a derelict space station, a group of young space colonizers come face to face with the most terrifying life form in the universe.

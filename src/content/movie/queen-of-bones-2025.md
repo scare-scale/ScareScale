@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /6ckdWuYTcPE9LccKf31BQN9FCtq.jpg
+synopsis: "Twin siblings seek answers about their mother's death and her connection to the supernatural while living on a remote homestead with their father in 1931 Oregon."
 ---
-Twin siblings seek answers about their mother's death and her connection to the supernatural while living on a remote homestead with their father in 1931 Oregon.

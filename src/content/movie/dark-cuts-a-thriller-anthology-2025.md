@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /uisTdw4rHksy8Ra0cO6MZqRUUy9.jpg
+synopsis: "A pulse-pounding collection of five short films, each delivering a unique slice of suspense, obsession, and psychological terror-where every decision could be your last."
 ---
-A pulse-pounding collection of five short films, each delivering a unique slice of suspense, obsession, and psychological terror-where every decision could be your last.

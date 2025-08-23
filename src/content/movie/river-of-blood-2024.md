@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /5o4iH2N4jX3HmNCBbC6rJqxtWj2.jpg
+synopsis: "Four kayakers take the wrong river into a jungle inhabited by a tribe of merciless cannibals."
 ---
-Four kayakers take the wrong river into a jungle inhabited by a tribe of merciless cannibals.

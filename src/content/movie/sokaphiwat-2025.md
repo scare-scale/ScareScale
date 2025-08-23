@@ -9,5 +9,5 @@ categoryRatings:
     jumpscares: 0
     suspense: 0
     psychological: 0
+synopsis: "At a luxurious mansion hidden deep within the forest, completely cut off from the outside world, eight siblings are raised under ironclad rules enforced by cruel and inhuman punishments, imposed by their mother, Lady Sokaphiwat. Freedom is the one thing they long for with all their hearts—unaware that the path they choose will bring horrors far greater than the torment they wish to escape."
 ---
-At a luxurious mansion hidden deep within the forest, completely cut off from the outside world, eight siblings are raised under ironclad rules enforced by cruel and inhuman punishments, imposed by their mother, Lady Sokaphiwat. Freedom is the one thing they long for with all their hearts—unaware that the path they choose will bring horrors far greater than the torment they wish to escape.

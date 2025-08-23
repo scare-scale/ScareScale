@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /ik0BMq1s9qGDKEQW1jh7C6Aycbk.jpg
+synopsis: "After the death of his son, Javier hopes that restoring his family's abandoned ranch will allow him and his wife Mariana, who attempted suicide, a new beginning, but his grandmother refuses."
 ---
-After the death of his son, Javier hopes that restoring his family's abandoned ranch will allow him and his wife Mariana, who attempted suicide, a new beginning, but his grandmother refuses.
