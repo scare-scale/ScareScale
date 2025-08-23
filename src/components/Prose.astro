@@ -1,9 +1,9 @@
 ---
-
+const { textColour = "white" } = Astro.props;
 ---
 
 <div
-  class="prose-sm
+  class=`prose-sm
   md:prose-lg
   lg:prose-xl
   prose-h1:font-bold
@@ -12,8 +12,8 @@
   prose-h2:text-xl
   prose-img:rounded-xl
   prose-img:max-h-96
-  text-white
-  "
+  text-${textColour}
+  `
 >
   <slot />
 </div>

@@ -23,6 +23,7 @@ content:
     fields:
       - { name: "name", label: "Movie Name", type: "string", required: true }
       - { name: "tmdbId", label: "TMDB ID", type: "string", required: true }
+      - { name: "synopsis", label: "Movie Synopsis", type: "rich-text" }
       - {
           name: "tmdbPosterId",
           label: "TMDB Poster ID",
@@ -95,4 +96,4 @@ content:
               required: true,
               options: { min: 0, max: 10 },
             }
-      - { name: "body", label: "Description", type: "rich-text" }
+      - { name: "body", label: "Review", type: "rich-text" }
