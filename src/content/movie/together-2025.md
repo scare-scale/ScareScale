@@ -2,7 +2,7 @@
 name: "Together"
 tmdbId: "1242011"
 tmdbPosterId: /inliWt3ukcpKDGPpEe2lRDLwK2r.jpg
-releaseDate: 2025-07-28
+releaseDate: 2025-07-23
 categoryRatings:
     gore: 0
     creepy: 0
