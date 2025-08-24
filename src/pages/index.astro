@@ -2,6 +2,18 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 import { SEO } from "astro-seo";
+import { allMovies } from "../content.config";
+import { round } from "../utils/scoreUtils";
+import ScareScaleRating from "../components/cards/ScareScaleRating.astro";
+import FeaturedMovie from "../components/cards/FeaturedMovie.astro";
+
+// Filter out movies with no ratings (scareScaleRating = 0)
+const ratedMovies = allMovies.filter(movie => movie.scareScaleRating > 5);
+
+// Get a random movie
+const randomMovie = ratedMovies.length > 0
+  ? ratedMovies[Math.floor(Math.random() * ratedMovies.length)]
+  : null;
 ---
 
 <head>
@@ -63,6 +75,9 @@ import { SEO } from "astro-seo";
             >Find Movie <span aria-hidden="true">→</span></a
           >
         </div>
+        {randomMovie && (
+          <FeaturedMovie movie={randomMovie} />
+        )}
       </div>
       <div class="mt-16 lg:mt-8">
         <MoviesGrid sort={Sort.ReleaseDateDecending} maxCount={15}/>
