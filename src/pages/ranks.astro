@@ -16,6 +16,31 @@ const grids = [
     props: { yearFilter: "2025" },
   },
   {
+    title: "Highest Gore Rating",
+    subtitle: "Movies with the most intense and graphic content.",
+    props: { sort: Sort.Gore },
+  },
+  {
+    title: "Highest Creepy Rating",
+    subtitle: "Movies that will make your skin crawl.",
+    props: { sort: Sort.Creepy },
+  },
+  {
+    title: "Highest Jumpscares Rating",
+    subtitle: "Movies with the most heart-stopping moments.",
+    props: { sort: Sort.Jumpscares },
+  },
+  {
+    title: "Highest Suspense Rating",
+    subtitle: "Movies that keep you on the edge of your seat.",
+    props: { sort: Sort.Suspense },
+  },
+  {
+    title: "Highest Psychological Rating",
+    subtitle: "Movies that mess with your mind.",
+    props: { sort: Sort.Psychological },
+  },
+  {
     title: "Scariest Movies (2020–2025)",
     subtitle: "A half-decade of dread, distilled.",
     props: { yearFilter: ["2020", "2021", "2022", "2023", "2024", "2025"] },
@@ -70,7 +95,7 @@ const grids = [
           <MoviesGrid
             sort={Sort.HighestToLowestScore}
             showRank={true}
-            maxCount={10}
+            maxCount={5}
             {...grid.props}
           />
         </section>

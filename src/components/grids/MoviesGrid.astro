@@ -5,7 +5,12 @@ import MovieCard from "../cards/MovieCard.astro";
 export enum Sort {
   Random,
   HighestToLowestScore,
-  ReleaseDateDecending
+  ReleaseDateDecending,
+  Gore,
+  Creepy,
+  Jumpscares,
+  Suspense,
+  Psychological
 }
 
 const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined } = Astro.props;
@@ -37,6 +42,26 @@ const getSortMethod = () => {
 
     if (sort == Sort.ReleaseDateDecending) {
         return (a, b) => b.parsedDate.getTime() - a.parsedDate.getTime();
+    }
+    
+    if (sort == Sort.Gore) {
+        return (a, b) => b.data.categoryRatings.gore - a.data.categoryRatings.gore;
+    }
+    
+    if (sort == Sort.Creepy) {
+        return (a, b) => b.data.categoryRatings.creepy - a.data.categoryRatings.creepy;
+    }
+    
+    if (sort == Sort.Jumpscares) {
+        return (a, b) => b.data.categoryRatings.jumpscares - a.data.categoryRatings.jumpscares;
+    }
+    
+    if (sort == Sort.Suspense) {
+        return (a, b) => b.data.categoryRatings.suspense - a.data.categoryRatings.suspense;
+    }
+    
+    if (sort == Sort.Psychological) {
+        return (a, b) => b.data.categoryRatings.psychological - a.data.categoryRatings.psychological;
     }
 
     // Sort randomly
