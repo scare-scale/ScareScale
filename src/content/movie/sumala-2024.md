@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /q4sUaE27mE07aGVlM2u9l0TgN4c.jpg
+synopsis: "An evil spirit seeking vengeance returns to plague the town that wronged her sister. Based on a chilling urban legend."
 ---
-An evil spirit seeking vengeance returns to plague the town that wronged her sister. Based on a chilling urban legend.

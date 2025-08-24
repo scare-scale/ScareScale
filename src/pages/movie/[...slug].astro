@@ -1,10 +1,10 @@
 ---
 import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
-import { round } from "../../utils/scoreUtils";
 import { SEO } from "astro-seo";
 import { Image } from "astro:assets";
 import { allMovies } from "../../content.config";
+import ScareScaleRating from "../../components/cards/ScareScaleRating.astro";
 
 export async function getStaticPaths() {
   return allMovies.map((movie) => ({
@@ -15,11 +15,16 @@ export async function getStaticPaths() {
 
 const { movie } = Astro.props;
 const { Content } = await movie.render();
+const hasContent = movie.body && movie.body.length > 5;
 
 const controlBarItems = [
   { name: "Trailers", href: movie.trailersUrl, icon: "/icons/trailers.svg" },
   { name: "Reviews", href: movie.reviewsUrl, icon: "/icons/reviews.svg" },
-  { name: "Where to Watch", href: movie.whereToWatchUrl, icon: "/icons/watch.svg" },
+  {
+    name: "Where to Watch",
+    href: movie.whereToWatchUrl,
+    icon: "/icons/watch.svg",
+  },
   { name: "Edit", href: movie.editUrl, icon: "/icons/edit.svg" },
 ];
 ---
@@ -46,11 +51,8 @@ const controlBarItems = [
 </head>
 
 <MainLayout backdropUrl={movie.backdropUrl}>
-  <div class="relative flex flex-col items-center">
-    <section
-      class="relative flex flex-col gap-y-10 pt-6"
-      id="movieDetails"
-    >
+  <section class="relative flex flex-col items-center" id="movieDetails">
+    <div class="relative flex flex-col gap-y-10 pt-6">
       <nav aria-label="Breadcrumb">
         <ol
           role="list"
@@ -103,7 +105,7 @@ const controlBarItems = [
           </h1>
           <div class="mt-5">
             <Prose>
-              <Content />
+              {movie.data.synopsis && <p>{movie.data.synopsis}</p>}
             </Prose>
           </div>
           {
@@ -120,7 +122,6 @@ const controlBarItems = [
                           <img
                             class="w-6 h-6 flex-none"
                             src={`/icons/categories/${categoryName}.svg`}
-                            alt=" "
                           />
                           <h1 class="text-sm/1 font-bold text-white">
                             {categoryName}
@@ -131,24 +132,7 @@ const controlBarItems = [
                     )
                   )}
                 </ul>
-
-                <div class="w-full max-w-sm rounded-lg bg-white shadow-sm content-center outline-none mx-auto lg:mx-0">
-                  <div class="flex flex-col items-center p-4">
-                    <img
-                      src="/logo/logo_full.png"
-                      alt="Scare Scale Logo"
-                      class="h-14 w-auto"
-                    />
-                    <div class="w-20 h-20 m-6 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center">
-                      <h5 class="text-xl font-bold text-[#d60c16]">
-                        {round(movie.scareScaleRating)} / 10
-                      </h5>
-                    </div>
-                    <h5 class="text-2xl text-black font-bold">
-                      {movie.scareScaleText}
-                    </h5>
-                  </div>
-                </div>
+                <ScareScaleRating movie={movie} />
               </div>
             ) : (
               <div class="flex flex-col items-center justify-center p-8 mt-10 bg-gray-100 rounded-lg shadow-lg">
@@ -175,32 +159,56 @@ const controlBarItems = [
           }
         </div>
       </div>
-      <!-- Control Bar -->
-      <div
-        class="max-w-screen-sm px-4 py-2 bg-white shadow-md rounded-md m-6 mx-auto"
-      >
-        <ul
-          class="flex flex-row justify-center items-center gap-2 md:gap-4 lg:gap-6 text-black"
-        >
-          {
-            controlBarItems.map((item) => (
-              <li class="flex items-center p-1 text-sm gap-x-2 text-black">
-                <a
-                  href={item.href}
-                  class="flex items-center font-bold hover:text-[#d60c16]"
+    </div>
+    <!-- Review -->
+    <div class="place-items-center max-w-2xl lg:max-w-7xl px-6 lg:px-8 pt-6">
+      {hasContent &&
+              <div class="w-full rounded bg-white overflow-hidden shadow-lg">
+        <div class="px-6 py-4">
+          <div class="font-bold text-2xl mb-2">Scare Scale Review</div>
+          <Prose textColour="black">
+            <Content />
+          </Prose>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          {Object.entries(movie.data.categoryRatings).map(
+            ([categoryName, score]) =>
+              score >= 6 ? (
+                <span
+                  class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
                 >
-                  <img
-                    src={item.icon}
-                    alt={`${item.name} Icon`}
-                    class="w-4 h-4 mr-2"
-                  />
-                  {item.name}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </section>
-  </div>
+                  #{categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}
+                </span>
+              ) : null
+          )}
+        </div>
+      </div>}
+    </div>
+    <!-- Control Bar -->
+    <div
+      class="max-w-screen-sm px-4 py-2 bg-white shadow-md rounded-md m-6 mx-auto"
+    >
+      <ul
+        class="flex flex-row justify-center items-center gap-2 md:gap-4 lg:gap-6 text-black"
+      >
+        {
+          controlBarItems.map((item) => (
+            <li class="flex items-center p-1 text-sm gap-x-2 text-black">
+              <a
+                href={item.href}
+                class="flex items-center font-bold hover:text-[#d60c16]"
+              >
+                <img
+                  src={item.icon}
+                  alt={`${item.name} Icon`}
+                  class="w-4 h-4 mr-2"
+                />
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
 </MainLayout>

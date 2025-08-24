@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /IOEXDwaVH2IcSXIZhCg7g572ic.jpg
+synopsis: "A troubled man starts working at a retirement home and realizes its residents and caretakers harbor sinister secrets. As he investigates the building and its forbidden fourth floor, he starts to uncover connections to his own past and upbringing as a foster child."
 ---
-A troubled man starts working at a retirement home and realizes its residents and caretakers harbor sinister secrets. As he investigates the building and its forbidden fourth floor, he starts to uncover connections to his own past and upbringing as a foster child.

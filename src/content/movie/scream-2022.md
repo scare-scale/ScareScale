@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /ifUfE79O1raUwbaQRIB7XnFz5ZC.jpg
+synopsis: "Twenty-five years after a streak of brutal murders shocked the quiet town of Woodsboro, a new killer has donned the Ghostface mask and begins targeting a group of teenagers to resurrect secrets from the town’s deadly past."
 ---
-Twenty-five years after a streak of brutal murders shocked the quiet town of Woodsboro, a new killer has donned the Ghostface mask and begins targeting a group of teenagers to resurrect secrets from the town’s deadly past.

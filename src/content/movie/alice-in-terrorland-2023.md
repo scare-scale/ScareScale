@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /xKJTWGvheOMMlTHgrjN18KaD9Ra.jpg
+synopsis: "A recently bereaved teenage girl goes to live with her aunt in a secluded woodland house, unaware that sinister forces lurk within."
 ---
-A recently bereaved teenage girl goes to live with her aunt in a secluded woodland house, unaware that sinister forces lurk within.

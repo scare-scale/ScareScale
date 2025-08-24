@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /iZztGzckOMByRRQgsFh2yk3udkU.jpg
+synopsis: "A blogger who is also a werewolf meets a dashing playboy with a dark secret of his own. Starring Logan Andrews and Christian Howard."
 ---
-A blogger who is also a werewolf meets a dashing playboy with a dark secret of his own. Starring Logan Andrews and Christian Howard.

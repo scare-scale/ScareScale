@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /fo6Gw1AylyRJSeKk6QqrKD3UUER.jpg
+synopsis: "Caught in a strained marriage, Echa finds solace in a man who visits her dreams. But comfort turns to terror when he emerges as a malicious spirit."
 ---
-Caught in a strained marriage, Echa finds solace in a man who visits her dreams. But comfort turns to terror when he emerges as a malicious spirit.

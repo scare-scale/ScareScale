@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 7
     psychological: 4
 tmdbBackdropId: /1fL2S8LKxCVE9KoPRBXeagmBtex.jpg
+synopsis: "When an American family is invited to spend the weekend at the idyllic country estate of a charming British family they befriended on vacation, what begins as a dream holiday soon warps into a snarled psychological nightmare."
 ---
-When an American family is invited to spend the weekend at the idyllic country estate of a charming British family they befriended on vacation, what begins as a dream holiday soon warps into a snarled psychological nightmare.

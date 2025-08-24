@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /pkBV1whXgA9mv8UpOXujr0gGTnI.jpg
+synopsis: "A helplessly romantic sociopath escapes from a mental institution and invades the home of a '90s pop superstar. He just wants to be loved; she just wants to survive."
 ---
-A helplessly romantic sociopath escapes from a mental institution and invades the home of a '90s pop superstar. He just wants to be loved; she just wants to survive.

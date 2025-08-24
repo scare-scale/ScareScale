@@ -1,0 +1,63 @@
+---
+import { round } from "../../utils/scoreUtils";
+import { Image } from "astro:assets";
+
+const { movie } = Astro.props;
+---
+<a href={`/movie/${movie.slug}`} class="group block">
+    <div class="grid grid-cols-2 max-w-full bg-white border-none rounded-t-lg overflow-hidden text-left mt-8 lg:mt-8">
+      <div>
+        <Image
+          src={movie.posterUrl}
+          alt={`${movie.data.name} movie poster`}
+          width={300}
+          height={450}
+          class="w-full h-auto object-cover"
+          loading={"eager"}
+        />
+      </div>
+      <div class="p-4 flex flex-col justify-between leading-normal">
+        <div class="mb-2">
+          <p class="text-sm text-gray-600 flex items-center">Featured</p>
+          <div class="text-gray-900 font-bold text-xl mb-2">
+            {movie.data.name} ({movie.releaseYear})
+          </div>
+          {Object.entries(movie.data.categoryRatings)
+            .filter(([_, score]) => score >= 6)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 3)
+            .map(([categoryName]) => (
+              <span
+                key={categoryName}
+                class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+              >
+                <img
+                  class="w-5 h-5 mr-2"
+                  src={`/icons/categories/${categoryName}.svg`}
+                  alt={`${categoryName} icon`}
+                />
+                {categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}
+              </span>
+            ))}
+        </div>
+        <div class="flex items-center justify-center h-full">
+          <div class="w-20 h-20 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center">
+            <h5 class="text-xl font-bold text-[#d60c16]">
+              {round(movie.scareScaleRating)} / 10
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="w-full bg-[#d60c16]/80 text-white text-center py-2 rounded-b-lg">
+      <div class="flex items-center justify-center space-x-2">
+        <img
+          src="logo/logo_wide.png"
+          alt="Scare Scale logo"
+          class="h-4 mt-0.5"
+        />
+        <span class="text-lg text-black font-bold">Recommended</span>
+      </div>
+    </div>
+  </a>

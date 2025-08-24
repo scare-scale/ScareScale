@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /kWm4HxanOhRWfW9PzigkUXulwdG.jpg
+synopsis: "A Missionary converting an Indigenous Community in a remote Ecuadorian volcano must come to terms with her own Faith when her son is possessed by dark forces older than her own religion."
 ---
-A Missionary converting an Indigenous Community in a remote Ecuadorian volcano must come to terms with her own Faith when her son is possessed by dark forces older than her own religion.

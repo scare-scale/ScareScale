@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /fr3tiQazvi0ECeCQM3kQsMi1fAG.jpg
+synopsis: "A group of climbers embarks on a dangerous climb that has been off-limits for years. What initially begins as an audacious expedition transforms into a battle for survival against a force that toys with them."
 ---
-A group of climbers embarks on a dangerous climb that has been off-limits for years. What initially begins as an audacious expedition transforms into a battle for survival against a force that toys with them.

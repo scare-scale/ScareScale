@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /rBjsoUKM0FDuAzYkRW3hd6UtHiq.jpg
+synopsis: "Anyone can survive five nights. This time, there will be no second chances."
 ---
-Anyone can survive five nights. This time, there will be no second chances.

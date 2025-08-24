@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 4
     psychological: 3
 tmdbBackdropId: /nAxGnGHOsfzufThz20zgmRwKur3.jpg
+synopsis: "Trying to leave their troubled lives behind, twin brothers return to their hometown to start again, only to discover that an even greater evil is waiting to welcome them back."
 ---
-Trying to leave their troubled lives behind, twin brothers return to their hometown to start again, only to discover that an even greater evil is waiting to welcome them back.

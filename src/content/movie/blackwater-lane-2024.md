@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /xIPqcUa9jaz3nJz4JI3C9xzEqQd.jpg
+synopsis: "Late one night a woman drives by a stranded motorist who is later revealed to have been murdered. After a series of terrifying events the woman believes she is the killer's next victim."
 ---
-Late one night a woman drives by a stranded motorist who is later revealed to have been murdered. After a series of terrifying events the woman believes she is the killer's next victim.

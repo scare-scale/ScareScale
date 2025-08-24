@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /dx8wpD04sWu8g9oDi9j0Vi1ocqQ.jpg
+synopsis: "Cinderella finds freedom from her wicked stepmother with the help of her fairy godmother. Only this time, they unleash a plan of bloody vengeance."
 ---
-Cinderella finds freedom from her wicked stepmother with the help of her fairy godmother. Only this time, they unleash a plan of bloody vengeance.

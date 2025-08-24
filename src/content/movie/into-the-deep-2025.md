@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /804DmpPKcL9sTz2DQRY1HYBGKJk.jpg
+synopsis: "Divers searching for sunken treasure witness the murder of drug dealers by modern-day pirates, but a killer great white is determined not to let any of them escape its waters."
 ---
-Divers searching for sunken treasure witness the murder of drug dealers by modern-day pirates, but a killer great white is determined not to let any of them escape its waters.

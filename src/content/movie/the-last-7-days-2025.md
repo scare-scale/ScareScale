@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /1cRBnErJVAtLpXTbsGfp4uWn5fF.jpg
+synopsis: "A curse on their recently deceased mother leaves Tari and her brother Kadar with only seven days to free her soul and protect their family from darkness."
 ---
-A curse on their recently deceased mother leaves Tari and her brother Kadar with only seven days to free her soul and protect their family from darkness.

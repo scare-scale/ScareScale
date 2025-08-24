@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /9Eu5yFP75Ky0JAPiF985mxCdIIY.jpg
+synopsis: "Paranormal investigators Ed and Lorraine Warren take on one last terrifying case involving mysterious entities they must confront."
 ---
-Paranormal investigators Ed and Lorraine Warren take on one last terrifying case involving mysterious entities they must confront.

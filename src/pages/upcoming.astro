@@ -3,28 +3,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 import { SEO } from "astro-seo";
 import { Image } from "astro:assets";
 import { upcomingMovies } from "../content.config";
-
-// Group movies by month
-const groupedMovies = upcomingMovies.reduce<Record<string, typeof upcomingMovies>>((acc, movie) => {
-  const monthYear = movie.parsedDate.toLocaleString("default", {
-    month: "long",
-    year: "numeric",
-  });
-
-  if (!acc[monthYear]) {
-    acc[monthYear] = [];
-  }
-
-  acc[monthYear].push(movie);
-  return acc;
-}, {});
-
-// Calculate the maximum number of movies in a single month
-const maxMoviesInMonth = Math.min(
-  Math.max(...Object.values(groupedMovies).map((movies) => movies.length)),
-  5
-);
-const gridColsClass = `grid-cols-${maxMoviesInMonth}`;
 ---
 
 <head>
@@ -54,40 +32,32 @@ const gridColsClass = `grid-cols-${maxMoviesInMonth}`;
     <h1 class="text-3xl font-bold text-center text-white">
       Upcoming Horror Movies
     </h1>
-    <div class="timeline relative border-l-2 pl-6 space-y-8 mx-auto max-w-3xl">
-      {
-        Object.entries(groupedMovies).map(([monthYear, movies]) => (
-          <div class="timeline-month">
-            <h2 class="text-2xl font-semibold text-white mb-4">{monthYear}</h2>
-            <div class={`grid grid-cols-1 md:${gridColsClass} gap-6`}>
-              {movies.map((movie) => (
-                <a
-                  href={`/movie/${movie.slug}`}
-                  class="timeline-item relative block hover:bg-gray-700 transition rounded-lg"
-                >
-                  <div class="flex flex-col gap-y-4 p-4">
-                    <Image
-                      src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movie.data.tmdbPosterId}`}
-                      alt={`${movie.data.name} poster`}
-                      width={300}
-                      height={450}
-                      class="size-full size-2/3 rounded-lg object-cover"
-                    />
-                    <div>
-                      <h3 class="text-xl font-medium text-white">
-                        {movie.data.name}
-                      </h3>
-                      <p class="text-gray-300">
-                        Release Date: {movie.formattedDate}
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              ))}
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-screen-xl mx-auto">
+      {upcomingMovies.map((movie) => (
+        <a
+          href={`/movie/${movie.slug}`}
+          class="hover:bg-gray-700 transition rounded-lg overflow-hidden"
+        >
+          <div class="flex flex-col gap-y-4 p-4">
+            <Image
+              src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movie.data.tmdbPosterId}`}
+              alt={`${movie.data.name} poster`}
+              width={300}
+              height={450}
+              class="rounded-lg object-cover w-full h-auto"
+            />
+            <div>
+              <h3 class="text-xl font-medium text-white">
+                {movie.data.name}
+              </h3>
+              <p class="text-gray-300">
+                Release Date: {movie.formattedDate}
+              </p>
             </div>
           </div>
-        ))
-      }
+        </a>
+      ))}
     </div>
   </section>
 </MainLayout>

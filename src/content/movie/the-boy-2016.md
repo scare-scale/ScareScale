@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /mRUW8rmpCS2kH22eihPbbMIbFxU.jpg
+synopsis: "A young American woman takes a job as a nanny in a remote English village, soon discovering that the family's eight-year-old son is a life-sized doll that comes with a list of strict rules."
 ---
-A young American woman takes a job as a nanny in a remote English village, soon discovering that the family's eight-year-old son is a life-sized doll that comes with a list of strict rules.

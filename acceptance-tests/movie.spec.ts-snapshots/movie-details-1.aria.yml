@@ -7,7 +7,7 @@
 - img "Heart Eyes movie poster"
 - heading "Heart Eyes" [level=1]
 - 'heading /Release Date: 6 February \d+/ [level=1]'
-- paragraph: When the “Heart Eyes Killer” strikes Seattle, a pair of co-workers pulling overtime on Valentine’s Day are mistaken for a couple by the elusive couple-hunting killer. Now, they must spend the most romantic night of the year running for their lives.
+- paragraph: When the "Heart Eyes Killer" strikes Seattle, a pair of co-workers pulling overtime on Valentine's Day are mistaken for a couple by the elusive couple-hunting killer. Now, they must spend the most romantic night of the year running for their lives.
 - heading "Ratings" [level=5]
 - list:
   - listitem:
@@ -33,3 +33,20 @@
 - img "Scare Scale Logo"
 - heading /5 \/ \d+/ [level=5]
 - heading "Creepy" [level=5]
+- list:
+  - listitem:
+    - link "Trailers Icon Trailers":
+      - /url: https://www.themoviedb.org/movie/1302916/videos?active_nav_item=Trailers
+      - img "Trailers Icon"
+  - listitem:
+    - link "Reviews Icon Reviews":
+      - /url: https://www.themoviedb.org/movie/1302916/reviews
+      - img "Reviews Icon"
+  - listitem:
+    - link "Where to Watch Icon Where to Watch":
+      - /url: https://www.justwatch.com/uk/search?q=Heart%20Eyes%202025
+      - img "Where to Watch Icon"
+  - listitem:
+    - link "Edit Icon Edit":
+      - /url: https://app.pagescms.org/scare-scale/scarescale/dev/collection/movies/edit/src%2Fcontent%2Fmovie%2Fheart-eyes-2025.md
+      - img "Edit Icon"

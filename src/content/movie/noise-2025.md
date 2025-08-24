@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /cLDZ7wEQn6zc4UFaDPHFjWlD9px.jpg
+synopsis: "Ju-young is a young woman with a hearing impediment who decides to investigate her sister's inexplicable disappearance, last seen in her apartment. Feeling more and more cornered, Ju-young begins to hear strange sounds and sense an evil presence in the apartment."
 ---
-Ju-young is a young woman with a hearing impediment who decides to investigate her sister's inexplicable disappearance, last seen in her apartment. Feeling more and more cornered, Ju-young begins to hear strange sounds and sense an evil presence in the apartment.

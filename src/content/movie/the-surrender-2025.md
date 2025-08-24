@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /6prlDNn0CY5ZcxkP33GH5tIGOMd.jpg
+synopsis: "A fraught mother-daughter relationship is put to a terrifying test when the family patriarch dies, and the grieving mother hires a mysterious stranger to bring her husband back from the dead."
 ---
-A fraught mother-daughter relationship is put to a terrifying test when the family patriarch dies, and the grieving mother hires a mysterious stranger to bring her husband back from the dead.

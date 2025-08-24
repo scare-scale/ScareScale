@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /zmaytJXQgaoDZcFH2Z0EqRhuTS3.jpg
+synopsis: "Apartment 610 holds a dark and terrifying secret: anyone who enters it will die within four days. Can Alma and her sister, Mia, escape the curse?"
 ---
-Apartment 610 holds a dark and terrifying secret: anyone who enters it will die within four days. Can Alma and her sister, Mia, escape the curse?

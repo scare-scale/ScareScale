@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 6
     psychological: 5
 tmdbBackdropId: /mXndmCbpvlqnD6po0EMfxEZcUSn.jpg
+synopsis: "Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse. Forced to confront a powerful entity, the Warrens find themselves caught in the most terrifying case of their lives."
 ---
-Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse. Forced to confront a powerful entity, the Warrens find themselves caught in the most terrifying case of their lives.

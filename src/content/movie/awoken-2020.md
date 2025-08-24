@@ -10,5 +10,5 @@ categoryRatings:
   suspense: 7
   psychological: 3
 tmdbBackdropId: /hyx9Yqp3dgs5Ln16t6n7gojMw7e.jpg
+synopsis: "Karla, a young medical student, is trying to cure her brother, Blake, from a terminal sleep illness called Fatal Familial Insomnia, where you are unable to sleep until you die. On her quest to treat him, a more sinister reason for his condition is revealed."
 ---
-Karla, a young medical student, is trying to cure her brother, Blake, from a terminal sleep illness called Fatal Familial Insomnia, where you are unable to sleep until you die. On her quest to treat him, a more sinister reason for his condition is revealed.

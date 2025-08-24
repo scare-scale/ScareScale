@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /roYyPiQDQKmIKUEhO912693tSja.jpg
+synopsis: "A family is forced to live in silence while hiding from creatures that hunt by sound."
 ---
-A family is forced to live in silence while hiding from creatures that hunt by sound.

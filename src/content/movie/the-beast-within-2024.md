@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /qulnQ3Q4TcQuOqKbIlfqkJ4vh9g.jpg
+synopsis: "Ten-year-old Willow follows her parents on one of their secret late-night treks to the heart of an ancient forest. After witnessing her father undergo a terrible transformation, she too becomes ensnared by the dark ancestral secret that they've so desperately tried to conceal."
 ---
-Ten-year-old Willow follows her parents on one of their secret late-night treks to the heart of an ancient forest. After witnessing her father undergo a terrible transformation, she too becomes ensnared by the dark ancestral secret that they've so desperately tried to conceal.

@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /vfkzNcVzTRCq3C2jYIZtIjSdwf7.jpg
+synopsis: "Three years after his sister's death, Yak relentlessly searches for the dark spirit that killed her in hopes of seeking revenge."
 ---
-Three years after his sister's death, Yak relentlessly searches for the dark spirit that killed her in hopes of seeking revenge.

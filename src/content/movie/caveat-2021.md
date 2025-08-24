@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /zlxUP1KRklLBx7IZfjcBm5bZNe3.jpg
+synopsis: "A lone drifter suffering from partial memory loss accepts a job to look after a psychologically troubled woman in an abandoned house on an isolated island."
 ---
-A lone drifter suffering from partial memory loss accepts a job to look after a psychologically troubled woman in an abandoned house on an isolated island.

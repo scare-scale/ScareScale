@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /6XjMwQTvnICBz6TguiDKkDVHvgS.jpg
+synopsis: "As New York City is invaded by alien creatures who hunt by sound, a woman named Sam fights to survive with her cat."
 ---
-As New York City is invaded by alien creatures who hunt by sound, a woman named Sam fights to survive with her cat.

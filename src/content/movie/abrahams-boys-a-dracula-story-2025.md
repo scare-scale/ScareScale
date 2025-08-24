@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /xVSrVenIhbhT9DJioOkhmOlxJuq.jpg
+synopsis: "Following the events of Dracula, Abraham van Helsing moves his two sons, Max and Rudy, to the US in an attempt to escape their past. It does not work."
 ---
-Following the events of Dracula, Abraham van Helsing moves his two sons, Max and Rudy, to the US in an attempt to escape their past. It does not work.

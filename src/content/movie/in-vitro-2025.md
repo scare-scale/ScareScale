@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /czG3u1h2s67XajoIF7sEXGeqTjr.jpg
+synopsis: "On an isolated cattle farm, a couple experimenting with biotechnology have their lives upended when they discover a disturbing presence on their property."
 ---
-On an isolated cattle farm, a couple experimenting with biotechnology have their lives upended when they discover a disturbing presence on their property.

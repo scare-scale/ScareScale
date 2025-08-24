@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /nViQZruGVd8M2RkFD5MCPjyjqgA.jpg
+synopsis: "While performing an unauthorized exorcism on his father, an elite exorcist suspects the entity he's doing battle with might be a holy being – perhaps even God."
 ---
-While performing an unauthorized exorcism on his father, an elite exorcist suspects the entity he's doing battle with might be a holy being – perhaps even God.

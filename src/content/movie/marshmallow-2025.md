@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /4W28zYCwqRhrNuYy5G7EB8ZamHj.jpg
+synopsis: "At a secluded summer camp, timid and introverted 12-year-old Morgan is thrust into a waking nightmare when a once-fabled campfire tale becomes real. As a mysterious figure descends upon the camp, Morgan and his newfound friends must embark on a treacherous journey and uncover a sinister reality buried beneath the surface."
 ---
-At a secluded summer camp, timid and introverted 12-year-old Morgan is thrust into a waking nightmare when a once-fabled campfire tale becomes real. As a mysterious figure descends upon the camp, Morgan and his newfound friends must embark on a treacherous journey and uncover a sinister reality buried beneath the surface.

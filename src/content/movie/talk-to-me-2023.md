@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 3
     psychological: 6
 tmdbBackdropId: /46Os8U0DEPmI0OnvKDxucl6SLVZ.jpg
+synopsis: "When a group of friends discover how to conjure spirits using an embalmed hand, they become hooked on the new thrill, until one of them goes too far and unleashes terrifying supernatural forces."
 ---
-When a group of friends discover how to conjure spirits using an embalmed hand, they become hooked on the new thrill, until one of them goes too far and unleashes terrifying supernatural forces.

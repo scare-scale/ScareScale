@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /3nqyezODb6EiGW8dGUmFDd9Senf.jpg
+synopsis: "Under unbearable pressure, a young tennis star summons a djinn who begins to prey on people in their sleep, threatening the lives of her loved ones."
 ---
-Under unbearable pressure, a young tennis star summons a djinn who begins to prey on people in their sleep, threatening the lives of her loved ones.

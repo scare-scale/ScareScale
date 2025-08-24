@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /tzwUife8ExSuHMPC94bqAAcxjEt.jpg
+synopsis: "After the brutal murder of her twin sister, Darcy goes after those responsible by using haunted items as her tools for revenge."
 ---
-After the brutal murder of her twin sister, Darcy goes after those responsible by using haunted items as her tools for revenge.

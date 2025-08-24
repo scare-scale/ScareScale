@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /umyOinNa6vqqnqoVc9QqzyaapUz.jpg
+synopsis: "A live broadcast of a late-night talk show in 1977 goes horribly wrong, unleashing evil into the nation's living rooms."
 ---
-A live broadcast of a late-night talk show in 1977 goes horribly wrong, unleashing evil into the nation's living rooms.

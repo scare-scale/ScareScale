@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /48EF5gKstAIFEuWCmeGRsOAJLQT.jpg
+synopsis: "Pursued by her stepmother for eternal beauty, Snow White flees into a terrifying forest and aligns with seven bloodthirsty dwarves - cold-blooded assassins with a knack for brutal killings. Her spirit is tested in this grim fairy tale."
 ---
-Pursued by her stepmother for eternal beauty, Snow White flees into a terrifying forest and aligns with seven bloodthirsty dwarves - cold-blooded assassins with a knack for brutal killings. Her spirit is tested in this grim fairy tale.
