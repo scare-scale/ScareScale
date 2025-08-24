@@ -23,7 +23,7 @@ const { movie } = Astro.props;
             {movie.data.name} ({movie.releaseYear})
           </div>
           {Object.entries(movie.data.categoryRatings)
-            .filter(([_, score]) => score >= 6)
+            .filter(([_, score]) => score >= 5)
             .sort((a, b) => b[1] - a[1])
             .slice(0, 3)
             .map(([categoryName]) => (
