@@ -114,7 +114,10 @@ def save_as_md(movie_data):
                         md_file.write(f"    {sub_key}: {sub_value}\n")
                 else:
                     md_file.write(f"{key}: {value}\n")
+            # Add synopsis field
+            if movie_data['description']:
+                escaped_description = movie_data['description'].replace('"', '\\"')
+                md_file.write(f"synopsis: \"{escaped_description}\"\n")
             md_file.write("---\n")
-            md_file.write(f"{movie_data['description']}\n")
 
         print(f"Markdown file '{filename}' updated successfully!")

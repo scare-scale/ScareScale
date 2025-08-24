@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /opNdWurarqYxrzqpVRPyZrbWb3K.jpg
+synopsis: "Martin's daughter, Emma, takes up a night watch job to find out what happened to her parents almost thirty years ago. A meeting with Wörmer in his cell pulls the serial killer out of his coma and sets in motion a chain of fateful events."
 ---
-Martin's daughter, Emma, takes up a night watch job to find out what happened to her parents almost thirty years ago. A meeting with Wörmer in his cell pulls the serial killer out of his coma and sets in motion a chain of fateful events.

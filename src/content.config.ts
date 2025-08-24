@@ -17,6 +17,7 @@ const movieCollection = defineCollection({
     tmdbPosterId: z.string(),
     tmdbBackdropId: z.string().optional(),
     releaseDate: z.date(),
+    synopsis: z.string().optional(),
     categoryRatings: z.object({
       gore: z.number(),
       creepy: z.number(),

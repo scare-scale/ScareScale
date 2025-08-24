@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 4
     psychological: 3
 tmdbBackdropId: /bizhlTVjifYQUu4Xrdt7m3TYr7d.jpg
+synopsis: "FBI Agent Lee Harker is a gifted new recruit assigned to the unsolved case of an elusive serial killer. As the case takes complex turns, unearthing evidence of the occult, Harker discovers a personal connection to the merciless killer and must race against time to stop him before he claims the lives of another innocent family."
 ---
-FBI Agent Lee Harker is a gifted new recruit assigned to the unsolved case of an elusive serial killer. As the case takes complex turns, unearthing evidence of the occult, Harker discovers a personal connection to the merciless killer and must race against time to stop him before he claims the lives of another innocent family.

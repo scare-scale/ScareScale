@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /pDKFL1zcHzEpmz4MJA5JJnRbJeD.jpg
+synopsis: "Five years after an ominous unseen presence drives most of society to suicide, a survivor and her two children make a desperate bid to reach safety."
 ---
-Five years after an ominous unseen presence drives most of society to suicide, a survivor and her two children make a desperate bid to reach safety.

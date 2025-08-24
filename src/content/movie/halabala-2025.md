@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /1yVq7vW59QWXI66jDnz0Uqh7Poc.jpg
+synopsis: "Inspector Dan leads the team of infirm police officers to hunt down the brutal escaped prisoner in the Halabala forest down south, only to discover that the dark secret inside the forest is turning against them."
 ---
-Inspector Dan leads the team of infirm police officers to hunt down the brutal escaped prisoner in the Halabala forest down south, only to discover that the dark secret inside the forest is turning against them.

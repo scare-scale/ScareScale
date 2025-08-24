@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /gEjNlhZhyHeto6Fy5wWy5Uk3A9D.jpg
+synopsis: "A soldier and his team battle hordes of post-apocalyptic zombies in the wastelands of the Korean Peninsula."
 ---
-A soldier and his team battle hordes of post-apocalyptic zombies in the wastelands of the Korean Peninsula.

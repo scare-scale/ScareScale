@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 5
     psychological: 3
 tmdbBackdropId: /uIpJPDNFoeX0TVml9smPrs9KUVx.jpg
+synopsis: "Plagued by a violent recurring nightmare, college student Stefanie heads home to track down the one person who might be able to break the cycle and save her family from the grisly demise that inevitably awaits them all."
 ---
-Plagued by a violent recurring nightmare, college student Stefanie heads home to track down the one person who might be able to break the cycle and save her family from the grisly demise that inevitably awaits them all.

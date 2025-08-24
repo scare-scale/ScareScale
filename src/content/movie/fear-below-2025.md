@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /hr3yzjzfsiNxWqlDgRTSHgYB7fz.jpg
+synopsis: "A rag-tag team of divers attempting to salvage a sunken car from a river are thwarted by a highly aggressive bull shark."
 ---
-A rag-tag team of divers attempting to salvage a sunken car from a river are thwarted by a highly aggressive bull shark.

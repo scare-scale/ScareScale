@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /AeGgtElKvBQY9f9350fztaGLAvH.jpg
+synopsis: "A family retreats to an isolated farm during a zombie outbreak, but years of painful secrets take a toll as they navigate their desolate world."
 ---
-A family retreats to an isolated farm during a zombie outbreak, but years of painful secrets take a toll as they navigate their desolate world.

@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 5
     psychological: 4
 tmdbBackdropId: /yGjpT94EoeGQQh1vQ1KEXAQnGoB.jpg
+synopsis: "A grieving woman in a secluded forest encounters a killer who injects her with a paralytic drug. As her body shuts down, her fight for survival begins."
 ---
-A grieving woman in a secluded forest encounters a killer who injects her with a paralytic drug. As her body shuts down, her fight for survival begins.

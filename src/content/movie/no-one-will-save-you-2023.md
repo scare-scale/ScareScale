@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /zYlgqIpqJ1VAbvFhRhktAzIybVs.jpg
+synopsis: "A lonely woman battles extraterrestrials who threaten her future while forcing her to face her past."
 ---
-A lonely woman battles extraterrestrials who threaten her future while forcing her to face her past.

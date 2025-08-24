@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /9KJbq86NRU5nvVlqpziHdC7IcnE.jpg
+synopsis: "Soon after getting married, couple Maya and Andi begin to experience eerie disturbances from unseen malevolent forces."
 ---
-Soon after getting married, couple Maya and Andi begin to experience eerie disturbances from unseen malevolent forces.

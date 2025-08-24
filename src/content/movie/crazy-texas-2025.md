@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /9cPaii5DjYNcGO8ZTbG5gpqA9S1.jpg
+synopsis: "Amidst the festive spirit of Christmas in a small Texas town, two sisters find themselves embroiled in a dangerous struggle to safeguard their family wealth and deeply held religious convictions."
 ---
-Amidst the festive spirit of Christmas in a small Texas town, two sisters find themselves embroiled in a dangerous struggle to safeguard their family wealth and deeply held religious convictions.

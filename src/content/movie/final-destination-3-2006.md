@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /nSV1NIAK0Sp5dM1oiobtqbJ8Jrv.jpg
+synopsis: "High school senior Wendy's premonition of a deadly rollercoaster ride saves her life and a lucky few, but not from death itself — which seeks out those who escaped their fate."
 ---
-High school senior Wendy's premonition of a deadly rollercoaster ride saves her life and a lucky few, but not from death itself — which seeks out those who escaped their fate.

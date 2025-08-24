@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /p15kf4M6Wc5IvwhVSQRRJLcucGF.jpg
+synopsis: "A late-night boat ride turns into a desperate fight for survival in New York City when a mischievous mouse becomes a monstrous reality."
 ---
-A late-night boat ride turns into a desperate fight for survival in New York City when a mischievous mouse becomes a monstrous reality.

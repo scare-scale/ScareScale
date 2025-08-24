@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 4
     psychological: 2
 tmdbBackdropId: /6dC7ULfiutxwEAs7LjWHL2Tc7Zv.jpg
+synopsis: "When twin brothers find a mysterious wind-up monkey, a series of outrageous deaths tear their family apart. Twenty-five years later, the monkey begins a new killing spree forcing the estranged brothers to confront the cursed toy."
 ---
-When twin brothers find a mysterious wind-up monkey, a series of outrageous deaths tear their family apart. Twenty-five years later, the monkey begins a new killing spree forcing the estranged brothers to confront the cursed toy.

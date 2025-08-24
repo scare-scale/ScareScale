@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /ybtmHAetjWNavCz6QgiJarDfuTN.jpg
+synopsis: "Seven girls start a cult where each of them must embody one of the seven deadly sins. They realize there's more to their religious town after they go missing, one by one."
 ---
-Seven girls start a cult where each of them must embody one of the seven deadly sins. They realize there's more to their religious town after they go missing, one by one.

@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /2ANHqBhbAhyIBRTLSVfENskpxon.jpg
+synopsis: "Nothing is what it seems when a twisted one-night stand spirals into a serial killer’s vicious murder spree."
 ---
-Nothing is what it seems when a twisted one-night stand spirals into a serial killer’s vicious murder spree.

@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 2
     psychological: 1
 tmdbBackdropId: /qspghhpOyaBGgZDJoCbV2o9WNMU.jpg
+synopsis: "Who will be voted queen at Shadyside High's 1988 prom? For underdog Lori, competition is cutthroat even before someone starts killing off the candidates."
 ---
-Who will be voted queen at Shadyside High's 1988 prom? For underdog Lori, competition is cutthroat even before someone starts killing off the candidates.

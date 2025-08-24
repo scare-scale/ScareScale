@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /lDPiNMKFZUg2d1vfBpduYmzTMfs.jpg
+synopsis: "A doctor-turned-priest, Father Park was excommunicated for performing exorcisms by a church that refused to believe in the supernatural beings preying on the innocent. When his long-time friend, a monk from a secretive and magic-wielding temple, calls upon him to protect a naïve yet powerful child from his corrupt master, Father Park must face his inner demons to rescue the boy or risk repeating the same tragedy that he took up the cross to prevent."
 ---
-A doctor-turned-priest, Father Park was excommunicated for performing exorcisms by a church that refused to believe in the supernatural beings preying on the innocent. When his long-time friend, a monk from a secretive and magic-wielding temple, calls upon him to protect a naïve yet powerful child from his corrupt master, Father Park must face his inner demons to rescue the boy or risk repeating the same tragedy that he took up the cross to prevent.

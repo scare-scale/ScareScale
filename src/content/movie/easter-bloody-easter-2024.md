@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /lljZTHeXJ3mNt3IC5Kh7MPXVKeZ.jpg
+synopsis: "A woman must protect her small town from the Jackalope (based on the mythical rabbit-antelope creature of North American folklore) and his army of devilish bunnies as they embark on a murder spree over the Easter weekend."
 ---
-A woman must protect her small town from the Jackalope (based on the mythical rabbit-antelope creature of North American folklore) and his army of devilish bunnies as they embark on a murder spree over the Easter weekend.

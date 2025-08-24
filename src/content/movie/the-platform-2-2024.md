@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /3m0j3hCS8kMAaP9El6Vy5Lqnyft.jpg
+synopsis: "After a mysterious leader imposes his law in a brutal system of vertical cells, a new arrival battles against a dubious food distribution method."
 ---
-After a mysterious leader imposes his law in a brutal system of vertical cells, a new arrival battles against a dubious food distribution method.

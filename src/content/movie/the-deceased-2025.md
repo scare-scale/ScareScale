@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /83xeZxAUzv1AEm74lGx0jdbVMAc.jpg
+synopsis: "When their father dies on a cursed day, terror follows siblings Nuri and Yanda as they navigate myths, rituals and their older brother's protests."
 ---
-When their father dies on a cursed day, terror follows siblings Nuri and Yanda as they navigate myths, rituals and their older brother's protests.

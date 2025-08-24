@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /55hRgXkbvHoc9dL58S9HAGyxmZt.jpg
+synopsis: "When a remote village is plagued by a deadly curse, one brother must fight to save his family from a terrifying supernatural threat."
 ---
-When a remote village is plagued by a deadly curse, one brother must fight to save his family from a terrifying supernatural threat.

@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /99XoA625Gl9Q5tBKGX1nf2g11yJ.jpg
+synopsis: "An amateur filmmaker, struggling to turn his passion into a career, returns with friends to Loveland, Ohio, the location of his first, notorious sighting of the Frogman, determined to obtain irrefutable proof that the cryptid legend exists."
 ---
-An amateur filmmaker, struggling to turn his passion into a career, returns with friends to Loveland, Ohio, the location of his first, notorious sighting of the Frogman, determined to obtain irrefutable proof that the cryptid legend exists.

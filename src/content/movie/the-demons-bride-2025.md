@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /tX0G6mVkRt550e3cfzkqZIK8wNz.jpg
+synopsis: "When her daughter is severely injured, a desperate mother makes a deal with a demon to save her — but the price will have to be paid in blood."
 ---
-When her daughter is severely injured, a desperate mother makes a deal with a demon to save her — but the price will have to be paid in blood.

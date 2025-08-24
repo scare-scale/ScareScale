@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /k6ANeyxAfMRi5xhxIXv1Scn9vc2.jpg
+synopsis: "Following the latest Ghostface killings, the four survivors leave Woodsboro behind and start a fresh chapter."
 ---
-Following the latest Ghostface killings, the four survivors leave Woodsboro behind and start a fresh chapter.

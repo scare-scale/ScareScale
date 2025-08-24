@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 0
     psychological: 0
 tmdbBackdropId: /cDxq3sXtGX4RkQqQmVXmu0qwPI6.jpg
+synopsis: "Miyako starts a live-in maid job and quickly discovers that housecleaning is the least of her duties, as her employers use the maids in their twisted fantasies. Her co-worker Mai-chan, who can miraculously recover from any injury, becomes the focus of horrific, indulgent violence that Miyako is soon drawn into."
 ---
-Miyako starts a live-in maid job and quickly discovers that housecleaning is the least of her duties, as her employers use the maids in their twisted fantasies. Her co-worker Mai-chan, who can miraculously recover from any injury, becomes the focus of horrific, indulgent violence that Miyako is soon drawn into.

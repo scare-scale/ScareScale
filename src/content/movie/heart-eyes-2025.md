@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 4
     psychological: 1
 tmdbBackdropId: /67GiqvLsOVFQf5a7545T3RhAa6N.jpg
+synopsis: "When the \"Heart Eyes Killer\" strikes Seattle, a pair of co-workers pulling overtime on Valentine's Day are mistaken for a couple by the elusive couple-hunting killer. Now, they must spend the most romantic night of the year running for their lives."
 ---
-When the "Heart Eyes Killer" strikes Seattle, a pair of co-workers pulling overtime on Valentine's Day are mistaken for a couple by the elusive couple-hunting killer. Now, they must spend the most romantic night of the year running for their lives.

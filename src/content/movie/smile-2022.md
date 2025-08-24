@@ -10,5 +10,5 @@ categoryRatings:
     suspense: 5
     psychological: 5
 tmdbBackdropId: /kMZIMqEXO5MFd5Y1Ha2jZZF4pvF.jpg
+synopsis: "After witnessing a bizarre, traumatic incident involving a patient, Dr. Rose Cotter starts experiencing frightening occurrences that she can't explain."
 ---
-After witnessing a bizarre, traumatic incident involving a patient, Dr. Rose Cotter starts experiencing frightening occurrences that she can't explain.
