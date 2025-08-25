@@ -1,0 +1,38 @@
+---
+const { movie } = Astro.props;
+const controlBarItems = [
+  { name: "Trailers", href: movie.trailersUrl, icon: "/icons/trailers.svg" },
+  { name: "Reviews", href: movie.reviewsUrl, icon: "/icons/reviews.svg" },
+  {
+    name: "Where to Watch",
+    href: movie.whereToWatchUrl,
+    icon: "/icons/watch.svg",
+  },
+  { name: "Edit", href: movie.editUrl, icon: "/icons/edit.svg" },
+];
+---
+<div
+class="max-w-screen-sm px-4 py-2 bg-white shadow-md rounded-md m-6 mx-auto"
+>
+<ul
+  class="flex flex-row justify-center items-center gap-2 md:gap-4 lg:gap-6 text-black"
+>
+  {
+    controlBarItems.map((item) => (
+      <li class="flex items-center p-1 text-sm gap-x-2 text-black">
+        <a
+          href={item.href}
+          class="flex items-center font-bold hover:text-[#d60c16]"
+        >
+          <img
+            src={item.icon}
+            alt={`${item.name} Icon`}
+            class="w-4 h-4 mr-2"
+          />
+          {item.name}
+        </a>
+      </li>
+    ))
+  }
+</ul>
+</div>
