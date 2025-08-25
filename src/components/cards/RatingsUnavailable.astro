@@ -1,0 +1,20 @@
+---
+const { movie } = Astro.props;
+---
+<div class="flex flex-col items-center justify-center p-8 mt-10 bg-gray-100 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-semibold text-black mb-4">
+      No Ratings Yet
+    </h2>
+    <p class="text-black text-center mb-6">
+      Be the first to share your thoughts! Join the Scare Scale
+      community to rate movies.
+    </p>
+    <div class="flex gap-4">
+      <a
+        href={movie.editUrl}
+        class="px-6 py-2 bg-[#d60c16] text-white rounded-md shadow hover:bg-red-700 transition"
+      >
+        Add Ratings
+      </a>
+    </div>
+  </div>

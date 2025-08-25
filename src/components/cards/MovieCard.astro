@@ -2,10 +2,18 @@
 import { round } from "../../utils/scoreUtils";
 import { Image } from 'astro:assets';
 
-const { name, tmdbPosterId, rank, scareScaleRating, categoryRatings, slug, releaseDate, lazyLoad = false } =
-  Astro.props;
-const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmdbPosterId}`;
+const {
+  name,
+  tmdbPosterId,
+  rank,
+  scareScaleRating,
+  categoryRatings,
+  slug,
+  releaseDate,
+  lazyLoad = false
+} = Astro.props;
 
+const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmdbPosterId}`;
 const parsedDate = new Date(String(releaseDate));
 
 const cardText = () => {
@@ -22,19 +30,19 @@ const cardText = () => {
 ---
 
 <a
-  href=`/movie/${slug}`
+  href={`/movie/${slug}`}
   class="relative group"
   id={name}
   data-categories={`gore:${categoryRatings.gore},creepy:${categoryRatings.creepy},jumpscares:${categoryRatings.jumpscares},suspense:${categoryRatings.suspense},psychological:${categoryRatings.psychological}`}
 >
   <Image
-  src={posterUrl}
-  alt={name}
-  width={300}
-  height={450}
-  class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75"
-  loading={lazyLoad ? "lazy" : "eager"}
-/>
+    src={posterUrl}
+    alt={name}
+    width={300}
+    height={450}
+    class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75"
+    loading={lazyLoad ? "lazy" : "eager"}
+  />
   {
     rank ? (
       <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-6 h-6 lg:w-12 lg:h-12 clip-triangle">
@@ -42,9 +50,24 @@ const cardText = () => {
       </span>
     ) : <></>
   }
+  <div class="absolute top-0 right-0 flex flex-row items-start space-x-1 p-1 bg-black bg-opacity-50 rounded-bl-lg">
+    {
+      Object.entries(categoryRatings)
+        .filter(([_, score]) => score >= 5)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3)
+        .map(([categoryName]) => (
+          <img
+            class="w-5 h-5"
+            src={`/icons/categories/${categoryName}.svg`}
+            alt={`${categoryName} icon`}
+          />
+        ))
+    }
+  </div>
   <div
     class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center sm:text-sm lg:text-lg font-semibold py-1"
   >
-     {cardText()}
+    {cardText()}
   </div>
 </a>

@@ -2,14 +2,39 @@
 import { round } from "../../utils/scoreUtils";
 const { movie } = Astro.props;
 ---
-<div class="w-full max-w-sm rounded-lg bg-white shadow-sm content-center outline-none mx-auto lg:mx-0">
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <h5 class="text-xl mt-5 font-medium text-white col-span-full">Ratings</h5>
+  <ul role="list" class="divide-y divide-gray-100">
+    {
+      Object.entries(movie.data.categoryRatings).map(
+        ([categoryName, score]) => (
+          <li class="flex justify-between gap-x-6 py-5">
+            <div class="flex min-w-0 gap-x-4">
+              <img
+                class="w-6 h-6 flex-none"
+                src={`/icons/categories/${categoryName}.svg`}
+              />
+              <h1 class="text-sm/1 font-bold text-white">{categoryName}</h1>
+            </div>
+            <p class="text-sm/1 text-white">{score} / 10</p>
+          </li>
+        )
+      )
+    }
+  </ul>
+  <div
+    class="w-full max-w-sm rounded-lg bg-white shadow-sm content-center outline-none mx-auto lg:mx-0"
+  >
     <div class="flex flex-col items-center p-4">
       <img
         src="/logo/logo_full.png"
         alt="Scare Scale Logo"
         class="h-14 w-auto"
       />
-      <div class="w-20 h-20 m-6 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center">
+      <div
+        class="w-20 h-20 m-6 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center"
+      >
         <h5 class="text-xl font-bold text-[#d60c16]">
           {round(movie.scareScaleRating)} / 10
         </h5>
@@ -19,3 +44,4 @@ const { movie } = Astro.props;
       </h5>
     </div>
   </div>
+</div>
