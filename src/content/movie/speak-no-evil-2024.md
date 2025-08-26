@@ -12,5 +12,5 @@ categoryRatings:
   creepy: 4
   jumpscares: 1
   suspense: 8
-  psychological: 4
+  psychological: 5
 ---
