@@ -13,7 +13,7 @@ export enum Sort {
   Psychological
 }
 
-const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined, scoreFilter = 0 } = Astro.props;
+const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined, scoreFilter = 0, similar = undefined } = Astro.props;
 
 const filterMovie = (movie) => {
   if (showAll) {
@@ -36,6 +36,22 @@ const filterMovie = (movie) => {
     if (movie.scareScaleRating < scoreFilter) {
       return false;
     }
+  }
+
+  if (similar) {
+    if (movie.slug === similar.slug) {
+      return false;
+    }
+
+
+    const top3 = Object.entries(movie.data.categoryRatings)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 3)
+    .map(([key]) => key);
+
+    return top3.some((categoryName) => {
+      return Math.abs(movie.data.categoryRatings[categoryName] - similar.data.categoryRatings[categoryName]) <= 0;
+    });
   }
 
   return true;
