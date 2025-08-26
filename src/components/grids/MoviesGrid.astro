@@ -1,5 +1,6 @@
 ---
 import { allMovies } from "../../content.config";
+import { isSimilarMovie } from "../../utils/comparisonUtils";
 import MovieCard from "../cards/MovieCard.astro";
 
 export enum Sort {
@@ -39,19 +40,9 @@ const filterMovie = (movie) => {
   }
 
   if (similar) {
-    if (movie.slug === similar.slug) {
+    if (!isSimilarMovie(movie, similar)) {
       return false;
     }
-
-
-    const top3 = Object.entries(movie.data.categoryRatings)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 3)
-    .map(([key]) => key);
-
-    return top3.some((categoryName) => {
-      return Math.abs(movie.data.categoryRatings[categoryName] - similar.data.categoryRatings[categoryName]) <= 0;
-    });
   }
 
   return true;
@@ -109,6 +100,7 @@ const optionalClasses = `${hidden ? " hidden " : ""}`
           <MovieCard
             {...movie.data}
             slug={movie.slug}
+            topCategories={movie.topCategories}
             scareScaleRating={movie.scareScaleRating}
             rank={showRank ? index + 1 : undefined}
             lazyLoad={lazyLoad}
