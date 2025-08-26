@@ -23,7 +23,7 @@ const randomMovie = ratedMovies.length > 0
         type: "website",
         url: "https://scarescale.com/",
         title: "Scare Scale - Horror Movie Scare Ratings | Fear Factor Breakdown",
-        image: "https://scarescale.com/assets/scare-scale-preview.jpg",
+        image: "https://scarescale.com/screenshots/home_page_screenshot.png",
       },
       optional: {
         description: "Rank horror movies by Gore, Creepy moments, Jumpscares, Suspense, and Psychological fear. Find the scariest films ranked by their chilling impact!",
@@ -62,12 +62,12 @@ const randomMovie = ratedMovies.length > 0
           class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start"
         >
           <a
-            href="/ranks"
+            href="/recommended"
             class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >Scariest Movies</a
+            >Scare Scale Approved</a
           >
-          <a href="/filter" class="text-sm/6 font-semibold text-white"
-            >Find Movie <span aria-hidden="true">→</span></a
+          <a href="/ranks" class="text-sm/6 font-semibold text-white"
+            >Horror Ranks <span aria-hidden="true">→</span></a
           >
         </div>
         {randomMovie && (
