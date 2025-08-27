@@ -8,6 +8,7 @@ const {
   rank,
   scareScaleRating,
   categoryRatings,
+  topCategories,
   slug,
   releaseDate,
   lazyLoad = false
@@ -52,11 +53,8 @@ const cardText = () => {
   }
   <div class="absolute top-0 right-0 flex flex-row items-start space-x-1 p-1 bg-black bg-opacity-50 rounded-bl-lg">
     {
-      Object.entries(categoryRatings)
-        .filter(([_, score]) => score >= 5)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 3)
-        .map(([categoryName]) => (
+      topCategories
+        .map((categoryName) => (
           <img
             class="w-5 h-5"
             src={`/icons/categories/${categoryName}.svg`}

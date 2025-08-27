@@ -2,10 +2,10 @@
   - /url: /
   - img "Scare Scale Logo"
 - navigation:
-  - link "Home":
-    - /url: /
   - link "Ranks":
     - /url: /ranks
+  - link "Recommended":
+    - /url: /recommended
   - link "Filter":
     - /url: /filter
   - link "Score Guide":

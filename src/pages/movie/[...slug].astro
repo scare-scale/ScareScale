@@ -9,6 +9,7 @@ import Breadcrumbs from "../../components/nav/Breadcrumbs.astro";
 import RatingsUnavailable from "../../components/cards/RatingsUnavailable.astro";
 import Review from "../../components/cards/Review.astro";
 import MovieControlBar from "../../components/cards/MovieControlBar.astro";
+import MoviesGrid from "../../components/grids/MoviesGrid.astro";
 
 export async function getStaticPaths() {
   return allMovies.map((movie) => ({
@@ -81,5 +82,11 @@ const { movie } = Astro.props;
     </div>
     <Review movie={movie} />
     <MovieControlBar movie={movie}/>
+    <div class="place-items-center max-w-2xl lg:max-w-7xl px-6 lg:px-8 pt-6">
+      <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl mb-6">
+        More Movies Like This
+      </h2>
+      <MoviesGrid similar={movie} maxCount={10}/>
+    </div>
   </section>
 </MainLayout>

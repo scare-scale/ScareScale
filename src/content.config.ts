@@ -60,6 +60,11 @@ const getMovies = async () => {
     const movieSearchQuery = encodeURIComponent(`${movie.data.name} ${parsedDate.getFullYear()}`);
     const whereToWatchUrl = `${JUSTWATCH_SEARCH_ENDPOINT}${movieSearchQuery}`;
 
+    const topCategories = Object.entries(movie.data.categoryRatings)
+                          .sort(([, a], [, b]) => b - a)
+                          .slice(0, 3)
+                          .map(([key]) => key);
+
     return {
       ...movie,
       posterUrl,
@@ -73,6 +78,7 @@ const getMovies = async () => {
       editUrl,
       reviewsUrl,
       backdropUrl,
+      topCategories,
       releaseYear: parsedDate.getFullYear()
     };
   });

@@ -1,5 +1,6 @@
 ---
 import { allMovies } from "../../content.config";
+import { isSimilarMovie } from "../../utils/comparisonUtils";
 import MovieCard from "../cards/MovieCard.astro";
 
 export enum Sort {
@@ -13,7 +14,7 @@ export enum Sort {
   Psychological
 }
 
-const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined } = Astro.props;
+const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined, scoreFilter = 0, similar = undefined } = Astro.props;
 
 const filterMovie = (movie) => {
   if (showAll) {
@@ -29,6 +30,18 @@ const filterMovie = (movie) => {
     const movieYear = movie.parsedDate.getFullYear();
     if (!yearFilter.includes(String(movieYear))) {
         return false;
+    }
+  }
+
+  if (scoreFilter > 0) {
+    if (movie.scareScaleRating < scoreFilter) {
+      return false;
+    }
+  }
+
+  if (similar) {
+    if (!isSimilarMovie(movie, similar)) {
+      return false;
     }
   }
 
@@ -87,6 +100,7 @@ const optionalClasses = `${hidden ? " hidden " : ""}`
           <MovieCard
             {...movie.data}
             slug={movie.slug}
+            topCategories={movie.topCategories}
             scareScaleRating={movie.scareScaleRating}
             rank={showRank ? index + 1 : undefined}
             lazyLoad={lazyLoad}
