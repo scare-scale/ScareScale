@@ -22,7 +22,9 @@
   - text: /\d+ 0/
 - text: "Search: heart eyes"
 - button "✕"
-- link /Heart Eyes gore icon 5\/\d+/:
+- link /Heart Eyes gore icon creepy icon suspense icon 5\/\d+/:
   - /url: /movie/heart-eyes-2025
   - img "Heart Eyes"
   - img "gore icon"
+  - img "creepy icon"
+  - img "suspense icon"

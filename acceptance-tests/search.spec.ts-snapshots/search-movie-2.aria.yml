@@ -22,7 +22,9 @@
   - text: /\d+ 0/
 - text: "Search: monkey"
 - button "✕"
-- link /The Monkey gore icon 4\.7\/\d+/:
+- link /The Monkey gore icon jumpscares icon suspense icon 4\.7\/\d+/:
   - /url: /movie/the-monkey-2025
   - img "The Monkey"
   - img "gore icon"
+  - img "jumpscares icon"
+  - img "suspense icon"
