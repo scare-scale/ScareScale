@@ -61,6 +61,7 @@ const getMovies = async () => {
     const whereToWatchUrl = `${JUSTWATCH_SEARCH_ENDPOINT}${movieSearchQuery}`;
 
     const topCategories = Object.entries(movie.data.categoryRatings)
+                          .filter(([, rating]) => rating > 0)
                           .sort(([, a], [, b]) => b - a)
                           .slice(0, 3)
                           .map(([key]) => key);

@@ -74,7 +74,9 @@ const { movie } = Astro.props;
             movie.scareScaleRating > 0 ? (
               <ScareScaleRating movie={movie} />
             ) : (
-              <RatingsUnavailable movie={movie} />
+              (new Date()) > movie.parsedDate && (
+                <RatingsUnavailable movie={movie} />
+              )
             )
           }
         </div>
