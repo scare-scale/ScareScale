@@ -1,7 +1,7 @@
 ---
 name: "The Home"
 tmdbId: "926606"
-tmdbPosterId: /mkoPn8eEr1ouz402rl39YJwYt5O.jpg
+tmdbPosterId: /qyGY1k5GqAORsVhfZA3gFKirZWD.jpg
 releaseDate: 2025-07-24
 categoryRatings:
     gore: 0
