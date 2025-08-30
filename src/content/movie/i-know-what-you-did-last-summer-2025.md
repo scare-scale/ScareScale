@@ -1,7 +1,7 @@
 ---
 name: "I Know What You Did Last Summer"
 tmdbId: "1083433"
-tmdbPosterId: /A06yXys3hrCWu8xiNoHCFLTG5SH.jpg
+tmdbPosterId: /6BfZLQYj97NO1yD5JkSAf5vWzGj.jpg
 releaseDate: 2025-07-16
 categoryRatings:
     gore: 6
