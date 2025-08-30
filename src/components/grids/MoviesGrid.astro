@@ -34,6 +34,9 @@ const filterMovie = (movie) => {
   }
 
   if (scoreFilter > 0) {
+    if (movie.data.aiRatings) {
+      return false;
+    }
     if (movie.scareScaleRating < scoreFilter) {
       return false;
     }
