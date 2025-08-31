@@ -8,7 +8,7 @@ on:
 
 jobs:
   playwright:
-    environment: ${{ vars.ENVIRONMENT_STAGE }}
+    environment: dev
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
