@@ -14,7 +14,7 @@ export enum Sort {
   Psychological
 }
 
-const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined, scoreFilter = 0, similar = undefined} = Astro.props;
+const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined, scoreFilter = 0, similar = undefined, movies = allMovies} = Astro.props;
 
 const filterMovie = (movie) => {
   if (showAll) {
@@ -94,7 +94,7 @@ const optionalClasses = `${hidden ? " hidden " : ""}`
   class={"m-4 mb-8 grid grid-cols-3 gap-x-4 gap-y-4 lg:grid-cols-5" + optionalClasses}
 >
   {
-    allMovies
+    movies
       .filter(filterMovie)
       .sort(sortMethod)
       .slice(0, maxCount)
