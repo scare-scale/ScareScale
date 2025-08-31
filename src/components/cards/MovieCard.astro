@@ -1,31 +1,17 @@
 ---
-import { round } from "../../utils/scoreUtils";
 import { Image } from 'astro:assets';
+import type { Review } from '../../models/Review';
 
 const {
-  name,
-  tmdbPosterId,
+  movie,
   rank,
-  scareScaleRating,
-  categoryRatings,
-  topCategories,
-  slug,
-  releaseDate,
-  formattedDate,
-  aiRatings,
   lazyLoad = false
 } = Astro.props;
 
-const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmdbPosterId}`;
-const parsedDate = new Date(String(releaseDate));
 
 const cardText = () => {
-  if (parsedDate > new Date()) {
-    return formattedDate;
-  }
-
-  if (scareScaleRating > 0) {
-    return `${round(scareScaleRating)}/10`;
+  if (!movie.isReleased) {
+    return movie.releaseDateText;
   }
 
   return;
@@ -33,14 +19,13 @@ const cardText = () => {
 ---
 
 <a
-  href={`/movie/${slug}`}
+  href={`/movie/${movie.slug}`}
   class="relative group"
-  id={name}
-  data-categories={`gore:${categoryRatings.gore},creepy:${categoryRatings.creepy},jumpscares:${categoryRatings.jumpscares},suspense:${categoryRatings.suspense},psychological:${categoryRatings.psychological}`}
+  id={movie.name}
 >
   <Image
-    src={posterUrl}
-    alt={name}
+    src={movie.posterUrl}
+    alt={movie.name}
     width={300}
     height={450}
     class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75"
@@ -55,8 +40,8 @@ const cardText = () => {
   }
   <div class="absolute top-0 right-0 flex flex-row items-start space-x-1 p-1 bg-black bg-opacity-50 rounded-bl-lg">
     {
-      topCategories
-        .map((categoryName) => (
+      movie.getTopCategories()
+        .map((categoryName: string) => (
           <img
             class="w-5 h-5"
             src={`/icons/categories/${categoryName}.svg`}
@@ -68,16 +53,19 @@ const cardText = () => {
   <div
     class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center sm:text-sm lg:text-lg font-semibold py-1  items-center justify-center flex gap-2 rounded-tr-lg"
   >
-    {cardText()}
-    {aiRatings && (
-      <span class="inline-flex items-center justify-center gap-1 text-white text-xs">
+  { movie.reviews.length > 0 ?
+    movie.reviews
+      .map((review: Review) => (
+      <span class="inline-flex items-center justify-center gap-1 text-white">
           <img
             class="w-5 h-5"
-            src={`/icons/ai.svg`}
-            alt={`AI Generated Icon`}
+            src={`/icons/${review.type}.svg`}
+            alt={`${review.type} review icon`}
           />
-        AI Generated
+        {review.overallRating}/10
       </span>
-    )}
+      ))
+    : cardText()
+  }
   </div>
 </a>

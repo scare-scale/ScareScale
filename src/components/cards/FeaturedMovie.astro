@@ -1,13 +1,16 @@
 ---
-import { round } from "../../utils/scoreUtils";
 import { Image } from "astro:assets";
 import { allMovies } from "../../content.config";
 
-const ratedMovies = allMovies.filter(movie => movie.scareScaleRating >= 6);
+const ratedMovies = allMovies.getApproved();
 
-const movie = ratedMovies.length > 0
+const movie = allMovies.getApproved().length > 0
   ? ratedMovies[Math.floor(Math.random() * ratedMovies.length)]
   : null;
+
+if (movie === null) {
+  throw new Error("Featured movie not found.");
+}
 
 export const prerender = false;
 ---
@@ -16,7 +19,7 @@ export const prerender = false;
       <div>
         <Image
           src={movie.posterUrl}
-          alt={`${movie.data.name} movie poster`}
+          alt={`${movie.name} movie poster`}
           width={300}
           height={450}
           class="w-full h-auto object-cover"
@@ -27,13 +30,10 @@ export const prerender = false;
         <div>
           <p class="text-sm text-gray-600 flex items-center">Featured</p>
           <div class="text-gray-900 font-bold text-xl mb-2">
-            {movie.data.name} ({movie.releaseYear})
+            {movie.name} ({movie.releaseYear})
           </div>
-          {Object.entries(movie.data.categoryRatings)
-            .filter(([_, score]) => score >= 5)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, 3)
-            .map(([categoryName]) => (
+          {movie.getTopCategories()
+            .map((categoryName) => (
               <span
                 class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
               >
@@ -49,7 +49,7 @@ export const prerender = false;
         <div class="flex items-center justify-center h-full">
           <div class="w-20 h-20 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center">
             <h5 class="text-xl font-bold text-[#d60c16]">
-              {round(movie.scareScaleRating)} / 10
+              {movie.getPriorityReview().overallRating} / 10
             </h5>
           </div>
         </div>
