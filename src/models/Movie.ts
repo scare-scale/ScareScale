@@ -64,12 +64,12 @@ export class Movie {
     return this.getPriorityReview().categories.getTopCategories();
   }
 
-  isApproved(): boolean {  
-    const approvedReview = this.reviews.filter(review => review.type === ReviewType.Official).filter(review => review.overallRating > 6);
-
-    if (approvedReview.length > 0) return true;
-
-    return false;
+  isApproved(): boolean {
+    if (!Array.isArray(this.reviews)) return false;
+  
+    return this.reviews.some(
+      review => review.type === ReviewType.Official && review.overallRating >= 6
+    );
   }
 
   getPriorityReview(): Review {
