@@ -1,5 +1,6 @@
 ---
 import { allMovies } from "../../content.config";
+import type { Movie } from "../../models/Movie";
 import { isSimilarMovie } from "../../utils/comparisonUtils";
 import MovieCard from "../cards/MovieCard.astro";
 
@@ -15,30 +16,26 @@ export enum Sort {
   Psychological
 }
 
-const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined, scoreFilter = 0, similar = undefined, movies = allMovies} = Astro.props;
+const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined, scoreFilter = 0, similar = undefined, movies = allMovies.getAll()} = Astro.props;
 
-const filterMovie = (movie) => {
+const filterMovie = (movie: Movie) => {
   if (showAll) {
     return true;
   }
 
   // Filter out movies without ratings
-  if (movie.scareScaleRating == 0) {
+  if (movie.getPriorityReview().overallRating == 0) {
     return false;
   }
 
   if (yearFilter) {
-    const movieYear = movie.parsedDate.getFullYear();
-    if (!yearFilter.includes(String(movieYear))) {
+    if (!yearFilter.includes(String(movie.releaseYear))) {
         return false;
     }
   }
 
   if (scoreFilter > 0) {
-    if (movie.data.aiRatings) {
-      return false;
-    }
-    if (movie.scareScaleRating < scoreFilter) {
+    if (movie.getPriorityReview().overallRating < scoreFilter) {
       return false;
     }
   }
@@ -54,35 +51,35 @@ const filterMovie = (movie) => {
 
 const getSortMethod = () => {
     if (sort == Sort.HighestToLowestScore) {
-        return (a, b) => b.scareScaleRating - a.scareScaleRating;
+        return (a: Movie, b: Movie) => b.getPriorityReview().overallRating - a.getPriorityReview().overallRating;
     }
 
     if (sort == Sort.ReleaseDateDecending) {
-        return (a, b) => b.parsedDate.getTime() - a.parsedDate.getTime();
+        return (a: Movie, b: Movie) => b.releaseDateParsed.getTime() - a.releaseDateParsed.getTime();
     }
 
     if (sort == Sort.ReleaseDateAscending) {
-        return (a, b) => a.parsedDate.getTime() - b.parsedDate.getTime();
+        return (a: Movie, b: Movie) => a.releaseDateParsed.getTime() - b.releaseDateParsed.getTime();
     }
     
     if (sort == Sort.Gore) {
-        return (a, b) => b.data.categoryRatings.gore - a.data.categoryRatings.gore;
+        return (a: Movie, b: Movie) => b.getPriorityReview().categories.gore - a.getPriorityReview().categories.gore;
     }
     
     if (sort == Sort.Creepy) {
-        return (a, b) => b.data.categoryRatings.creepy - a.data.categoryRatings.creepy;
+        return (a: Movie, b: Movie) => b.getPriorityReview().categories.creepy - a.getPriorityReview().categories.creepy;
     }
     
     if (sort == Sort.Jumpscares) {
-        return (a, b) => b.data.categoryRatings.jumpscares - a.data.categoryRatings.jumpscares;
+        return (a: Movie, b: Movie) => b.getPriorityReview().categories.jumpscares - a.getPriorityReview().categories.jumpscares;
     }
     
     if (sort == Sort.Suspense) {
-        return (a, b) => b.data.categoryRatings.suspense - a.data.categoryRatings.suspense;
+        return (a: Movie, b: Movie) => b.getPriorityReview().categories.suspense - a.getPriorityReview().categories.suspense;
     }
     
     if (sort == Sort.Psychological) {
-        return (a, b) => b.data.categoryRatings.psychological - a.data.categoryRatings.psychological;
+        return (a: Movie, b: Movie) => b.getPriorityReview().categories.psychological - a.getPriorityReview().categories.psychological;
     }
 
     // Sort randomly
@@ -103,11 +100,10 @@ const optionalClasses = `${hidden ? " hidden " : ""}`
       .filter(filterMovie)
       .sort(sortMethod)
       .slice(0, maxCount)
-      .map((movie, index) => {
+      .map((movie: Movie, index: number) => {
         return (
           <MovieCard
-            {...movie.data}
-            {...movie}
+            movie={movie}
             rank={showRank ? index + 1 : undefined}
             lazyLoad={lazyLoad}
           />
