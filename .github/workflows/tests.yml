@@ -21,6 +21,9 @@ jobs:
       run: npx playwright install --with-deps
     - name: Start astro app
       run: npm start & npx wait-on http://localhost:4321
+      env:
+        PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
