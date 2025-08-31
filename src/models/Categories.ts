@@ -1,10 +1,10 @@
 export class Categories {
   constructor(
-    public gore: number,
-    public creepy: number,
-    public suspense: number,
-    public jumpscares: number,
-    public psychological: number
+    public gore: number = 0,
+    public creepy: number = 0,
+    public suspense: number = 0,
+    public jumpscares: number = 0,
+    public psychological: number = 0
   ) {
   }
 

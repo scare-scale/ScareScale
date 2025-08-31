@@ -49,7 +49,7 @@ export const prerender = false;
         <div class="flex items-center justify-center h-full">
           <div class="w-20 h-20 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center">
             <h5 class="text-xl font-bold text-[#d60c16]">
-              {movie.officialScore} / 10
+              {movie.getPriorityReview().overallRating} / 10
             </h5>
           </div>
         </div>

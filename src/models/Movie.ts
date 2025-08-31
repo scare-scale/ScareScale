@@ -1,6 +1,6 @@
 import moment from "moment";
 import { calculateOverallRating, fearLevelText } from "../utils/scoreUtils";
-import { Review } from "./Review";
+import { Review, ReviewType } from "./Review";
 
 const TMDB_POSTER_BASE_URL = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2";
 const TMDB_BACKDROP_BASE_URL = "https://image.tmdb.org/t/p/original";
@@ -10,9 +10,6 @@ const TMDB_REVIEWS_ENDPOINT = "reviews";
 const JUSTWATCH_SEARCH_ENDPOINT = "https://www.justwatch.com/uk/search?q=";
 
 export class Movie {
-  officialScore: number = 0;
-  officialReview: Review;
-  scoretext: string = "Unrated";
   tmdbUrl: string;
   trailersUrl: string;
   reviewsUrl: string;
@@ -35,10 +32,6 @@ export class Movie {
     public releaseDate: String,
     public reviews: Review[]
   ) {
-    this.officialReview = this.reviews.find(review => review.type === 'official') || Review.empty();
-    this.officialScore = this.officialReview.overallRating;
-    this.scoretext = fearLevelText(this.officialScore);
-
     // TMDB external URLs
     this.tmdbUrl = `${TMDB_MOVIE_BASE_URL}/${id}`
     this.trailersUrl = `${this.tmdbUrl}/${TMDB_TRAILERS_ENDPOINT}`
@@ -68,6 +61,31 @@ export class Movie {
   }
 
   getTopCategories(): string[] {
-    return this.officialReview.categories.getTopCategories();
+    return this.getPriorityReview().categories.getTopCategories();
   }
+
+  isApproved(): boolean {  
+    const approvedReview = this.reviews.filter(review => review.type === ReviewType.Official).filter(review => review.overallRating > 6);
+
+    if (approvedReview.length > 0) return true;
+
+    return false;
+  }
+
+  getPriorityReview(): Review {
+    if (!this.reviews || this.reviews.length === 0) return Review.empty();
+  
+    const priorityOrder: ReviewType[] = [
+      ReviewType.Official,
+      ReviewType.User,
+      ReviewType.AI
+    ];
+  
+    return (
+      priorityOrder
+        .map(type => this.reviews.find(review => review.type === type))
+        .find(review => review !== undefined) ?? this.reviews[0]
+    );
+  }
+  
 }

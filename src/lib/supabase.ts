@@ -14,7 +14,7 @@ export const queryMovies = async () => {
       tmdbBackdropId,
       releaseDate,
       synopsis,
-      reviews ( type, review, categories )
+      reviews ( type, content, categories )
     `)
 
     if (error) {

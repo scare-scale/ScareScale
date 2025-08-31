@@ -31,7 +31,7 @@ export class Movies {
                 r.categories.psychological
               );
               reviews.push(
-                new Review(r.type, r.review, categories)
+                new Review(r.type, r.content, categories)
               );
             }
           }
@@ -62,7 +62,7 @@ export class Movies {
     }
   
     getApproved(): Movie[] {
-      return this.movies.filter((movie) => movie.officialScore > 6);
+      return this.movies.filter((movie) => movie.isApproved());
     }
 
     getWithReviews(): Movie[] {

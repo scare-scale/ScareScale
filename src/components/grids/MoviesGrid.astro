@@ -24,7 +24,7 @@ const filterMovie = (movie: Movie) => {
   }
 
   // Filter out movies without ratings
-  if (movie.officialScore == 0) {
+  if (movie.getPriorityReview().overallRating == 0) {
     return false;
   }
 
@@ -35,7 +35,7 @@ const filterMovie = (movie: Movie) => {
   }
 
   if (scoreFilter > 0) {
-    if (movie.officialScore < scoreFilter) {
+    if (movie.getPriorityReview().overallRating < scoreFilter) {
       return false;
     }
   }
@@ -51,7 +51,7 @@ const filterMovie = (movie: Movie) => {
 
 const getSortMethod = () => {
     if (sort == Sort.HighestToLowestScore) {
-        return (a: Movie, b: Movie) => b.officialScore - a.officialScore;
+        return (a: Movie, b: Movie) => b.getPriorityReview().overallRating - a.getPriorityReview().overallRating;
     }
 
     if (sort == Sort.ReleaseDateDecending) {
@@ -63,23 +63,23 @@ const getSortMethod = () => {
     }
     
     if (sort == Sort.Gore) {
-        return (a: Movie, b: Movie) => b.officialReview.categories.gore - a.officialReview.categories.gore;
+        return (a: Movie, b: Movie) => b.getPriorityReview().categories.gore - a.getPriorityReview().categories.gore;
     }
     
     if (sort == Sort.Creepy) {
-        return (a: Movie, b: Movie) => b.officialReview.categories.creepy - a.officialReview.categories.creepy;
+        return (a: Movie, b: Movie) => b.getPriorityReview().categories.creepy - a.getPriorityReview().categories.creepy;
     }
     
     if (sort == Sort.Jumpscares) {
-        return (a: Movie, b: Movie) => b.officialReview.categories.jumpscares - a.officialReview.categories.jumpscares;
+        return (a: Movie, b: Movie) => b.getPriorityReview().categories.jumpscares - a.getPriorityReview().categories.jumpscares;
     }
     
     if (sort == Sort.Suspense) {
-        return (a: Movie, b: Movie) => b.officialReview.categories.suspense - a.officialReview.categories.suspense;
+        return (a: Movie, b: Movie) => b.getPriorityReview().categories.suspense - a.getPriorityReview().categories.suspense;
     }
     
     if (sort == Sort.Psychological) {
-        return (a: Movie, b: Movie) => b.officialReview.categories.psychological - a.officialReview.categories.psychological;
+        return (a: Movie, b: Movie) => b.getPriorityReview().categories.psychological - a.getPriorityReview().categories.psychological;
     }
 
     // Sort randomly
