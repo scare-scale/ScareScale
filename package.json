@@ -10,8 +10,6 @@
     "astro": "astro",
     "test": "playwright test",
     "test:update-snapshots": "playwright test --update-snapshots",
-    "cdk": "npm --prefix infrastructure run cdk",
-    "cdk-deploy": "npm --prefix infrastructure run cdk deploy -- --all",
     "deploy": "npm run build && npm run cdk-deploy",
     "release": "release-it"
   },
