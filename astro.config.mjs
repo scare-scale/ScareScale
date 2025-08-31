@@ -38,9 +38,9 @@ export default defineConfig({
     webAnalytics: {
       enabled: true,
     },
-    speedInsights: {
-      enabled: true,
-    },
+    imageService: true,
+    devImageService: 'sharp',
+    edgeMiddleware: true,
     isr: true,
   }),
 });
