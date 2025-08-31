@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import { SEO } from "astro-seo";
 import { Image } from "astro:assets";
 import { upcomingMovies } from "../content.config";
+import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 ---
 
 <head>
@@ -28,36 +29,24 @@ import { upcomingMovies } from "../content.config";
 </head>
 
 <MainLayout>
-  <section class="flex flex-col gap-y-10 md:gap-y-20 p-10">
-    <h1 class="text-3xl font-bold text-center text-white">
-      Upcoming Horror Movies
-    </h1>
+  <section class="pt-10 pb-20">
+    <header class="text-center px-6 lg:px-8 max-w-3xl mx-auto mb-16">
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">
+        Upcoming Horror Movies
+      </h1>
+      <p class="text-lg text-gray-300">
+        Horror movies to look forward to over the next 12 months.
+      </p>
+    </header>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-screen-xl mx-auto">
-      {upcomingMovies.map((movie) => (
-        <a
-          href={`/movie/${movie.slug}`}
-          class="hover:bg-gray-700 transition rounded-lg overflow-hidden"
-        >
-          <div class="flex flex-col gap-y-4 p-4">
-            <Image
-              src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movie.data.tmdbPosterId}`}
-              alt={`${movie.data.name} poster`}
-              width={300}
-              height={450}
-              class="rounded-lg object-cover w-full h-auto"
-            />
-            <div>
-              <h3 class="text-xl font-medium text-white">
-                {movie.data.name}
-              </h3>
-              <p class="text-gray-300">
-                Release Date: {movie.formattedDate}
-              </p>
-            </div>
-          </div>
-        </a>
-      ))}
+    <div class="flex flex-col gap-y-8">
+        <section class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+          <MoviesGrid
+            showAll={true}
+            sort={Sort.ReleaseDateAscending}
+            movies={upcomingMovies}
+          />
+        </section>
     </div>
   </section>
 </MainLayout>
