@@ -38,6 +38,28 @@
 - link "View Score Guide":
   - /url: /score-guide
   - text: How is this score calculated?
+- article:
+  - heading "official icon Official" [level=1]:
+    - img "official icon"
+  - text: /5 \/ \d+/
+  - region "Scare Scale Categories":
+    - img "gore icon"
+    - img "creepy icon"
+    - img "suspense icon"
+    - img "jumpscares icon"
+    - img "psychological icon"
+  - region "Review Content": No written review provided.
+- article:
+  - heading "ai icon Ai" [level=1]:
+    - img "ai icon"
+  - text: /5\.7 \/ \d+/
+  - region "Scare Scale Categories":
+    - img "gore icon"
+    - img "creepy icon"
+    - img "suspense icon"
+    - img "jumpscares icon"
+    - img "psychological icon"
+  - region "Review Content": No written review provided.
 - list:
   - listitem:
     - link "Trailers Icon Trailers":
@@ -55,52 +77,73 @@
     - img "Edit Icon"
     - text: Edit
 - heading "More Movies Like This" [level=2]
-- link /Barbarian gore icon creepy icon suspense icon official review icon 6\.3\/\d+/:
-  - /url: /movie/barbarian-2022
-  - img "Barbarian"
-  - img "gore icon"
-  - img "creepy icon"
-  - img "suspense icon"
-  - img "official review icon"
-- link /\d+ Years Later gore icon suspense icon creepy icon official review icon 6\/\d+/:
-  - /url: /movie/28-years-later-2025
-  - img /\d+ Years Later/
+- link /Azrael gore icon suspense icon creepy icon ai review icon 7\/\d+/:
+  - /url: /movie/azrael-2024
+  - img "Azrael"
   - img "gore icon"
   - img "suspense icon"
   - img "creepy icon"
-  - img "official review icon"
-- link /It creepy icon gore icon suspense icon official review icon 6\/\d+/:
-  - /url: /movie/it-2017
-  - img "It"
-  - img "creepy icon"
-  - img "gore icon"
-  - img "suspense icon"
-  - img "official review icon"
-- link /It Chapter Two gore icon creepy icon suspense icon official review icon 6\/\d+/:
-  - /url: /movie/it-chapter-two-2019
-  - img "It Chapter Two"
+  - img "ai review icon"
+- link /Bird Box gore icon creepy icon suspense icon ai review icon 7\/\d+/:
+  - /url: /movie/bird-box-2018
+  - img "Bird Box"
   - img "gore icon"
   - img "creepy icon"
   - img "suspense icon"
-  - img "official review icon"
-- link /Until Dawn gore icon suspense icon creepy icon official review icon 6\/\d+/:
-  - /url: /movie/until-dawn-2025
-  - img "Until Dawn"
+  - img "ai review icon"
+- link /Dangerous Animals gore icon suspense icon creepy icon ai review icon 7\/\d+/:
+  - /url: /movie/dangerous-animals-2025
+  - img "Dangerous Animals"
   - img "gore icon"
   - img "suspense icon"
   - img "creepy icon"
-  - img "official review icon"
-- link /I Know What You Did Last Summer gore icon creepy icon suspense icon official review icon 4\.7\/\d+/:
-  - /url: /movie/i-know-what-you-did-last-summer-2025
-  - img "I Know What You Did Last Summer"
+  - img "ai review icon"
+- link /Ghost Game gore icon creepy icon suspense icon ai review icon 7\/\d+/:
+  - /url: /movie/ghost-game-2024
+  - img "Ghost Game"
   - img "gore icon"
   - img "creepy icon"
   - img "suspense icon"
-  - img "official review icon"
-- link /Together creepy icon gore icon suspense icon official review icon 4\.3\/\d+/:
-  - /url: /movie/together-2025
-  - img "Together"
-  - img "creepy icon"
+  - img "ai review icon"
+- link /La profecía del guerrero gore icon suspense icon creepy icon ai review icon 7\/\d+/:
+  - /url: /movie/la-profec-a-del-guerrero-2025
+  - img "La profecía del guerrero"
   - img "gore icon"
   - img "suspense icon"
-  - img "official review icon"
+  - img "creepy icon"
+  - img "ai review icon"
+- link /Wrong Turn gore icon suspense icon creepy icon ai review icon 7\/\d+/:
+  - /url: /movie/wrong-turn-2021
+  - img "Wrong Turn"
+  - img "gore icon"
+  - img "suspense icon"
+  - img "creepy icon"
+  - img "ai review icon"
+- link /Arcadian gore icon suspense icon creepy icon ai review icon 6\.7\/\d+/:
+  - /url: /movie/arcadian-2024
+  - img "Arcadian"
+  - img "gore icon"
+  - img "suspense icon"
+  - img "creepy icon"
+  - img "ai review icon"
+- link /Blackwater Lane creepy icon suspense icon gore icon ai review icon 6\.7\/\d+/:
+  - /url: /movie/blackwater-lane-2024
+  - img "Blackwater Lane"
+  - img "creepy icon"
+  - img "suspense icon"
+  - img "gore icon"
+  - img "ai review icon"
+- link /Final Destination gore icon suspense icon creepy icon ai review icon 6\.7\/\d+/:
+  - /url: /movie/final-destination-2000
+  - img "Final Destination"
+  - img "gore icon"
+  - img "suspense icon"
+  - img "creepy icon"
+  - img "ai review icon"
+- link /Hereditary gore icon creepy icon suspense icon ai review icon 6\.7\/\d+/:
+  - /url: /movie/hereditary-2018
+  - img "Hereditary"
+  - img "gore icon"
+  - img "creepy icon"
+  - img "suspense icon"
+  - img "ai review icon"
