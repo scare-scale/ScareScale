@@ -40,6 +40,13 @@ const getMovies = async () => {
   const movieEntries = await getCollection("movie");
   return movieEntries.map((movie) => {
 
+    if (movie.data.aiRatings) {
+      Object.entries(movie.data.categoryRatings).forEach(([key, value]) => {
+        const reduced = Math.round((value * 0.85) * 2) / 2;
+        movie.data.categoryRatings[key] = reduced;
+      });
+    }
+    
     const scareScaleRating = calculateOverallRating(movie.data.categoryRatings);
     const scareScaleText = fearLevelText(scareScaleRating);
     const parsedDate = new Date(String(movie.data.releaseDate));

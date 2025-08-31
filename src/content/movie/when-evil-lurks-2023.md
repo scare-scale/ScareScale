@@ -1,14 +1,18 @@
 ---
-name: "When Evil Lurks"
-tmdbId: "744857"
+name: When Evil Lurks
+tmdbId: '744857'
 tmdbPosterId: /iQ7G9LhP7NRRIUM4Vlai3eOxBAc.jpg
 releaseDate: 2023-10-05
 categoryRatings:
-    gore: 0
-    creepy: 0
-    jumpscares: 0
-    suspense: 0
-    psychological: 0
+  gore: 8
+  creepy: 9
+  jumpscares: 4
+  suspense: 8
+  psychological: 7
 tmdbBackdropId: /cavK9ox37pxDg11RvJINMH63onU.jpg
-synopsis: "Residents of a small rural town discover that a demon is about to be born among them. They desperately try to escape before the evil is born, but it may be too late."
+synopsis: Residents of a small rural town discover that a demon is about to be born
+  among them. They desperately try to escape before the evil is born, but it may be
+  too late.
+aiRatings: true
 ---
+

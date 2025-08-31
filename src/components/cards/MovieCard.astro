@@ -19,12 +19,12 @@ const posterUrl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmdbPost
 const parsedDate = new Date(String(releaseDate));
 
 const cardText = () => {
-  if (parsedDate > new Date()) {
-    return "Coming Soon";
-  }
-
   if (scareScaleRating > 0) {
     return `${round(scareScaleRating)}/10`;
+  }
+
+  if (parsedDate > new Date()) {
+    return "Coming Soon";
   }
 
   return;
@@ -68,7 +68,7 @@ const cardText = () => {
     class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center sm:text-sm lg:text-lg font-semibold py-1  items-center justify-center flex gap-2 rounded-tr-lg"
   >
     {cardText()}
-    {aiRatings && (
+    {(scareScaleRating > 0 && aiRatings) && (
       <span class="inline-flex items-center justify-center gap-1 text-white text-xs">
           <img
             class="w-5 h-5"
