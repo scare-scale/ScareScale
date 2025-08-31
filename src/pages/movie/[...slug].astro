@@ -19,6 +19,8 @@ export async function getStaticPaths() {
 }
 
 const { movie } = Astro.props;
+
+export const prerender = true;
 ---
 
 <head>
