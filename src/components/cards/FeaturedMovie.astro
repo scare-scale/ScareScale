@@ -1,8 +1,15 @@
 ---
 import { round } from "../../utils/scoreUtils";
 import { Image } from "astro:assets";
+import { allMovies } from "../../content.config";
 
-const { movie } = Astro.props;
+const ratedMovies = allMovies.filter(movie => movie.scareScaleRating >= 6);
+
+const movie = ratedMovies.length > 0
+  ? ratedMovies[Math.floor(Math.random() * ratedMovies.length)]
+  : null;
+
+export const prerender = false;
 ---
 <a href={`/movie/${movie.slug}`} class="group block">
     <div class="grid grid-cols-2 max-w-full bg-white border-none rounded-t-lg overflow-hidden text-left mt-8 lg:mt-8">
