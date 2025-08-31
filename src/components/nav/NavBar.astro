@@ -74,7 +74,7 @@ const navLinks = {
       "searchInput"
     ) as HTMLInputElement;
 
-    if (searchInput.value.trim().length < 1) {
+    if (searchInput.value.trim().length < 3) {
       searchInput.setCustomValidity("Please enter at least one character.");
       searchInput.reportValidity(); // Show validation message
       return;
