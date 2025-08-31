@@ -14,8 +14,8 @@ if (q.length < 3) {
 }
 
 // Filter movies
-const filteredMovies = allMovies.filter((movie) => {
-  const title = movie.data.name.toLowerCase();
+const filteredMovies = allMovies.getAll().filter((movie) => {
+  const title = movie.name.toLowerCase();
   const matchesSearch = !q || title.includes(q);
   return matchesSearch;
 });

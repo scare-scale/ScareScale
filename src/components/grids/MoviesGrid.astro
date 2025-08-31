@@ -1,5 +1,6 @@
 ---
 import { allMovies } from "../../content.config";
+import type { Movie } from "../../models/Movie";
 import { isSimilarMovie } from "../../utils/comparisonUtils";
 import MovieCard from "../cards/MovieCard.astro";
 
@@ -15,30 +16,26 @@ export enum Sort {
   Psychological
 }
 
-const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined, scoreFilter = 0, similar = undefined, movies = allMovies} = Astro.props;
+const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined, scoreFilter = 0, similar = undefined, movies = allMovies.getAll()} = Astro.props;
 
-const filterMovie = (movie) => {
+const filterMovie = (movie: Movie) => {
   if (showAll) {
     return true;
   }
 
   // Filter out movies without ratings
-  if (movie.scareScaleRating == 0) {
+  if (movie.officialScore == 0) {
     return false;
   }
 
   if (yearFilter) {
-    const movieYear = movie.parsedDate.getFullYear();
-    if (!yearFilter.includes(String(movieYear))) {
+    if (!yearFilter.includes(String(movie.releaseYear))) {
         return false;
     }
   }
 
   if (scoreFilter > 0) {
-    if (movie.data.aiRatings) {
-      return false;
-    }
-    if (movie.scareScaleRating < scoreFilter) {
+    if (movie.officialScore < scoreFilter) {
       return false;
     }
   }
@@ -103,11 +100,10 @@ const optionalClasses = `${hidden ? " hidden " : ""}`
       .filter(filterMovie)
       .sort(sortMethod)
       .slice(0, maxCount)
-      .map((movie, index) => {
+      .map((movie: Movie, index: number) => {
         return (
           <MovieCard
-            {...movie.data}
-            {...movie}
+            movie={movie}
             rank={showRank ? index + 1 : undefined}
             lazyLoad={lazyLoad}
           />

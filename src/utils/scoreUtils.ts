@@ -1,3 +1,5 @@
+import type { Categories } from "../models/Categories";
+
 const fearLevels: Record<number, string> = {
   0: "Unrated",
   1: "Harmless",
@@ -16,7 +18,7 @@ export const fearLevelText = (scareScaleRating: number) => {
   return fearLevels[Math.round(scareScaleRating)] ?? "Unknown";
 };
 
-export const calculateOverallRating = (categoryRatings: Record<string, number>) => {
+export const calculateOverallRating = (categoryRatings: Categories) => {
   if (categoryRatings) {
 
     const topThree = Object.values(categoryRatings)
@@ -33,7 +35,7 @@ export const calculateOverallRating = (categoryRatings: Record<string, number>) 
 
     const finalScore = Math.max(baseAverage - penalty, 0);
 
-    return finalScore;
+    return round(finalScore);
   }
   return 0;
 };

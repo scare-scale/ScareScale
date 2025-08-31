@@ -12,7 +12,7 @@ import MovieControlBar from "../../components/cards/MovieControlBar.astro";
 import MoviesGrid, { Sort } from "../../components/grids/MoviesGrid.astro";
 
 export async function getStaticPaths() {
-  return allMovies.map((movie) => ({
+  return allMovies.getAll().map((movie) => ({
     params: { slug: movie.slug },
     props: { movie },
   }));
@@ -24,19 +24,19 @@ const { movie } = Astro.props;
 <head>
   <meta charset="UTF-8" />
   <SEO
-    title={`${movie.data.name} (${movie.releaseYear}) Review & Scare Scale Rating`}
-    description={`Is ${movie.data.name} scary? Our Scare Scale gives it a fear rating of ${Math.round(movie.scareScaleRating)}/10. Explore the full horror review and discover where it ranks among the scariest movies.`}
+    title={`${movie.name} (${movie.releaseYear}) Review & Scare Scale Rating`}
+    description={`Is ${movie.name} scary? Our Scare Scale gives it a fear rating of ${Math.round(movie.officialScore)}/10. Explore the full horror review and discover where it ranks among the scariest movies.`}
     canonical={`https://scarescale.com/movie/${movie.slug}`}
-    noindex={movie.scareScaleRating == 0}
+    noindex={movie.officialScore == 0}
     openGraph={{
       basic: {
         type: "website",
         url: `https://scarescale.com/movie/${movie.slug}`,
-        title: `${movie.data.name} Horror Review & Scare Scale Rating`,
+        title: `${movie.name} Horror Review & Scare Scale Rating`,
         image: movie.posterUrl,
       },
       optional: {
-        description: `${movie.data.name} scored ${Math.round(movie.scareScaleRating)}/10 on the Scare Scale. Find out what makes it terrifying or not and see how it compares to other horror films.`,
+        description: `${movie.name} scored ${Math.round(movie.officialScore)}/10 on the Scare Scale. Find out what makes it terrifying or not and see how it compares to other horror films.`,
       },
     }}
   />
@@ -51,7 +51,7 @@ const { movie } = Astro.props;
       >
         <Image
           src={movie.posterUrl}
-          alt={`${movie.data.name} movie poster`}
+          alt={`${movie.name} movie poster`}
           width={300}
           height={450}
           class="size-full size-2/3 rounded-lg object-cover"
@@ -60,21 +60,21 @@ const { movie } = Astro.props;
           class="py-4 lg:border-l lg:border-gray-200 lg:pt-6 lg:pl-8 lg:col-span-2"
         >
           <h1 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            {movie.data.name}
+            {movie.name}
           </h1>
           <h1 class="text-sm tracking-tight text-white">
-            {`Release Date: ${movie.formattedDate}`}
+            {`Release Date: ${movie.releaseDateText}`}
           </h1>
           <div class="mt-5">
             <Prose>
-              {movie.data.synopsis && <p>{movie.data.synopsis}</p>}
+              {movie.synopsis && <p>{movie.synopsis}</p>}
             </Prose>
           </div>
           {
-            movie.scareScaleRating > 0 ? (
+            movie.officialScore > 0 ? (
               <ScareScaleRating movie={movie} />
             ) : (
-              (new Date()) > movie.parsedDate && (
+              (new Date()) > movie.releaseDate && (
                 <RatingsUnavailable movie={movie} />
               )
             )
@@ -82,7 +82,7 @@ const { movie } = Astro.props;
         </div>
       </div>
     </div>
-    <Review movie={movie} />
+    <!-- <Review movie={movie} /> -->
     <MovieControlBar movie={movie}/>
     <div class="place-items-center max-w-2xl lg:max-w-7xl px-6 lg:px-8 pt-6">
       <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl mb-6">

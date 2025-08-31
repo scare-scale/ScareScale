@@ -6,7 +6,7 @@ const { movie } = Astro.props;
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
   <h5 class="text-xl mt-5 font-medium text-white col-span-full flex items-center gap-2">
     Ratings
-    {movie.data.aiRatings ? (
+    <!-- {movie.data.aiRatings ? (
       <span class="inline-flex items-center gap-1 bg-[#d60c16] text-white text-xs px-2 py-1 rounded-full">
           <img
             class="w-5 h-5"
@@ -23,11 +23,19 @@ const { movie } = Astro.props;
           />
         Verified
       </span>
-    }
+    } -->
+    <span class="inline-flex items-center gap-1 bg-[#d60c16] text-white text-xs px-2 py-1 rounded-full">
+      <img
+        class="w-5 h-5"
+        src={`/icons/approved.svg`}
+        alt={`AI Generated Icon`}
+      />
+    Verified
+  </span>
   </h5>  
     <ul role="list" class="divide-y divide-gray-100">
       {
-        Object.entries(movie.data.categoryRatings).map(
+        Object.entries(movie.officialReview.categories).map(
           ([categoryName, score]) => (
             <li class="flex justify-between gap-x-6 py-5">
               <div class="flex min-w-0 gap-x-4">
@@ -56,11 +64,11 @@ const { movie } = Astro.props;
       class="w-20 h-20 m-6 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center"
     >
       <h5 class="text-xl font-bold text-[#d60c16]">
-        {round(movie.scareScaleRating)} / 10
+        {movie.officialScore} / 10
       </h5>
     </div>
     <h5 class="text-2xl text-black font-bold">
-      {movie.scareScaleText}
+      {movie.scoretext}
     </h5>
     <a
       href="/score-guide"
