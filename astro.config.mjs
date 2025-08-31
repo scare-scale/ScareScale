@@ -42,6 +42,6 @@ export default defineConfig({
     imageService: true,
     devImageService: 'sharp',
     edgeMiddleware: true,
-    isr: true,
+    isr: false,
   }),
 });
