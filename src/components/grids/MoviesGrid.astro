@@ -14,9 +14,7 @@ export enum Sort {
   Psychological
 }
 
-const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined, scoreFilter = 0, similar = undefined, prerender = true} = Astro.props;
-
-export { prerender };
+const { showAll = false, maxCount = 1000000, showRank = false, sort = Sort.Random, lazyLoad = false, hidden = false, yearFilter = undefined, scoreFilter = 0, similar = undefined} = Astro.props;
 
 const filterMovie = (movie) => {
   if (showAll) {

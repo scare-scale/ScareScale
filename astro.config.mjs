@@ -10,8 +10,6 @@ const domain = "scarescale.com";
 // https://astro.build/config
 export default defineConfig({
   site: "https://" + domain,
-  output: "server",
-
   build: {
     format: "file",
   },
