@@ -11,6 +11,7 @@ const {
   topCategories,
   slug,
   releaseDate,
+  formattedDate,
   aiRatings,
   lazyLoad = false
 } = Astro.props;
@@ -20,7 +21,7 @@ const parsedDate = new Date(String(releaseDate));
 
 const cardText = () => {
   if (parsedDate > new Date()) {
-    return "Coming Soon";
+    return formattedDate;
   }
 
   if (scareScaleRating > 0) {

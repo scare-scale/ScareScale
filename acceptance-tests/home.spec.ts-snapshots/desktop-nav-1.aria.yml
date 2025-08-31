@@ -4,10 +4,8 @@
 - navigation:
   - link "Ranks":
     - /url: /ranks
-  - link "Recommended":
-    - /url: /recommended
-  - link "Filter":
-    - /url: /filter
+  - link "Approved":
+    - /url: /approved
   - link "Score Guide":
     - /url: /score-guide
   - link "Upcoming":

@@ -29,3 +29,6 @@ cdk.out
 
 # Python
 __pycache__
+
+# Vercel
+.vercel/

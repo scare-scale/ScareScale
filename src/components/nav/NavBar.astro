@@ -3,8 +3,7 @@ import SearchBar from "./SearchBar.astro";
 
 const navLinks = {
   "Ranks": "/ranks",
-  "Recommended": "/recommended",
-  "Filter": "/filter",
+  "Approved": "/approved",
   "Score Guide": "/score-guide",
   "Upcoming": "/upcoming",
 };
@@ -74,14 +73,14 @@ const navLinks = {
       "searchInput"
     ) as HTMLInputElement;
 
-    if (searchInput.value.trim().length < 1) {
+    if (searchInput.value.trim().length < 3) {
       searchInput.setCustomValidity("Please enter at least one character.");
       searchInput.reportValidity(); // Show validation message
       return;
     }
 
     searchInput.setCustomValidity(""); // Clear validation message
-    window.location.href = `/filter?q=${searchInput.value}`;
+    window.location.href = `/search?q=${searchInput.value}`;
   }
 
   const menuButton = document.getElementById("menuButton") as HTMLButtonElement;
