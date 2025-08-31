@@ -56,18 +56,18 @@
       - /url: https://app.pagescms.org/scare-scale/scarescale/dev/collection/movies/edit/src%2Fcontent%2Fmovie%2Fheart-eyes-2025.md
       - img "Edit Icon"
 - heading "More Movies Like This" [level=2]
-- link /I Know What You Did Last Summer gore icon creepy icon suspense icon 4\.7\/\d+/:
-  - /url: /movie/i-know-what-you-did-last-summer-2025
-  - img "I Know What You Did Last Summer"
-  - img "gore icon"
-  - img "creepy icon"
-  - img "suspense icon"
 - link /\d+ Years Later gore icon suspense icon creepy icon 6\/\d+/:
   - /url: /movie/28-years-later-2025
   - img /\d+ Years Later/
   - img "gore icon"
   - img "suspense icon"
   - img "creepy icon"
+- link /I Know What You Did Last Summer gore icon creepy icon suspense icon 4\.7\/\d+/:
+  - /url: /movie/i-know-what-you-did-last-summer-2025
+  - img "I Know What You Did Last Summer"
+  - img "gore icon"
+  - img "creepy icon"
+  - img "suspense icon"
 - link /Until Dawn gore icon suspense icon creepy icon 6\/\d+/:
   - /url: /movie/until-dawn-2025
   - img "Until Dawn"
