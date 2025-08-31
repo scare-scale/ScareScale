@@ -62,7 +62,7 @@ export class Movies {
     }
   
     getApproved(): Movie[] {
-      return this.movies.filter((movie) => movie.getOfficialScore() > 6);
+      return this.movies.filter((movie) => movie.officialScore > 6);
     }
 
     getWithReviews(): Movie[] {

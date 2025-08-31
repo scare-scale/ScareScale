@@ -18,10 +18,10 @@ export const fearLevelText = (scareScaleRating: number) => {
   return fearLevels[Math.round(scareScaleRating)] ?? "Unknown";
 };
 
-export const calculateOverallRating = (categoryRatings: Categories) => {
-  if (categoryRatings) {
+export const calculateOverallRating = (categories: Categories) => {
+  if (categories) {
 
-    const topThree = Object.values(categoryRatings)
+    const topThree = Object.values(categories)
       .sort((a, b) => b - a)
       .slice(0, 3);
 

@@ -1,3 +1,4 @@
+import moment from "moment";
 import { calculateOverallRating, fearLevelText } from "../utils/scoreUtils";
 import { Review } from "./Review";
 
@@ -21,10 +22,9 @@ export class Movie {
   slug: string;
   releaseYear: number;
   releaseDateText: string;
-  isReleased: boolean;
+  isReleased: boolean = true;
+  releaseDateParsed: Date;
   
-//   formattedReleaseDate: string;
-
   constructor(
     public id: number,
     public name: string,
@@ -32,11 +32,11 @@ export class Movie {
     public tmdbBackdropId: string,
     public synopsis: string,
     public createdAt: Date,
-    public releaseDate: Date,
+    public releaseDate: String,
     public reviews: Review[]
   ) {
     this.officialReview = this.reviews.find(review => review.type === 'official') || Review.empty();
-    this.officialScore = calculateOverallRating(this.officialReview.categories);
+    this.officialScore = this.officialReview.overallRating;
     this.scoretext = fearLevelText(this.officialScore);
 
     // TMDB external URLs
@@ -47,37 +47,27 @@ export class Movie {
     this.backdropUrl = tmdbBackdropId && `${TMDB_BACKDROP_BASE_URL}${tmdbBackdropId}`;
 
     // Handle dates
-    this.releaseDate = new Date(String(this.releaseDate));
-    this.releaseYear = this.releaseDate.getFullYear();
-    this.releaseDateText = this.releaseDate.toLocaleDateString("en-GB", {
+    const dateMomentObject = moment(String(releaseDate.trim()), "DD/MM/YYYY");
+    this.releaseDateParsed = dateMomentObject.toDate();
+    if (isNaN(this.releaseDateParsed.getTime())) {
+      throw `Invalid release date for movie "${name}": ${releaseDate}`;
+    }
+    this.releaseYear = this.releaseDateParsed.getFullYear();
+    this.releaseDateText = this.releaseDateParsed.toLocaleDateString("en-GB", {
         day: "numeric",
         month: "long",
         year: "numeric",
       });
-    this.isReleased = this.releaseDate <= new Date();
+    this.isReleased = this.releaseDateParsed <= new Date();
 
     // Just Watch external URLs
     const movieSearchQuery = encodeURIComponent(`${name} ${this.releaseYear}`);
     this.whereToWatchUrl = `${JUSTWATCH_SEARCH_ENDPOINT}${movieSearchQuery}`;
 
     this.slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-') + `-${this.releaseYear}`;
-
-    // this.formattedReleaseDate = releaseDate.toLocaleDateString("en-GB", {
-    //   day: "numeric",
-    //   month: "long",
-    //   year: "numeric",
-    // });
-  }
-
-  getOfficialScore(): number {
-    return this.officialScore;
   }
 
   getTopCategories(): string[] {
-    return this.officialReview.categories.getTop3Categories();
-  }
-
-  getSlug(): string {
-    return this.slug;
+    return this.officialReview.categories.getTopCategories();
   }
 }

@@ -51,35 +51,35 @@ const filterMovie = (movie: Movie) => {
 
 const getSortMethod = () => {
     if (sort == Sort.HighestToLowestScore) {
-        return (a, b) => b.scareScaleRating - a.scareScaleRating;
+        return (a: Movie, b: Movie) => b.officialScore - a.officialScore;
     }
 
     if (sort == Sort.ReleaseDateDecending) {
-        return (a, b) => b.parsedDate.getTime() - a.parsedDate.getTime();
+        return (a: Movie, b: Movie) => b.releaseDateParsed.getTime() - a.releaseDateParsed.getTime();
     }
 
     if (sort == Sort.ReleaseDateAscending) {
-        return (a, b) => a.parsedDate.getTime() - b.parsedDate.getTime();
+        return (a: Movie, b: Movie) => a.releaseDateParsed.getTime() - b.releaseDateParsed.getTime();
     }
     
     if (sort == Sort.Gore) {
-        return (a, b) => b.data.categoryRatings.gore - a.data.categoryRatings.gore;
+        return (a: Movie, b: Movie) => b.officialReview.categories.gore - a.officialReview.categories.gore;
     }
     
     if (sort == Sort.Creepy) {
-        return (a, b) => b.data.categoryRatings.creepy - a.data.categoryRatings.creepy;
+        return (a: Movie, b: Movie) => b.officialReview.categories.creepy - a.officialReview.categories.creepy;
     }
     
     if (sort == Sort.Jumpscares) {
-        return (a, b) => b.data.categoryRatings.jumpscares - a.data.categoryRatings.jumpscares;
+        return (a: Movie, b: Movie) => b.officialReview.categories.jumpscares - a.officialReview.categories.jumpscares;
     }
     
     if (sort == Sort.Suspense) {
-        return (a, b) => b.data.categoryRatings.suspense - a.data.categoryRatings.suspense;
+        return (a: Movie, b: Movie) => b.officialReview.categories.suspense - a.officialReview.categories.suspense;
     }
     
     if (sort == Sort.Psychological) {
-        return (a, b) => b.data.categoryRatings.psychological - a.data.categoryRatings.psychological;
+        return (a: Movie, b: Movie) => b.officialReview.categories.psychological - a.officialReview.categories.psychological;
     }
 
     // Sort randomly

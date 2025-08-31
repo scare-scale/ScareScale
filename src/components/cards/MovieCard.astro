@@ -9,12 +9,12 @@ const {
 
 
 const cardText = () => {
-  if (movie.releaseDate > new Date()) {
+  if (!movie.isReleased) {
     return movie.releaseDateText;
   }
 
-  if (movie.getOfficialScore() > 0) {
-    return `${movie.getOfficialScore()}/10`;
+  if (movie.officialScore > 0) {
+    return `${movie.officialScore}/10`;
   }
 
   return;
@@ -22,7 +22,7 @@ const cardText = () => {
 ---
 
 <a
-  href={`/movie/${movie.getSlug()}`}
+  href={`/movie/${movie.slug}`}
   class="relative group"
   id={movie.name}
 >
