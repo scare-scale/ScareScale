@@ -9,6 +9,11 @@ const movie = ratedMovies.length > 0
   ? ratedMovies[Math.floor(Math.random() * ratedMovies.length)]
   : null;
 
+
+if (movie === null) {
+  throw new Error("Featured movie not found.");
+}
+
 export const prerender = false;
 ---
 <a href={`/movie/${movie.slug}`} class="group block">
