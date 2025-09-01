@@ -24,4 +24,8 @@ export class Review {
     const categories = new Categories(0, 0, 0, 0, 0);
     return new Review(ReviewType.Official, '', categories);
   }
+
+  static userReview(categories: Categories, content: string): Review {
+    return new Review(ReviewType.User, content, categories);
+  }
 }

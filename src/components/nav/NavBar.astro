@@ -7,6 +7,10 @@ const navLinks = {
   "Score Guide": "/score-guide",
   "Upcoming": "/upcoming",
 };
+
+const handleSignIn = () => {
+
+}
 ---
 
 <div class="bg-white border-b-2 border-[#d60c16]" id="navBar">
@@ -33,6 +37,18 @@ const navLinks = {
       </nav>
 
       <SearchBar />
+
+      <!-- Authentication -->
+      <div class="hidden md:flex items-center space-x-4 ml-4">
+        <div id="user-info" class="text-sm text-gray-600 hidden"></div>
+        <a href="/auth" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 text-sm font-medium">
+          Sign In
+        </a>
+        <a href="/signout" class="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700 text-sm font-medium hidden">
+          Sign Out
+        </a>
+      </div>
+
       <!-- Mobile Menu Button -->
       <button id="menuButton" class="md:hidden focus:outline-none ml-2">
         <svg
@@ -65,6 +81,7 @@ const navLinks = {
     </nav>
   </div>
 </div>
+
 
 <!-- Script for Menu Toggle and Search -->
 <script>
