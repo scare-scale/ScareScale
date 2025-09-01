@@ -17,7 +17,7 @@ export class Movies {
       const movies: Movie[] = [];
 
       for (const row of data) {
-        
+
         const movieId = row.id;
     
         const reviews = [];
@@ -58,8 +58,8 @@ export class Movies {
       return this.movies;
     }
   
-    getById(id: number): Movie | undefined {
-      return this.movies.find((movie) => movie.id === id);
+    getBySlug(slug: string): Movie | undefined {
+      return this.movies.find((movie) => movie.slug === slug);
     }
   
     getApproved(): Movie[] {
