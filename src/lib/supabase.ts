@@ -1,6 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Movie } from "../models/Movie";
-import type { Categories } from "../models/Categories";
 import type { Review } from "../models/Review";
 
 export const supabase = createClient(
@@ -8,10 +7,15 @@ export const supabase = createClient(
   import.meta.env.PUBLIC_SUPABASE_ANON_KEY,
 );
 
-export const signUp = async (email: string, password: string) => {
+export const signUp = async (email: string, password: string, displayName: string) => {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
+    options: {
+      data: {
+        display_name: displayName
+      },
+    },
   });
   return { data, error };
 };
