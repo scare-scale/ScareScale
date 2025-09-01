@@ -2,8 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 import { SEO } from "astro-seo";
-import { allMovies } from "../content.config";
-
+import { movies } from "../content.config";
 ---
 <head>
   <meta charset="UTF-8" />
@@ -41,7 +40,7 @@ import { allMovies } from "../content.config";
         <section class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
           <MoviesGrid
             sort={Sort.Random}
-            movies={allMovies.getApproved()}
+            movies={movies.getApproved()}
             scoreFilter={6}
           />
         </section>

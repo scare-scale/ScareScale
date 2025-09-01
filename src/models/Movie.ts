@@ -53,6 +53,11 @@ export class Movie {
       });
     this.isReleased = this.releaseDateParsed <= new Date();
 
+    // Hide reviews for unreleased movies
+    if (!this.isReleased) {
+      this.reviews = []
+    }
+
     // Just Watch external URLs
     const movieSearchQuery = encodeURIComponent(`${name} ${this.releaseYear}`);
     this.whereToWatchUrl = `${JUSTWATCH_SEARCH_ENDPOINT}${movieSearchQuery}`;
@@ -69,6 +74,14 @@ export class Movie {
   
     return this.reviews.some(
       review => review.type === ReviewType.Official && review.overallRating >= 6
+    );
+  }
+
+  isOfficial(): boolean {
+    if (!Array.isArray(this.reviews)) return false;
+  
+    return this.reviews.some(
+      review => review.type === ReviewType.Official
     );
   }
 
