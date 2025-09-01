@@ -38,32 +38,32 @@ const cardText = () => {
       </span>
     ) : <></>
   }
-  <div class="absolute top-0 right-0 flex flex-row items-start space-x-1 p-1 bg-black bg-opacity-50 rounded-bl-lg">
+  <div class="absolute top-0 right-0 flex flex-row items-start space-x-1 p-1 bg-black bg-opacity-50 rounded-bl-lg rounded-tr-lg">
     {
       movie.getTopCategories()
         .map((categoryName: string) => (
           <img
-            class="w-5 h-5"
-            src={`/icons/categories/${categoryName}.svg`}
+          class="w-4 h-4 sm:w-5 sm:h-5 shrink-0"
+          src={`/icons/categories/${categoryName}.svg`}
             alt={`${categoryName} icon`}
           />
         ))
     }
   </div>
   <div
-    class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center sm:text-sm lg:text-lg font-semibold py-1  items-center justify-center flex gap-2 rounded-tr-lg"
+    class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center sm:text-sm lg:text-lg font-semibold py-1 items-center justify-center flex gap-2 rounded-b-lg"
   >
   { movie.reviews.length > 0 ?
     movie.reviews
       .map((review: Review) => (
-      <span class="inline-flex items-center justify-center gap-1 text-white">
+        <span class="inline-flex items-center justify-center gap-1 whitespace-nowrap text-sm sm:text-base text-white">
           <img
-            class="w-5 h-5"
+            class="w-4 h-4 sm:w-5 sm:h-5 shrink-0"
             src={`/icons/${review.type}.svg`}
             alt={`${review.type} review icon`}
           />
-        {review.overallRating}/10
-      </span>
+          <span>{review.overallRating}</span>
+        </span>
       ))
     : cardText()
   }

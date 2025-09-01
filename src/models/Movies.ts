@@ -17,6 +17,7 @@ export class Movies {
       const movies: Movie[] = [];
 
       for (const row of data) {
+        
         const movieId = row.id;
     
         const reviews = [];
@@ -63,6 +64,10 @@ export class Movies {
   
     getApproved(): Movie[] {
       return this.movies.filter((movie) => movie.isApproved());
+    }
+
+    getOfficial(): Movie[] {
+      return this.movies.filter((movie) => movie.isOfficial());
     }
 
     getWithReviews(): Movie[] {

@@ -3,7 +3,7 @@ import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { SEO } from "astro-seo";
 import { Image } from "astro:assets";
-import { allMovies } from "../../content.config";
+import { movies } from "../../content.config";
 import ScareScaleRating from "../../components/cards/ScareScaleRating.astro";
 import Breadcrumbs from "../../components/nav/Breadcrumbs.astro";
 import RatingsUnavailable from "../../components/cards/RatingsUnavailable.astro";
@@ -12,7 +12,7 @@ import MovieControlBar from "../../components/cards/MovieControlBar.astro";
 import MoviesGrid, { Sort } from "../../components/grids/MoviesGrid.astro";
 
 export async function getStaticPaths() {
-  return allMovies.getAll().map((movie) => ({
+  return movies.getAll().map((movie) => ({
     params: { slug: movie.slug },
     props: { movie },
   }));
@@ -83,7 +83,7 @@ const review = movie.getPriorityReview();
     </div>
     {(movie.reviews.length > 1 || review.content) &&
     <div class="place-items-center max-w-2xl lg:max-w-7xl px-6 lg:px-8 pt-6">
-      <div class="grid grid-flow-col gap-6 justify-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2 justify-center">
         {movie.reviews.map((review) => <Review review={review} />)}
       </div>
     </div>

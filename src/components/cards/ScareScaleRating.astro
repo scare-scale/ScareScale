@@ -11,7 +11,7 @@ const { review } = Astro.props;
         src={`/icons/${review.type}.svg`}
         alt={`AI Generated Icon`}
       />
-    {review.type}
+      {review.type.charAt(0).toUpperCase() + review.type.slice(1)} Review
   </span>
   </h5>  
     <ul role="list" class="divide-y divide-gray-100">

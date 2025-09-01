@@ -1,7 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import { SEO } from "astro-seo";
-import { allMovies } from "../content.config";
+import { movies } from "../content.config";
 import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 ---
 
@@ -43,7 +43,7 @@ import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
           <MoviesGrid
             showAll={true}
             sort={Sort.ReleaseDateAscending}
-            movies={allMovies.getUpcoming()}
+            movies={movies.getUpcoming()}
           />
         </section>
     </div>

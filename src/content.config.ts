@@ -17,7 +17,7 @@ const createMovies = async () => {
   return Movies.fromSupabaseResponse(movieEntries);
 };
 
-export const allMovies: Movies = await createMovies();
+export const movies: Movies = await createMovies();
 
 export const collections = {
   page: pageCollection,

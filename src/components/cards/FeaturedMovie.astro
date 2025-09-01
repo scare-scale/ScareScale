@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import { allMovies } from "../../content.config";
+import { movies } from "../../content.config";
 
-const ratedMovies = allMovies.getApproved();
+const ratedMovies = movies.getApproved();
 
-const movie = allMovies.getApproved().length > 0
+const movie = ratedMovies.length > 0
   ? ratedMovies[Math.floor(Math.random() * ratedMovies.length)]
   : null;
 
@@ -28,14 +28,14 @@ export const prerender = false;
       </div>
       <div class="p-4 flex flex-col justify-between leading-normal">
         <div>
-          <p class="text-sm text-gray-600 flex items-center">Featured</p>
-          <div class="text-gray-900 font-bold text-xl mb-2">
+          <p class="text-xs md:text-md lg:text-lg text-gray-600 flex items-center">Featured</p>
+          <div class="text-gray-900 font-bold text-sm md:text-lg lg:text-xl mb-2">
             {movie.name} ({movie.releaseYear})
           </div>
           {movie.getTopCategories()
             .map((categoryName) => (
               <span
-                class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 text-xs md:text-md lg:text-lg font-semibold text-gray-700 mr-2 mb-1"
               >
                 <img
                   class="w-5 h-5 mr-2"
@@ -46,7 +46,7 @@ export const prerender = false;
               </span>
             ))}
         </div>
-        <div class="flex items-center justify-center h-full">
+        <div class="flex items-center justify-center h-full shrink">
           <div class="w-20 h-20 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center">
             <h5 class="text-xl font-bold text-[#d60c16]">
               {movie.getPriorityReview().overallRating} / 10
@@ -63,7 +63,7 @@ export const prerender = false;
           alt="Scare Scale logo"
           class="h-4 mt-0.5"
         />
-        <span class="text-lg text-black font-bold">Recommended</span>
+        <span class="text-lg text-black font-bold">Approved</span>
       </div>
     </div>
   </a>
