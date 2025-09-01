@@ -9,7 +9,7 @@
 - heading "Heart Eyes" [level=1]
 - 'heading /Release Date: 6 February \d+/ [level=1]'
 - paragraph: When the "Heart Eyes Killer" strikes Seattle, a pair of co-workers pulling overtime on Valentine's Day are mistaken for a couple by the elusive couple-hunting killer. Now, they must spend the most romantic night of the year running for their lives.
-- heading "Ratings AI Generated Icon official" [level=5]:
+- heading "Ratings AI Generated Icon Official Review" [level=5]:
   - img "AI Generated Icon"
 - list:
   - listitem:
@@ -77,70 +77,70 @@
     - img "Edit Icon"
     - text: Edit
 - heading "More Movies Like This" [level=2]
-- link /Azrael gore icon suspense icon creepy icon ai review icon 7\/\d+/:
+- link "Azrael gore icon suspense icon creepy icon ai review icon 7":
   - /url: /movie/azrael-2024
   - img "Azrael"
   - img "gore icon"
   - img "suspense icon"
   - img "creepy icon"
   - img "ai review icon"
-- link /Bird Box gore icon creepy icon suspense icon ai review icon 7\/\d+/:
+- link "Bird Box gore icon creepy icon suspense icon ai review icon 7":
   - /url: /movie/bird-box-2018
   - img "Bird Box"
   - img "gore icon"
   - img "creepy icon"
   - img "suspense icon"
   - img "ai review icon"
-- link /Dangerous Animals gore icon suspense icon creepy icon ai review icon 7\/\d+/:
+- link "Dangerous Animals gore icon suspense icon creepy icon ai review icon 7":
   - /url: /movie/dangerous-animals-2025
   - img "Dangerous Animals"
   - img "gore icon"
   - img "suspense icon"
   - img "creepy icon"
   - img "ai review icon"
-- link /Ghost Game gore icon creepy icon suspense icon ai review icon 7\/\d+/:
+- link "Ghost Game gore icon creepy icon suspense icon ai review icon 7":
   - /url: /movie/ghost-game-2024
   - img "Ghost Game"
   - img "gore icon"
   - img "creepy icon"
   - img "suspense icon"
   - img "ai review icon"
-- link /La profecía del guerrero gore icon suspense icon creepy icon ai review icon 7\/\d+/:
+- link "La profecía del guerrero gore icon suspense icon creepy icon ai review icon 7":
   - /url: /movie/la-profec-a-del-guerrero-2025
   - img "La profecía del guerrero"
   - img "gore icon"
   - img "suspense icon"
   - img "creepy icon"
   - img "ai review icon"
-- link /Wrong Turn gore icon suspense icon creepy icon ai review icon 7\/\d+/:
+- link "Wrong Turn gore icon suspense icon creepy icon ai review icon 7":
   - /url: /movie/wrong-turn-2021
   - img "Wrong Turn"
   - img "gore icon"
   - img "suspense icon"
   - img "creepy icon"
   - img "ai review icon"
-- link /Arcadian gore icon suspense icon creepy icon ai review icon 6\.7\/\d+/:
+- link "Arcadian gore icon suspense icon creepy icon ai review icon 6.7":
   - /url: /movie/arcadian-2024
   - img "Arcadian"
   - img "gore icon"
   - img "suspense icon"
   - img "creepy icon"
   - img "ai review icon"
-- link /Blackwater Lane creepy icon suspense icon gore icon ai review icon 6\.7\/\d+/:
+- link "Blackwater Lane creepy icon suspense icon gore icon ai review icon 6.7":
   - /url: /movie/blackwater-lane-2024
   - img "Blackwater Lane"
   - img "creepy icon"
   - img "suspense icon"
   - img "gore icon"
   - img "ai review icon"
-- link /Final Destination gore icon suspense icon creepy icon ai review icon 6\.7\/\d+/:
+- link "Final Destination gore icon suspense icon creepy icon ai review icon 6.7":
   - /url: /movie/final-destination-2000
   - img "Final Destination"
   - img "gore icon"
   - img "suspense icon"
   - img "creepy icon"
   - img "ai review icon"
-- link /Hereditary gore icon creepy icon suspense icon ai review icon 6\.7\/\d+/:
+- link "Hereditary gore icon creepy icon suspense icon ai review icon 6.7":
   - /url: /movie/hereditary-2018
   - img "Hereditary"
   - img "gore icon"
