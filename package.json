@@ -10,8 +10,7 @@
     "astro": "astro",
     "test": "playwright test",
     "test:update-snapshots": "playwright test --update-snapshots",
-    "deploy": "npm run build && npm run cdk-deploy",
-    "release": "release-it"
+    "deploy": "npm run build && npm run cdk-deploy"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
@@ -35,7 +34,6 @@
   "devDependencies": {
     "@playwright/test": "^1.52.0",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^22.15.2",
-    "release-it": "^19.0.1"
+    "@types/node": "^22.15.2"
   }
 }
