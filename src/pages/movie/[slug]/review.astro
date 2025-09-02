@@ -1,7 +1,7 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
 import { Image } from 'astro:assets';
-import { movies } from '../../../content.config';
+import { movies } from '../../../lib/movies';
 import { isLoggedIn, submitReview } from '../../../lib/supabase';
 import { Categories } from '../../../models/Categories';
 import { Review as MovieReview } from '../../../models/Review';

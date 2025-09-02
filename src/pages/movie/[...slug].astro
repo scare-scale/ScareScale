@@ -3,7 +3,7 @@ import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { SEO } from "astro-seo";
 import { Image } from "astro:assets";
-import { movies } from "../../content.config";
+import { movies } from "../../lib/movies";
 import ScareScaleRating from "../../components/cards/ScareScaleRating.astro";
 import Breadcrumbs from "../../components/nav/Breadcrumbs.astro";
 import RatingsUnavailable from "../../components/cards/RatingsUnavailable.astro";
@@ -88,6 +88,8 @@ const review = movie.getPriorityReview();
       </div>
     </div>
     }
+    {
+    review.overallRating > 0 &&
     <div class="place-items-center max-w-2xl lg:max-w-7xl px-6 lg:px-8 pt-6">
       <div class="flex justify-end">
         <a
@@ -97,7 +99,7 @@ const review = movie.getPriorityReview();
           Add Review
         </a>
       </div>
-    </div>
+    </div>}
     <MovieControlBar movie={movie} />
     <div class="place-items-center max-w-2xl lg:max-w-7xl px-6 lg:px-8 pt-6">
       <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl mb-6">
