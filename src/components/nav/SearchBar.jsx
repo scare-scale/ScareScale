@@ -1,19 +1,29 @@
 import React from "react";
 import { movies } from "../../lib/movies";
 
-export default () => {
+const SearchBar = () => {
   const [query, setQuery] = React.useState("");
   const [filteredMovies, setFilteredMovies] = React.useState([]);
+  const [isFocused, setIsFocused] = React.useState(false);
 
   const onSearchChange = (e) => {
-    setQuery(e.target.value);
-    setFilteredMovies(
-      movies.getAll().filter((movie) => {
-        const title = movie.name.toLowerCase();
-        const matchesSearch = title.includes(e.target.value);
-        return matchesSearch;
-      }).slice(0, 5)
-    );
+    const input = e.target.value;
+    setQuery(input);
+    setFilteredMovies([]);
+
+    if (input.length > 1) {
+      const lowerQuery = input.toLowerCase();
+      const filtered = [];
+
+      for (const movie of movies.getAll()) {
+        if (movie.name.toLowerCase().includes(lowerQuery)) {
+          filtered.push(movie);
+          if (filtered.length === 5) break;
+        }
+      }
+
+      setFilteredMovies(filtered);
+    }
   };
 
   const handleSearchRedirect = () => {
@@ -21,13 +31,15 @@ export default () => {
       window.location.href = `/search?q=${encodeURIComponent(query.trim())}`;
     }
   };
-  
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleSearchRedirect();
     }
   };
-  
+
+  const showAutocomplete = isFocused && filteredMovies.length > 0;
+
   return (
     <div className="flex items-center flex-grow md:flex-none md:ml-4 px-4 md:px-0">
       <div className="relative w-full md:w-auto">
@@ -40,6 +52,8 @@ export default () => {
           onChange={onSearchChange}
           onKeyDown={handleKeyDown}
           value={query}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setTimeout(() => setIsFocused(false), 100)} // delay allows click
         />
         <button
           id="searchButton"
@@ -51,23 +65,33 @@ export default () => {
 
         <ul
           id="autocompleteList"
-          className="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-y-auto"
+          className={`${
+            !showAutocomplete ? "hidden" : ""
+          } absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-y-auto`}
         >
           {filteredMovies.map((movie) => (
-            <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                <img
-                  src={movie.posterUrl}
-                  alt={movie.name}
-                  className="w-10 h-14 object-cover rounded-sm flex-shrink-0"
-                />
-                <span className="text-sm text-black">
-                  {`${movie.name} (${movie.releaseYear})`}
-                </span>
+            <li
+              key={movie.id}
+              className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              onMouseDown={() => {
+                setQuery(movie.name);
+                window.location.href = `/search?q=${encodeURIComponent(movie.name)}`;
+              }}
+            >
+              <img
+                src={movie.posterUrl}
+                alt={movie.name}
+                className="w-10 h-14 object-cover rounded-sm flex-shrink-0"
+              />
+              <span className="text-sm text-black">
+                {`${movie.name} (${movie.releaseYear})`}
+              </span>
             </li>
           ))}
-
         </ul>
       </div>
     </div>
   );
 };
+
+export default SearchBar;
