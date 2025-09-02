@@ -1,5 +1,5 @@
 ---
-import SearchBar from "./SearchBar.astro";
+import SearchBar from "./SearchBar.jsx";
 
 const navLinks = {
   "Ranks": "/ranks",
@@ -8,9 +8,7 @@ const navLinks = {
   "Upcoming": "/upcoming",
 };
 
-const handleSignIn = () => {
-
-}
+const handleSignIn = () => {}
 ---
 
 <div class="bg-white border-b-2 border-[#d60c16]" id="navBar">
@@ -36,7 +34,7 @@ const handleSignIn = () => {
         }
       </nav>
 
-      <SearchBar />
+      <SearchBar client:load />
 
       <!-- Authentication -->
       <div class="hidden md:flex items-center space-x-4 ml-4">
@@ -83,7 +81,7 @@ const handleSignIn = () => {
 </div>
 
 
-<!-- Script for Menu Toggle and Search -->
+<!-- Script for Menu Toggle and Search
 <script>
   function performSearch() {
     const searchInput = document.getElementById(
@@ -131,4 +129,4 @@ const handleSignIn = () => {
   if (queryValue && searchInput) {
     searchInput.value = queryValue;
   }
-</script>
+</script> -->

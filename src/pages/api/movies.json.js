@@ -1,4 +1,4 @@
-import { movies } from '../../content.config';
+import { movies } from '../../lib/movies';
 
 export async function GET() {
   const filteredContent = movies.getAll().map(({ rendered, ...rest }) => rest);
