@@ -79,3 +79,13 @@ const handleSignIn = () => {}
     </nav>
   </div>
 </div>
+
+<script>
+  const menuButton = document.getElementById("menuButton") as HTMLButtonElement;
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
+</script>

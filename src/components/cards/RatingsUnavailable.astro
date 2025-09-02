@@ -11,7 +11,7 @@ const { movie } = Astro.props;
     </p>
     <div class="flex gap-4">
       <a
-        href={movie.editUrl}
+        href={`/movie/${movie.slug}/review`}
         class="px-6 py-2 bg-[#d60c16] text-white rounded-md shadow hover:bg-red-700 transition"
       >
         Add Ratings

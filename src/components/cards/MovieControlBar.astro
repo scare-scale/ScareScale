@@ -8,7 +8,7 @@ const controlBarItems = [
     href: movie.whereToWatchUrl,
     icon: "/icons/watch.svg",
   },
-  { name: "Edit", href: movie.editUrl, icon: "/icons/edit.svg" },
+  { name: "Add Review", href:`/movie/${movie.slug}/review`  , icon: "/icons/edit.svg" },
 ];
 ---
 <div
