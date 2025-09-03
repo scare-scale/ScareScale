@@ -62,7 +62,7 @@ const review = movie.getPriorityReview();
                 height={450}
                 class="w-full rounded-xl object-cover shadow-2xl group-hover:shadow-red-500/20 transition-shadow duration-300"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <MovieControlBar movie={movie} />
             </div>
           </div>
 
@@ -87,7 +87,7 @@ const review = movie.getPriorityReview();
             <div class="pt-2">
               {
                 review.overallRating > 0 ? (
-                  <ScareScaleRating review={review} />
+                  <ScareScaleRating movie={movie} />
                 ) : (
                   movie.isReleased && <RatingsUnavailable movie={movie} />
                 )
@@ -100,7 +100,6 @@ const review = movie.getPriorityReview();
 
     <!-- Movie Control Bar -->
     <div class="pt-8">
-      <MovieControlBar movie={movie} />
     </div>
     </div>
 

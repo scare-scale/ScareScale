@@ -4,7 +4,8 @@ import { Categories } from "./Categories";
 export enum ReviewType {
   Official = 'official',
   User = 'user',
-  AI = 'ai'
+  AI = 'ai',
+  Summary = 'summary'
 }
 
 export class Review {
