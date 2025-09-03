@@ -70,25 +70,34 @@ const grids = [
 
 <MainLayout>
   <section class="pt-10 pb-20">
-    <header class="text-center px-6 lg:px-8 max-w-3xl mx-auto mb-16">
-      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">
-        Scare Scale Rankings
+    <header class="text-center px-6 lg:px-8 max-w-4xl mx-auto mb-20">
+      <div class="inline-flex items-center gap-3 bg-red-600/20 border border-red-500/30 rounded-full px-6 py-2 mb-6">
+        <span class="text-2xl">🏆</span>
+        <span class="text-red-400 font-medium">Rankings</span>
+      </div>
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        Scare Scale
+        <span class="block text-red-400">Rankings</span>
       </h1>
-      <p class="text-lg text-gray-300">
+      <p class="text-xl text-gray-300 leading-relaxed">
         Discover the most fear-inducing horror films across years and genres—
         ranked by our signature Scare Scale algorithm.
       </p>
+      <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mt-8 rounded-full"></div>
     </header>
 
-    <div class="flex flex-col gap-y-8">
-      {grids.map((grid) => (
+    <div class="flex flex-col gap-y-16">
+      {grids.map((grid, index) => (
         <section class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-          <header class="mb-6 text-center">
-            <h2 class="text-2xl sm:text-4xl font-semibold text-white">
+          <header class="mb-8 text-center">
+            <div class="inline-flex items-center gap-2 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-lg px-4 py-2 mb-4">
+              <span class="text-red-400 font-bold text-lg">#{index + 1}</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
               {grid.title}
             </h2>
             {grid.subtitle && (
-              <p class="mt-2 text-base text-gray-400">{grid.subtitle}</p>
+              <p class="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">{grid.subtitle}</p>
             )}
           </header>
           <MoviesGrid

@@ -30,12 +30,12 @@ const { backdropUrl } = Astro.props;
       <Image
         src={backdropUrl}
         alt={`backdrop`}
-        class="absolute inset-0 object-cover w-full h-full blur"
+        class="absolute inset-0 object-cover w-full h-full blur-md"
         height={854}
         width={480}
       />
-      <!-- Black overlay -->
-      <div class="absolute inset-0 bg-black/60 z-0"></div>
+      <!-- Enhanced gradient overlay for better text readability -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/90 z-0"></div>
     </div>}
     <div class="w-screen flex-grow z-40">
       <NavBar />

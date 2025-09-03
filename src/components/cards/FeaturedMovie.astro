@@ -14,56 +14,76 @@ if (movie === null) {
 
 export const prerender = false;
 ---
-<a href={`/movie/${movie.slug}`} class="group block">
-    <div class="grid grid-cols-2 max-w-full bg-white border-none rounded-t-lg overflow-hidden text-left mt-8 lg:mt-8">
-      <div>
-        <Image
-          src={movie.posterUrl}
-          alt={`${movie.name} movie poster`}
-          width={300}
-          height={450}
-          class="w-full h-auto object-cover"
-          loading={"eager"}
-        />
-      </div>
-      <div class="p-4 flex flex-col justify-between leading-normal">
-        <div>
-          <p class="text-xs md:text-md lg:text-lg text-gray-600 flex items-center">Featured</p>
-          <div class="text-gray-900 font-bold text-sm md:text-lg lg:text-xl mb-2">
-            {movie.name} ({movie.releaseYear})
-          </div>
-          {movie.getTopCategories()
-            .map((categoryName) => (
-              <span
-                class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 text-xs md:text-md lg:text-lg font-semibold text-gray-700 mr-2 mb-1"
-              >
-                <img
-                  class="w-5 h-5 mr-2"
-                  src={`/icons/categories/${categoryName}.svg`}
-                  alt={`${categoryName} icon`}
-                />
-                {categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}
+<a href={`/movie/${movie.slug}`} class="group block relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-red-500/30 transition-all duration-500 mt-8">
+    <!-- Background Image -->
+    <div class="relative h-[28rem] md:h-[32rem] lg:h-[36rem] overflow-hidden">
+      <Image
+        src={movie.backdropUrl || movie.posterUrl}
+        alt={`${movie.name} movie backdrop`}
+        width={1920}
+        height={1080}
+        class="w-full h-full object-cover object-center"
+        loading={"eager"}
+      />
+
+      <!-- Enhanced Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-red-900/10"></div>
+
+      <!-- Content Overlay -->
+      <div class="absolute inset-0 flex items-center">
+        <div class="container mx-auto px-6 lg:px-12">
+          <div class="max-w-5xl">
+            <div class="mb-6">
+              <div class="inline-flex items-center gap-3 bg-gradient-to-r from-red-600/95 to-red-700/95 backdrop-blur-md border border-red-500/60 rounded-full px-5 py-3 text-sm font-bold text-white shadow-lg">
+                <span class="text-xl animate-pulse">⭐</span>
+                <span>FEATURED MOVIE</span>
+              </div>
+            </div>
+
+            <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-none tracking-tight">
+              {movie.name}
+              <span class="block text-3xl md:text-4xl lg:text-5xl text-red-400 font-bold mt-2">
+                ({movie.releaseYear})
               </span>
-            ))}
-        </div>
-        <div class="flex items-center justify-center h-full shrink">
-          <div class="w-20 h-20 rounded-full shadow-lg border-2 border-[#d60c16] flex justify-center items-center">
-            <h5 class="text-xl font-bold text-[#d60c16]">
-              {movie.getPriorityReview().overallRating} / 10
-            </h5>
+            </h2>
+
+            <div class="flex flex-wrap gap-3 mb-8">
+              {movie.getTopCategories()
+                .map((categoryName) => (
+                  <span
+                    class="inline-flex items-center bg-gradient-to-r from-white/15 to-white/10 backdrop-blur-md border border-white/30 rounded-full px-4 py-2.5 text-sm font-semibold text-white hover:from-white/25 hover:to-white/20 transition-all duration-300 hover:scale-105 shadow-lg"
+                  >
+                    <img
+                      class="w-5 h-5 mr-2.5"
+                      src={`/icons/categories/${categoryName}.svg`}
+                      alt={`${categoryName} icon`}
+                    />
+                    {categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}
+                  </span>
+                ))}
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <div class="flex items-center gap-5 bg-black/60 backdrop-blur-md rounded-2xl px-6 py-4 border border-white/20 shadow-xl">
+                <div class="relative">
+                  <div class="w-20 h-20 rounded-full border-4 border-red-500 bg-black/80 flex justify-center items-center shadow-lg">
+                    <span class="text-2xl font-black text-red-400">
+                      {movie.getPriorityReview().overallRating}
+                    </span>
+                  </div>
+                  <div class="absolute -top-1 -right-1 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                    <span class="text-xs font-bold text-white">★</span>
+                  </div>
+                </div>
+                <div class="text-left">
+                  <div class="text-white font-bold text-xl">Scare Rating</div>
+                  <div class="text-gray-300 text-sm font-medium">out of 10</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  
-    <div class="w-full bg-[#d60c16]/80 text-white text-center py-2 rounded-b-lg">
-      <div class="flex items-center justify-center space-x-2">
-        <img
-          src="logo/logo_wide.png"
-          alt="Scare Scale logo"
-          class="h-4 mt-0.5"
-        />
-        <span class="text-lg text-black font-bold">Approved</span>
       </div>
     </div>
   </a>

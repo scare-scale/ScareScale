@@ -1,16 +1,29 @@
 ---
 const { movie } = Astro.props;
 ---
-<nav aria-label="Breadcrumb">
-  <ol class="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+<nav aria-label="Breadcrumb" class="py-4">
+  <ol class="mx-auto flex max-w-2xl items-center space-x-3 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <li>
       <div class="flex items-center">
-        <a href="/" class="mr-2 text-sm font-medium text-white hover:text-gray-300">Movie</a>
-        <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" class="h-5 w-4 text-white">
+        <a href="/" class="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-red-400 transition-colors duration-200 group">
+          <span class="text-gray-500 group-hover:text-red-500">🏠</span>
+          Home
+        </a>
+        <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" class="h-4 w-3 text-gray-500 mx-2">
           <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z"></path>
         </svg>
       </div>
     </li>
-    <li class="text-sm font-medium text-white">{movie.name}</li>
+    <li>
+      <div class="flex items-center">
+        <span class="text-sm font-medium text-gray-400">Movies</span>
+        <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" class="h-4 w-3 text-gray-500 mx-2">
+          <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z"></path>
+        </svg>
+      </div>
+    </li>
+    <li class="text-sm font-semibold text-white bg-gray-800/50 px-3 py-1 rounded-full border border-gray-700/50">
+      {movie.name}
+    </li>
   </ol>
 </nav>
