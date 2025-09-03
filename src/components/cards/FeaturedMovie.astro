@@ -4,9 +4,10 @@ import { movies } from "../../lib/movies";
 
 const ratedMovies = movies.getApproved();
 
-const movie = ratedMovies.length > 0
-  ? ratedMovies[Math.floor(Math.random() * ratedMovies.length)]
-  : null;
+const movie =
+  ratedMovies.length > 0
+    ? ratedMovies[Math.floor(Math.random() * ratedMovies.length)]
+    : null;
 
 if (movie === null) {
   throw new Error("Featured movie not found.");
@@ -14,75 +15,113 @@ if (movie === null) {
 
 export const prerender = false;
 ---
-<a href={`/movie/${movie.slug}`} class="group block relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-red-500/30 transition-all duration-500 mt-8">
-    <!-- Background Image -->
-    <div class="relative h-[28rem] md:h-[32rem] lg:h-[36rem] overflow-hidden">
-      <Image
-        src={movie.backdropUrl || movie.posterUrl}
-        alt={`${movie.name} movie backdrop`}
-        width={1920}
-        height={1080}
-        class="w-full h-full object-cover object-center"
-        loading={"eager"}
-      />
 
-      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-red-900/30"></div>
+<a
+  href={`/movie/${movie.slug}`}
+  class="group block relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-red-500/30 transition-all duration-500 mt-8"
+>
+  <!-- Background Image -->
+  <div class="relative h-[28rem] md:h-[32rem] lg:h-[36rem] overflow-hidden">
+    <Image
+      src={movie.backdropUrl || movie.posterUrl}
+      alt={`${movie.name} movie backdrop`}
+      width={1920}
+      height={1080}
+      class="w-full h-full object-cover object-center"
+      loading={"eager"}
+    />
 
-      <!-- Content Overlay -->
-      <div class="absolute inset-0 flex items-center">
-        <div class="container mx-auto px-6 lg:px-12">
-          <div class="max-w-5xl">
-            <div class="mb-6">
-              <div class="inline-flex items-center gap-3 bg-gradient-to-r from-red-600/95 to-red-700/95 backdrop-blur-md border border-red-500/60 rounded-full px-5 py-3 text-sm font-bold text-white shadow-lg">
-                <span class="text-xl animate-pulse">⭐</span>
-                <span>FEATURED MOVIE</span>
-              </div>
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"
+    >
+    </div>
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-red-900/30"
+    >
+    </div>
+
+    <!-- Content Overlay -->
+    <div class="absolute inset-0 flex items-center">
+      <div class="container mx-auto px-6 lg:px-12">
+        <div class="max-w-5xl">
+          <div class="mb-6">
+            <div
+              class="inline-flex items-center gap-3 bg-gradient-to-r from-red-600/95 to-red-700/95 backdrop-blur-md border border-red-500/60 rounded-full px-3 py-2 text-sm font-bold text-white shadow-lg"
+            >
+            <span class="inline-flex items-center justify-center w-5 h-5 bg-white rounded-full shadow-md">
+              <img
+                class="w-4 h-4"
+                src={`/logo/logo_small.png`}
+                alt={`Scare Scale icon`}
+              />
+            </span>            
+              <span>FEATURED MOVIE</span>
             </div>
+          </div>
 
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 leading-tight tracking-tight max-w-full">
-              <span class="block">{movie.name}</span>
-              <span class="block text-xl md:text-2xl lg:text-3xl text-red-400 font-bold mt-2">
-                ({movie.releaseYear})
-              </span>
-            </h2>
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 leading-tight tracking-tight max-w-full"
+          >
+            <span class="block">{movie.name}</span>
+            <span
+              class="block text-xl md:text-2xl lg:text-3xl text-red-400 font-bold mt-2"
+            >
+              ({movie.releaseYear})
+            </span>
+          </h2>
+          <span
+          class="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 text-white text-sm px-3 py-1 mb-4 rounded-full shadow-lg"
+        >
+          <img
+            class="w-4 h-4"
+            src={`/icons/official.svg`}
+            alt={`Approved Icon`}
+          />
+          Scare Scale Approved
+        </span>
+          <div
+            class="flex flex-wrap gap-3 mb-8 justify-center md:justify-start"
+          >
+            {
+              movie.getTopCategories().map((categoryName) => (
+                <span class="inline-flex items-center bg-gradient-to-r from-white/15 to-white/10 backdrop-blur-md border border-white/30 rounded-full px-4 py-2.5 text-sm font-semibold text-white hover:from-white/25 hover:to-white/20 transition-all duration-300 hover:scale-105 shadow-lg">
+                  <img
+                    class="w-5 h-5 mr-2.5"
+                    src={`/icons/categories/${categoryName}.svg`}
+                    alt={`${categoryName} icon`}
+                  />
+                  {categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}
+                </span>
+              ))
+            }
+          </div>
 
-            <div class="flex flex-wrap gap-3 mb-8 justify-center md:justify-start">
-              {movie.getTopCategories()
-                .map((categoryName) => (
-                  <span
-                    class="inline-flex items-center bg-gradient-to-r from-white/15 to-white/10 backdrop-blur-md border border-white/30 rounded-full px-4 py-2.5 text-sm font-semibold text-white hover:from-white/25 hover:to-white/20 transition-all duration-300 hover:scale-105 shadow-lg"
-                  >
-                    <img
-                      class="w-5 h-5 mr-2.5"
-                      src={`/icons/categories/${categoryName}.svg`}
-                      alt={`${categoryName} icon`}
-                    />
-                    {categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}
+          <div class="flex justify-center">
+            <div
+              class="flex items-center gap-5 bg-black/60 backdrop-blur-md rounded-2xl px-6 py-4 border border-white/20 shadow-xl"
+            >
+              <div class="relative">
+                <div
+                  class="w-20 h-20 rounded-full border-4 border-red-500 bg-black/80 flex justify-center items-center shadow-lg"
+                >
+                  <span class="text-2xl font-black text-red-400">
+                    {movie.getPriorityReview().overallRating}
                   </span>
-                ))}
-            </div>
-
-            <div class="flex justify-center">
-              <div class="flex items-center gap-5 bg-black/60 backdrop-blur-md rounded-2xl px-6 py-4 border border-white/20 shadow-xl">
-                <div class="relative">
-                  <div class="w-20 h-20 rounded-full border-4 border-red-500 bg-black/80 flex justify-center items-center shadow-lg">
-                    <span class="text-2xl font-black text-red-400">
-                      {movie.getPriorityReview().overallRating}
-                    </span>
-                  </div>
-                  <div class="absolute -top-1 -right-1 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
-                    <span class="text-xs font-bold text-white">★</span>
-                  </div>
                 </div>
-                <div class="text-left">
-                  <div class="text-white font-bold text-xl">Scare Rating</div>
-                  <div class="text-gray-300 text-sm font-medium">out of 10</div>
+                <div
+                  class="absolute -top-1 -right-1 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center"
+                >
+                  <span class="text-xs font-bold text-white">★</span>
                 </div>
+              </div>
+              <div class="text-left">
+                <div class="text-white font-bold text-xl">Scare Rating</div>
+                <div class="text-gray-300 text-sm font-medium">out of 10</div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </a>
+  </div>
+</a>
