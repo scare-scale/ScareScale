@@ -44,72 +44,91 @@ const review = movie.getPriorityReview();
 </head>
 
 <MainLayout backdropUrl={movie.backdropUrl}>
-  <section class="relative flex flex-col items-center" id="movieDetails">
-    <div class="relative flex flex-col gap-y-12 pt-6">
-      <Breadcrumbs movie={movie} />
-      <div
-        class="place-items-center max-w-2xl px-6 grid grid-cols-1 lg:max-w-7xl lg:grid-cols-3 lg:gap-x-12 lg:px-8"
-      >
-        <div class="relative group">
-          <Image
-            src={movie.posterUrl}
-            alt={`${movie.name} movie poster`}
-            width={300}
-            height={450}
-            class="size-full size-2/3 rounded-xl object-cover shadow-2xl group-hover:shadow-red-500/20 transition-shadow duration-300"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
-        <div
-          class="py-6 lg:border-l lg:border-gray-700/50 lg:pt-8 lg:pl-10 lg:col-span-2"
-        >
-          <div class="mb-4">
-            <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl leading-tight mb-2">
-              {movie.name}
-            </h1>
-            <div class="flex items-center gap-2 text-gray-400">
-              <span class="text-lg">📅</span>
-              <span class="text-base font-medium">{movie.releaseDateText}</span>
+  <section class="relative flex flex-col" id="movieDetails">
+    <div class="relative flex flex-col gap-y-8 pt-6">
+      <div class="px-6 lg:px-8">
+        <Breadcrumbs movie={movie} />
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+          <!-- Movie Poster -->
+          <div class="flex justify-center lg:justify-start">
+            <div class="relative group max-w-xs lg:max-w-sm">
+              <Image
+                src={movie.posterUrl}
+                alt={`${movie.name} movie poster`}
+                width={300}
+                height={450}
+                class="w-full rounded-xl object-cover shadow-2xl group-hover:shadow-red-500/20 transition-shadow duration-300"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           </div>
-          <div class="bg-gray-800/30 backdrop-blur-sm rounded-lg p-6 mb-6 border border-gray-700/30">
-            <Prose>
-              {movie.synopsis && <p class="text-gray-200 leading-relaxed">{movie.synopsis}</p>}
-            </Prose>
+
+          <!-- Movie Details -->
+          <div class="lg:col-span-2 space-y-6">
+            <div>
+              <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl leading-tight mb-3">
+                {movie.name}
+              </h1>
+              <div class="flex items-center gap-2 text-gray-400 mb-6">
+                <span class="text-lg">📅</span>
+                <span class="text-base font-medium">{movie.releaseDateText}</span>
+              </div>
+            </div>
+
+            <div class="bg-gray-800/30 backdrop-blur-sm rounded-lg p-6 border border-gray-700/30">
+              <Prose>
+                {movie.synopsis && <p class="text-gray-200 leading-relaxed">{movie.synopsis}</p>}
+              </Prose>
+            </div>
+
+            <div class="pt-2">
+              {
+                review.overallRating > 0 ? (
+                  <ScareScaleRating review={review} />
+                ) : (
+                  movie.isReleased && <RatingsUnavailable movie={movie} />
+                )
+              }
+            </div>
           </div>
-          {
-            review.overallRating > 0 ? (
-              <ScareScaleRating review={review} />
-            ) : (
-              movie.isReleased && <RatingsUnavailable movie={movie} />
-            )
-          }
         </div>
       </div>
     </div>
-    {(movie.reviews.length > 1 || review.content) &&
-    <div class="place-items-center max-w-2xl lg:max-w-7xl px-6 lg:px-8 pt-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-2 justify-center">
-        {movie.reviews.map((review) => <Review review={review} />)}
+    <!-- Reviews Section -->
+    {(movie.reviews.length > 1 || review.content) && (
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {movie.reviews.map((review) => <Review review={review} />)}
+        </div>
       </div>
+    )}
+
+    <!-- Add Review Button -->
+    {review.overallRating > 0 && (
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-8">
+        <div class="flex justify-center lg:justify-end">
+          <a
+            href={`/movie/${movie.slug}/review`}
+            class="inline-flex items-center gap-2 px-6 py-3 border border-transparent text-sm font-semibold rounded-lg shadow-lg text-white bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200 hover:scale-105"
+          >
+            <span>✍️</span>
+            Add Review
+          </a>
+        </div>
+      </div>
+    )}
+
+    <!-- Movie Control Bar -->
+    <div class="pt-8">
+      <MovieControlBar movie={movie} />
     </div>
-    }
-    {
-    review.overallRating > 0 &&
-    <div class="place-items-center max-w-2xl lg:max-w-7xl px-6 lg:px-8 pt-8">
-      <div class="flex justify-end">
-        <a
-          href={`/movie/${movie.slug}/review`}
-          class="inline-flex items-center gap-2 px-6 py-3 border border-transparent text-sm font-semibold rounded-lg shadow-lg text-white bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200 hover:scale-105"
-        >
-          <span>✍️</span>
-          Add Review
-        </a>
-      </div>
-    </div>}
-    <MovieControlBar movie={movie} />
-    <div class="place-items-center max-w-2xl lg:max-w-7xl px-6 lg:px-8 pt-12">
-      <div class="text-center mb-8">
+
+    <!-- Similar Movies Section -->
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
+      <div class="text-center mb-10">
         <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
           More Movies Like This
         </h2>
