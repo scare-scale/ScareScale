@@ -97,6 +97,13 @@ const review = movie.getPriorityReview();
         </div>
       </div>
     </div>
+
+    <!-- Movie Control Bar -->
+    <div class="pt-8">
+      <MovieControlBar movie={movie} />
+    </div>
+    </div>
+
     <!-- Reviews Section -->
     {(movie.reviews.length > 1 || review.content) && (
       <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-12">
@@ -120,11 +127,6 @@ const review = movie.getPriorityReview();
         </div>
       </div>
     )}
-
-    <!-- Movie Control Bar -->
-    <div class="pt-8">
-      <MovieControlBar movie={movie} />
-    </div>
 
     <!-- Similar Movies Section -->
     <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">

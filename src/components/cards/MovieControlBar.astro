@@ -11,25 +11,52 @@ const controlBarItems = [
   { name: "Add Review", href:`/movie/${movie.slug}/review`  , icon: "/icons/edit.svg" },
 ];
 ---
-<div class="max-w-screen-sm px-6 py-4 bg-gray-800/80 backdrop-blur-md shadow-xl rounded-xl m-6 mx-auto border border-gray-700/50">
-  <ul class="flex flex-row justify-center items-center gap-3 md:gap-6 lg:gap-8 text-white">
-    {
-      controlBarItems.map((item) => (
-        <li class="flex items-center p-2 text-sm gap-x-2 text-white">
-          <a
-            href={item.href}
-            class="flex items-center gap-2 font-semibold hover:text-red-400 transition-colors duration-200 hover:scale-105 transform px-3 py-2 rounded-lg hover:bg-white/10"
-          >
-            <img
-              src={item.icon}
-              alt={`${item.name} Icon`}
-              class="w-5 h-5"
-            />
-            <span class="hidden sm:inline">{item.name}</span>
-            <span class="sm:hidden">{item.name.split(' ')[0]}</span>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+<div class="max-w-4xl mx-auto px-6">
+  <!-- Desktop Layout -->
+  <div class="hidden md:block">
+    <div class="bg-gray-800/80 backdrop-blur-md shadow-xl rounded-xl border border-gray-700/50 overflow-hidden">
+      <ul class="flex flex-row justify-center items-center text-white">
+        {
+          controlBarItems.map((item, index) => (
+            <li class={`flex items-center flex-1 ${index < controlBarItems.length - 1 ? 'border-r border-gray-700/50' : ''}`}>
+              <a
+                href={item.href}
+                class="flex flex-col items-center gap-2 font-semibold hover:text-red-400 transition-all duration-200 hover:scale-105 transform px-6 py-4 rounded-lg hover:bg-white/10 w-full text-center group"
+              >
+                <img
+                  src={item.icon}
+                  alt={`${item.name} Icon`}
+                  class="w-6 h-6 group-hover:scale-110 transition-transform duration-200"
+                />
+                <span class="text-sm">{item.name}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- Mobile Layout -->
+  <div class="md:hidden">
+    <div class="bg-gray-800/80 backdrop-blur-md shadow-xl rounded-xl border border-gray-700/50 p-4">
+      <div class="grid grid-cols-2 gap-3">
+        {
+          controlBarItems.map((item) => (
+            <a
+              href={item.href}
+              class="flex flex-col items-center gap-2 font-semibold text-white hover:text-red-400 transition-all duration-200 hover:scale-105 transform px-4 py-3 rounded-lg hover:bg-white/10 text-center group"
+            >
+              <img
+                src={item.icon}
+                alt={`${item.name} Icon`}
+                class="w-5 h-5 group-hover:scale-110 transition-transform duration-200"
+              />
+              <span class="text-xs">{item.name}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </div>
