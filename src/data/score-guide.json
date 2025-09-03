@@ -116,10 +116,10 @@
     "example": {
       "gore": 9,
       "creepy": 8,
-      "jumpscares": 3,
+      "jumpscares": 2,
       "suspense": 8,
       "psychological": 6,
-      "finalScore": 8.3
+      "finalScore": 7.8
     }
   }
 }
