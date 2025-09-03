@@ -29,13 +29,17 @@ import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 
 <MainLayout>
   <section class="pt-10 pb-20">
-    <header class="text-center px-6 lg:px-8 max-w-3xl mx-auto mb-16">
-      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">
-        Upcoming Horror Movies
+    <header class="text-center px-6 lg:px-8 max-w-4xl mx-auto mb-20">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        Upcoming
+        <span class="block text-blue-400">Horror Movies<span class="text-6xl">📅</span></span>
       </h1>
-      <p class="text-lg text-gray-300">
+
+      <p class="text-xl text-gray-300 leading-relaxed">
         Horror movies to look forward to over the next 12 months.
+        Stay ahead of the scares and plan your next terrifying experience.
       </p>
+      <div class="w-32 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mt-8 rounded-full"></div>
     </header>
 
     <div class="flex flex-col gap-y-8">

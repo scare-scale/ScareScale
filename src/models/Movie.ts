@@ -1,6 +1,7 @@
 import moment from "moment";
 import { calculateOverallRating, fearLevelText } from "../utils/scoreUtils";
 import { Review, ReviewType } from "./Review";
+import { Categories } from "./Categories";
 
 const TMDB_POSTER_BASE_URL = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2";
 const TMDB_BACKDROP_BASE_URL = "https://image.tmdb.org/t/p/original";
@@ -83,6 +84,37 @@ export class Movie {
     return this.reviews.some(
       review => review.type === ReviewType.Official
     );
+  }
+
+  getSummaryReview(): Review {
+    const nonAIReviews = this.reviews.filter(r => r.type !== ReviewType.AI);
+
+    if (nonAIReviews.length === 0) {
+      return this.reviews.find(r => r.type === ReviewType.AI) ?? Review.empty();
+    }
+  
+    const total = nonAIReviews.reduce(
+      (acc, review) => {
+        acc.gore += review.categories.gore;
+        acc.creepy += review.categories.creepy;
+        acc.suspense += review.categories.suspense;
+        acc.jumpscares += review.categories.jumpscares;
+        acc.psychological += review.categories.psychological;
+        return acc;
+      },
+      { gore: 0, creepy: 0, suspense: 0, jumpscares: 0, psychological: 0 }
+    );
+  
+    const count = nonAIReviews.length;
+    const averagedCategories = new Categories(
+      total.gore / count,
+      total.creepy / count,
+      total.suspense / count,
+      total.jumpscares / count,
+      total.psychological / count
+    );
+  
+    return new Review(ReviewType.Summary, "Summary", averagedCategories)
   }
 
   getPriorityReview(): Review {

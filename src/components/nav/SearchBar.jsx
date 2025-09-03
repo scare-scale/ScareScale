@@ -42,13 +42,13 @@ const SearchBar = () => {
 
   return (
     <div className="flex items-center flex-grow md:flex-none md:ml-4 px-4 md:px-0">
-      <div className="relative w-full md:w-auto">
+      <div className="relative w-full md:w-80">
         <input
           type="text"
           id="searchInput"
-          placeholder="Search..."
+          placeholder="Search horror movies..."
           aria-label="Search for horror movies"
-          className="text-black rounded-md py-2 pl-4 pr-10 w-full md:w-auto outline-none ring-2 ring-black focus:ring-[#d60c16]"
+          className="bg-white/10 backdrop-blur-sm text-text-primary placeholder-text-muted rounded-lg py-2.5 pl-4 pr-12 w-full outline-none border border-white/20 focus:border-blood-400 focus:ring-2 focus:ring-blood-400/20 transition-all duration-200"
           onChange={onSearchChange}
           onKeyDown={handleKeyDown}
           value={query}
@@ -57,22 +57,22 @@ const SearchBar = () => {
         />
         <button
           id="searchButton"
-          className="absolute right-3 top-1/2 transform -translate-y-1/2 hover:text-white"
+          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-text-muted hover:text-blood-400 transition-colors duration-200 p-1 rounded hover:bg-blood-600/20"
           onClick={handleSearchRedirect}
         >
-          <img src="/icons/search.svg" alt="🔍" width={25} height={25} loading="eager" />
+          <img src="/icons/search.svg" alt="🔍" width={20} height={20} loading="eager" />
         </button>
 
         <ul
           id="autocompleteList"
           className={`${
             !showAutocomplete ? "hidden" : ""
-          } absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-y-auto`}
+          } absolute z-10 mt-2 w-full bg-bg-secondary/95 backdrop-blur-md border border-blood-600/30 rounded-lg shadow-xl max-h-60 overflow-y-auto`}
         >
           {filteredMovies.map((movie) => (
             <li
               key={movie.id}
-              className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              className="flex items-center gap-3 px-4 py-3 hover:bg-blood-600/20 cursor-pointer transition-colors duration-150 border-b border-blood-800/30 last:border-b-0"
               onMouseDown={() => {
                 setQuery(movie.name);
                 window.location.href = `/search?q=${encodeURIComponent(movie.name)}`;
@@ -81,9 +81,9 @@ const SearchBar = () => {
               <img
                 src={movie.posterUrl}
                 alt={movie.name}
-                className="w-10 h-14 object-cover rounded-sm flex-shrink-0"
+                className="w-10 h-14 object-cover rounded flex-shrink-0 shadow-md"
               />
-              <span className="text-sm text-black">
+              <span className="text-sm text-text-primary font-medium">
                 {`${movie.name} (${movie.releaseYear})`}
               </span>
             </li>
