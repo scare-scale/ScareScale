@@ -51,36 +51,54 @@ const review = movie.getPriorityReview();
       </div>
 
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
-          <!-- Movie Poster -->
-          <div class="flex justify-center lg:justify-start">
-            <div class="relative group max-w-xs lg:max-w-sm">
-              <Image
-                src={movie.posterUrl}
-                alt={`${movie.name} movie poster`}
-                width={300}
-                height={450}
-                class="w-full rounded-xl object-cover shadow-2xl group-hover:shadow-red-500/20 transition-shadow duration-300"
-              />
-              <MovieControlBar movie={movie} />
+        <div
+          class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start min-h-[600px]"
+        >
+          <div class="flex justify-center lg:justify-start h-full">
+            <div
+              class="flex flex-col justify-between h-full max-w-xs lg:max-w-sm"
+            >
+              <div class="relative group">
+                <Image
+                  src={movie.posterUrl}
+                  alt={`${movie.name} movie poster`}
+                  width={300}
+                  height={450}
+                  class="w-full rounded-xl object-cover shadow-2xl group-hover:shadow-red-500/20 transition-shadow duration-300"
+                />
+              </div>
+              <div class="mt-4">
+                <MovieControlBar movie={movie} />
+              </div>
             </div>
           </div>
-
           <!-- Movie Details -->
           <div class="lg:col-span-2 space-y-6">
             <div>
-              <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl leading-tight mb-3">
+              <h1
+                class="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl leading-tight mb-3"
+              >
                 {movie.name}
               </h1>
               <div class="flex items-center gap-2 text-gray-400 mb-6">
                 <span class="text-lg">📅</span>
-                <span class="text-base font-medium">{movie.releaseDateText}</span>
+                <span class="text-base font-medium"
+                  >{movie.releaseDateText}</span
+                >
               </div>
             </div>
 
-            <div class="bg-gray-800/30 backdrop-blur-sm rounded-lg p-6 border border-gray-700/30">
+            <div
+              class="bg-gray-800/30 backdrop-blur-sm rounded-lg p-6 border border-gray-700/30"
+            >
               <Prose>
-                {movie.synopsis && <p class="text-gray-200 leading-relaxed">{movie.synopsis}</p>}
+                {
+                  movie.synopsis && (
+                    <p class="text-gray-200 leading-relaxed">
+                      {movie.synopsis}
+                    </p>
+                  )
+                }
               </Prose>
             </div>
 
@@ -97,49 +115,44 @@ const review = movie.getPriorityReview();
         </div>
       </div>
     </div>
-
-    <!-- Movie Control Bar -->
-    <div class="pt-8">
-    </div>
-    </div>
-
-    <!-- Reviews Section -->
-    {(movie.reviews.length > 1 || review.content) && (
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {movie.reviews.map((review) => <Review review={review} />)}
-        </div>
-      </div>
-    )}
-
-    <!-- Add Review Button -->
-    {review.overallRating > 0 && (
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-8">
-        <div class="flex justify-center lg:justify-end">
-          <a
-            href={`/movie/${movie.slug}/review`}
-            class="inline-flex items-center gap-2 px-6 py-3 border border-transparent text-sm font-semibold rounded-lg shadow-lg text-white bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200 hover:scale-105"
-          >
-            <span>✍️</span>
-            Add Review
-          </a>
-        </div>
-      </div>
-    )}
-
-    <!-- Similar Movies Section -->
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
-          More Movies Like This
-        </h2>
-        <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto rounded-full"></div>
-      </div>
-      <MoviesGrid
-        sort={Sort.HighestToLowestScore}
-        similar={movie}
-        maxCount={10}
-      />
-    </div>
   </section>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
+        Reviews
+      </h2>
+      <div
+        class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto rounded-full"
+      >
+      </div>
+    </div>
+    {
+      (movie.reviews.length > 1 || review.content) && (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {movie.reviews.map((review) => (
+              <Review review={review} />
+            ))}
+          </div>
+      )
+    }
+  </div> 
+  
+  <!-- Similar Movies Section -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
+        More Movies Like This
+      </h2>
+      <div
+        class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto rounded-full"
+      >
+      </div>
+    </div>
+    <MoviesGrid
+      sort={Sort.HighestToLowestScore}
+      similar={movie}
+      maxCount={10}
+    />
+  </div>
 </MainLayout>
