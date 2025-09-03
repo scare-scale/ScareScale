@@ -1,0 +1,198 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { SEO } from "astro-seo";
+import scoreGuideData from "../data/score-guide.json";
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <SEO
+    title="Scare Scale - Score Guide"
+    description="Learn how we rate horror movies across Gore, Creepy, Jumpscares, Suspense, and Psychological categories. Detailed scoring criteria for each fear factor."
+    canonical="https://scarescale.com/score-guide"
+    openGraph={{
+      basic: {
+        type: "website",
+        url: "https://scarescale.com/score-guide",
+        title: "Scare Scale - Horror Movie Scoring Guide",
+        image: "https://scarescale.com/logo/logo_wide_background.png",
+      },
+      optional: {
+        description: "Detailed breakdown of how we score horror movies across five fear categories with specific criteria for each intensity level.",
+      },
+    }}
+  />
+</head>
+
+<MainLayout>
+  <div class="min-h-screen py-8 px-4 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <header class="text-center px-6 lg:px-8 max-w-4xl mx-auto mb-20">
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          Scare Scale
+          <span class="block text-red-600">Scoring System<span class="text-6xl">📶</span></span>
+        </h1>
+  
+        <p class="text-xl text-gray-300 leading-relaxed">
+          This rating system categorises movies based on their level of scariness across five dimensions.
+          Each category is rated on a scale of <span class="text-red-400 font-bold text-2xl">1 to 10</span>,
+          with <span class="text-red-400 font-bold">higher scores indicating greater intensity</span>.
+        </p>
+        <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mt-8 rounded-full"></div>
+      </header>
+
+      <!-- Categories Grid -->
+      <div class="space-y-16 mb-10">
+        {Object.entries(scoreGuideData.categories).map(([categoryName, criteria]) => (
+          <div class="relative">
+            <div class="text-center mb-12">
+              <div class="relative inline-block">
+                <div class="relative inline-flex items-center gap-6 bg-gray-800/90 backdrop-blur-md rounded-3xl px-10 py-6 shadow-2xl">
+                  <img
+                    src={`/icons/categories/${categoryName}.svg`}
+                    alt={`${categoryName} icon`}
+                    class="w-12 h-12 filter drop-shadow-xl"
+                  />
+                  <div class="text-left">
+                    <h2 class="text-5xl font-black text-white mb-1 leading-tight">
+                      {categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}
+                    </h2>
+                    <div class="text-red-400 font-semibold text-lg tracking-wide">
+                      Scoring Criteria
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {Object.entries(criteria).map(([scoreRange, descriptions]) => (
+                <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700/50 hover:bg-gray-800/50 transition-colors duration-300">
+                  <div class="flex items-center gap-4 mb-6">
+                    <span class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold rounded-xl text-xl shadow-lg">
+                      {scoreRange}
+                    </span>
+                  </div>
+
+                  <!-- Description List -->
+                  <ul class="space-y-3">
+                    {Array.isArray(descriptions) ? descriptions.map((description, index) => (
+                      <li class="flex items-start gap-3 text-text-secondary leading-relaxed">
+                        <span class="inline-flex items-center justify-center w-5 h-5 bg-red-600/20 text-red-400 rounded-full text-xs font-bold mt-0.5 flex-shrink-0">
+                          {index + 1}
+                        </span>
+                        <span class="flex-1">{description}</span>
+                      </li>
+                    )) : (
+                      <li class="text-text-secondary leading-relaxed">
+                        {typeof descriptions === 'string' ? descriptions : 'No criteria available'}
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Calculation Method -->
+      <div class="relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-red-900/10 via-blood-900/5 to-red-900/10 blur-3xl"></div>
+        <div class="relative bg-gradient-to-r from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-2xl border border-red-700/30 p-8 lg:p-12 shadow-2xl">
+          <div class="text-center mb-12">
+            <div class="relative inline-block mb-6">
+              <div class="relative inline-flex items-center gap-5 bg-gray-800/95 backdrop-blur-lg rounded-3xl px-8 py-5 shadow-2xl">
+                <span class="text-6xl">📊</span>
+                <div class="text-left">
+                  <h2 class="text-5xl font-black text-white mb-1 leading-tight">
+                    Overall Score
+                  </h2>
+                  <div class="text-red-400 font-bold text-xl tracking-wide">
+                    Calculation Method
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+              Learn how individual category scores are combined to create the final <span class="text-red-400 font-bold">Scare Scale rating</span>
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-8">
+            <!-- How It Works -->
+            <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700/50">
+              <div class="flex items-center gap-4 mb-6">
+                <span class="text-4xl">🔢</span>
+                <div>
+                  <h3 class="text-3xl font-black text-white leading-tight">
+                    How It Works
+                  </h3>
+                  <div class="text-red-400 font-semibold text-lg">
+                    Step-by-Step Process
+                  </div>
+                </div>
+              </div>
+              <ol class="space-y-4">
+                {[
+                  "Identify the three highest-rated categories",
+                  "Sum their scores together",
+                  "Divide by 3 to get the average score",
+                  "Apply 0.5 point penalty for each top category scoring less than 3"
+                ].map((step, index) => (
+                  <li class="flex items-start gap-4 text-text-secondary leading-relaxed">
+                    <span class="inline-flex items-center justify-center w-8 h-8 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold rounded-lg text-sm flex-shrink-0 mt-0.5">
+                      {index + 1}
+                    </span>
+                    <span class="flex-1">{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <!-- Example Calculation -->
+            <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700/50">
+              <div class="flex items-center gap-4 mb-6">
+                <span class="text-4xl">📈</span>
+                <div>
+                  <h3 class="text-3xl font-black text-white leading-tight">
+                    Example Calculation
+                  </h3>
+                  <div class="text-red-400 font-semibold text-lg">
+                    Real-World Application
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-4 mb-6">
+                {Object.entries(scoreGuideData.calculation.example).filter(([key]) => key !== 'finalScore').map(([category, score]) => (
+                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg border border-gray-700/30">
+                    <span class="text-white font-medium capitalize flex items-center gap-2">
+                      <img
+                        src={`/icons/categories/${category}.svg`}
+                        alt={`${category} icon`}
+                        class="w-5 h-5"
+                      />
+                      {category}
+                    </span>
+                    <span class="text-2xl font-bold text-red-400">{score}/10</span>
+                  </div>
+                ))}
+              </div>
+
+              <div class="text-center p-6 bg-gradient-to-r from-red-600/20 to-red-700/20 rounded-xl border border-red-500/30">
+                <div class="text-5xl font-bold text-red-400 mb-2">
+                  {scoreGuideData.calculation.example.finalScore}
+                </div>
+                <div class="text-lg text-text-secondary font-medium">Final Scare Scale Score</div>
+                <div class="text-sm text-text-secondary mt-2">
+                  (9 + 8 + 8) ÷ 3 = 8.3
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
