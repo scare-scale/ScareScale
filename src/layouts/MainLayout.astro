@@ -1,6 +1,7 @@
 ---
 import NavBar from "../components/nav/NavBar.astro";
 import Footer from "../components/footer/Footer.astro";
+import BackgroundIcons from "../components/BackgroundIcons.astro";
 import { Image } from "astro:assets";
 import { SpeedInsights } from "@vercel/speed-insights/react"
 
@@ -37,6 +38,7 @@ const { backdropUrl } = Astro.props;
       <!-- Enhanced gradient overlay for better text readability -->
       <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/90 z-0"></div>
     </div>}
+    <BackgroundIcons />
     <div class="w-screen flex-grow z-40">
       <NavBar />
       <slot />
