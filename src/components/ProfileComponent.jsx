@@ -29,7 +29,7 @@ const ProfileComponent = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12">
+    <div className="mt-12 flex items-center justify-center px-4 py-12">
       <div className="max-w-md w-full bg-bg-secondary/80 backdrop-blur-md rounded-lg shadow-lg border border-blood-600/40 p-8 animate-fade-in">
         <div className="text-center">
           <div className="mb-6">
