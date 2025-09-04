@@ -20,9 +20,19 @@ const UserDropdown = () => {
   };
 
   if (loading) {
-    return <></>
+    return (
+      <div className="relative">
+        <button
+          className="flex items-center space-x-2 text-white p-2 rounded-lg"
+          aria-hidden="true"
+        >
+          <div className="w-8 h-8 rounded-full bg-blood-600/30 animate-pulse" />
+          <div className="h-4 w-24 bg-blood-600/20 rounded animate-pulse" />
+        </button>
+      </div>
+    );
   }
-
+  
   return user ? (
     <div className="relative">
       <button
