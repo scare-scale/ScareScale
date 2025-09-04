@@ -18,6 +18,13 @@ export default defineConfig({
     remotePatterns: [{ protocol: "https" }],
   },
 
+  test: {
+    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    exclude: ['src/pages/**'],
+    environment: 'jsdom',
+    setupFiles: ['./src/__tests__/setup.ts'],
+  },
+
   integrations: [
     tailwind(),
     react(),
@@ -31,7 +38,7 @@ export default defineConfig({
           disallow: ["/search", "/all"],
         },
       ],
-    }),
+    })
   ],
 
   adapter: vercel({

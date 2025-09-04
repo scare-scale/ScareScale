@@ -8,8 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "playwright test",
-    "test:update-snapshots": "playwright test --update-snapshots",
+    "test": "vitest",
+    "test:unit": "vitest",
     "deploy": "npm run build && npm run cdk-deploy"
   },
   "dependencies": {
@@ -35,6 +35,11 @@
   "devDependencies": {
     "@playwright/test": "^1.52.0",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^22.15.2"
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.15.2",
+    "jsdom": "^26.1.0",
+    "vitest": "^3.2.4"
   }
 }
