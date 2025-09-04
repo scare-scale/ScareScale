@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getCurrentUser } from "../../lib/supabase";
+import { getCurrentUser, signOut } from "../../lib/supabase";
 
 const UserDropdown = () => {
   const [user, setUser] = useState(null);
@@ -32,7 +32,7 @@ const UserDropdown = () => {
       </div>
     );
   }
-  
+
   return user ? (
     <div className="relative">
       <button
@@ -66,7 +66,8 @@ const UserDropdown = () => {
           Profile
         </a>
         <a
-          href="/signout"
+          href="/"
+          onClick={signOut}
           className="block px-4 py-2 text-sm text-text-primary hover:bg-blood-600/20 hover:text-blood-400 transition-colors"
           role="menuitem"
         >
