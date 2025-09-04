@@ -1,5 +1,6 @@
 ---
 import SearchBar from "./SearchBar.jsx";
+import { getCurrentUser } from "../../lib/supabase";
 
 const navLinks = {
   "Ranks": "/ranks",
@@ -8,7 +9,7 @@ const navLinks = {
   "Score Guide": "/score-guide",
 };
 
-const handleSignIn = () => {}
+const user = await getCurrentUser();
 ---
 
 <div class="bg-bg-secondary/80 backdrop-blur-md border-b border-blood-600/40 sticky top-0 z-50" id="navBar">
@@ -39,13 +40,52 @@ const handleSignIn = () => {}
 
       <!-- Authentication -->
       <div class="hidden md:flex items-center space-x-4 ml-4">
-        <div id="user-info" class="text-sm text-gray-300 hidden"></div>
-        <a href="/auth" class="bg-gradient-to-r from-blood-600 to-blood-700 text-white px-4 py-2 rounded-lg hover:from-blood-700 hover:to-blood-800 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-200">
-          Sign In
-        </a>
-        <a href="/signout" class="bg-gradient-to-r from-bg-accent to-horror-gray text-white px-4 py-2 rounded-lg hover:from-horror-gray hover:to-bg-primary text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-200 hidden">
-          Sign Out
-        </a>
+        {user ? (
+          <div class="relative">
+            <button
+              id="userMenuButton"
+              class="flex items-center space-x-2 text-white hover:text-blood-400 transition-colors p-2 rounded-lg hover:bg-white/10"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="User menu"
+            >
+              <img
+                src="/icons/user.svg"
+                alt="User avatar"
+                class="w-8 h-8 rounded-full bg-blood-600 p-1"
+              />
+              <span class="text-sm font-medium">{user.user_metadata?.display_name || user.email}</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div
+              id="userDropdown"
+              class="absolute right-0 mt-2 w-48 bg-bg-secondary/95 backdrop-blur-md rounded-lg shadow-lg border border-blood-600/30 py-2 hidden z-50"
+              role="menu"
+              aria-labelledby="userMenuButton"
+            >
+              <a
+                href="/profile"
+                class="block px-4 py-2 text-sm text-text-primary hover:bg-blood-600/20 hover:text-blood-400 transition-colors"
+                role="menuitem"
+              >
+                Profile
+              </a>
+              <a
+                href="/signout"
+                class="block px-4 py-2 text-sm text-text-primary hover:bg-blood-600/20 hover:text-blood-400 transition-colors"
+                role="menuitem"
+              >
+                Logout
+              </a>
+            </div>
+          </div>
+        ) : (
+          <a href="/auth" class="bg-gradient-to-r from-blood-600 to-blood-700 text-white px-4 py-2 rounded-lg hover:from-blood-700 hover:to-blood-800 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-200">
+            Sign In
+          </a>
+        )}
       </div>
 
       <!-- Mobile Menu Button -->
@@ -77,16 +117,69 @@ const handleSignIn = () => {}
           </a>
         ))
       }
+      <div class="border-t border-blood-600/30 pt-3 mt-3">
+        {user ? (
+          <>
+            <div class="flex items-center space-x-2 py-2 px-3 text-text-primary">
+              <img
+                src="/icons/user.svg"
+                alt="User avatar"
+                class="w-6 h-6 rounded-full bg-blood-600 p-0.5"
+              />
+              <span class="text-sm font-medium">{user.user_metadata?.display_name || user.email}</span>
+            </div>
+            <a href="/profile" class="block text-text-primary hover:text-blood-400 transition-colors py-2 px-3 rounded-lg hover:bg-blood-600/20">
+              Profile
+            </a>
+            <a href="/signout" class="block text-text-primary hover:text-blood-400 transition-colors py-2 px-3 rounded-lg hover:bg-blood-600/20">
+              Logout
+            </a>
+          </>
+        ) : (
+          <a href="/auth" class="block bg-gradient-to-r from-blood-600 to-blood-700 text-white px-4 py-2 rounded-lg hover:from-blood-700 hover:to-blood-800 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-200 text-center">
+            Sign In
+          </a>
+        )}
+      </div>
     </nav>
   </div>
 </div>
 
-<script>
-  const menuButton = document.getElementById("menuButton") as HTMLButtonElement;
+<script client:load>
+  // Mobile menu toggle
+  const menuButton = document.getElementById("menuButton");
   const mobileMenu = document.getElementById("mobileMenu");
   if (menuButton && mobileMenu) {
     menuButton.addEventListener("click", function () {
       mobileMenu.classList.toggle("hidden");
+    });
+  }
+
+  // User dropdown toggle
+  const userMenuButton = document.getElementById("userMenuButton");
+  const userDropdown = document.getElementById("userDropdown");
+  if (userMenuButton && userDropdown) {
+    userMenuButton.addEventListener("click", function (event) {
+      event.stopPropagation();
+      const isExpanded = userMenuButton.getAttribute("aria-expanded") === "true";
+      userMenuButton.setAttribute("aria-expanded", (!isExpanded).toString());
+      userDropdown.classList.toggle("hidden");
+    });
+
+    // Close dropdown on outside click
+    document.addEventListener("click", function (event) {
+      if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
+        userMenuButton.setAttribute("aria-expanded", "false");
+        userDropdown.classList.add("hidden");
+      }
+    });
+
+    // Close dropdown on menu item click
+    userDropdown.addEventListener("click", function (event) {
+      if (event.target.closest("a")) {
+        userMenuButton.setAttribute("aria-expanded", "false");
+        userDropdown.classList.add("hidden");
+      }
     });
   }
 </script>

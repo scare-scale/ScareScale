@@ -4,6 +4,7 @@ import { signOut } from '../lib/supabase';
 export const prerender = false;
 
 signOut();
-
-Astro.redirect("/");
 ---
+<script>
+    window.location.href = "/";
+</script>

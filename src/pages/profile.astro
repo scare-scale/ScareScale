@@ -1,0 +1,57 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { getCurrentUser } from "../lib/supabase";
+
+const user = await getCurrentUser();
+
+if (!user) {
+  return Astro.redirect("/auth");
+}
+---
+
+<MainLayout>
+  <div class="min-h-screen flex items-center justify-center px-4 py-12">
+    <div class="max-w-md w-full bg-bg-secondary/80 backdrop-blur-md rounded-lg shadow-lg border border-blood-600/40 p-8 animate-fade-in">
+      <div class="text-center">
+        <div class="mb-6">
+          <img
+            src="/icons/user.svg"
+            alt="User avatar"
+            class="w-20 h-20 rounded-full bg-blood-600 p-3 mx-auto"
+          />
+        </div>
+        <h1 class="text-2xl font-bold text-text-primary mb-2">Profile</h1>
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-text-secondary mb-1">Display Name</label>
+            <p class="text-lg text-text-primary bg-bg-primary/50 rounded-lg px-4 py-2 border border-blood-600/30">
+              {user.user_metadata?.display_name || "Not set"}
+            </p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-text-secondary mb-1">Email Address</label>
+            <p class="text-lg text-text-primary bg-bg-primary/50 rounded-lg px-4 py-2 border border-blood-600/30">
+              {user.email}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+</style>
