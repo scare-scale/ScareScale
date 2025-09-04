@@ -71,6 +71,9 @@ module.exports = {
 				"heading-2": "#e5e5e5",
 				"heading-3": "#a3a3a3",
 			},
+			fontFamily: {
+				sans: ['Lato', 'sans-serif'],
+			},
 			screens:{
 				'midmd': "880px",
 				'xs': '475px',
