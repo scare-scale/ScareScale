@@ -18,7 +18,7 @@ export const prerender = false;
 
 <a
   href={`/movie/${movie.slug}`}
-  class="group block relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-red-500/30 transition-all duration-500 mt-4 sm:mt-6 lg:mt-8 border-white"
+  class="group block relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-red-500/30 transition-all duration-500 mt-4 sm:mt-6 lg:mt-8 border border-white/30"
 >
   <!-- Background Image -->
   <div class="relative h-[24rem] sm:h-[28rem] md:h-[32rem] lg:h-[36rem] overflow-hidden">
@@ -98,7 +98,7 @@ export const prerender = false;
             >
               <div class="relative">
                 <div
-                  class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-3 sm:border-4 border-red-500 bg-black/80 flex justify-center items-center shadow-lg"
+                  class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 sm:border-4 border-red-500 bg-black/80 flex justify-center items-center shadow-lg"
                 >
                   <span class="text-lg sm:text-2xl font-black text-red-400">
                     {movie.getPriorityReview().overallRating}
