@@ -1,69 +1,47 @@
-<div id="background-icons" class="fixed inset-0 z-10 pointer-events-none"></div>
+---
+import creepySvg from '/icons/categories/creepy.svg?raw';
+import goreSvg from '/icons/categories/gore.svg?raw';
+import jumpscaresSvg from '/icons/categories/jumpscares.svg?raw';
+import psychologicalSvg from '/icons/categories/psychological.svg?raw';
+import suspenseSvg from '/icons/categories/suspense.svg?raw';
 
-<script>
-  let iconSvgs: string[] = [];
+const rawIcons = [creepySvg, goreSvg, jumpscaresSvg, psychologicalSvg, suspenseSvg];
 
-  async function loadIcons() {
-    const paths = [
-      '/icons/categories/creepy.svg',
-      '/icons/categories/gore.svg',
-      '/icons/categories/jumpscares.svg',
-      '/icons/categories/psychological.svg',
-      '/icons/categories/suspense.svg'
-    ];
-    try {
-      const responses = await Promise.all(paths.map(path => fetch(path)));
-      const texts = await Promise.all(responses.map(res => res.text()));
-      iconSvgs = texts.map(svg => {
-        // Remove existing width/height, replace fill with red, add width/height
-        return svg.replace(/width="[^"]*"/g, '')
-                  .replace(/height="[^"]*"/g, '')
-                  .replace(/fill="[^"]*"/g, 'fill="red"')
-                  .replace(/stroke="[^"]*"/g, 'stroke="red"')
-                  .replace(/fill:#[^;]*;/g, 'fill:red;')
-                  .replace(/stroke:#[^;]*;/g, 'stroke:red;')
-                  .replace(/<svg([^>]*)>/, '<svg$1 width="80" height="80">');
-      });
-    } catch (error) {
-      console.error('Failed to load icons:', error);
-      // Fallback to empty array
-      iconSvgs = [];
-    }
-  }
+const icons = rawIcons.map(svg => {
+  return svg.replace(/width="[^"]*"/g, '')
+            .replace(/height="[^"]*"/g, '')
+            .replace(/fill="[^"]*"/g, 'fill="red"')
+            .replace(/stroke="[^"]*"/g, 'stroke="red"')
+            .replace(/fill:#[^;]*;/g, 'fill:red;')
+            .replace(/stroke:#[^;]*;/g, 'stroke:red;')
+            .replace(/<svg([^>]*)>/, '<svg$1 width="80" height="80">');
+});
 
-  function generateIcons() {
-    const container = document.getElementById('background-icons');
-    if (!container || iconSvgs.length === 0) return;
-    container.innerHTML = '';
-    const numIcons = window.innerWidth < 768 ? 5 : 10;
-    const positions: {x: number, y: number}[] = [];
-    for (let i = 0; i < numIcons; i++) {
-      let x: number, y: number, attempts = 0;
-      do {
-        x = Math.random() * (window.innerWidth - 150);
-        y = Math.random() * (window.innerHeight - 150);
-        attempts++;
-        if (attempts > 100) break; // prevent infinite loop
-      } while (positions.some(p => Math.sqrt((p.x - x) ** 2 + (p.y - y) ** 2) < 200));
-      positions.push({ x, y });
-      const iconHtml = iconSvgs[Math.floor(Math.random() * iconSvgs.length)];
-      const div = document.createElement('div');
-      div.innerHTML = iconHtml;
-      div.style.position = 'absolute';
-      div.style.left = x + 'px';
-      div.style.top = y + 'px';
-      const opacity = 0.07;
-      const svg = div.querySelector('svg');
-      if (svg) {
-        svg.style.opacity = opacity.toString();
-      }
-      container.appendChild(div);
-    }
-  }
+const numIcons = 10;
+const positions: {x: number, y: number}[] = [];
+const viewportWidth = 1920; // assume desktop
+const viewportHeight = 1080;
 
-  window.addEventListener('load', async () => {
-    await loadIcons();
-    generateIcons();
-  });
-  window.addEventListener('resize', generateIcons);
-</script>
+for (let i = 0; i < numIcons; i++) {
+  let x: number, y: number, attempts = 0;
+  do {
+    x = Math.random() * (viewportWidth - 150);
+    y = Math.random() * (viewportHeight - 150);
+    attempts++;
+    if (attempts > 100) break;
+  } while (positions.some(p => Math.sqrt((p.x - x) ** 2 + (p.y - y) ** 2) < 200));
+  positions.push({ x, y });
+}
+---
+
+<div class="fixed inset-0 z-10 pointer-events-none">
+  {positions.map((pos, i) => {
+    const icon = icons[Math.floor(Math.random() * icons.length)];
+    const opacity = 0.07;
+    return (
+      <div style={`position:absolute;left:${pos.x}px;top:${pos.y}px;opacity:${opacity}`}>
+        <div set:html={icon}></div>
+      </div>
+    );
+  })}
+</div>
