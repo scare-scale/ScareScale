@@ -32,11 +32,18 @@ for (let i = 0; i < numIcons; i++) {
   } while (positions.some(p => Math.sqrt((p.x - x) ** 2 + (p.y - y) ** 2) < 200));
   positions.push({ x, y });
 }
+
+const numPerIcon = numIcons / rawIcons.length;
+
+const iconList: string[] = [];
+for (let i = 0; i < numPerIcon; i++) {
+  iconList.push(...icons);
+}
 ---
 
 <div class="fixed inset-0 z-10 pointer-events-none">
   {positions.map((pos, i) => {
-    const icon = icons[Math.floor(Math.random() * icons.length)];
+    const icon = iconList[i];
     const opacity = 0.07;
     return (
       <div style={`position:absolute;left:${pos.x}px;top:${pos.y}px;opacity:${opacity}`}>

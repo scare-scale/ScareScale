@@ -27,7 +27,7 @@ const { backdropUrl } = Astro.props;
     class="overflow-hidden overflow-y-auto bg-bg-primary min-h-screen flex flex-col bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blood-950 via-bg-primary-900 to-bg-primary"
   >
     <!-- Background Image -->
-    {backdropUrl && <div class="fixed inset-0 z-0">
+    {backdropUrl ? <div class="fixed inset-0 z-0">
       <Image
         src={backdropUrl}
         alt={`backdrop`}
@@ -35,10 +35,9 @@ const { backdropUrl } = Astro.props;
         height={854}
         width={480}
       />
-      <!-- Enhanced gradient overlay for better text readability -->
       <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/90 z-0"></div>
-    </div>}
-    <BackgroundIcons />
+    </div>
+    :<BackgroundIcons />}
     <div class="w-screen flex-grow z-40">
       <NavBar />
       <slot />
