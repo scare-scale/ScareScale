@@ -46,24 +46,54 @@ export const isLoggedIn = async (): Promise<boolean> => {
   return false;
 };
 
-export const submitReview = async (movie: Movie, review: Review) => {
+export const submitReview = async (movie: Movie, review: Review, update: boolean) => {
   const user = await getCurrentUser();
 
   if (!user) throw new Error('User must be authenticated to submit a review');
 
-  const { data, error } = await supabase
-    .from('reviews')
-    .insert([
-      {
-        movie_id: movie.id,
-        user_id: user.id,
-        type: review.type,
+  if (update) {
+    // Update existing review
+    return await supabase
+      .from('reviews')
+      .update({
         content: review.content,
         categories: review.categories,
-      },
-    ]);
+      })
+      .eq('movie_id', movie.id)
+      .eq('user_id', user.id);
+  } else {
+    // Insert new review
+    return await supabase
+      .from('reviews')
+      .insert([
+        {
+          movie_id: movie.id,
+          user_id: user.id,
+          type: review.type,
+          content: review.content,
+          categories: review.categories,
+        },
+      ]);
+  }
+};
 
-  return { data, error };
+export const getUserReview = async (movieId: string) => {
+  const user = await getCurrentUser();
+
+  if (!user) return null;
+
+  const { data, error } = await supabase
+    .from('reviews')
+    .select('movie_id, user_id, type, content, categories')
+    .eq('movie_id', movieId)
+    .eq('user_id', user.id)
+    .eq('type', 'user');
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data && data.length > 0 ? data[0] : null;
 };
 
 export const queryMovies = async () => {

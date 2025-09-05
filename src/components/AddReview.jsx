@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Categories } from '../models/Categories';
 import { Review as MovieReview } from '../models/Review';
-import { submitReview } from '../lib/supabase';
+import { submitReview, getUserReview } from '../lib/supabase';
 import { movies } from "../lib/movies"
 import { getCurrentUser } from "../lib/supabase"
 
@@ -11,6 +11,7 @@ const ReviewPage = ({slug}) => {
   const [user, setUser] = useState(null);
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
+  const [existingReview, setExistingReview] = useState(null);
 
   useEffect(() => {
     const checkLoggedIn = async () => {
@@ -29,6 +30,20 @@ const ReviewPage = ({slug}) => {
     }
     setMovie(movie);
   }, []);
+
+  useEffect(() => {
+    if (movie && user) {
+      const fetchExistingReview = async () => {
+        try {
+          const review = await getUserReview(movie.id);
+          setExistingReview(review);
+        } catch (err) {
+          console.error('Error fetching existing review:', err);
+        }
+      };
+      fetchExistingReview();
+    }
+  }, [movie, user]);
   
   const onCancel = () => {
     window.location.href = window.location.href.replace("/review", "")
@@ -53,13 +68,13 @@ const ReviewPage = ({slug}) => {
     const content = formData.get('content')?.toString() || '';
 
     const review = MovieReview.userReview(categories, content);
-
+    
     try {
-      const { error: reviewError } = await submitReview(movie, review);
+      const { error: reviewError } = await submitReview(movie, review, existingReview);
       if (reviewError) {
         setError(reviewError.message);
       } else {
-        setSuccess('Your review has been submitted.');
+        setSuccess(existingReview ? 'Your review has been updated.' : 'Your review has been submitted.');
       }
     } catch (err) {
       setError('Something went wrong.');
@@ -99,7 +114,7 @@ const ReviewPage = ({slug}) => {
 
         {/* Review Form */}
         <div className="bg-white rounded-lg shadow-sm p-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-6">Add Your Review</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-6">{existingReview ? 'Update Your Review' : 'Add Your Review'}</h2>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-2 gap-6">
@@ -115,6 +130,7 @@ const ReviewPage = ({slug}) => {
                   min="0"
                   max="10"
                   required
+                  defaultValue={existingReview?.categories?.gore || ''}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
                   placeholder="0–10"
                 />
@@ -132,6 +148,7 @@ const ReviewPage = ({slug}) => {
                   min="0"
                   max="10"
                   required
+                  defaultValue={existingReview?.categories?.creepy || ''}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
                   placeholder="0–10"
                 />
@@ -149,6 +166,7 @@ const ReviewPage = ({slug}) => {
                   min="0"
                   max="10"
                   required
+                  defaultValue={existingReview?.categories?.suspense || ''}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
                   placeholder="0–10"
                 />
@@ -166,6 +184,7 @@ const ReviewPage = ({slug}) => {
                   min="0"
                   max="10"
                   required
+                  defaultValue={existingReview?.categories?.jumpscares || ''}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
                   placeholder="0–10"
                 />
@@ -183,6 +202,7 @@ const ReviewPage = ({slug}) => {
                   min="0"
                   max="10"
                   required
+                  defaultValue={existingReview?.categories?.psychological || ''}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
                   placeholder="0–10"
                 />
@@ -195,6 +215,7 @@ const ReviewPage = ({slug}) => {
                 id="content"
                 name="content"
                 rows="4"
+                defaultValue={existingReview?.content || ''}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
                 placeholder="Share your thoughts about this movie..."
               />
@@ -209,7 +230,7 @@ const ReviewPage = ({slug}) => {
                 disabled={loading}
                 className="flex-1 bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 font-medium disabled:opacity-50"
               >
-                {loading ? 'Submitting...' : 'Submit Review'}
+                {loading ? 'Submitting...' : (existingReview ? 'Update Review' : 'Submit Review')}
               </button>
               <button
                 type="button"
