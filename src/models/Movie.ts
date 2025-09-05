@@ -73,7 +73,7 @@ export class Movie {
     if (!Array.isArray(this.reviews)) return false;
   
     return this.reviews.some(
-      review => review.type === ReviewType.Official && review.overallRating >= 6
+      review => review.isApproved()
     );
   }
 

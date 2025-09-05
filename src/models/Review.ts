@@ -29,4 +29,12 @@ export class Review {
   static userReview(categories: Categories, content: string): Review {
     return new Review(ReviewType.User, content, categories);
   }
+
+  isApproved(): boolean {  
+    return this.type === ReviewType.Official && this.overallRating >= 6
+  }
+
+  isAi(): boolean {  
+    return this.type === ReviewType.AI
+  }
 }
