@@ -96,7 +96,7 @@ const grids = [
           <MoviesGrid
             sort={Sort.HighestToLowestScore}
             showRank={true}
-            movies={movies.getHuman()}
+            movies={movies.getWithHumanReviews()}
             maxCount={5}
             {...grid.props}
           />
