@@ -9,6 +9,7 @@ import Breadcrumbs from "../../components/nav/Breadcrumbs.astro";
 import RatingsUnavailable from "../../components/cards/RatingsUnavailable.astro";
 import MovieControlBar from "../../components/cards/MovieControlBar";
 import MoviesGrid, { Sort } from "../../components/grids/MoviesGrid.astro";
+import ReviewsTable from "../../components/ReviewsTable";
 
 export async function getStaticPaths() {
   return movies.getAll().map((movie) => ({
@@ -127,56 +128,7 @@ const review = movie.getSummaryReview();
           <div class="w-32 h-1 bg-gradient-to-r from-blood-600 to-blood-400 mx-auto rounded-full"></div>
         </div>
 
-        <div class="bg-bg-card rounded-lg border border-border-primary">
-          <table class="w-full text-left">
-            <thead class="bg-bg-accent border-b border-border-primary">
-              <tr>
-                <th class="px-2 md:px-6 py-4 text-text-secondary font-semibold uppercase tracking-wide text-sm">Reviewer</th>
-                <th class="px-2 md:px-6 py-4 text-text-secondary font-semibold uppercase tracking-wide text-sm">Rating</th>
-                <th class="px-2 md:px-6 py-4 text-text-secondary font-semibold uppercase tracking-wide text-sm">Categories</th>
-              </tr>
-            </thead>
-            <tbody class="">
-              {movie.getHumanReviews().map((review) => (
-                <>
-                  <tr class="border-b border-border-primary">
-                    <td class="px-2 md:px-6 py-4">
-                      <div class="flex items-center gap-3">
-                        <div>
-                          <div class="text-text-primary font-medium">{review.type.charAt(0).toUpperCase() + review.type.slice(1)} Reviewer</div>
-                          <div class="text-text-muted text-sm">Verified</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="px-2 md:px-6 py-4">
-                      <div class="text-2xl font-bold text-blood-500">{review.overallRating}/10</div>
-                    </td>
-                    <td class="px-2 md:px-6 py-4 md:table-cell">
-                      <div class="flex flex-wrap gap-2">
-                        {Object.entries(review.categories).map(([categoryName, score]) => (
-                          <div class="flex items-center gap-1 bg-bg-accent px-2 py-1 rounded text-sm">
-                            <img class="w-3 h-3" src={`/icons/categories/${categoryName}.svg`} alt={categoryName} />
-                            <span class="text-text-secondary capitalize">{categoryName}</span>
-                            <span class="text-blood-400 font-medium">{score}/10</span>
-                          </div>
-                        ))}
-                      </div>
-                    </td>
-                  </tr>
-                  {review.content?.trim() && (
-                    <tr class="border-b-2 border-primary">
-                      <td colspan="3" class="px-2 md:px-6 py-4">
-                        <div class="text-text-primary text-sm leading-relaxed max-w-none">
-                          {review.content}
-                        </div>
-                      </td>
-                    </tr>
-                  )}
-                </>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <ReviewsTable movies={[movie]}/>
       </div>
     )
   }

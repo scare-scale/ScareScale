@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Movie } from "../models/Movie";
 import type { Review } from "../models/Review";
+import { Movies } from "../models/Movies";
 
 export const supabase = createClient(
   import.meta.env.PUBLIC_SUPABASE_URL,
@@ -97,20 +98,60 @@ export const getUserReview = async (movieId: string) => {
 };
 
 export const queryMovies = async () => {
-    let { data: movies, error } = await supabase.from('movies')
+  let { data: movies, error } = await supabase.from('movies')
+  .select(`
+    id,
+    name,
+    tmdbPosterId,
+    tmdbBackdropId,
+    releaseDate,
+    synopsis,
+    reviews ( type, content, categories )
+  `)
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return movies;
+};
+
+export const getMoviesWithCurrentUserReview = async () => {
+  const user = await getCurrentUser();
+
+  if (!user) return [];
+
+  const { data, error } = await supabase
+    .from('reviews')
     .select(`
-      id,
-      name,
-      tmdbPosterId,
-      tmdbBackdropId,
-      releaseDate,
-      synopsis,
-      reviews ( type, content, categories )
+      type,
+      content,
+      categories,
+      user_id,
+      movies (
+        id,
+        name,
+        tmdbPosterId,
+        tmdbBackdropId,
+        releaseDate,
+        synopsis
+      )
     `)
+    .eq('user_id', user.id);
 
-    if (error) {
-      throw new Error(error.message);
-    }
+  if (error) {
+    throw new Error(error.message);
+  }
 
-    return movies;
-}
+  if (!data || data.length === 0) {
+    return Movies.empty();
+  }
+
+  // Reform movies json
+  return data.map((item) => {
+    return {
+          ...item.movies,
+          reviews: [{...item}]
+        }
+  });
+};

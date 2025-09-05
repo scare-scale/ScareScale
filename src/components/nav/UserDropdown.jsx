@@ -66,6 +66,13 @@ const UserDropdown = () => {
           Profile
         </a>
         <a
+          href="/reviews"
+          className="block px-4 py-2 text-sm text-text-primary hover:bg-blood-600/20 hover:text-blood-400 transition-colors"
+          role="menuitem"
+        >
+          My Reviews
+        </a>
+        <a
           href="/"
           onClick={signOut}
           className="block px-4 py-2 text-sm text-text-primary hover:bg-blood-600/20 hover:text-blood-400 transition-colors"
