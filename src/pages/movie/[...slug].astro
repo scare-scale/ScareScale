@@ -181,6 +181,19 @@ const review = movie.getSummaryReview();
     )
   }
 
+  <!-- Add Review Button Below Reviews -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-8 pb-8">
+    <div class="text-center">
+      <a
+        href={`/movie/${movie.slug}/review`}
+        class="inline-flex items-center gap-2  bg-gray-800/80 backdrop-blur-md shadow-xl text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+      >
+        <img src="/icons/edit.svg" alt="Add Review" class="w-5 h-5" />
+        Add Your Review
+      </a>
+    </div>
+  </div>
+
   <!-- Similar Movies Section -->
   <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
     <div class="text-center mb-10">
