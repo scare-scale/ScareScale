@@ -8,14 +8,17 @@ import { getCurrentUser } from "../lib/supabase"
 const ReviewPage = ({slug}) => {
   const [error, setError] = useState('');
   const [movie, setMovie] = useState(null);
+  const [user, setUser] = useState(null);
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const checkLoggedIn = async () => {
-        if (await getCurrentUser() == null) {
+        const currentUser = await getCurrentUser();
+        if (currentUser == null) {
           window.location.href = `/auth?referrer=${window.location.href}`
         }
+        setUser(currentUser);
     };
     checkLoggedIn();
 
@@ -66,6 +69,10 @@ const ReviewPage = ({slug}) => {
   };
 
   if (!movie) {
+    return <></>
+  }
+
+  if (!user) {
     return <></>
   }
 
