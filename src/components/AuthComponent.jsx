@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { signIn, signUp } from '../lib/supabase';
+import { signIn, signUp , getCurrentUser } from '../lib/supabase';
 
 const AuthComponent = () => {
   const [mode, setMode] = useState('signin');
@@ -12,6 +12,14 @@ const AuthComponent = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const modeParam = urlParams.get('mode') === 'signup' ? 'signup' : 'signin';
     const referrer = urlParams.get('referrer') || '/';
+
+    const checkLoggedIn = async () => {
+        if (await getCurrentUser() != null) {
+            window.location.href = referrer
+        }
+    };
+    checkLoggedIn();
+
     setMode(modeParam);
     setReferrerUrl(referrer);
   }, []);

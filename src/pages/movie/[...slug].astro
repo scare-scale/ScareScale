@@ -8,7 +8,7 @@ import ScareScaleRating from "../../components/cards/ScareScaleRating.astro";
 import Breadcrumbs from "../../components/nav/Breadcrumbs.astro";
 import RatingsUnavailable from "../../components/cards/RatingsUnavailable.astro";
 import Review from "../../components/cards/Review.astro";
-import MovieControlBar from "../../components/cards/MovieControlBar.astro";
+import MovieControlBar from "../../components/cards/MovieControlBar";
 import MoviesGrid, { Sort } from "../../components/grids/MoviesGrid.astro";
 
 export async function getStaticPaths() {
@@ -68,7 +68,7 @@ const review = movie.getPriorityReview();
                 />
               </div>
               <div class="mt-4">
-                <MovieControlBar movie={movie} />
+                <MovieControlBar movie={movie} client:load/>
               </div>
             </div>
           </div>
