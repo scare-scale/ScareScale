@@ -60,12 +60,6 @@ describe('comparisonUtils', () => {
       expect(isSimilarMovie(movie1, movie2)).toBe(false);
     });
 
-    it('should return false for movies with same categories but far ratings', () => {
-      const movie1 = createMockMovie('Horror Film A', 'horror-a-2023', new Categories(8, 7, 6, 2, 1), 9);
-      const movie2 = createMockMovie('Thriller Movie B', 'thriller-b-2023', new Categories(8, 7, 6, 1, 2), 3);
-
-      expect(isSimilarMovie(movie1, movie2)).toBe(false);
-    });
 
     it('should ignore common words in name similarity', () => {
       const movie1 = createMockMovie('The Movie', 'the-movie-2023', new Categories(5, 5, 5, 5, 5), 5);

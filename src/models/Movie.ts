@@ -1,5 +1,4 @@
 import moment from "moment";
-import { calculateOverallRating, fearLevelText } from "../utils/scoreUtils";
 import { Review, ReviewType } from "./Review";
 import { Categories } from "./Categories";
 
