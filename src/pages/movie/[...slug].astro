@@ -19,7 +19,8 @@ export async function getStaticPaths() {
 }
 
 const { movie } = Astro.props;
-const review = movie.getPriorityReview();
+
+const review = movie.getSummaryReview();
 ---
 
 <head>
@@ -104,7 +105,7 @@ const review = movie.getPriorityReview();
 
             <div class="pt-2">
               {
-                review.overallRating > 0 ? (
+                movie.hasReviews() ? (
                   <ScareScaleRating movie={movie} />
                 ) : (
                   movie.isReleased && <RatingsUnavailable movie={movie} />
@@ -118,7 +119,7 @@ const review = movie.getPriorityReview();
   </section>
 
   {
-    (movie.reviews.length > 1 || review.content) && (
+    (movie.hasReviews() || review.content) && (
       <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
         <div class="text-center mb-10">
           <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">

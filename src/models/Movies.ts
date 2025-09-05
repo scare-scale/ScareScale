@@ -66,12 +66,12 @@ export class Movies {
       return this.movies.filter((movie) => movie.isApproved());
     }
 
-    getOfficial(): Movie[] {
-      return this.movies.filter((movie) => movie.isOfficial());
+    getHuman(): Movie[] {
+      return this.movies.filter((movie) => movie.hasHumanReviews());
     }
-
+    
     getWithReviews(): Movie[] {
-      return this.movies.filter((movie) => movie.reviews.length > 0);
+      return this.movies.filter((movie) => movie.hasReviews());
     }
 
     getUpcoming(): Movie[] {

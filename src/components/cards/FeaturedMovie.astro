@@ -12,8 +12,6 @@ const movie =
 if (movie === null) {
   throw new Error("Featured movie not found.");
 }
-
-export const prerender = false;
 ---
 
 <a
@@ -101,7 +99,7 @@ export const prerender = false;
                   class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 sm:border-4 border-red-500 bg-black/80 flex justify-center items-center shadow-lg"
                 >
                   <span class="text-lg sm:text-2xl font-black text-red-400">
-                    {movie.getPriorityReview().overallRating}
+                    {movie.getSummaryReview().overallRating}
                   </span>
                 </div>
                 <div

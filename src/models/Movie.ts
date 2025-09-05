@@ -67,7 +67,7 @@ export class Movie {
   }
 
   getTopCategories(): string[] {
-    return this.getPriorityReview().categories.getTopCategories();
+    return this.getSummaryReview().categories.getTopCategories();
   }
 
   isApproved(): boolean {
@@ -78,12 +78,16 @@ export class Movie {
     );
   }
 
-  isOfficial(): boolean {
+  hasHumanReviews(): boolean {
     if (!Array.isArray(this.reviews)) return false;
   
     return this.reviews.some(
-      review => review.type === ReviewType.Official
+      review => review.type != ReviewType.AI
     );
+  }
+
+  hasReviews(): boolean {
+    return this.reviews.length > 0;
   }
 
   getSummaryReview(): Review {
@@ -116,21 +120,4 @@ export class Movie {
   
     return new Review(ReviewType.Summary, "Summary", averagedCategories)
   }
-
-  getPriorityReview(): Review {
-    if (!this.reviews || this.reviews.length === 0) return Review.empty();
-  
-    const priorityOrder: ReviewType[] = [
-      ReviewType.Official,
-      ReviewType.User,
-      ReviewType.AI
-    ];
-  
-    return (
-      priorityOrder
-        .map(type => this.reviews.find(review => review.type === type))
-        .find(review => review !== undefined) ?? this.reviews[0]
-    );
-  }
-  
 }

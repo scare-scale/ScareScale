@@ -16,6 +16,8 @@ const cardText = () => {
 
   return;
 };
+
+const review = movie.getSummaryReview()
 ---
 
 <a
@@ -53,18 +55,15 @@ const cardText = () => {
   <div
     class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent text-white text-center sm:text-sm lg:text-lg font-semibold py-2 items-center justify-center flex gap-2 rounded-b-lg"
   >
-  { movie.reviews.length > 0 ?
-    movie.reviews
-      .map((review: Review) => (
-        <span class="inline-flex items-center justify-center gap-1 whitespace-nowrap text-sm sm:text-base text-white bg-black/50 px-2 py-1 rounded-full">
-          <img
-            class="w-4 h-4 sm:w-5 sm:h-5 shrink-0"
-            src={`/icons/${review.type}.svg`}
-            alt={`${review.type} review icon`}
-          />
-          <span>{review.overallRating}</span>
-        </span>
-      ))
+  { movie.hasReviews() ?
+      <span class="inline-flex items-center justify-center gap-1 whitespace-nowrap text-sm sm:text-base text-white bg-black/50 px-2 py-1 rounded-full">
+        <img
+          class="w-4 h-4 sm:w-5 sm:h-5 shrink-0"
+          src={`/icons/${review.type}.svg`}
+          alt={`${review.type} review icon`}
+        />
+        <span>{review.overallRating}</span>
+      </span>
     : cardText()
   }
   </div>
