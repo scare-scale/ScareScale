@@ -78,6 +78,12 @@ export class Movie {
     );
   }
 
+  getHumanReviews(): Review[] {  
+    return this.reviews.filter(
+      review => review.type != ReviewType.AI
+    );
+  }
+
   hasHumanReviews(): boolean {
     if (!Array.isArray(this.reviews)) return false;
   
