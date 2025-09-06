@@ -15,15 +15,20 @@ import FeaturedMovie from "../components/cards/FeaturedMovie.astro";
       basic: {
         type: "website",
         url: "https://scarescale.com/",
-        title: "Scare Scale - Horror Movie Scare Ratings | Fear Factor Breakdown",
+        title:
+          "Scare Scale - Horror Movie Scare Ratings | Fear Factor Breakdown",
         image: "https://scarescale.com/screenshots/home_page_screenshot.png",
       },
       optional: {
-        description: "Rank horror movies by Gore, Creepy moments, Jumpscares, Suspense, and Psychological fear. Find the scariest films ranked by their chilling impact!",
-      }
+        description:
+          "Rank horror movies by Gore, Creepy moments, Jumpscares, Suspense, and Psychological fear. Find the scariest films ranked by their chilling impact!",
+      },
     }}
   />
-  <meta name="keywords" content="horror movies, scare ratings, gore, creepy, jumpscares, suspense, psychological horror" />
+  <meta
+    name="keywords"
+    content="horror movies, scare ratings, gore, creepy, jumpscares, suspense, psychological horror"
+  />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -36,37 +41,70 @@ import FeaturedMovie from "../components/cards/FeaturedMovie.astro";
 </head>
 
 <MainLayout>
-  <section class="flex flex-col gap-y-10 md:gap-y-20">
-    <div
-      class="relative isolate overflow-hidden px-6 pt-16 shadow-2xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0 min-h-screen"
-    >
+  <section class="min-h-screen">
+    <div class="relative isolate overflow-hidden min-h-screen">
+      <!-- 6-Column Grid Layout -->
       <div
-        class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left"
+        class="relative z-20 grid grid-cols-6 gap-6 lg:gap-8 min-h-screen p-6 lg:p-8"
       >
-        <h2
-          class="text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl"
-        >
-          Scare Scale: Where Horror Finds Its Score.
-        </h2>
-        <p class="mt-6 text-lg/8 text-pretty text-gray-300">
-          We score horror movies across five core fear categories to uncover the films that are truly terrifying.
-        </p>
+        <!-- Left Side - 2 Columns -->
         <div
-          class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start"
+          class="col-span-6 lg:col-span-2 flex flex-col justify-start space-y-8 pt-8 lg:pt-16"
         >
-          <a
-            href="/recommended"
-            class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >Scare Scale Approved</a
-          >
-          <a href="/ranks" class="text-sm/6 font-semibold text-white"
-            >Horror Ranks <span aria-hidden="true">→</span></a
-          >
+          <div class="space-y-6">
+            <h2
+              class="font-bold tracking-tight text-balance text-text-primary text-5xl leading-tight text-center lg:text-left"
+            >
+              Scare Scale
+              <span class="block text-blood-700"
+                >Where Horror Finds Its Score</span
+              >
+            </h2>
+            <p
+              class="text-lg text-text-secondary leading-relaxed max-w-md text-center lg:text-left mx-auto lg:mx-0"
+            >
+              We score horror movies across five core fear categories to uncover
+              the films that are truly terrifying.
+            </p>
+            <div
+              class="mt-12 flex flex-row items-center justify-center gap-4 lg:justify-start"
+            >
+              <a
+                href="/approved"
+                class="rounded-lg bg-gradient-to-r from-blood-600 to-blood-700 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:from-blood-700 hover:to-blood-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blood-400 transition-all duration-200 hover:scale-105"
+                >Scare Scale Approved</a
+              >
+              <a
+                href="/ranks"
+                class="text-lg font-semibold text-text-primary hover:text-blood-400 transition-colors duration-200 flex items-center gap-2 group"
+                >Horror Ranks <span
+                  class="group-hover:translate-x-1 transition-transform"
+                  aria-hidden="true">→</span
+                ></a
+              >
+            </div>
+          </div>
+
+          <!-- Featured Movie in left column -->
+          <div class="hidden lg:block">
+            <FeaturedMovie />
+          </div>
         </div>
-        <FeaturedMovie />
-      </div>
-      <div class="mt-16 lg:mt-8">
-        <MoviesGrid sort={Sort.ReleaseDateDecending} maxCount={15}/>
+
+        <!-- Right Side - 4 Columns -->
+        <div class="col-span-6 lg:col-span-4 flex flex-col justify-center">
+          <div class="space-y-6">
+            <!-- Featured Movie on mobile/small screens -->
+            <div class="lg:hidden">
+              <FeaturedMovie />
+            </div>
+
+            <!-- Movies Grid -->
+            <div class="pt-6">
+              <MoviesGrid sort={Sort.ReleaseDateDecending} maxCount={15} />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -16,11 +16,13 @@ const cardText = () => {
 
   return;
 };
+
+const review = movie.getSummaryReview()
 ---
 
 <a
   href={`/movie/${movie.slug}`}
-  class="relative group"
+  class="relative group block overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
   id={movie.name}
 >
   <Image
@@ -28,22 +30,22 @@ const cardText = () => {
     alt={movie.name}
     width={300}
     height={450}
-    class="w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75"
+    class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
     loading={lazyLoad ? "lazy" : "eager"}
   />
   {
     rank ? (
-      <span class="absolute top-0 left-0 bg-red-500 text-white text-sm font-bold flex items-center justify-center w-6 h-6 lg:w-12 lg:h-12 clip-triangle">
+      <span class="absolute top-0 left-0 bg-gradient-to-br from-red-600 to-red-700 text-white text-sm font-bold flex items-center justify-center w-8 h-8 lg:w-12 lg:h-12 clip-triangle shadow-lg">
         {rank}
       </span>
     ) : <></>
   }
-  <div class="absolute top-0 right-0 flex flex-row items-start space-x-1 p-1 bg-black bg-opacity-50 rounded-bl-lg rounded-tr-lg">
+  <div class="absolute top-0 right-0 flex flex-row items-start space-x-1 p-2 bg-black/70 backdrop-blur-sm rounded-bl-lg rounded-tr-lg">
     {
       movie.getTopCategories()
         .map((categoryName: string) => (
           <img
-          class="w-4 h-4 sm:w-5 sm:h-5 shrink-0"
+          class="w-5 h-5 sm:w-6 sm:h-6 shrink-0 hover:scale-110 transition-transform"
           src={`/icons/categories/${categoryName}.svg`}
             alt={`${categoryName} icon`}
           />
@@ -51,20 +53,17 @@ const cardText = () => {
     }
   </div>
   <div
-    class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-center sm:text-sm lg:text-lg font-semibold py-1 items-center justify-center flex gap-2 rounded-b-lg"
+    class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent text-white text-center sm:text-sm lg:text-lg font-semibold py-2 items-center justify-center flex gap-2 rounded-b-lg"
   >
-  { movie.reviews.length > 0 ?
-    movie.reviews
-      .map((review: Review) => (
-        <span class="inline-flex items-center justify-center gap-1 whitespace-nowrap text-sm sm:text-base text-white">
-          <img
-            class="w-4 h-4 sm:w-5 sm:h-5 shrink-0"
-            src={`/icons/${review.type}.svg`}
-            alt={`${review.type} review icon`}
-          />
-          <span>{review.overallRating}</span>
-        </span>
-      ))
+  { movie.hasReviews() ?
+      <span class="inline-flex items-center justify-center gap-1 whitespace-nowrap text-sm sm:text-base text-white bg-black/50 px-2 py-1 rounded-full">
+        <img
+          class="w-4 h-4 sm:w-5 sm:h-5 shrink-0"
+          src={`/icons/${review.type}.svg`}
+          alt={`${review.type} review icon`}
+        />
+        <span>{review.overallRating}</span>
+      </span>
     : cardText()
   }
   </div>

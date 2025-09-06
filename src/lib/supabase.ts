@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Movie } from "../models/Movie";
 import type { Review } from "../models/Review";
+import { Movies } from "../models/Movies";
 
 export const supabase = createClient(
   import.meta.env.PUBLIC_SUPABASE_URL,
@@ -15,6 +16,7 @@ export const signUp = async (email: string, password: string, displayName: strin
       data: {
         display_name: displayName
       },
+      emailRedirectTo: `${window.location.origin}/auth`
     },
   });
   return { data, error };
@@ -33,8 +35,22 @@ export const signOut = async () => {
   return { error };
 };
 
+export const resetPassword = async (email: string) => {
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: `${window.location.origin}/auth?mode=reset`,
+  });
+  return { data, error };
+};
+
+export const updatePassword = async (newPassword: string) => {
+  const { data, error } = await supabase.auth.updateUser({
+    password: newPassword,
+  });
+  return { data, error };
+};
+
 export const getCurrentUser = async () => {
-  const { data: { user } } = await supabase.auth.getUser();
+  const { data: { user }, error } = await supabase.auth.getUser();
   return user;
 };
 
@@ -46,41 +62,111 @@ export const isLoggedIn = async (): Promise<boolean> => {
   return false;
 };
 
-export const submitReview = async (movie: Movie, review: Review) => {
+export const submitReview = async (movie: Movie, review: Review, update: boolean) => {
   const user = await getCurrentUser();
 
   if (!user) throw new Error('User must be authenticated to submit a review');
 
-  const { data, error } = await supabase
-    .from('reviews')
-    .insert([
-      {
-        movie_id: movie.id,
-        user_id: user.id,
-        type: review.type,
+  if (update) {
+    // Update existing review
+    return await supabase
+      .from('reviews')
+      .update({
         content: review.content,
         categories: review.categories,
-      },
-    ]);
+      })
+      .eq('movie_id', movie.id)
+      .eq('user_id', user.id);
+  } else {
+    // Insert new review
+    return await supabase
+      .from('reviews')
+      .insert([
+        {
+          movie_id: movie.id,
+          user_id: user.id,
+          type: review.type,
+          content: review.content,
+          categories: review.categories,
+        },
+      ]);
+  }
+};
 
-  return { data, error };
+export const getUserReview = async (movieId: string) => {
+  const user = await getCurrentUser();
+
+  if (!user) return null;
+
+  const { data, error } = await supabase
+    .from('reviews')
+    .select('movie_id, user_id, type, content, categories')
+    .eq('movie_id', movieId)
+    .eq('user_id', user.id)
+    .eq('type', 'user');
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data && data.length > 0 ? data[0] : null;
 };
 
 export const queryMovies = async () => {
-    let { data: movies, error } = await supabase.from('movies')
+  let { data: movies, error } = await supabase.from('movies')
+  .select(`
+    id,
+    name,
+    tmdbPosterId,
+    tmdbBackdropId,
+    releaseDate,
+    synopsis,
+    reviews ( type, content, categories, profiles (display_name) )
+  `)
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return movies;
+};
+
+export const getMoviesWithCurrentUserReview = async () => {
+  const user = await getCurrentUser();
+
+  if (!user) return [];
+
+  const { data, error } = await supabase
+    .from('reviews')
     .select(`
-      id,
-      name,
-      tmdbPosterId,
-      tmdbBackdropId,
-      releaseDate,
-      synopsis,
-      reviews ( type, content, categories )
+      type,
+      content,
+      categories,
+      user_id,
+      movies (
+        id,
+        name,
+        tmdbPosterId,
+        tmdbBackdropId,
+        releaseDate,
+        synopsis
+      )
     `)
+    .eq('user_id', user.id);
 
-    if (error) {
-      throw new Error(error.message);
-    }
+  if (error) {
+    throw new Error(error.message);
+  }
 
-    return movies;
-}
+  if (!data || data.length === 0) {
+    return [];
+  }
+
+  // Reform movies json
+  return data.map((item) => {
+    return {
+          ...item.movies,
+          reviews: [{...item}]
+        }
+  });
+};

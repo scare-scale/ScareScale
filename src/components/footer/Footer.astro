@@ -3,18 +3,27 @@ import packageJson from "../../../package.json";
 const githubUrl = "https://github.com/scare-scale/ScareScale";
 ---
 
-<footer class="bg-gray-800 text-white p-4 border-t-2 border-[#d60c16] z-40">
-  <div class="container mx-auto flex items-center justify-center space-x-6">
-    <p class="text-sm">Version {packageJson.version}</p>
-    <p class="text-sm">&copy; {new Date().getFullYear()} Scare Scale. All rights reserved.</p>
-    <a
-      href={githubUrl}
-      class="flex items-center space-x-2 text-sm hover:text-gray-400 transition duration-300"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <img src="/icons/github.svg" alt="GitHub Logo" class="h-4 w-4" />
-      <span>Github</span>
-    </a>
+<footer class="bg-black/90 backdrop-blur-md text-white py-6 border-t border-red-600/30 z-40">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+      <div class="flex items-center space-x-6">
+        <p class="text-sm text-gray-400">Version {packageJson.version}</p>
+        <p class="text-sm text-gray-400">&copy; {new Date().getFullYear()} Scare Scale. All rights reserved.</p>
+      </div>
+      <div class="flex items-center space-x-6">
+        <a
+          href={githubUrl}
+          class="flex items-center space-x-2 text-sm text-gray-300 hover:text-white transition-colors duration-200 hover:scale-105 transform"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/icons/github.svg" alt="GitHub Logo" class="h-5 w-5" />
+          <span>GitHub</span>
+        </a>
+        <div class="flex items-center space-x-2 text-sm text-gray-400">
+          <span>Made by horror fans, for horror fans.</span>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>

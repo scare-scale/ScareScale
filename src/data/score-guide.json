@@ -1,0 +1,125 @@
+{
+  "categories": {
+    "gore": {
+      "1-2": [
+        "Little to no blood",
+        "Injuries occur off-screen or are implied rather than shown"
+      ],
+      "3-4": [
+        "Visible blood and mild wounds",
+        "Some violent sequences, but restrained"
+      ],
+      "5-6": [
+        "Graphic violence with realistic injury depictions",
+        "Frequent bloodshed, but not extreme"
+      ],
+      "7-8": [
+        "Intense body horror, mutilation, and explicit depictions",
+        "Close-up shots of wounds and injuries"
+      ],
+      "9-10": [
+        "Unflinching brutality; no censorship",
+        "Extreme viscera and disturbing imagery"
+      ]
+    },
+    "creepy": {
+      "1-2": [
+        "A few eerie moments or unsettling visuals",
+        "Slight discomfort but no lasting dread"
+      ],
+      "3-4": [
+        "Consistent eerie vibe, disturbing characters or imagery",
+        "Background tension but not deeply unsettling"
+      ],
+      "5-6": [
+        "Frequent disturbing elements, unsettling ambiance",
+        "Scenes that linger in the mind"
+      ],
+      "7-8": [
+        "Relentless disturbing themes, psychological unease",
+        "Creepy silence, unnatural movements"
+      ],
+      "9-10": [
+        "Skin-crawling dread throughout",
+        "Disturbing visuals, deeply troubling concepts"
+      ]
+    },
+    "jumpscares": {
+      "1-2": [
+        "Few, predictable jumpscares",
+        "Tension builds slowly, not reliant on sudden scares"
+      ],
+      "3-4": [
+        "Several well-executed jumpscares",
+        "Not overused, but effective"
+      ],
+      "5-6": [
+        "Numerous moments of sudden shock",
+        "Often tied to audio stingers"
+      ],
+      "7-8": [
+        "Unpredictable jumpscares; tension makes them effective",
+        "Dark spaces & rapid movement play key roles"
+      ],
+      "9-10": [
+        "Near-constant, unpredictable jumps",
+        "Sometimes aggressive or disorienting"
+      ]
+    },
+    "suspense": {
+      "1-2": [
+        "Some tension, but predictable storytelling",
+        "Atmosphere remains safe overall"
+      ],
+      "3-4": [
+        "Prolonged scenes of uncertainty",
+        "Builds unease without overwhelming the audience"
+      ],
+      "5-6": [
+        "High levels of tension with limited relief",
+        "Story progression keeps the audience on edge"
+      ],
+      "7-8": [
+        "Near constant unease; minimal moments of relief",
+        "Unpredictable sequences heighten the dread"
+      ],
+      "9-10": [
+        "Sustained fear that rarely lets up",
+        "Deep psychological stress from drawn-out uncertainty"
+      ]
+    },
+    "psychological": {
+      "1-2": [
+        "Some emotional depth, but no deep mental strain",
+        "A few manipulative moments"
+      ],
+      "3-4": [
+        "Layers of ambiguity and emotional tension",
+        "Moral dilemmas and unsettling themes"
+      ],
+      "5-6": [
+        "Mind-bending elements; disturbing thought patterns",
+        "Leaves the audience questioning reality"
+      ],
+      "7-8": [
+        "Persistent emotional manipulation",
+        "Themes of sanity loss, paranoia, and existential terror"
+      ],
+      "9-10": [
+        "Profound emotional & mental distress",
+        "Reality-breaking, existential crises"
+      ]
+    }
+  },
+  "calculation": {
+    "method": "To determine the Scare Scale Score for a movie: 1. Identify the three highest-rated categories. 2. Sum their scores. 3. Divide by 3 to get the average score. 4. For each top 3 category which has scored less than 3 apply a 0.5 point penalty.",
+    "example": {
+      "gore": 9,
+      "creepy": 8,
+      "jumpscares": 2,
+      "suspense": 8,
+      "psychological": 6,
+      "finalScore": 7.8
+    }
+  }
+}

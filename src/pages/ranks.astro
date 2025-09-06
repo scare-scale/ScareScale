@@ -2,7 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 import { SEO } from "astro-seo";
-import { movies } from "../content.config";
+import { movies } from "../lib/movies";
 
 const grids = [
   {
@@ -70,31 +70,33 @@ const grids = [
 
 <MainLayout>
   <section class="pt-10 pb-20">
-    <header class="text-center px-6 lg:px-8 max-w-3xl mx-auto mb-16">
-      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">
-        Scare Scale Rankings
+    <header class="text-center px-6 lg:px-8 max-w-4xl mx-auto mb-20">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        Scare Scale
+        <span class="block text-red-400">Rankings<span class="text-4xl sm:text-5xl lg:text-6xl">🏆</span></span>
       </h1>
-      <p class="text-lg text-gray-300">
-        Discover the most fear-inducing horror films across years and genres—
+      <p class="text-xl text-gray-300 leading-relaxed">
+        Discover the most fear-inducing horror films across years and genres,
         ranked by our signature Scare Scale algorithm.
       </p>
+      <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mt-8 rounded-full"></div>
     </header>
 
-    <div class="flex flex-col gap-y-8">
-      {grids.map((grid) => (
+    <div class="flex flex-col gap-y-16">
+      {grids.map((grid, index) => (
         <section class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-          <header class="mb-6 text-center">
-            <h2 class="text-2xl sm:text-4xl font-semibold text-white">
+          <header class="mb-8 text-center">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
               {grid.title}
             </h2>
             {grid.subtitle && (
-              <p class="mt-2 text-base text-gray-400">{grid.subtitle}</p>
+              <p class="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">{grid.subtitle}</p>
             )}
           </header>
           <MoviesGrid
             sort={Sort.HighestToLowestScore}
             showRank={true}
-            movies={movies.getOfficial()}
+            movies={movies.getWithHumanReviews()}
             maxCount={5}
             {...grid.props}
           />

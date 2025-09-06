@@ -1,6 +1,6 @@
 import moment from "moment";
-import { calculateOverallRating, fearLevelText } from "../utils/scoreUtils";
 import { Review, ReviewType } from "./Review";
+import { Categories } from "./Categories";
 
 const TMDB_POSTER_BASE_URL = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2";
 const TMDB_BACKDROP_BASE_URL = "https://image.tmdb.org/t/p/original";
@@ -66,39 +66,63 @@ export class Movie {
   }
 
   getTopCategories(): string[] {
-    return this.getPriorityReview().categories.getTopCategories();
+    return this.getSummaryReview().categories.getTopCategories();
   }
 
   isApproved(): boolean {
     if (!Array.isArray(this.reviews)) return false;
   
     return this.reviews.some(
-      review => review.type === ReviewType.Official && review.overallRating >= 6
+      review => review.isApproved()
     );
   }
 
-  isOfficial(): boolean {
+  getHumanReviews(): Review[] {  
+    return this.reviews.filter(
+      review => review.type != ReviewType.AI
+    );
+  }
+
+  hasHumanReviews(): boolean {
     if (!Array.isArray(this.reviews)) return false;
   
     return this.reviews.some(
-      review => review.type === ReviewType.Official
+      review => review.type != ReviewType.AI
     );
   }
 
-  getPriorityReview(): Review {
-    if (!this.reviews || this.reviews.length === 0) return Review.empty();
-  
-    const priorityOrder: ReviewType[] = [
-      ReviewType.Official,
-      ReviewType.User,
-      ReviewType.AI
-    ];
-  
-    return (
-      priorityOrder
-        .map(type => this.reviews.find(review => review.type === type))
-        .find(review => review !== undefined) ?? this.reviews[0]
-    );
+  hasReviews(): boolean {
+    return this.reviews.length > 0;
   }
+
+  getSummaryReview(): Review {
+    const nonAIReviews = this.reviews.filter(r => r.type !== ReviewType.AI);
+
+    if (nonAIReviews.length === 0) {
+      return this.reviews.find(r => r.type === ReviewType.AI) ?? Review.empty();
+    }
   
+    const total = nonAIReviews.reduce(
+      (acc, review) => {
+        acc.gore += review.categories.gore;
+        acc.creepy += review.categories.creepy;
+        acc.suspense += review.categories.suspense;
+        acc.jumpscares += review.categories.jumpscares;
+        acc.psychological += review.categories.psychological;
+        return acc;
+      },
+      { gore: 0, creepy: 0, suspense: 0, jumpscares: 0, psychological: 0 }
+    );
+  
+    const count = nonAIReviews.length;
+    const averagedCategories = new Categories(
+      total.gore / count,
+      total.creepy / count,
+      total.suspense / count,
+      total.jumpscares / count,
+      total.psychological / count
+    );
+  
+    return new Review(ReviewType.Summary, "Summary", averagedCategories, null)
+  }
 }

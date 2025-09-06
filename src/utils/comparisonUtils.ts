@@ -11,7 +11,7 @@ const hasSameTopCategories = (a: Movie, b: Movie): boolean => {
 };
 
 const isWithinScareScaleRange = (a: Movie, b: Movie, range = 2): boolean =>
-  Math.abs(a.getPriorityReview().overallRating - b.getPriorityReview().overallRating) <= range;
+  Math.abs(a.getSummaryReview().overallRating - b.getSummaryReview().overallRating) <= range;
 
 const hasSimilarName = (a: Movie, b: Movie): boolean => {
   

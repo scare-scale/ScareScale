@@ -1,7 +1,9 @@
 ---
 import NavBar from "../components/nav/NavBar.astro";
 import Footer from "../components/footer/Footer.astro";
+import BackgroundIcons from "../components/BackgroundIcons.astro";
 import { Image } from "astro:assets";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 const { backdropUrl } = Astro.props;
 ---
@@ -15,26 +17,28 @@ const { backdropUrl } = Astro.props;
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="description" content="Scare Scale" />
     <title>Scare Scale</title>
   </head>
+  <SpeedInsights/>
   <body
-    class="overflow-hidden overflow-y-auto bg-body min-h-screen flex flex-col bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#570000] via-[#190A05] to-[#10131C]"
+    class="overflow-hidden overflow-y-auto bg-bg-primary min-h-screen flex flex-col bg-fixed bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blood-950 via-bg-primary-900 to-bg-primary"
   >
     <!-- Background Image -->
-    {backdropUrl && <div class="fixed inset-0 z-0">
+    {backdropUrl ? <div class="fixed inset-0 z-0">
       <Image
         src={backdropUrl}
         alt={`backdrop`}
-        class="absolute inset-0 object-cover w-full h-full blur"
+        class="absolute inset-0 object-cover w-full h-full blur-md"
         height={854}
         width={480}
       />
-      <!-- Black overlay -->
-      <div class="absolute inset-0 bg-black/60 z-0"></div>
-    </div>}
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/90 z-0"></div>
+    </div>
+    :<BackgroundIcons />}
     <div class="w-screen flex-grow z-40">
       <NavBar />
       <slot />
@@ -46,7 +50,7 @@ const { backdropUrl } = Astro.props;
   html,
   body {
     scroll-behavior: smooth;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Lato", sans-serif;
     height: 100%;
   }
 </style>

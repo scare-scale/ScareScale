@@ -1,0 +1,20 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import UserReviews from "../components/UserReviews";
+---
+
+<MainLayout>
+  <section class="relative flex flex-col" id="userReviews">
+    <div class="relative flex flex-col gap-y-8 pt-6">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
+            My Reviews
+          </h1>
+          <div class="w-32 h-1 bg-gradient-to-r from-blood-600 to-blood-400 mx-auto rounded-full"></div>
+        </div>
+        <UserReviews client:load />
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -1,5 +1,5 @@
 ---
-import { movies as allMovies } from "../../content.config";
+import { movies as allMovies } from "../../lib/movies";
 import type { Movie } from "../../models/Movie";
 import { isSimilarMovie } from "../../utils/comparisonUtils";
 import MovieCard from "../cards/MovieCard.astro";
@@ -24,7 +24,7 @@ const filterMovie = (movie: Movie) => {
   }
 
   // Filter out movies without ratings
-  if (movie.getPriorityReview().overallRating == 0) {
+  if (!movie.hasReviews()) {
     return false;
   }
 
@@ -35,7 +35,7 @@ const filterMovie = (movie: Movie) => {
   }
 
   if (scoreFilter > 0) {
-    if (movie.getPriorityReview().overallRating < scoreFilter) {
+    if (movie.getSummaryReview().overallRating < scoreFilter) {
       return false;
     }
   }
@@ -51,7 +51,7 @@ const filterMovie = (movie: Movie) => {
 
 const getSortMethod = () => {
     if (sort == Sort.HighestToLowestScore) {
-        return (a: Movie, b: Movie) => b.getPriorityReview().overallRating - a.getPriorityReview().overallRating;
+        return (a: Movie, b: Movie) => b.getSummaryReview().overallRating - a.getSummaryReview().overallRating;
     }
 
     if (sort == Sort.ReleaseDateDecending) {
@@ -63,23 +63,23 @@ const getSortMethod = () => {
     }
     
     if (sort == Sort.Gore) {
-        return (a: Movie, b: Movie) => b.getPriorityReview().categories.gore - a.getPriorityReview().categories.gore;
+        return (a: Movie, b: Movie) => b.getSummaryReview().categories.gore - a.getSummaryReview().categories.gore;
     }
     
     if (sort == Sort.Creepy) {
-        return (a: Movie, b: Movie) => b.getPriorityReview().categories.creepy - a.getPriorityReview().categories.creepy;
+        return (a: Movie, b: Movie) => b.getSummaryReview().categories.creepy - a.getSummaryReview().categories.creepy;
     }
     
     if (sort == Sort.Jumpscares) {
-        return (a: Movie, b: Movie) => b.getPriorityReview().categories.jumpscares - a.getPriorityReview().categories.jumpscares;
+        return (a: Movie, b: Movie) => b.getSummaryReview().categories.jumpscares - a.getSummaryReview().categories.jumpscares;
     }
     
     if (sort == Sort.Suspense) {
-        return (a: Movie, b: Movie) => b.getPriorityReview().categories.suspense - a.getPriorityReview().categories.suspense;
+        return (a: Movie, b: Movie) => b.getSummaryReview().categories.suspense - a.getSummaryReview().categories.suspense;
     }
     
     if (sort == Sort.Psychological) {
-        return (a: Movie, b: Movie) => b.getPriorityReview().categories.psychological - a.getPriorityReview().categories.psychological;
+        return (a: Movie, b: Movie) => b.getSummaryReview().categories.psychological - a.getSummaryReview().categories.psychological;
     }
 
     // Sort randomly
@@ -93,7 +93,7 @@ const optionalClasses = `${hidden ? " hidden " : ""}`
 
 <div
   id="moviesContainer"
-  class={"mb-8 grid grid-cols-3 gap-3 lg:grid-cols-5" + optionalClasses}
+  class={"mb-8 grid grid-cols-3 gap-3 xl:grid-cols-5" + optionalClasses}
 >
   {
     movies
