@@ -66,7 +66,7 @@ const UserDropdown = () => {
           Profile
         </a>
         <a
-          href="/reviews"
+          href="/my-reviews"
           className="block px-4 py-2 text-sm text-text-primary hover:bg-blood-600/20 hover:text-blood-400 transition-colors"
           role="menuitem"
         >
