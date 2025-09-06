@@ -123,6 +123,6 @@ export class Movie {
       total.psychological / count
     );
   
-    return new Review(ReviewType.Summary, "Summary", averagedCategories)
+    return new Review(ReviewType.Summary, "Summary", averagedCategories, null)
   }
 }

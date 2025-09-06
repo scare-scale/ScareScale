@@ -1,6 +1,6 @@
 import { Categories } from "./Categories";
 import { Movie } from "./Movie";
-import { Review } from "./Review";
+import { Review, ReviewType } from "./Review";
 
 export class Movies {
     private movies: Movie[];
@@ -24,6 +24,12 @@ export class Movies {
 
         if (row.reviews && Array.isArray(row.reviews)) {
             for (const r of row.reviews) {
+              let displayName;
+              if (r.profiles != null) {
+                if (r.profiles.display_name != null) {
+                  displayName = r.profiles.display_name;
+                }
+              }
               const categories = new Categories(
                 r.categories.gore,
                 r.categories.creepy,
@@ -32,7 +38,7 @@ export class Movies {
                 r.categories.psychological
               );
               reviews.push(
-                new Review(r.type, r.content, categories)
+                new Review(r.type, r.content, categories, displayName)
               );
             }
           }

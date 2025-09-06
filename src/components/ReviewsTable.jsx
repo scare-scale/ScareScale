@@ -61,11 +61,9 @@ const ReviewsTable = ({
                     <div className="flex items-center gap-3">
                       <div>
                         <div className="text-text-primary font-medium">
-                          {review.type.charAt(0).toUpperCase() +
-                            review.type.slice(1)}{" "}
-                          Reviewer
+                          {review.displayName}
                         </div>
-                        <div className="text-text-muted text-sm">Verified</div>
+                        <div className="text-text-muted text-sm">{review.displayName != "Anonymous" && "Verified"}</div>
                       </div>
                     </div>
                   </td>

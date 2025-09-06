@@ -106,7 +106,7 @@ export const queryMovies = async () => {
     tmdbBackdropId,
     releaseDate,
     synopsis,
-    reviews ( type, content, categories )
+    reviews ( type, content, categories, profiles (display_name) )
   `)
 
   if (error) {
@@ -144,7 +144,7 @@ export const getMoviesWithCurrentUserReview = async () => {
   }
 
   if (!data || data.length === 0) {
-    return Movies.empty();
+    return [];
   }
 
   // Reform movies json
