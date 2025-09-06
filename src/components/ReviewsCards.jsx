@@ -14,7 +14,10 @@ const ReviewsCards = ({
             className="bg-bg-card rounded-lg border border-border-primary p-6 shadow-lg"
           >
             {showMovieInfo && (
-              <div className="flex items-center gap-4 mb-4">
+              <a 
+                className="flex items-center gap-4 mb-4"                   
+                href={`/movie/${movie.slug}`}
+                >
                 <img
                   src={movie.posterUrl}
                   alt={`${movie.name} poster`}
@@ -25,7 +28,7 @@ const ReviewsCards = ({
                     {movie.name}
                   </h3>
                 </div>
-              </div>
+              </a>
             )}
             <div className="mb-4">
               <div className="text-text-primary font-medium">
