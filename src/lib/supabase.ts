@@ -16,6 +16,7 @@ export const signUp = async (email: string, password: string, displayName: strin
       data: {
         display_name: displayName
       },
+      emailRedirectTo: `${window.location.origin}/auth`
     },
   });
   return { data, error };
@@ -32,6 +33,20 @@ export const signIn = async (email: string, password: string) => {
 export const signOut = async () => {
   const { error } = await supabase.auth.signOut();
   return { error };
+};
+
+export const resetPassword = async (email: string) => {
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: `${window.location.origin}/auth?mode=reset`,
+  });
+  return { data, error };
+};
+
+export const updatePassword = async (newPassword: string) => {
+  const { data, error } = await supabase.auth.updateUser({
+    password: newPassword,
+  });
+  return { data, error };
 };
 
 export const getCurrentUser = async () => {

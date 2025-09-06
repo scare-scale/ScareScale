@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { signIn, signUp , getCurrentUser } from '../lib/supabase';
+import { signIn, signUp, getCurrentUser, resetPassword, updatePassword } from '../lib/supabase';
 
 const AuthComponent = () => {
   const [mode, setMode] = useState('signin');
@@ -10,17 +10,30 @@ const AuthComponent = () => {
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    const modeParam = urlParams.get('mode') === 'signup' ? 'signup' : 'signin';
+    const modeParam = urlParams.get('mode');
+    const validModes = ['signin', 'signup', 'forgot', 'reset'];
+    let mode = validModes.includes(modeParam) ? modeParam : 'signin';
     const referrer = urlParams.get('referrer') || '/';
 
+    // Check for password reset callback
+    const hashParams = new URLSearchParams(window.location.hash.substring(1));
+    const accessToken = hashParams.get('access_token');
+    const type = hashParams.get('type');
+
+    if (accessToken && type === 'recovery') {
+      mode = 'reset';
+      // Clear the hash to clean up the URL
+      window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+    }
+
     const checkLoggedIn = async () => {
-        if (await getCurrentUser() != null) {
+        if (await getCurrentUser() != null && mode != "reset") {
             window.location.href = referrer
         }
     };
     checkLoggedIn();
 
-    setMode(modeParam);
+    setMode(mode);
     setReferrerUrl(referrer);
   }, []);
 
@@ -32,8 +45,10 @@ const AuthComponent = () => {
 
     const formData = new FormData(e.target);
     const email = formData.get('email');
-    const password = formData.get('password');
-    const displayName = formData.get('displayName');
+    const password = mode !== 'forgot' ? formData.get('password') : null;
+    const displayName = mode === 'signup' ? formData.get('displayName') : null;
+    const newPassword = mode === 'reset' ? formData.get('newPassword') : null;
+    const confirmPassword = mode === 'reset' ? formData.get('confirmPassword') : null;
 
     try {
       if (mode === 'signup') {
@@ -42,6 +57,27 @@ const AuthComponent = () => {
           setError(signUpError.message);
         } else {
           setSuccess('Account created! Please check your email to confirm.');
+        }
+      } else if (mode === 'forgot') {
+        const { error: resetError } = await resetPassword(email);
+        if (resetError) {
+          setError(resetError.message);
+        } else {
+          setSuccess('Password reset email sent! Please check your email.');
+        }
+      } else if (mode === 'reset') {
+        if (newPassword !== confirmPassword) {
+          setError('Passwords do not match.');
+          return;
+        }
+        const { error: updateError } = await updatePassword(newPassword);
+        if (updateError) {
+          setError(updateError.message);
+        } else {
+          setSuccess('Password updated successfully! You can now sign in with your new password.');
+          setTimeout(() => {
+            window.location.href = '/auth?mode=signin';
+          }, 2000);
         }
       } else {
         const { error: signInError } = await signIn(email, password);
@@ -66,6 +102,20 @@ const AuthComponent = () => {
     window.history.pushState({}, '', url);
   };
 
+  const switchToForgot = () => {
+    setMode('forgot');
+    const url = new URL(window.location);
+    url.searchParams.set('mode', 'forgot');
+    window.history.pushState({}, '', url);
+  };
+
+  const switchToSignin = () => {
+    setMode('signin');
+    const url = new URL(window.location);
+    url.searchParams.set('mode', 'signin');
+    window.history.pushState({}, '', url);
+  };
+
   return (
     <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-lg w-full space-y-8 bg-gray-50 p-10">
@@ -74,16 +124,39 @@ const AuthComponent = () => {
             <img src="/logo/logo_full.png" alt="Scare Scale Logo" className="h-20 w-auto" />
           </div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            {mode === 'signup' ? 'Create a new account' : 'Sign in to your account'}
+            {mode === 'signup' ? 'Create a new account' : mode === 'forgot' ? 'Reset your password' : mode === 'reset' ? 'Set new password' : 'Sign in to your account'}
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Or
-            <button
-              onClick={toggleMode}
-              className="font-medium text-red-600 hover:text-red-500 ml-1"
-            >
-              {mode === 'signup' ? 'sign in instead' : 'create a new account'}
-            </button>
+            {mode === 'forgot' ? (
+              <>
+                Remember your password?
+                <button
+                  onClick={switchToSignin}
+                  className="font-medium text-red-600 hover:text-red-500 ml-1"
+                >
+                  Sign in
+                </button>
+              </>
+            ) : mode === 'reset' ? (
+              <>
+                <button
+                  onClick={switchToSignin}
+                  className="font-medium text-red-600 hover:text-red-500"
+                >
+                  Back to sign in
+                </button>
+              </>
+            ) : (
+              <>
+                Or
+                <button
+                  onClick={toggleMode}
+                  className="font-medium text-red-600 hover:text-red-500 ml-1"
+                >
+                  {mode === 'signup' ? 'sign in instead' : 'create a new account'}
+                </button>
+              </>
+            )}
           </p>
         </div>
 
@@ -102,29 +175,70 @@ const AuthComponent = () => {
                 />
               </div>
             )}
-            <div>
-              <label htmlFor="email" className="sr-only">Email address</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                className={`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 ${mode === 'signup' ? '' : 'rounded-t-md'} focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm`}
-                placeholder="Email address"
-              />
-            </div>
-            <div>
-              <label htmlFor="password" className="sr-only">Password</label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
-                placeholder="Password"
-              />
-            </div>
+            {mode !== 'reset' && (
+              <div>
+                <label htmlFor="email" className="sr-only">Email address</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  className={`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 ${mode === 'signup' || mode === 'forgot' ? 'rounded-t-md' : ''} focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm`}
+                  placeholder="Email address"
+                />
+              </div>
+            )}
+            {mode === 'reset' ? (
+              <>
+                <div>
+                  <label htmlFor="newPassword" className="sr-only">New Password</label>
+                  <input
+                    id="newPassword"
+                    name="newPassword"
+                    type="password"
+                    required
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
+                    placeholder="New password"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="confirmPassword" className="sr-only">Confirm Password</label>
+                  <input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    required
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
+                    placeholder="Confirm new password"
+                  />
+                </div>
+              </>
+            ) : mode !== 'forgot' && (
+              <div>
+                <label htmlFor="password" className="sr-only">Password</label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
+                  placeholder="Password"
+                />
+              </div>
+            )}
           </div>
+
+          {mode === 'signin' && (
+            <div className="text-right">
+              <button
+                type="button"
+                onClick={switchToForgot}
+                className="text-sm text-red-600 hover:text-red-500"
+              >
+                Forgot your password?
+              </button>
+            </div>
+          )}
 
           {error && <div className="text-red-600 text-sm">{error}</div>}
           {success && <div className="text-green-600 text-sm">{success}</div>}
@@ -140,7 +254,7 @@ const AuthComponent = () => {
                   <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                 </svg>
               </span>
-              {loading ? 'Processing...' : (mode === 'signup' ? 'Sign up' : 'Sign in')}
+              {loading ? 'Processing...' : (mode === 'signup' ? 'Sign up' : mode === 'forgot' ? 'Send reset email' : mode === 'reset' ? 'Update password' : 'Sign in')}
             </button>
           </div>
 
