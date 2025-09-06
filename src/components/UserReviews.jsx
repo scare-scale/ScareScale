@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getMoviesWithCurrentUserReview } from '../lib/supabase';
-import ReviewsTable from './ReviewsTable';
+import ReviewsCards from './ReviewsCards';
 import { Movies } from '../models/Movies';
 
 const UserReviews = () => {
@@ -41,7 +41,7 @@ const UserReviews = () => {
   }
 
   return reviewedMovies.length > 0 ? (
-    <ReviewsTable movies={reviewedMovies} showMovieInfo={true} showEditButton={true} />
+    <ReviewsCards movies={reviewedMovies} showMovieInfo={true} showEditButton={true} />
   ) : (
     <div className="text-center text-gray-400">
       <p>You haven't written any reviews yet.</p>
