@@ -101,7 +101,32 @@ import FeaturedMovie from "../components/cards/FeaturedMovie.astro";
 
             <!-- Movies Grid -->
             <div class="pt-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-text-primary">Latest Movies</h3>
+                <a
+                  href="/all-movies"
+                  class="text-lg font-semibold text-text-primary hover:text-blood-400 transition-colors duration-200 flex items-center gap-2 group"
+                >
+                  View All
+                  <span
+                    class="group-hover:translate-x-1 transition-transform"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </a>
+              </div>
               <MoviesGrid sort={Sort.ReleaseDateDecending} maxCount={15} />
+            </div>
+
+            <!-- View More Button -->
+            <div class="pt-6 flex justify-center">
+              <a
+                href="/all-movies"
+                class="rounded-lg bg-gradient-to-r from-blood-600 to-blood-700 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:from-blood-700 hover:to-blood-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blood-400 transition-all duration-200 hover:scale-105"
+              >
+                View More Movies
+              </a>
             </div>
           </div>
         </div>
