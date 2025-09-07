@@ -1,6 +1,7 @@
 ---
 import SearchBar from "./SearchBar.jsx";
 import UserDropdown from "./UserDropdown.jsx";
+import { Image } from 'astro:assets';
 
 const navLinks = {
   "Ranks": "/ranks",
@@ -15,10 +16,13 @@ const navLinks = {
     <div class="flex items-center justify-between py-4">
       <!-- Logo -->
       <a href="/" class="text-2xl font-bold hover:scale-105 transition-transform bg-white/90 rounded-lg p-2 hover:bg-white transition-colors">
-        <img
+        <Image
           src="/logo/logo_full_compressed.webp"
           alt="Scare Scale Logo"
           class="h-10 w-auto"
+          height={30}
+          width={50}
+          inferSize={true}
         />
       </a>
 
