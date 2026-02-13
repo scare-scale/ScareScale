@@ -10,8 +10,8 @@ vi.mock('moment', () => ({
       if (dateString === '01/01/2023') {
         return new Date('2023-01-01');
       }
-      if (dateString === '01/01/2026') {
-        return new Date('2026-01-01');
+      if (dateString === '01/01/3000') {
+        return new Date('3000-01-01');
       }
       if (dateString === 'invalid-date') {
         return new Date('Invalid Date');
@@ -25,7 +25,7 @@ describe('Movie', () => {
   let mockReview: Review;
 
   beforeEach(() => {
-    mockReview = new Review(ReviewType.Official, 'Test review', new Categories(5, 5, 5, 5, 5));
+    mockReview = new Review(ReviewType.Official, 'Test review', new Categories(5, 5, 5, 5, 5), "Display Name");
   });
 
   describe('constructor', () => {
@@ -77,7 +77,7 @@ describe('Movie', () => {
         '/backdrop.jpg',
         'Future synopsis',
         new Date(),
-        '01/01/2026',
+        '01/01/3000',
         [mockReview]
       );
 
@@ -121,7 +121,7 @@ describe('Movie', () => {
 
   describe('isApproved', () => {
     it('should return true if has official review with rating >= 6', () => {
-      const highRatedReview = new Review(ReviewType.Official, 'Good', new Categories(8, 8, 8, 8, 8));
+      const highRatedReview = new Review(ReviewType.Official, 'Good', new Categories(8, 8, 8, 8, 8), "Display Name");
       const movie = new Movie(
         123,
         'Approved Movie',
@@ -137,7 +137,7 @@ describe('Movie', () => {
     });
 
     it('should return false if no official review with rating >= 6', () => {
-      const lowRatedReview = new Review(ReviewType.Official, 'Bad', new Categories(2, 2, 2, 2, 2));
+      const lowRatedReview = new Review(ReviewType.Official, 'Bad', new Categories(2, 2, 2, 2, 2), "Display Name");
       const movie = new Movie(
         123,
         'Unapproved Movie',

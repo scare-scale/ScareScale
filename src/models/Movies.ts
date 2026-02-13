@@ -72,6 +72,10 @@ export class Movies {
       return this.movies.filter((movie) => movie.isApproved());
     }
 
+    getWithAiReviews(): Movie[] {
+      return this.movies.filter((movie) => movie.hasAiReviews());
+    }
+
     getWithHumanReviews(): Movie[] {
       return this.movies.filter((movie) => movie.hasHumanReviews());
     }
