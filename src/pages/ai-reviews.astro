@@ -7,19 +7,19 @@ import { movies } from "../lib/movies";
 <head>
   <meta charset="UTF-8" />
   <SEO
-    title="Scare Scale Approved Horror Movies"
-    description="Discover Scare Scale’s top tier recommended horror movies that are truly terrifying and will keep you on the edge of your seat."
-    canonical="https://scarescale.com/approved"
+    title="Scare Scale AI Reviews"
+    description="Discover Scare Scale’s top tier recommended horror movies generated from Scare Scale's bespoke agentic AI agent."
+    canonical="https://scarescale.com/ai-reviews"
     openGraph={{
       basic: {
         type: "website",
-        url: "https://scarescale.com/approved",
-        title: "Scare Scale - Approved Horror Movies",
+        url: "https://scarescale.com/ai-reviews",
+        title: "Scare Scale - AI Reviews",
         image: "https://scarescale.com/screenshots/home_page_screenshot.png",
       },
       optional: {
         description:
-          "Discover Scare Scale’s top tier recommended horror movies that are truly terrifying and will keep you on the edge of your seat.",
+          "Discover Scare Scale’s top tier recommended horror movies generated from Scare Scale's bespoke agentic AI agent.",
       },
     }}
   />
@@ -30,20 +30,19 @@ import { movies } from "../lib/movies";
     <header class="text-center px-6 lg:px-8 max-w-4xl mx-auto mb-20">
       <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
         Scare Scale
-        <span class="block text-green-400">Approved</span>
+        <span class="block text-red-400">AI Reviews</span>
       </h1>
       <p class="text-xl text-gray-300 leading-relaxed">
-        Our top tier recommended horror movies that are truly terrifying and will keep you on the edge of your seat.
+        Take a look at our AI reviews. Generated with agentic AI, these reviews analyze the movie's plot, characters, and human reviews to provide a comprehensive assessment of its scariness.
       </p>
-      <div class="w-32 h-1 bg-gradient-to-r from-green-600 to-green-400 mx-auto mt-8 rounded-full"></div>
+      <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mt-8 rounded-full"></div>
     </header>
 
     <div class="flex flex-col gap-y-8">
         <section class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
           <MoviesGrid
-            sort={Sort.Random}
-            movies={movies.getApproved()}
-            scoreFilter={6}
+            sort={Sort.HighestToLowestScore}
+            movies={movies.getWithAiReviews()}
           />
         </section>
     </div>
