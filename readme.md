@@ -1,6 +1,6 @@
 <a href="https://scarescale.com">
     <p align="center">
-        <img src="public/logo/logo_white_background.png" width="200">
+        <img src="public/logo/logo.svg" width="200">
     </p>
 </a>
 

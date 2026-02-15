@@ -121,7 +121,7 @@ const AuthComponent = () => {
       <div className="max-w-lg w-full space-y-8 bg-gray-50 p-10">
         <div>
           <div className="mx-auto flex items-center justify-center">
-            <img src="/logo/logo_full.png" alt="Scare Scale Logo" className="h-20 w-auto" />
+            <img src="/logo/logo.svg" alt="Scare Scale Logo" className="h-20 w-auto" />
           </div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             {mode === 'signup' ? 'Create a new account' : mode === 'forgot' ? 'Reset your password' : mode === 'reset' ? 'Set new password' : 'Sign in to your account'}
