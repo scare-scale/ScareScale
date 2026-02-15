@@ -3,7 +3,7 @@ import NavBar from "../components/nav/NavBar.astro";
 import Footer from "../components/footer/Footer.astro";
 import BackgroundIcons from "../components/BackgroundIcons.astro";
 import { Image } from "astro:assets";
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import SpeedInsights from "@vercel/speed-insights/astro"
 
 const { backdropUrl } = Astro.props;
 ---
@@ -22,8 +22,8 @@ const { backdropUrl } = Astro.props;
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="description" content="Scare Scale" />
     <title>Scare Scale</title>
+    <SpeedInsights />
   </head>
-  <SpeedInsights/>
   <body
     class="overflow-hidden overflow-y-auto bg-bg-primary min-h-screen flex flex-col bg-fixed bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blood-950 via-bg-primary-900 to-bg-primary"
   >
