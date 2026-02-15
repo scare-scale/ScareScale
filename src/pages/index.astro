@@ -3,6 +3,12 @@ import MainLayout from "../layouts/MainLayout.astro";
 import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
 import { SEO } from "astro-seo";
 import FeaturedMovie from "../components/cards/FeaturedMovie.astro";
+import { movies } from "../lib/movies";
+
+const ratedMovies = movies.getApproved();
+
+// Random sort movies
+const approvedMovies = ratedMovies.sort(() => Math.random() - 0.5);
 ---
 
 <head>
@@ -53,10 +59,10 @@ import FeaturedMovie from "../components/cards/FeaturedMovie.astro";
         >
           <div class="space-y-6">
             <h2
-              class="font-bold tracking-tight text-balance text-text-primary text-5xl leading-tight text-center lg:text-left"
+              class="font-bold tracking-tight text-balance text-text-primary text-6xl leading-tight text-center lg:text-left"
             >
               Scare Scale
-              <span class="block text-blood-700"
+              <span class="block text-blood-700 text-4xl"
                 >Where Horror Finds Its Score</span
               >
             </h2>
@@ -87,7 +93,8 @@ import FeaturedMovie from "../components/cards/FeaturedMovie.astro";
 
           <!-- Featured Movie in left column -->
           <div class="hidden lg:block">
-            <FeaturedMovie />
+            <FeaturedMovie movie={approvedMovies[0]}/>
+            <FeaturedMovie movie={approvedMovies[1]}/>
           </div>
         </div>
 
@@ -96,7 +103,7 @@ import FeaturedMovie from "../components/cards/FeaturedMovie.astro";
           <div class="space-y-6">
             <!-- Featured Movie on mobile/small screens -->
             <div class="lg:hidden">
-              <FeaturedMovie />
+              <FeaturedMovie movie={approvedMovies[0]}/>
             </div>
 
             <!-- Movies Grid -->
