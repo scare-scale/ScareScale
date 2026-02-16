@@ -91,6 +91,14 @@ export class Movie {
     );
   }
 
+  hasAiReviews(): boolean {
+    if (!Array.isArray(this.reviews)) return false;
+  
+    return this.reviews.some(
+      review => review.type == ReviewType.AI
+    );
+  }
+
   hasReviews(): boolean {
     return this.reviews.length > 0;
   }

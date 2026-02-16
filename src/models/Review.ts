@@ -19,7 +19,7 @@ export class Review {
     public displayName: string | null
   ) {
     if (!displayName) {
-      if (type === ReviewType.User) {
+      if (type === ReviewType.User || type === ReviewType.Official) {
         this.displayName = "Anonymous";
       } else {
         this.displayName = type.charAt(0).toUpperCase() + type.slice(1);
@@ -39,7 +39,7 @@ export class Review {
   }
 
   isApproved(): boolean {  
-    return this.type === ReviewType.Official && this.overallRating >= 6
+    return (this.type === ReviewType.Official || this.type === ReviewType.User) && this.overallRating >= 6
   }
 
   isAi(): boolean {  

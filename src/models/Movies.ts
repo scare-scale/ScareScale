@@ -72,6 +72,10 @@ export class Movies {
       return this.movies.filter((movie) => movie.isApproved());
     }
 
+    getWithAiReviews(): Movie[] {
+      return this.movies.filter((movie) => movie.hasAiReviews());
+    }
+
     getWithHumanReviews(): Movie[] {
       return this.movies.filter((movie) => movie.hasHumanReviews());
     }
@@ -79,6 +83,13 @@ export class Movies {
     getWithReviews(): Movie[] {
       return this.movies.filter((movie) => movie.hasReviews());
     }
+
+    getNewest(): Movie[] {
+      return this.movies
+        .filter((movie) => movie.isReleased)
+        .sort((a, b) => b.releaseDateParsed.getTime() - a.releaseDateParsed.getTime())
+        .slice(0, 50);    
+    }    
 
     getUpcoming(): Movie[] {
         return this.movies.filter((movie) => !movie.isReleased);

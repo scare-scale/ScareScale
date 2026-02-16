@@ -1,0 +1,200 @@
+{
+    "terms": {
+      "title": "Terms & Conditions",
+      "lastUpdated": "2026-02-16",
+      "sections": [
+        {
+          "heading": "1. Introduction",
+          "content": "Scare Scale provides AI‑assisted horror movie ratings, user reviews, and related platform features. By accessing or using Scare Scale, you agree to comply with these Terms & Conditions and all applicable laws. If you do not agree, you must discontinue use of the platform."
+        },
+        {
+          "heading": "2. Accounts & Authentication",
+          "content": "User accounts are securely stored and authenticated through Supabase. You are responsible for maintaining the confidentiality of your login credentials and for all activity under your account. Personal identifiers such as your email address are required for account integrity, security, and GDPR‑compliant verification processes. These identifiers cannot be anonymised without deleting the entire account."
+        },
+        {
+          "heading": "3. User‑Generated Content",
+          "content": "Reviews, ratings, and display names submitted by users are publicly visible. You retain ownership of your content but grant Scare Scale a non‑exclusive, worldwide licence to display, distribute, and store this content as part of the platform. If you delete your account, your reviews and display name may remain visible to preserve platform continuity, but they will no longer be associated with personal account data."
+        },
+        {
+          "heading": "4. Platform Infrastructure",
+          "content": "Scare Scale operates using Supabase for authentication and data storage, AWS for media and infrastructure services, and Vercel for hosting and deployment. By using the platform, you acknowledge that your data may be processed by these providers in accordance with their respective privacy and security policies. All providers are selected for their strong compliance standards, including GDPR alignment."
+        },
+        {
+          "heading": "5. Acceptable Use",
+          "content": "You agree not to misuse the platform, including attempting to access restricted systems, reverse‑engineering platform features, interfering with platform functionality, or posting harmful, abusive, defamatory, or illegal content. We reserve the right to remove content or restrict access for violations of these terms."
+        },
+        {
+          "heading": "6. Termination",
+          "content": "We may suspend or terminate accounts that violate these Terms & Conditions, compromise platform security, or engage in fraudulent or abusive behaviour. Users may request full account deletion at any time by contacting help@scarescale.com. Account deletion is permanent and removes all personal data, including your email and authentication records. Public reviews and display names remain visible but are no longer linked to any identifiable account."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "2026-02-16",
+      "sections": [
+        {
+          "heading": "1. Overview",
+          "content": "This Privacy Policy explains how Scare Scale collects, stores, and processes personal and non‑personal data. We are committed to transparency, user privacy, and compliance with the General Data Protection Regulation (GDPR)."
+        },
+        {
+          "heading": "2. Data We Collect",
+          "content": "We collect account information (email, username, authentication metadata), user‑generated content (reviews, ratings, display names), and anonymous usage analytics. Personal data is used solely for account management, security, and platform functionality. We do not collect unnecessary personal information."
+        },
+        {
+          "heading": "3. Anonymous Tracking",
+          "content": "We collect anonymous behavioural analytics to understand feature usage, improve platform performance, and support product development. This data is aggregated, non‑identifiable, and cannot be used to determine individual user identity."
+        },
+        {
+          "heading": "4. How Data Is Stored",
+          "content": "All account and platform data is securely stored in Supabase, which provides encryption, access control, and GDPR‑aligned data handling. Media assets and supporting infrastructure may be processed through AWS. Deployment, caching, and edge delivery are handled by Vercel. All providers maintain industry‑standard security and compliance certifications."
+        },
+        {
+          "heading": "5. Data Sharing",
+          "content": "We do not sell, rent, or share personal data with third parties. The only data processors involved are Supabase, AWS, and Vercel, which are required to operate the platform. These providers act under strict contractual and GDPR‑compliant data‑processing agreements."
+        },
+        {
+          "heading": "6. User Rights",
+          "content": "Under GDPR, you have the right to access, correct, export, or delete your personal data. You may request full account deletion by emailing help@scarescale.com. Account deletion permanently removes all personal data, including your email and authentication records. Public reviews and display names remain visible but are no longer linked to any identifiable account."
+        }
+      ]
+    },
+    "dpa": {
+      "title": "Data Processing Addendum (DPA)",
+      "lastUpdated": "2026-02-16",
+      "sections": [
+        {
+          "heading": "1. Purpose of the DPA",
+          "content": "This Data Processing Addendum outlines how Scare Scale, as the data controller, ensures that all personal data processed by third‑party providers is handled in accordance with GDPR and other applicable data‑protection laws."
+        },
+        {
+          "heading": "2. Roles and Responsibilities",
+          "content": "Scare Scale acts as the data controller. Supabase, AWS, and Vercel act as data processors, handling personal data strictly according to Scare Scale’s documented instructions. These processors are contractually prohibited from using personal data for any purpose other than delivering platform functionality."
+        },
+        {
+          "heading": "3. Categories of Data Processed",
+          "content": "Data processed includes authentication information (email, login metadata), IP addresses, device information, and user‑generated content. Anonymous analytics may also be processed to support platform performance and security."
+        },
+        {
+          "heading": "4. Security Measures",
+          "content": "All processors implement industry‑standard security measures, including encryption at rest and in transit, access controls, audit logging, and data isolation. Scare Scale selects processors based on their compliance certifications and security posture."
+        },
+        {
+          "heading": "5. Sub‑Processors",
+          "content": "Supabase, AWS, and Vercel may use additional sub‑processors to deliver their services. These sub‑processors operate under strict contractual obligations and GDPR‑aligned data‑processing agreements."
+        },
+        {
+          "heading": "6. International Data Transfers",
+          "content": "Where data is transferred outside the UK or EU, processors rely on GDPR‑approved mechanisms such as Standard Contractual Clauses (SCCs) to ensure adequate protection."
+        },
+        {
+          "heading": "7. Data Retention and Deletion",
+          "content": "Personal data is retained only as long as necessary for platform functionality, security, and legal compliance. Users may request full account deletion by emailing help@scarescale.com. Upon deletion, processors remove all associated personal data in accordance with GDPR requirements."
+        },
+        {
+          "heading": "8. Breach Notification",
+          "content": "Processors must notify Scare Scale without undue delay if a personal‑data breach occurs. Scare Scale will then notify affected users in accordance with GDPR obligations."
+        }
+      ]
+    },
+    "cookiePolicy": {
+      "title": "Cookie & Tracking Policy",
+      "lastUpdated": "2026-02-16",
+      "sections": [
+        {
+          "heading": "1. Use of Cookies",
+          "content": "Scare Scale uses minimal cookies and local storage technologies necessary for authentication, session management, and platform functionality. We do not use advertising cookies or third‑party marketing trackers."
+        },
+        {
+          "heading": "2. Analytics Technologies",
+          "content": "Anonymous analytics may use local storage or lightweight tracking scripts to measure feature usage and platform performance. This data is non‑identifiable and aggregated."
+        },
+        {
+          "heading": "3. Consent Requirements",
+          "content": "Because Scare Scale does not use marketing or personalised tracking cookies, explicit cookie consent is not required under GDPR or PECR. If this changes, we will update this policy accordingly."
+        }
+      ]
+    },
+    "dataRetention": {
+      "title": "Data Retention Policy",
+      "lastUpdated": "2026-02-16",
+      "sections": [
+        {
+          "heading": "1. Retention Periods",
+          "content": "Personal data is retained only for as long as necessary to provide platform functionality, maintain security, and comply with legal obligations. Authentication data is retained until the user deletes their account."
+        },
+        {
+          "heading": "2. Backups",
+          "content": "Supabase and AWS maintain automated backups for disaster‑recovery purposes. Deleted account data may persist in encrypted backups for a limited period before being permanently removed."
+        },
+        {
+          "heading": "3. Review Data",
+          "content": "User reviews and display names remain visible indefinitely to preserve platform continuity, even after account deletion. These records are no longer linked to any identifiable personal data."
+        }
+      ]
+    },
+    "lawfulBasis": {
+      "title": "Lawful Basis for Processing",
+      "lastUpdated": "2026-02-16",
+      "sections": [
+        {
+          "heading": "1. Contract",
+          "content": "Processing necessary for account creation, authentication, and delivery of platform features is carried out under Article 6(1)(b) GDPR — performance of a contract."
+        },
+        {
+          "heading": "2. Legitimate Interests",
+          "content": "Anonymous analytics, platform security, fraud prevention, and service optimisation are processed under Article 6(1)(f) GDPR — legitimate interests."
+        },
+        {
+          "heading": "3. Legal Obligations",
+          "content": "Certain processing activities, such as security logging and fraud prevention, may be required under Article 6(1)(c) GDPR — compliance with a legal obligation."
+        }
+      ]
+    },
+    "security": {
+      "title": "Security Measures",
+      "lastUpdated": "2026-02-16",
+      "sections": [
+        {
+          "heading": "1. Encryption",
+          "content": "All personal data is encrypted in transit and at rest using industry‑standard encryption protocols."
+        },
+        {
+          "heading": "2. Access Controls",
+          "content": "Access to personal data is restricted to authorised personnel and protected by role‑based access controls."
+        },
+        {
+          "heading": "3. Monitoring & Logging",
+          "content": "Supabase, AWS, and Vercel provide audit logging, intrusion detection, and automated monitoring to protect platform integrity."
+        }
+      ]
+    },
+    "children": {
+      "title": "Children’s Data",
+      "lastUpdated": "2026-02-16",
+      "sections": [
+        {
+          "heading": "1. Age Restrictions",
+          "content": "Scare Scale is not intended for users under the age of 16. We do not knowingly collect personal data from children."
+        },
+        {
+          "heading": "2. Parental Requests",
+          "content": "If you believe a child has created an account, contact help@scarescale.com and we will remove the account in accordance with GDPR requirements."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact & Complaints",
+      "lastUpdated": "2026-02-16",
+      "sections": [
+        {
+          "heading": "1. Contacting Us",
+          "content": "For data‑protection enquiries, account deletion, or GDPR requests, contact help@scarescale.com."
+        },
+        {
+          "heading": "2. Regulatory Complaints",
+          "content": "Users in the UK may lodge complaints with the Information Commissioner’s Office (ICO) if they believe their data has been mishandled."
+        }
+      ]
+    }
+  }
