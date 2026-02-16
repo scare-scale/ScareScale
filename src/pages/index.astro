@@ -93,6 +93,7 @@ const approvedMovies = ratedMovies.sort(() => Math.random() - 0.5);
 
           <!-- Featured Movie in left column -->
           <div class="hidden lg:block">
+            <h3 class="text-xl font-semibold text-white">Featured Movies</h3>
             <FeaturedMovie movie={approvedMovies[0]}/>
             <FeaturedMovie movie={approvedMovies[1]}/>
           </div>
@@ -103,7 +104,9 @@ const approvedMovies = ratedMovies.sort(() => Math.random() - 0.5);
           <div class="space-y-6">
             <!-- Featured Movie on mobile/small screens -->
             <div class="lg:hidden">
+              <h3 class="text-xl font-semibold text-white">Featured Movies</h3>
               <FeaturedMovie movie={approvedMovies[0]}/>
+              <FeaturedMovie movie={approvedMovies[1]}/>
             </div>
 
             <!-- Movies Grid -->
