@@ -1,0 +1,64 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { SEO } from "astro-seo";
+import legalData from "../data/legal.json";
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <SEO
+    title="Scare Scale - Terms & Privacy"
+    description="Read Scare Scale's Terms & Conditions, Privacy Policy, and Data Processing Addendum."
+    canonical="https://scarescale.com/legal"
+    openGraph={{
+      basic: {
+        type: "website",
+        url: "https://scarescale.com/legal",
+        title: "Scare Scale - Legal",
+        image: "https://scarescale.com/logo/logo.svg",
+      },
+      optional: {
+        description:
+          "Learn how Scare Scale handles data, privacy, GDPR compliance, and platform responsibilities.",
+      },
+    }}
+  />
+</head>
+
+<MainLayout>
+  <div class="min-h-screen py-8 px-4 lg:px-8 text-white">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- HEADER -->
+      <header class="text-center px-6 lg:px-8 max-w-4xl mx-auto mb-16">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+          Legal
+          <span class="block text-red-600 text-3xl sm:text-4xl mt-2">Policies & Agreements</span>
+        </h1>
+        <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mt-6 rounded-full"></div>
+      </header>
+
+      <!-- DYNAMIC LEGAL SECTIONS -->
+      <section class="max-w-4xl mx-auto space-y-20">
+        {
+          Object.entries(legalData).map(([key, section]) => (
+            <div>
+              <h2 class="text-3xl font-bold text-red-500 mb-2">{section.title}</h2>
+              <p class="text-white/70 text-sm mb-8">Last updated: {section.lastUpdated}</p>
+
+              {section.sections.map((sub) => (
+                <div class="mb-8">
+                  <h3 class="text-2xl font-bold text-red-400 mb-2">{sub.heading}</h3>
+                  <p class="leading-relaxed text-white">{sub.content}</p>
+                </div>
+              ))}
+
+              <hr class="border-red-900/40 mt-12 mb-6" />
+            </div>
+          ))
+        }
+      </section>
+
+    </div>
+  </div>
+</MainLayout>

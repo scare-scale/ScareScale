@@ -259,6 +259,10 @@ const AuthComponent = () => {
           </div>
 
           <div className="text-center">
+            <a href="/legal" className="text-sm text-gray-600 hover:text-gray-500">By using Scare Scale, you agree to our privacy policy.</a>
+          </div>
+          
+          <div className="text-center">
             <a href="/" className="text-sm text-gray-600 hover:text-gray-500">← Back to home</a>
           </div>
         </form>

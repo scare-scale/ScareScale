@@ -42,11 +42,11 @@ const SearchBar = () => {
 
   return (
     <div className="flex items-center flex-grow md:flex-none md:ml-4 px-4 md:px-0">
-      <div className="relative w-full md:w-80">
+      <div className="relative w-full md:w-60">
         <input
           type="text"
           id="searchInput"
-          placeholder="Search horror movies..."
+          placeholder="Search..."
           aria-label="Search for horror movies"
           className="bg-white/10 backdrop-blur-sm text-text-primary placeholder-text-muted rounded-lg py-2.5 pl-4 pr-12 w-full outline-none border border-white/20 focus:border-blood-400 focus:ring-2 focus:ring-blood-400/20 transition-all duration-200"
           onChange={onSearchChange}
