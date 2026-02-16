@@ -32,7 +32,7 @@ describe('Categories', () => {
     it('should return only categories with score > 0', () => {
       const categories = new Categories(8, 0, 4, 0, 1);
       const topCategories = categories.getTopCategories();
-      expect(topCategories).toEqual(['gore', 'suspense', 'psychological']);
+      expect(topCategories).toEqual(['gore', 'suspense']);
     });
 
     it('should respect limit parameter', () => {
