@@ -77,14 +77,14 @@ import scoreGuideData from "../data/score-guide.json";
                   <!-- Description List -->
                   <ul class="space-y-3">
                     {Array.isArray(descriptions) ? descriptions.map((description, index) => (
-                      <li class="flex items-start gap-3 text-text-secondary leading-relaxed">
+                      <li class="flex items-start gap-3 text-gray-300 leading-relaxed">
                         <span class="inline-flex items-center justify-center w-5 h-5 bg-red-600/20 text-red-400 rounded-full text-xs font-bold mt-0.5 flex-shrink-0">
                           {index + 1}
                         </span>
                         <span class="flex-1">{description}</span>
                       </li>
                     )) : (
-                      <li class="text-text-secondary leading-relaxed">
+                      <li class="text-gray-300 leading-relaxed">
                         {typeof descriptions === 'string' ? descriptions : 'No criteria available'}
                       </li>
                     )}
@@ -113,7 +113,7 @@ import scoreGuideData from "../data/score-guide.json";
                 </div>
               </div>
             </div>
-            <p class="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Learn how individual category scores are combined to create the final <span class="text-red-400 font-bold">Scare Scale rating</span>
             </p>
           </div>
@@ -139,7 +139,7 @@ import scoreGuideData from "../data/score-guide.json";
                   "Divide by 3 to get the average score",
                   "Apply 0.5 point penalty for each top category scoring less than 3"
                 ].map((step, index) => (
-                  <li class="flex items-start gap-4 text-text-secondary leading-relaxed">
+                  <li class="flex items-start gap-4 text-gray-300 leading-relaxed">
                     <span class="inline-flex items-center justify-center w-8 h-8 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold rounded-lg text-sm flex-shrink-0 mt-0.5">
                       {index + 1}
                     </span>
@@ -184,8 +184,8 @@ import scoreGuideData from "../data/score-guide.json";
                 <div class="text-5xl font-bold text-red-400 mb-2">
                   {scoreGuideData.calculation.example.finalScore}
                 </div>
-                <div class="text-lg text-text-secondary font-medium">Final Scare Scale Score</div>
-                <div class="text-sm text-text-secondary mt-2">
+                <div class="text-lg text-gray-300 font-medium">Final Scare Scale Score</div>
+                <div class="text-sm text-gray-300 mt-2">
                   ((9 + 8 + 8) ÷ 3) - 0.5 = 7.8
                 </div>
               </div>

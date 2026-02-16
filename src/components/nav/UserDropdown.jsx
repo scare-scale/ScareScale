@@ -52,7 +52,7 @@ const UserDropdown = () => {
         </span>
       </button>
       <div
-        className={`absolute left-0 mt-2 w-48 bg-bg-secondary/95 backdrop-blur-md rounded-lg shadow-lg border border-blood-600/30 py-2 z-50 ${
+        className={`absolute left-0 mt-2 w-48 bg-dark-lighter/95 backdrop-blur-md rounded-lg shadow-lg border border-blood-600/30 py-2 z-50 ${
           open ? "" : "hidden"
         }`}
         role="menu"
@@ -60,14 +60,14 @@ const UserDropdown = () => {
       >
         <a
           href="/profile"
-          className="block px-4 py-2 text-sm text-text-primary hover:bg-blood-600/20 hover:text-blood-400 transition-colors"
+          className="block px-4 py-2 text-sm text-white hover:bg-blood-600/20 hover:text-blood-400 transition-colors"
           role="menuitem"
         >
           Profile
         </a>
         <a
           href="/my-reviews"
-          className="block px-4 py-2 text-sm text-text-primary hover:bg-blood-600/20 hover:text-blood-400 transition-colors"
+          className="block px-4 py-2 text-sm text-white hover:bg-blood-600/20 hover:text-blood-400 transition-colors"
           role="menuitem"
         >
           My Reviews
@@ -75,7 +75,7 @@ const UserDropdown = () => {
         <a
           href="/"
           onClick={signOut}
-          className="block px-4 py-2 text-sm text-text-primary hover:bg-blood-600/20 hover:text-blood-400 transition-colors"
+          className="block px-4 py-2 text-sm text-white hover:bg-blood-600/20 hover:text-blood-400 transition-colors"
           role="menuitem"
         >
           Logout
