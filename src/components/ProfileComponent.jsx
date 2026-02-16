@@ -55,7 +55,7 @@ const ProfileComponent = () => {
             </div>
             <div>
               <p className="text-lg text-white rounded-lg px-4 py-2">
-                To delete your account email us at help@scarescale.com
+                To delete your account email us at info@scarescale.com
               </p>
             </div>
           </div>
