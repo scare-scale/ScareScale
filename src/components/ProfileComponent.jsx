@@ -22,7 +22,7 @@ const ProfileComponent = () => {
     return (
       <div className="min-h-screen flex items-center justify-center px-4 py-12">
         <div className="text-center">
-          <p className="text-lg text-text-primary">Loading...</p>
+          <p className="text-lg text-white">Loading...</p>
         </div>
       </div>
     );
@@ -30,7 +30,7 @@ const ProfileComponent = () => {
 
   return (
     <div className="mt-12 flex items-center justify-center px-4 py-12">
-      <div className="max-w-md w-full bg-bg-secondary/80 backdrop-blur-md rounded-lg shadow-lg border border-blood-600/40 p-8 animate-fade-in">
+      <div className="max-w-md w-full bg-dark-lighter/80 backdrop-blur-md rounded-lg shadow-lg border border-blood-600/40 p-8 animate-fade-in">
         <div className="text-center">
           <div className="mb-6">
             <img
@@ -39,22 +39,22 @@ const ProfileComponent = () => {
               className="w-20 h-20 rounded-full bg-blood-600 p-3 mx-auto"
             />
           </div>
-          <h1 className="text-2xl font-bold text-text-primary mb-2">Profile</h1>
+          <h1 className="text-2xl font-bold text-white mb-2">Profile</h1>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-text-secondary mb-1">Display Name</label>
-              <p className="text-lg text-text-primary bg-bg-primary/50 rounded-lg px-4 py-2 border border-blood-600/30">
+              <label className="block text-sm font-medium text-gray-400 mb-1">Display Name</label>
+              <p className="text-lg text-white bg-dark/50 rounded-lg px-4 py-2 border border-blood-600/30">
                 {user.user_metadata?.display_name || "Not set"}
               </p>
             </div>
             <div>
-              <label className="block text-sm font-medium text-text-secondary mb-1">Email Address</label>
-              <p className="text-lg text-text-primary bg-bg-primary/50 rounded-lg px-4 py-2 border border-blood-600/30">
+              <label className="block text-sm font-medium text-gray-400 mb-1">Email Address</label>
+              <p className="text-lg text-white bg-dark/50 rounded-lg px-4 py-2 border border-blood-600/30">
                 {user.email}
               </p>
             </div>
             <div>
-              <p className="text-lg text-text-primary rounded-lg px-4 py-2">
+              <p className="text-lg text-white rounded-lg px-4 py-2">
                 To delete your account email us at help@scarescale.com
               </p>
             </div>

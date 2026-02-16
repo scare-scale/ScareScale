@@ -11,7 +11,7 @@ const ReviewsCards = ({
         movie.reviews.map((review, index) => (
           <div
             key={movie.slug + index}
-            className="bg-bg-card rounded-lg border border-border-primary p-6 shadow-lg"
+            className="bg-dark-card rounded-lg border border-dark-border p-6 shadow-lg"
           >
             {showMovieInfo && (
               <a 
@@ -24,17 +24,17 @@ const ReviewsCards = ({
                   className="w-16 h-24 object-cover rounded"
                 />
                 <div>
-                  <h3 className="text-text-primary font-semibold text-lg">
+                  <h3 className="text-white font-semibold text-lg">
                     {movie.name}
                   </h3>
                 </div>
               </a>
             )}
             <div className="mb-4">
-              <div className="text-text-primary font-medium">
+              <div className="text-white font-medium">
                 {review.type.charAt(0).toUpperCase() + review.type.slice(1)} Reviewer
               </div>
-              <div className="text-text-muted text-sm">Verified</div>
+              <div className="text-gray-500 text-sm">Verified</div>
             </div>
             <div className="mb-4">
               <div className="text-3xl font-bold text-blood-500">
@@ -47,14 +47,14 @@ const ReviewsCards = ({
                   ([categoryName, score]) => (
                     <div
                       key={categoryName}
-                      className="flex items-center gap-1 bg-bg-accent px-2 py-1 rounded text-sm"
+                      className="flex items-center gap-1 bg-dark-card px-2 py-1 rounded text-sm"
                     >
                       <img
                         className="w-3 h-3"
                         src={`/icons/categories/${categoryName}.svg`}
                         alt={categoryName}
                       />
-                      <span className="text-text-secondary capitalize">
+                      <span className="text-gray-300 capitalize">
                         {categoryName}
                       </span>
                       <span className="text-blood-400 font-medium">
@@ -67,7 +67,7 @@ const ReviewsCards = ({
             </div>
             {review.content?.trim() && (
               <div className="mb-4">
-                <div className="text-text-primary text-sm leading-relaxed">
+                <div className="text-white text-sm leading-relaxed">
                   {review.content}
                 </div>
               </div>
