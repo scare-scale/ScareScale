@@ -118,18 +118,21 @@ const review = movie.getSummaryReview();
     </div>
   </section>
 
-  
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
-    <div class="text-center mb-10">
-      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
-        Reviews
-      </h2>
-      <div class="w-32 h-1 bg-gradient-to-r from-blood-600 to-blood-400 mx-auto rounded-full"></div>
-    </div>
+  {
+    movie.hasReviews() && (
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
+            Reviews
+          </h2>
+          <div class="w-32 h-1 bg-gradient-to-r from-blood-600 to-blood-400 mx-auto rounded-full"></div>
+        </div>
 
-    <ReviewsTable movies={[movie]}/>
-  </div>
-  
+        <ReviewsTable movies={[movie]}/>
+      </div>
+    )
+  }
+
   <!-- Add Review Button Below Reviews -->
   <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-8 pb-8">
     <div class="text-center">
