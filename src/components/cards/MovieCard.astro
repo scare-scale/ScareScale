@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import type { Review } from '../../models/Review';
+import { ReviewType, type Review } from '../../models/Review';
 
 const {
   movie,
@@ -59,7 +59,7 @@ const review = movie.getSummaryReview()
       <span class="inline-flex items-center justify-center gap-1 whitespace-nowrap text-sm sm:text-base text-white bg-black/50 px-2 py-1 rounded-full">
         <img
           class="w-4 h-4 sm:w-5 sm:h-5 shrink-0"
-          src={`/icons/${review.type}.svg`}
+          src={`/icons/${review.type == ReviewType.AI ? 'ai' : 'user'}.svg`}
           alt={`${review.type} review icon`}
         />
         <span>{review.overallRating}</span>
