@@ -2,8 +2,7 @@ name: Twice Daily Vercel Redeploy
 
 on:
   schedule:
-    - cron: '0 0 * * *'   # Midnight UTC
-    - cron: '0 12 * * *'  # Noon UTC
+    - cron: '0 * * * *'  # Every hour
 
 jobs:
   redeploy:
