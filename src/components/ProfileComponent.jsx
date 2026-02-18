@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { getCurrentUser } from '../lib/supabase';
+import React, { useState, useEffect } from "react";
+import { getCurrentUser } from "../lib/supabase";
 
 const ProfileComponent = () => {
   const [user, setUser] = useState(null);
@@ -9,7 +9,7 @@ const ProfileComponent = () => {
     const fetchUser = async () => {
       const currentUser = await getCurrentUser();
       if (!currentUser) {
-        window.location.href = '/auth';
+        window.location.href = "/auth";
         return;
       }
       setUser(currentUser);
@@ -42,19 +42,32 @@ const ProfileComponent = () => {
           <h1 className="text-2xl font-bold text-white mb-2">Profile</h1>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-400 mb-1">Display Name</label>
+              <label className="block text-sm font-medium text-gray-400 mb-1">
+                Display Name
+              </label>
               <p className="text-lg text-white bg-dark/50 rounded-lg px-4 py-2 border border-blood-600/30">
                 {user.user_metadata?.display_name || "Not set"}
               </p>
+              <p className="text-sm font-medium text-gray-400 rounded-lg px-4 py-2">
+                To update your display name email us at info@scarescale.com
+              </p>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-400 mb-1">Email Address</label>
+              <label className="block text-sm font-medium text-gray-400 mb-1">
+                Email Address
+              </label>
               <p className="text-lg text-white bg-dark/50 rounded-lg px-4 py-2 border border-blood-600/30">
                 {user.email}
               </p>
             </div>
+            <a
+              href="/auth?mode=reset"
+              className="w-full text-center py-3 rounded-lg bg-gradient-to-r from-red-600 to-red-500 text-white font-semibold shadow-md hover:shadow-lg transition-all block"
+            >
+              Reset Password
+            </a>
             <div>
-              <p className="text-lg text-white rounded-lg px-4 py-2">
+            <p className="text-sm font-medium text-gray-400 rounded-lg px-4 py-2">
                 To delete your account email us at info@scarescale.com
               </p>
             </div>
