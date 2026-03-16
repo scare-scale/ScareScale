@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.scarescale",
+        "sha256_cert_fingerprints": ["D0:3B:90:89:B0:31:48:46:9A:5B:C4:A5:90:76:D0:DF:58:1D:6A:69:7A:31:A1:F1:18:AB:8D:1B:86:55:BA:AA"]
+      }
+    }]
