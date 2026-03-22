@@ -83,12 +83,10 @@ const ReviewPage = ({slug}) => {
     }
   };
 
-  if (!movie) {
-    return <></>
-  }
-
-  if (!user) {
-    return <></>
+  if (!movie || !user) {
+    return <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"> 
+              <h2 className="text-xl font-bold text-white mb-6">Loading</h2>
+           </div>
   }
 
   return (

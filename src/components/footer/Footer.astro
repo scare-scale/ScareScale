@@ -35,6 +35,9 @@ const legalLinks = {
         <p class="text-gray-500 text-xs mt-4">
           Version {packageJson.version}
         </p>
+        <p class="text-gray-500 text-xs mt-4">
+          Last Updated: {new Date().toLocaleString('en-GB', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' })}
+        </p>
       </div>
 
       <div>
