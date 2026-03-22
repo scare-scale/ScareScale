@@ -41,8 +41,8 @@ const SearchBar = () => {
   const showAutocomplete = isFocused && filteredMovies.length > 0;
 
   return (
-    <div className="flex items-center flex-grow md:flex-none md:ml-4 px-4 md:px-0">
-      <div className="relative w-full md:w-60">
+    <div className="flex items-center flex-grow lg:flex-none lg:ml-4 px-4 lg:px-0">
+      <div className="relative w-full lg:w-60">
         <input
           type="text"
           id="searchInput"
@@ -67,7 +67,7 @@ const SearchBar = () => {
           id="autocompleteList"
           className={`${
             !showAutocomplete ? "hidden" : ""
-          } absolute z-10 mt-2 w-full bg-dark-lighter/95 backdrop-blur-md border border-blood-600/30 rounded-lg shadow-xl max-h-60 overflow-y-auto`}
+          } absolute z-10 mt-2 w-full bg-dark-lighter/95 backdrop-blur-lg border border-blood-600/30 rounded-lg shadow-xl max-h-60 overflow-y-auto`}
         >
           {filteredMovies.map((movie) => (
             <li
@@ -81,7 +81,7 @@ const SearchBar = () => {
               <img
                 src={movie.posterUrl}
                 alt={movie.name}
-                className="w-10 h-14 object-cover rounded flex-shrink-0 shadow-md"
+                className="w-10 h-14 object-cover rounded flex-shrink-0 shadow-lg"
               />
               <span className="text-sm text-white font-medium">
                 {`${movie.name} (${movie.releaseYear})`}
