@@ -1,6 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import MovieCarouselSection from "../components/carousel/MovieCarouselSection.astro";
+import PageHeader from "../components/PageHeader.astro";
 import { SEO } from "astro-seo";
 import { movies } from "../lib/movies";
 
@@ -31,17 +32,12 @@ const aiReviewedMovies = movies.getWithAiReviews()
 
 <MainLayout>
   <section class="pt-10 pb-20">
-    <header class="text-center px-6 lg:px-8 max-w-4xl mx-auto mb-12">
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-        Scare Scale
-        <span class="block text-red-400">AI Reviews</span>
-      </h1>
-      <p class="text-xl text-gray-300 leading-relaxed">
-        Take a look at our AI reviews. Generated with agentic AI, these reviews analyze the movie's plot, characters,
-        and human reviews to provide a comprehensive assessment of its scariness.
-      </p>
-      <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mt-8 rounded-full"></div>
-    </header>
+    <PageHeader
+      title="Scare Scale"
+      titleAccent="AI Reviews"
+      description="Take a look at our AI reviews. Generated with agentic AI, these reviews analyze the movie's plot, characters, and human reviews to provide a comprehensive assessment of its scariness."
+      accentColor="blood"
+    />
 
     <div class="max-w-screen-2xl mx-auto">
       <MovieCarouselSection

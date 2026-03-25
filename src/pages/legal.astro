@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
 import { SEO } from "astro-seo";
 import legalData from "../data/legal.json";
 ---
@@ -30,13 +31,11 @@ import legalData from "../data/legal.json";
     <div class="max-w-6xl mx-auto">
 
       <!-- HEADER -->
-      <header class="text-center px-6 lg:px-8 max-w-4xl mx-auto mb-16">
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-          Legal
-          <span class="block text-red-600 text-3xl sm:text-4xl mt-2">Policies & Agreements</span>
-        </h1>
-        <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mt-6 rounded-full"></div>
-      </header>
+      <PageHeader
+        title="Legal"
+        titleAccent="Policies & Agreements"
+        accentColor="blood"
+      />
 
       <!-- DYNAMIC LEGAL SECTIONS -->
       <section class="max-w-4xl mx-auto space-y-20">

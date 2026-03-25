@@ -1,0 +1,83 @@
+---
+type AccentColor = "blood" | "red" | "blue";
+
+interface Props {
+  title?: string;
+  titleAccent?: string;
+  description?: string;
+  accentColor?: AccentColor;
+  badge?: string;
+}
+
+const {
+  title,
+  titleAccent,
+  description,
+  accentColor = "blood",
+  badge,
+} = Astro.props;
+
+const accentStyles: Record<AccentColor, { text: string; divider: string; badge: string }> = {
+  blood: {
+    text:    "text-blood-400",
+    divider: "via-blood-500",
+    badge:   "text-blood-400 border-blood-700/40 bg-blood-950/30",
+  },
+  red: {
+    text:    "text-red-400",
+    divider: "via-red-500",
+    badge:   "text-red-400 border-red-700/40 bg-red-950/30",
+  },
+  blue: {
+    text:    "text-blue-400",
+    divider: "via-blue-500",
+    badge:   "text-blue-400 border-blue-700/40 bg-blue-950/30",
+  },
+};
+
+const accent = accentStyles[accentColor];
+const hasDescriptionContent = Astro.slots.has("description") || !!description;
+---
+
+<header class="text-center px-6 lg:px-8 max-w-4xl mx-auto mb-12">
+
+  {badge && (
+    <div class="mb-5">
+      <span
+        class:list={[
+          "inline-flex items-center text-xs font-semibold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border",
+          accent.badge,
+        ]}
+      >
+        {badge}
+      </span>
+    </div>
+  )}
+
+  <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
+    <slot name="title">
+      {title}
+      {titleAccent && (
+        <span class:list={["block", accent.text]}>{titleAccent}</span>
+      )}
+    </slot>
+  </h1>
+
+  <div
+    class:list={[
+      "w-48 h-px mx-auto mt-7 bg-gradient-to-r from-transparent to-transparent",
+      accent.divider,
+    ]}
+  />
+
+  {hasDescriptionContent && (
+    <div class="mt-5 text-lg sm:text-xl text-gray-300/80 leading-relaxed max-w-2xl mx-auto">
+      <slot name="description">
+        {description}
+      </slot>
+    </div>
+  )}
+
+  <slot />
+
+</header>
