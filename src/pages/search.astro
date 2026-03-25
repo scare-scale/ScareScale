@@ -2,7 +2,8 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import MovieCarouselSection from "../components/carousel/MovieCarouselSection.astro";
 import PageHeader from "../components/PageHeader.astro";
-import { movies } from "../lib/movies";
+import { supabase } from "../lib/supabase";
+import { Movies } from "../models/Movies";
 
 export const prerender = false;
 
@@ -13,9 +14,23 @@ if (q.length < 1) {
   return Astro.redirect("/");
 }
 
-const filteredMovies = movies.getAll().filter((movie) => {
-  return movie.name.toLowerCase().includes(q);
-});
+// Query Supabase directly with a targeted ilike filter — no SELECT * needed
+const { data: rawMovies, error } = await supabase
+  .from('movies')
+  .select(`
+    id,
+    name,
+    tmdbPosterId,
+    tmdbBackdropId,
+    releaseDate,
+    synopsis,
+    reviews ( type, content, categories, profiles (display_name) )
+  `)
+  .ilike('name', `%${q}%`);
+
+const filteredMovies = rawMovies && !error
+  ? Movies.fromSupabaseResponse(rawMovies).getAll()
+  : [];
 
 const sortedResults = [...filteredMovies].sort(
   (a, b) => b.getSummaryReview().overallRating - a.getSummaryReview().overallRating

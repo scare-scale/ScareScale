@@ -1,29 +1,33 @@
-import React from "react";
-import { movies } from "../../lib/movies";
+import React, { useRef } from "react";
 
 const SearchBar = () => {
   const [query, setQuery] = React.useState("");
   const [filteredMovies, setFilteredMovies] = React.useState([]);
   const [isFocused, setIsFocused] = React.useState(false);
+  const debounceRef = useRef(null);
 
   const onSearchChange = (e) => {
     const input = e.target.value;
     setQuery(input);
-    setFilteredMovies([]);
 
-    if (input.length > 1) {
-      const lowerQuery = input.toLowerCase();
-      const filtered = [];
+    clearTimeout(debounceRef.current);
 
-      for (const movie of movies.getAll()) {
-        if (movie.name.toLowerCase().includes(lowerQuery)) {
-          filtered.push(movie);
-          if (filtered.length === 5) break;
-        }
-      }
-
-      setFilteredMovies(filtered);
+    if (input.length < 2) {
+      setFilteredMovies([]);
+      return;
     }
+
+    debounceRef.current = setTimeout(async () => {
+      try {
+        const response = await fetch(`/api/search.json?q=${encodeURIComponent(input)}`);
+        if (response.ok) {
+          const movies = await response.json();
+          setFilteredMovies(Array.isArray(movies) ? movies.slice(0, 5) : []);
+        }
+      } catch (err) {
+        console.error("Search error:", err);
+      }
+    }, 200);
   };
 
   const handleSearchRedirect = () => {
@@ -53,7 +57,7 @@ const SearchBar = () => {
           onKeyDown={handleKeyDown}
           value={query}
           onFocus={() => setIsFocused(true)}
-          onBlur={() => setTimeout(() => setIsFocused(false), 100)} // delay allows click
+          onBlur={() => setTimeout(() => setIsFocused(false), 100)}
         />
         <button
           id="searchButton"

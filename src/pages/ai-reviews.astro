@@ -3,8 +3,9 @@ import MainLayout from "../layouts/MainLayout.astro";
 import MovieCarouselSection from "../components/carousel/MovieCarouselSection.astro";
 import PageHeader from "../components/PageHeader.astro";
 import { SEO } from "astro-seo";
-import { movies } from "../lib/movies";
+import { createMovies } from "../lib/movies";
 
+const movies = await createMovies();
 const aiReviewedMovies = movies.getWithAiReviews()
   .sort((a, b) => b.getSummaryReview().overallRating - a.getSummaryReview().overallRating);
 ---

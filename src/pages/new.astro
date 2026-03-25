@@ -2,8 +2,9 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import MovieCarouselSection from "../components/carousel/MovieCarouselSection.astro";
 import PageHeader from "../components/PageHeader.astro";
-import { movies } from "../lib/movies";
+import { createMovies } from "../lib/movies";
 
+const movies = await createMovies();
 const newestMovies = movies.getNewest();
 ---
 <MainLayout>
