@@ -1,0 +1,27 @@
+---
+import type { Movie } from "../../models/Movie";
+import FeaturedSlider from "./FeaturedSlider";
+
+interface Props {
+  movies: Movie[];
+}
+
+const { movies } = Astro.props;
+
+const sliderData = movies.map((m) => {
+  const review = m.getSummaryReview();
+  return {
+    slug:        m.slug,
+    name:        m.name,
+    releaseYear: m.releaseYear,
+    posterUrl:   m.posterUrl,
+    backdropUrl: m.backdropUrl,
+    hasReviews:  m.hasReviews(),
+    isApproved:  m.isApproved(),
+    overallScore: review.overallRating,
+    scoreText:   review.scoreText,
+  };
+});
+---
+
+<FeaturedSlider movies={sliderData} client:load />

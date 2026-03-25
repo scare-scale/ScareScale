@@ -8,7 +8,8 @@ import ScareScaleRating from "../../components/cards/ScareScaleRating.astro";
 import Breadcrumbs from "../../components/nav/Breadcrumbs.astro";
 import RatingsUnavailable from "../../components/cards/RatingsUnavailable.astro";
 import MovieControlBar from "../../components/cards/MovieControlBar";
-import MoviesGrid, { Sort } from "../../components/grids/MoviesGrid.astro";
+import MovieCarouselSection from "../../components/carousel/MovieCarouselSection.astro";
+import { isSimilarMovie } from "../../utils/comparisonUtils";
 import ReviewsTable from "../../components/ReviewsTable";
 
 export async function getStaticPaths() {
@@ -21,6 +22,12 @@ export async function getStaticPaths() {
 const { movie } = Astro.props;
 
 const review = movie.getSummaryReview();
+
+// Pre-compute similar movies for the carousel
+const similarMovies = movies.getWithReviews()
+  .filter(m => m.slug !== movie.slug && isSimilarMovie(m, movie))
+  .sort((a, b) => b.getSummaryReview().overallRating - a.getSummaryReview().overallRating)
+  .slice(0, 20);
 ---
 
 <head>
@@ -146,21 +153,14 @@ const review = movie.getSummaryReview();
     </div>
   </div>
 
-  <!-- Similar Movies Section -->
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
-    <div class="text-center mb-10">
-      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
-        More Movies Like This
-      </h2>
-      <div
-        class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto rounded-full"
-      >
-      </div>
+  <!-- Similar Movies Carousel -->
+  {similarMovies.length > 0 && (
+    <div class="max-w-screen-2xl mx-auto pt-12 pb-4">
+      <MovieCarouselSection
+        movies={similarMovies}
+        title="More Movies Like This"
+        carouselId={`similar-${movie.slug}`}
+      />
     </div>
-    <MoviesGrid
-      sort={Sort.HighestToLowestScore}
-      similar={movie}
-      maxCount={10}
-    />
-  </div>
+  )}
 </MainLayout>

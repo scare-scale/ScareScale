@@ -1,0 +1,53 @@
+---
+import type { Movie } from "../../models/Movie";
+import MovieCarousel from "./MovieCarousel";
+
+interface Props {
+  movies: Movie[];
+  title: string;
+  carouselId: string;
+  viewAllUrl?: string;
+  eager?: boolean;
+  mode?: 'carousel' | 'grid';
+}
+
+const { movies, title, carouselId, viewAllUrl, eager = false, mode = 'carousel' } = Astro.props;
+
+const movieData = movies.map((m) => {
+  const review = m.getSummaryReview();
+  return {
+    slug:            m.slug,
+    name:            m.name,
+    releaseYear:     m.releaseYear,
+    posterUrl:       m.posterUrl,
+    hasReviews:      m.hasReviews(),
+    isApproved:      m.isApproved(),
+    isReleased:      m.isReleased,
+    releaseDateText: m.releaseDateText,
+    overallScore:    review.overallRating,
+    scoreText:       review.scoreText,
+    topCategories:   m.getTopCategories().slice(0, 2),
+    reviewType:      review.type,
+  };
+});
+---
+
+{eager ? (
+  <MovieCarousel
+    movies={movieData}
+    title={title}
+    carouselId={carouselId}
+    viewAllUrl={viewAllUrl}
+    mode={mode}
+    client:load
+  />
+) : (
+  <MovieCarousel
+    movies={movieData}
+    title={title}
+    carouselId={carouselId}
+    viewAllUrl={viewAllUrl}
+    mode={mode}
+    client:visible
+  />
+)}
