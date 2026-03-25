@@ -64,12 +64,10 @@ const MovieCard = ({ movie, cardClass, onLinkClick }) => {
             {hasReviews ? (
               <>
                 <span
-                  className="text-sm font-bold tabular-nums leading-none"
-                  style={{ color: isApproved ? 'rgb(240 128 128)' : 'rgb(209 213 219)' }}
+                  className="text-md font-bold tabular-nums leading-none text-white"
                 >
-                  {overallScore}
+                  {overallScore} / 10
                 </span>
-                <span className="text-xs leading-none truncate text-gray-400">{scoreText}</span>
               </>
             ) : (
               <span className="text-sm font-bold leading-none text-gray-500">—</span>
