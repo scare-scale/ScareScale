@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
 import { SEO } from "astro-seo";
 import scoreGuideData from "../data/score-guide.json";
 ---
@@ -27,19 +28,13 @@ import scoreGuideData from "../data/score-guide.json";
 <MainLayout>
   <div class="min-h-screen py-8 px-4 lg:px-8">
     <div class="max-w-6xl mx-auto">
-      <header class="text-center px-6 lg:px-8 max-w-4xl mx-auto mb-20">
-        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-          Scare Scale
-          <span class="block text-red-600">Scoring System</span>
-        </h1>
-  
-        <p class="text-xl text-gray-300 leading-relaxed">
+      <PageHeader title="Scare Scale" titleAccent="Scoring System" accentColor="blood">
+        <Fragment slot="description">
           This rating system categorises movies based on their level of scariness across five dimensions.
-          Each category is rated on a scale of <span class="text-red-400 font-bold text-2xl">1 to 10</span>,
-          with <span class="text-red-400 font-bold">higher scores indicating greater intensity</span>.
-        </p>
-        <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mt-8 rounded-full"></div>
-      </header>
+          Each category is rated on a scale of <span class="text-blood-400 font-bold text-2xl">1 to 10</span>,
+          with <span class="text-blood-400 font-bold">higher scores indicating greater intensity</span>.
+        </Fragment>
+      </PageHeader>
 
       <!-- Categories Grid -->
       <div class="space-y-16 mb-10">

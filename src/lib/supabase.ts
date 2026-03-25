@@ -93,6 +93,20 @@ export const submitReview = async (movie: Movie, review: Review, update: boolean
   }
 };
 
+export const getUserReviewCount = async (): Promise<number> => {
+  const user = await getCurrentUser();
+  if (!user) return 0;
+
+  const { count, error } = await supabase
+    .from('reviews')
+    .select('*', { count: 'exact', head: true })
+    .eq('user_id', user.id)
+    .eq('type', 'user');
+
+  if (error) throw new Error(error.message);
+  return count ?? 0;
+};
+
 export const getUserReview = async (movieId: string) => {
   const user = await getCurrentUser();
 
@@ -169,4 +183,62 @@ export const getMoviesWithCurrentUserReview = async () => {
           reviews: [{...item}]
         }
   });
+};
+
+export const getLatestReviews = async (limit: number = 12) => {
+  const { data, error } = await supabase
+    .from('reviews')
+    .select(`
+      movie_id,
+      user_id,
+      type,
+      content,
+      categories,
+      created_at,
+      movies (
+        id,
+        name,
+        tmdbPosterId,
+        releaseDate
+      ),
+      profiles (
+        display_name
+      )
+    `)
+    .eq('type', 'user')
+    .order('created_at', { ascending: false })
+    .limit(limit);
+
+  if (error) throw new Error(error.message);
+  return data ?? [];
+};
+
+export const getLeaderboard = async (limit: number = 10) => {
+  const { data, error } = await supabase
+    .from('reviews')
+    .select(`
+      user_id,
+      profiles (
+        display_name
+      )
+    `)
+    .eq('type', 'user');
+
+  if (error) throw new Error(error.message);
+
+  // Group and count reviews per user client-side
+  const countsMap: Record<string, { userId: string; displayName: string; count: number }> = {};
+
+  (data ?? []).forEach((review: any) => {
+    const userId = review.user_id;
+    const displayName = review.profiles?.display_name || 'Anonymous';
+    if (!countsMap[userId]) {
+      countsMap[userId] = { userId, displayName, count: 0 };
+    }
+    countsMap[userId].count++;
+  });
+
+  return Object.values(countsMap)
+    .sort((a, b) => b.count - a.count)
+    .slice(0, limit);
 };

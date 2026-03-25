@@ -1,48 +1,52 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
+import MovieCarouselSection from "../components/carousel/MovieCarouselSection.astro";
+import PageHeader from "../components/PageHeader.astro";
 import { SEO } from "astro-seo";
 import { movies } from "../lib/movies";
 
-const grids = [
+const humanReviewed = movies.getWithHumanReviews().filter(m => m.isReleased);
+
+const sections = [
   {
-    title: "All-Time Scariest Movies",
-    subtitle: "The most terrifying films ever made, ranked by fear factor.",
+    title:      "All-Time Scariest",
+    carouselId: "rank-all-time",
+    movies:     [...humanReviewed].sort((a, b) => b.getSummaryReview().overallRating - a.getSummaryReview().overallRating).slice(0, 40),
   },
   {
-    title: "Scariest Movies of 2025",
-    subtitle: "This year’s most scream-worthy releases.",
-    props: { yearFilter: "2025" },
+    title:      "Scariest of 2025",
+    carouselId: "rank-2025",
+    movies:     [...humanReviewed].filter(m => m.releaseYear === 2025).sort((a, b) => b.getSummaryReview().overallRating - a.getSummaryReview().overallRating).slice(0, 40),
   },
   {
-    title: "Highest Gore Rating",
-    subtitle: "Movies with the most intense and graphic content.",
-    props: { sort: Sort.Gore },
+    title:      "Highest Gore",
+    carouselId: "rank-gore",
+    movies:     [...humanReviewed].sort((a, b) => b.getSummaryReview().categories.gore - a.getSummaryReview().categories.gore).slice(0, 40),
   },
   {
-    title: "Highest Creepy Rating",
-    subtitle: "Movies that will make your skin crawl.",
-    props: { sort: Sort.Creepy },
+    title:      "Highest Creepy",
+    carouselId: "rank-creepy",
+    movies:     [...humanReviewed].sort((a, b) => b.getSummaryReview().categories.creepy - a.getSummaryReview().categories.creepy).slice(0, 40),
   },
   {
-    title: "Highest Jumpscares Rating",
-    subtitle: "Movies with the most heart-stopping moments.",
-    props: { sort: Sort.Jumpscares },
+    title:      "Most Jumpscares",
+    carouselId: "rank-jumpscares",
+    movies:     [...humanReviewed].sort((a, b) => b.getSummaryReview().categories.jumpscares - a.getSummaryReview().categories.jumpscares).slice(0, 40),
   },
   {
-    title: "Highest Suspense Rating",
-    subtitle: "Movies that keep you on the edge of your seat.",
-    props: { sort: Sort.Suspense },
+    title:      "Highest Suspense",
+    carouselId: "rank-suspense",
+    movies:     [...humanReviewed].sort((a, b) => b.getSummaryReview().categories.suspense - a.getSummaryReview().categories.suspense).slice(0, 40),
   },
   {
-    title: "Highest Psychological Rating",
-    subtitle: "Movies that mess with your mind.",
-    props: { sort: Sort.Psychological },
+    title:      "Most Psychological",
+    carouselId: "rank-psychological",
+    movies:     [...humanReviewed].sort((a, b) => b.getSummaryReview().categories.psychological - a.getSummaryReview().categories.psychological).slice(0, 40),
   },
   {
-    title: "Scariest Movies (2020–2025)",
-    subtitle: "A half-decade of dread, distilled.",
-    props: { yearFilter: ["2020", "2021", "2022", "2023", "2024", "2025"] },
+    title:      "Scariest 2020–2025",
+    carouselId: "rank-decade",
+    movies:     [...humanReviewed].filter(m => m.releaseYear >= 2020 && m.releaseYear <= 2025).sort((a, b) => b.getSummaryReview().overallRating - a.getSummaryReview().overallRating).slice(0, 40),
   },
 ];
 ---
@@ -70,37 +74,24 @@ const grids = [
 
 <MainLayout>
   <section class="pt-10 pb-20">
-    <header class="text-center px-6 lg:px-8 max-w-4xl mx-auto mb-20">
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-        Scare Scale
-        <span class="block text-red-400">Rankings</span>
-      </h1>
-      <p class="text-xl text-gray-300 leading-relaxed">
-        Discover the most fear-inducing horror films across years and genres,
-        ranked by our signature Scare Scale algorithm.
-      </p>
-      <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mt-8 rounded-full"></div>
-    </header>
+    <PageHeader
+      title="Scare Scale"
+      titleAccent="Rankings"
+      description="Discover the most fear-inducing horror films across years and genres, ranked by our signature Scare Scale algorithm."
+      accentColor="blood"
+    />
 
-    <div class="flex flex-col gap-y-16">
-      {grids.map((grid, index) => (
-        <section class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-          <header class="mb-8 text-center">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
-              {grid.title}
-            </h2>
-            {grid.subtitle && (
-              <p class="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">{grid.subtitle}</p>
-            )}
-          </header>
-          <MoviesGrid
-            sort={Sort.HighestToLowestScore}
-            showRank={true}
-            movies={movies.getWithHumanReviews()}
-            maxCount={5}
-            {...grid.props}
+    <div class="max-w-screen-2xl mx-auto flex flex-col">
+      {sections.map((section, i) => section.movies.length > 0 && (
+        <>
+          {i > 0 && <div class="h-px bg-white/5 mx-6"></div>}
+          <MovieCarouselSection
+            movies={section.movies}
+            title={section.title}
+            carouselId={section.carouselId}
+            eager={i === 0}
           />
-        </section>
+        </>
       ))}
     </div>
   </section>
