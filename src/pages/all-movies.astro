@@ -1,32 +1,29 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import MoviesGrid, { Sort } from "../components/grids/MoviesGrid.astro";
+import MovieCarouselSection from "../components/carousel/MovieCarouselSection.astro";
+import PageHeader from "../components/PageHeader.astro";
 import { movies } from "../lib/movies";
 
 const allScoredMovies = movies.getWithReviews()
+  .filter(m => m.isReleased)
+  .sort((a, b) => b.getSummaryReview().overallRating - a.getSummaryReview().overallRating);
 ---
 <MainLayout>
   <section class="pt-10 pb-20">
-    <header class="text-center px-6 lg:px-8 max-w-4xl mx-auto mb-20">
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-        Scare Scale
-        <span class="block text-red-400">All Movies</span>
-      </h1>
-      <p class="text-xl text-gray-300 leading-relaxed">
-        View all <span class="text-red-400">{allScoredMovies.length}</span> reviewed movies on Scare Scale.
-      </p>
-      <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mt-8 rounded-full"></div>
-    </header>
-    <div class="flex flex-col gap-y-8">
-        <section class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8" id="searchResults">
-          <MoviesGrid
-          lazyLoad={true}
-          hidden={false}
-          sort={Sort.Random}
-          showAll={true}
-          movies={allScoredMovies}
-        />
-        </section>
+    <PageHeader title="Scare Scale" titleAccent="All Movies" accentColor="blood">
+      <Fragment slot="description">
+        View all <span class="text-blood-400">{allScoredMovies.length}</span> reviewed movies on Scare Scale.
+      </Fragment>
+    </PageHeader>
+
+    <div class="max-w-screen-2xl mx-auto">
+      <MovieCarouselSection
+        movies={allScoredMovies}
+        title="All Movies"
+        carouselId="all-movies"
+        mode="grid"
+        eager={true}
+      />
     </div>
   </section>
 </MainLayout>
