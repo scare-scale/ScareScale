@@ -8,8 +8,8 @@ import FeaturedSliderSection from "../components/carousel/FeaturedSliderSection.
 const approvedMovies = movies.getApproved();
 
 const featuredMovies = [...approvedMovies]
-  .sort((a, b) => b.getSummaryReview().overallRating - a.getSummaryReview().overallRating)
   .filter(m => !!m.backdropUrl)
+  .sort(() => Math.random() - 0.5)
   .slice(0, 10);
 
 const topMovies = [...approvedMovies]

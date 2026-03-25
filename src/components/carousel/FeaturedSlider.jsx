@@ -95,9 +95,15 @@ const FeaturedSlider = ({ movies }) => {
                 {movie.name}
               </h1>
 
-              <p className="text-gray-300 text-base sm:text-lg font-medium mb-3 drop-shadow-sm">
+              <p className="text-gray-300 text-base sm:text-lg font-medium mb-1 drop-shadow-sm">
                 {movie.releaseYear}
               </p>
+
+              {movie.synopsis && (
+                <p className="hidden sm:block text-gray-300 text-sm leading-snug mb-3 drop-shadow-sm line-clamp-2 max-w-lg">
+                  {movie.synopsis}
+                </p>
+              )}
 
               <div className="flex items-center gap-2 mb-4">
                 <img
