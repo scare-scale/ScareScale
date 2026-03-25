@@ -4,6 +4,8 @@ import { SEO } from "astro-seo";
 import { movies } from "../lib/movies";
 import MovieCarouselSection from "../components/carousel/MovieCarouselSection.astro";
 import FeaturedSliderSection from "../components/carousel/FeaturedSliderSection.astro";
+import LatestReviews from "../components/gamification/LatestReviews";
+import Leaderboard from "../components/gamification/Leaderboard";
 
 const approvedMovies = movies.getApproved();
 
@@ -115,6 +117,15 @@ const aiMovies = movies.getWithAiReviews()
         viewAllUrl="/ai-reviews"
       />
     )}
+
+    <div class="h-px bg-white/5 mx-6"></div>
+
+    <!-- Community: Latest Reviews + Leaderboard -->
+    <LatestReviews client:visible />
+
+    <div class="h-px bg-white/5 mx-6"></div>
+
+    <Leaderboard client:visible />
 
     <div class="py-10 flex justify-center">
       <a
