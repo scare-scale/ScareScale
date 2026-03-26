@@ -1,4 +1,7 @@
 import React, { useRef } from "react";
+import { supabase } from "../../lib/supabase";
+
+const TMDB_POSTER_BASE_URL = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2";
 
 const SearchBar = () => {
   const [query, setQuery] = React.useState("");
@@ -18,15 +21,21 @@ const SearchBar = () => {
     }
 
     debounceRef.current = setTimeout(async () => {
-      try {
-        const response = await fetch(`/api/search.json?q=${encodeURIComponent(input)}`);
-        if (response.ok) {
-          const movies = await response.json();
-          setFilteredMovies(Array.isArray(movies) ? movies.slice(0, 5) : []);
-        }
-      } catch (err) {
-        console.error("Search error:", err);
-      }
+      const { data } = await supabase
+        .from("movies")
+        .select("id, name, tmdbPosterId, releaseDate")
+        .ilike("name", `%${input.trim()}%`)
+        .limit(5);
+
+      setFilteredMovies(
+        (data ?? []).map((m) => ({
+          id: m.id,
+          name: m.name,
+          releaseYear: String(m.releaseDate ?? "").split("/")[2] ?? "",
+          slug: m.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + (String(m.releaseDate ?? "").split("/")[2] ?? ""),
+          posterUrl: `${TMDB_POSTER_BASE_URL}${m.tmdbPosterId}`,
+        }))
+      );
     }, 200);
   };
 
@@ -37,9 +46,7 @@ const SearchBar = () => {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleSearchRedirect();
-    }
+    if (e.key === "Enter") handleSearchRedirect();
   };
 
   const showAutocomplete = isFocused && filteredMovies.length > 0;
