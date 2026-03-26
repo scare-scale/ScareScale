@@ -145,6 +145,75 @@ export const queryMovies = async () => {
   return movies;
 };
 
+export const searchMovies = async (q: string, limit: number = 10) => {
+  const { data, error } = await supabase
+    .from('movies')
+    .select('id, name, tmdbPosterId, releaseDate')
+    .ilike('name', `%${q}%`)
+    .limit(limit);
+
+  if (error) throw new Error(error.message);
+  return data ?? [];
+};
+
+export const getMovieReviews = async (movieId: number) => {
+  const { data, error } = await supabase
+    .from('reviews')
+    .select(`
+      movie_id,
+      user_id,
+      type,
+      content,
+      categories,
+      created_at,
+      profiles (
+        display_name
+      )
+    `)
+    .eq('movie_id', movieId)
+    .order('created_at', { ascending: false });
+
+  if (error) throw new Error(error.message);
+  return data ?? [];
+};
+
+const TMDB_POSTER_BASE_URL_SUPABASE = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2";
+
+export const getMovieBySlug = async (slug: string) => {
+  // Slug format: "movie-name-year" (year is always 4-digit at the end)
+  const lastDashIdx = slug.lastIndexOf('-');
+  if (lastDashIdx === -1) return null;
+
+  const year = slug.substring(lastDashIdx + 1);
+  if (!/^\d{4}$/.test(year)) return null;
+
+  const namePart = slug.substring(0, lastDashIdx).replace(/-/g, ' ');
+
+  const { data, error } = await supabase
+    .from('movies')
+    .select('id, name, tmdbPosterId, releaseDate, synopsis')
+    .ilike('name', `%${namePart}%`)
+    .like('releaseDate', `%/${year}`)
+    .limit(5);
+
+  if (error || !data || data.length === 0) return null;
+
+  for (const m of data) {
+    const candidateSlug = m.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + year;
+    if (candidateSlug === slug) {
+      return {
+        id: m.id,
+        name: m.name,
+        releaseYear: parseInt(year),
+        synopsis: m.synopsis,
+        posterUrl: `${TMDB_POSTER_BASE_URL_SUPABASE}${m.tmdbPosterId}`,
+      };
+    }
+  }
+
+  return null;
+};
+
 export const getMoviesWithCurrentUserReview = async () => {
   const user = await getCurrentUser();
 

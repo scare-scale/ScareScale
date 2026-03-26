@@ -3,31 +3,36 @@ import Prose from "../../components/Prose.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { SEO } from "astro-seo";
 import { Image } from "astro:assets";
-import { movies } from "../../lib/movies";
+import { createMovies } from "../../lib/movies";
 import ScareScaleRating from "../../components/cards/ScareScaleRating.astro";
 import Breadcrumbs from "../../components/nav/Breadcrumbs.astro";
 import RatingsUnavailable from "../../components/cards/RatingsUnavailable.astro";
 import MovieControlBar from "../../components/cards/MovieControlBar";
 import MovieCarouselSection from "../../components/carousel/MovieCarouselSection.astro";
 import { isSimilarMovie } from "../../utils/comparisonUtils";
-import ReviewsTable from "../../components/ReviewsTable";
+import LiveMovieReviews from "../../components/LiveMovieReviews";
 
 export async function getStaticPaths() {
-  return movies.getAll().map((movie) => ({
-    params: { slug: movie.slug },
-    props: { movie },
-  }));
+  const movies = await createMovies();
+  const allMovies = movies.getAll();
+
+  return allMovies.map((movie) => {
+    // Pre-compute similar movies here so we have access to the full movies list
+    const similarMovies = movies.getWithReviews()
+      .filter(m => m.slug !== movie.slug && isSimilarMovie(m, movie))
+      .sort((a, b) => b.getSummaryReview().overallRating - a.getSummaryReview().overallRating)
+      .slice(0, 20);
+
+    return {
+      params: { slug: movie.slug },
+      props: { movie, similarMovies },
+    };
+  });
 }
 
-const { movie } = Astro.props;
+const { movie, similarMovies } = Astro.props;
 
 const review = movie.getSummaryReview();
-
-// Pre-compute similar movies for the carousel
-const similarMovies = movies.getWithReviews()
-  .filter(m => m.slug !== movie.slug && isSimilarMovie(m, movie))
-  .sort((a, b) => b.getSummaryReview().overallRating - a.getSummaryReview().overallRating)
-  .slice(0, 20);
 ---
 
 <head>
@@ -125,20 +130,19 @@ const similarMovies = movies.getWithReviews()
     </div>
   </section>
 
-  {
-    movie.hasReviews() && (
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
-        <div class="text-center mb-10">
-          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
-            Reviews
-          </h2>
-          <div class="w-32 h-1 bg-gradient-to-r from-blood-600 to-blood-400 mx-auto rounded-full"></div>
-        </div>
-
-        <ReviewsTable movies={[movie]}/>
+  <!-- Live Reviews Section: always shown for released movies, fetches fresh data client-side -->
+  {movie.isReleased && (
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
+          Reviews
+        </h2>
+        <div class="w-32 h-1 bg-gradient-to-r from-blood-600 to-blood-400 mx-auto rounded-full"></div>
       </div>
-    )
-  }
+
+      <LiveMovieReviews movieId={movie.id} client:visible />
+    </div>
+  )}
 
   <!-- Add Review Button Below Reviews -->
   <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-8 pb-8">

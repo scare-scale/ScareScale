@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Categories } from '../models/Categories';
 import { Review as MovieReview } from '../models/Review';
-import { submitReview, getUserReview } from '../lib/supabase';
-import { movies } from "../lib/movies"
-import { getCurrentUser } from "../lib/supabase"
+import { submitReview, getUserReview, getMovieBySlug, getCurrentUser } from '../lib/supabase';
 
 const ReviewPage = ({slug}) => {
   const [error, setError] = useState('');
@@ -14,21 +12,22 @@ const ReviewPage = ({slug}) => {
   const [existingReview, setExistingReview] = useState(null);
 
   useEffect(() => {
-    const checkLoggedIn = async () => {
-        const currentUser = await getCurrentUser();
-        if (currentUser == null) {
-          window.location.href = `/auth?referrer=${window.location.href}`
-        }
-        setUser(currentUser);
+    const init = async () => {
+      const currentUser = await getCurrentUser();
+      if (currentUser == null) {
+        window.location.href = `/auth?referrer=${window.location.href}`;
+        return;
+      }
+      setUser(currentUser);
+
+      const foundMovie = await getMovieBySlug(slug);
+      if (foundMovie == null) {
+        window.location.href = '/';
+        return;
+      }
+      setMovie(foundMovie);
     };
-    checkLoggedIn();
-
-    const movie = movies.getBySlug(slug);
-
-    if (movie == null) {
-      window.location.href = "/"
-    }
-    setMovie(movie);
+    init();
   }, []);
 
   useEffect(() => {
