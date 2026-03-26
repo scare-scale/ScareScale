@@ -56,20 +56,10 @@ const LiveMovieReviews = ({ movieId }) => {
 
   if (loading) {
     return (
-      <div className="bg-dark-card rounded-lg border border-dark-border">
-        <table className="w-full text-left">
-          <thead className="bg-dark-card border-b border-dark-border">
-            <tr>
-              <th className="px-2 md:px-6 py-4 text-gray-400 font-semibold uppercase tracking-wide text-sm">Reviewer</th>
-              <th className="px-2 md:px-6 py-4 text-gray-400 font-semibold uppercase tracking-wide text-sm">Rating</th>
-              <th className="px-2 md:px-6 py-4 text-gray-400 font-semibold uppercase tracking-wide text-sm">Categories</th>
-            </tr>
-          </thead>
-          <tbody className="border-b-2 border-blood-600">
-            <SkeletonRow />
-            <SkeletonRow />
-          </tbody>
-        </table>
+      <div className="text-center py-8 px-6">
+        <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 max-w-sm mx-auto border border-gray-700">
+          <p className="text-gray-400 mb-2">Loading Reviews...</p>
+        </div>
       </div>
     );
   }
