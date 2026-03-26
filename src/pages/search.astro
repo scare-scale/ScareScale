@@ -1,68 +1,17 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import MovieCarouselSection from "../components/carousel/MovieCarouselSection.astro";
 import PageHeader from "../components/PageHeader.astro";
-import { supabase } from "../lib/supabase";
-import { Movies } from "../models/Movies";
-
-export const prerender = false;
-
-const url = new URL(Astro.request.url);
-const q = url.searchParams.get("q")?.toLowerCase() || "";
-
-if (q.length < 1) {
-  return Astro.redirect("/");
-}
-
-// Query Supabase directly with a targeted ilike filter — no SELECT * needed
-const { data: rawMovies, error } = await supabase
-  .from('movies')
-  .select(`
-    id,
-    name,
-    tmdbPosterId,
-    tmdbBackdropId,
-    releaseDate,
-    synopsis,
-    reviews ( type, content, categories, profiles (display_name) )
-  `)
-  .ilike('name', `%${q}%`);
-
-const filteredMovies = rawMovies && !error
-  ? Movies.fromSupabaseResponse(rawMovies).getAll()
-  : [];
-
-const sortedResults = [...filteredMovies].sort(
-  (a, b) => b.getSummaryReview().overallRating - a.getSummaryReview().overallRating
-);
+import SearchResults from "../components/SearchResults";
 ---
 <MainLayout>
   <section class="pt-10 pb-20">
     <PageHeader accentColor="blood">
-      <Fragment slot="title">
-        Found <span class="text-blood-400">{filteredMovies.length}</span> results
-      </Fragment>
-      <Fragment slot="description">for "{q}"</Fragment>
+      <Fragment slot="title">Search Results</Fragment>
+      <Fragment slot="description">Find your favourite horror movies</Fragment>
     </PageHeader>
 
     <div class="max-w-screen-2xl mx-auto">
-      {sortedResults.length > 0 ? (
-        <MovieCarouselSection
-          movies={sortedResults}
-          title="Search Results"
-          carouselId="search-results"
-          mode="grid"
-          eager={true}
-        />
-      ) : (
-        <div class="text-center py-16 px-6">
-          <div class="bg-gray-800/50 backdrop-blur-sm rounded-lg p-8 max-w-md mx-auto border border-gray-700">
-            <img src="/icons/search.svg" alt="No results" class="w-16 h-16 mx-auto mb-4 opacity-50" />
-            <p class="text-xl text-gray-400 mb-2">No movies found</p>
-            <p class="text-sm text-gray-500">Try a different search term</p>
-          </div>
-        </div>
-      )}
+      <SearchResults client:load />
     </div>
   </section>
 </MainLayout>
