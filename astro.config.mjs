@@ -48,6 +48,10 @@ export default defineConfig({
     imageService: true,
     devImageService: 'sharp',
     edgeMiddleware: true,
-    isr: false,
+    isr: {
+      // Revalidate cached pages every 5 minutes so new movies/reviews
+      // appear without requiring a full rebuild.
+      expiration: 300,
+    },
   }),
 });

@@ -1,29 +1,42 @@
-import React from "react";
-import { movies } from "../../lib/movies";
+import React, { useRef } from "react";
+import { supabase } from "../../lib/supabase";
+
+const TMDB_POSTER_BASE_URL = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2";
 
 const SearchBar = () => {
   const [query, setQuery] = React.useState("");
   const [filteredMovies, setFilteredMovies] = React.useState([]);
   const [isFocused, setIsFocused] = React.useState(false);
+  const debounceRef = useRef(null);
 
   const onSearchChange = (e) => {
     const input = e.target.value;
     setQuery(input);
-    setFilteredMovies([]);
 
-    if (input.length > 1) {
-      const lowerQuery = input.toLowerCase();
-      const filtered = [];
+    clearTimeout(debounceRef.current);
 
-      for (const movie of movies.getAll()) {
-        if (movie.name.toLowerCase().includes(lowerQuery)) {
-          filtered.push(movie);
-          if (filtered.length === 5) break;
-        }
-      }
-
-      setFilteredMovies(filtered);
+    if (input.length < 2) {
+      setFilteredMovies([]);
+      return;
     }
+
+    debounceRef.current = setTimeout(async () => {
+      const { data } = await supabase
+        .from("movies")
+        .select("id, name, tmdbPosterId, releaseDate")
+        .ilike("name", `%${input.trim()}%`)
+        .limit(5);
+
+      setFilteredMovies(
+        (data ?? []).map((m) => ({
+          id: m.id,
+          name: m.name,
+          releaseYear: String(m.releaseDate ?? "").split("/")[2] ?? "",
+          slug: m.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + (String(m.releaseDate ?? "").split("/")[2] ?? ""),
+          posterUrl: `${TMDB_POSTER_BASE_URL}${m.tmdbPosterId}`,
+        }))
+      );
+    }, 200);
   };
 
   const handleSearchRedirect = () => {
@@ -33,9 +46,7 @@ const SearchBar = () => {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleSearchRedirect();
-    }
+    if (e.key === "Enter") handleSearchRedirect();
   };
 
   const showAutocomplete = isFocused && filteredMovies.length > 0;
@@ -53,7 +64,7 @@ const SearchBar = () => {
           onKeyDown={handleKeyDown}
           value={query}
           onFocus={() => setIsFocused(true)}
-          onBlur={() => setTimeout(() => setIsFocused(false), 100)} // delay allows click
+          onBlur={() => setTimeout(() => setIsFocused(false), 100)}
         />
         <button
           id="searchButton"
